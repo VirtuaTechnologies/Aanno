@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<!--Developed by Zcodia Technologies - Raghulan Gowthaman - Ver 3.20.0 www.raghulangowthaman.com-->
+<App>
+  <STYLE name="IRR">IRRIGATIONNOTES</STYLE>
+  <STYLE name="W">WATERNOTES</STYLE>
+  <STYLE name="PV">PAVINGNOTES</STYLE>
+  <STYLE name="GR">GRADINGNOTES</STYLE>
+  <STYLE name="RW">RECLAIMEDWATERNOTES</STYLE>
+  <STYLE name="WW">SEWERNOTES</STYLE>
+  <STYLE name="STM">STORMNOTES</STYLE>
+  <STYLE name="STR">STRIPINGNOTES</STYLE>
+</App>

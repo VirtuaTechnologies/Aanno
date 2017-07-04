@@ -1,0 +1,65 @@
+﻿========================
+Release Notes - 20170527 - Ver 4.40.0
+========================
+- Added custom seperator in the settings file for keynotes (keynoteSeperator)
+- Added [nbsp] space parsing code for adding space to seperator.
+- Enhacned reading or mapper files - Where previous if a code is repeated it tend to skip items. Now it would take the first item if user accidentally added same item more than once.
+- File read to check if the file already exists (def and mapper) - duplicates will not be added.
+
+========================
+Release Notes - 20170527 - Ver 4.30.0
+========================
+- Addedin browse option to add defnition(tempalte) files (multiselect) - Read the files and add to the selection combo
+- Addedin browse option to add notelist (mapper) files (multiselect) - Read the files and add to the selection combo
+- added filters to check missing notes and segreated to them to seperate list.
+- Added methods to read XML on demand.
+- Added option to open the template and mapping file in notepad as the default editor.
+- Added a settings open to turn on/ off boundary creation when working on viewports to get objects within the viewport.
+- Added option to indicate the location of missing notes - label on the screen.
+
+========================
+Release Notes - 20170519 - Ver 4.20.0
+========================
+- Viewport missed seleection validation to avoid error
+- tool pal glitch updated - there is a limition.
+- Updated read data method to read once on command startup and then read on demand.
+
+========================
+Release Notes - 20170519 - Ver 4.10.0
+========================
+- Viewport selection fixed
+- Validation added for viewport selection, model space selection, create key note
+- Created a seperate command for loading metro dll.
+- Added a setting to enable dll load function.
+- Made the dll as one time loader so dll doesnt load each time the application is loaded.
+- Autoload data once the labels are processed
+- Tool pal set minimum site on load and for pal view.
+- create additional test commands
+- ui data clear method which would clear data before running the commands again so there is no data residue.
+- code refactoring
+- performance improvements
+
+========================
+Release Notes - 20170507 - Ver 4.00.0
+========================
+- Fixed irregular viewport selection issue
+- Added toast notification for Error, information and success messages
+- Added validation to check the definition files and notes files
+- Added validation to check if notes are present before creating the keynote.
+- Added zoomto and select option for labels
+- Added progress bar and status messages
+- Added validation to check if the user is in paper before when the user clicks on get viewport button.
+- Other bug fixes
+- Code refactoring and performance enhancement.
+- Mleader function bug fixes are completed.
+- Added Note list validation.
+- Added additional settings to suppress specific toast messages (success/ info/ error)
+
+========================
+Release Notes - 20170424 - Ver 3.00.0
+========================
+- Fixed filtering non standard labels that is lebels without the key componenets
+- Clear the collections before each time the user gets the new objects
+- Refreshed UI to update newly selected items
+- Adding Checksum for all the files that is read by the application, let we would add an option to check if the file is modified by comparing the checksum
+if modified the data within the XML file will be fetched again.

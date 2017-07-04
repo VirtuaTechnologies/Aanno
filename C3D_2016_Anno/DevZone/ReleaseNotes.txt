@@ -1,0 +1,24 @@
+﻿========================
+Release Notes - 20170507 - Ver 4.00.0
+========================
+- Fixed irregular viewport selection issue
+- Added toast notification for Error, information and success messages
+- Added validation to check the definition files and notes files
+- Added validation to check if notes are present before creating the keynote.
+- Added zoomto and select option for labels
+- Added progress bar and status messages
+- Added validation to check if the user is in paper before when the user clicks on get viewport button.
+- Other bug fixes
+- Code refactoring and performance enhancement.
+- Mleader function bug fixes are completed.
+- Added Note list validation.
+- Added additional settings to suppress specific toast messages (success/ info/ error)
+========================
+Release Notes - 20170424 - Ver 3.00.0
+========================
+- Fixed filtering non standard labels that is lebels without the key componenets
+- Clear the collections before each time the user gets the new objects
+- Refreshed UI to update newly selected items
+- Adding Checksum for all the files that is read by the application, let we would add an option to check if the file is modified by comparing the checksum
+if modified the data within the XML file will be fetched again.
+

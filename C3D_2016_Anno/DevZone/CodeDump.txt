@@ -1,0 +1,1079 @@
+﻿<ListBox x:Name="lBox_CurrentNotes" Margin="0,60,0,6">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <Grid Margin="0,2">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="100" />
+                                </Grid.ColumnDefinitions>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBox Text="{Binding noteNumber}"  Margin="10" VerticalAlignment="Center"  UseLayoutRounding="True" Width="150" />
+                                    <TextBox Text="{Binding note}"  Margin="10" VerticalAlignment="Center"  UseLayoutRounding="True" />
+                                </StackPanel>
+                            </Grid>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+
+
+
+private void list_Subcategory_SelectionChanged_old(object sender, SelectionChangedEventArgs e)
+        {
+            try
+            {                                
+                string item = list_Subcategory.SelectedItems[0].ToString();
+                string afterRemoved = item.Replace("System.Windows.Controls.ListViewItem: ", "");
+                lbl_subcateName.Content = afterRemoved;
+                string cmd = string.Format("select * from templates where subcategory='{0}'", afterRemoved);
+                if (SQLITEGenHelper.CheckValuesIsPresentOrNot(connn, cmd))
+                {
+                    sp_listcontrols.Children.Clear();
+                    sp1_listcontrols.Children.Clear();
+                    no_contents.Visibility = Visibility.Collapsed;
+                    withContent.Visibility = Visibility.Visible;
+                    subcategory_grid.Visibility = Visibility.Collapsed;
+                    addControlsCount = 0;
+                    Debug.WriteLine("Present");
+                    string gettingCommand = string.Format("select templateitems from templates where subcategory = '{0}'", afterRemoved);
+                    string values = SQLITEGenHelper.gettingTemplateValues(connn, gettingCommand);
+                    List<string> names = values.Split(',').Reverse().ToList();
+                    int sizeIs = names.Count;
+                    ComboBox cbxProj = new ComboBox();
+                    DatePicker dt = new DatePicker();
+                    TextBox desTxt = new TextBox(); TextBox numberingTxt = new TextBox(); TextBox incrementTxt = new TextBox();
+                    bool projectIdFlag = false;
+                    for (int i = sizeIs-1; i >= 0; i--)
+                    {                        
+                        string listnameis = "";
+                        string gettinglistnames = "select listname from listtbl";
+                        List<string> listnames = SQLITEGenHelper.GettingListNames(connn, gettinglistnames);
+                        for (int index = 0; index < listnames.Count; index++)
+                        {
+                            if (projectIdFlag = names[i].Contains(listnames[index]))
+                            {
+                                listnameis = listnames[index];
+                                break;
+                            }
+                        }
+
+
+                        bool DateFlag = names[i].Contains("Date");
+                        bool DescriptionFlag = names[i].Contains("Description");
+                        bool NumberingFlag = names[i].Contains("Numbering");
+                        bool IncrementFlag = names[i].Contains("Increment");
+                        Debug.WriteLine("1:" + projectIdFlag + "2:" + DateFlag + "3:" + DescriptionFlag + "4:" + NumberingFlag + "5:" + IncrementFlag);
+                        if (projectIdFlag)
+                        {
+                            //string gettinglistitemsQueryCols = string.Format("select templateitems from templates where category = '{0}' and subcategory = '{1}'", cbx_category.SelectedValue.ToString(), list_Subcategory.SelectedValue.ToString());
+
+                            //string tempDetails = SQLITEGenHelper.GettingTemplateDetails(connn, gettinglistitemsQueryCols);
+                            //string cleanAmount = tempDetails.Replace("Date", string.Empty);
+                            //cleanAmount = tempDetails.Replace("Description", string.Empty);
+                            //cleanAmount = tempDetails.Replace("Numbering", string.Empty);
+                            //cleanAmount = tempDetails.Replace("Increment", string.Empty);
+                            //Debug.WriteLine("----------erewt--------"+ cleanAmount);
+                            //List<string> ColumnValues = SQLITEGenHelper.GettingSpecified(connn, gettinglistitemsQueryCols);
+                            List<string> ColumnValues = new List<string>();
+                            ColumnValues.Add("ListName");
+                            cbxProj.Width = 100;
+                            cbxProj.Height = 30;
+                            cbxProj.Margin = new Thickness(5);
+                            cbxProj.ItemsSource = ColumnValues;
+                            cbxProj.SelectedIndex = 0;
+                            if (addControlsCount >= 4)
+                            {
+                                sp1_listcontrols.Children.Add(cbxProj);
+                            }
+                            else
+                            {
+                                sp_listcontrols.Children.Add(cbxProj);
+                            }
+                            addControlsCount++;
+                            cbxProjectIdCount++;
+                            projectIdFlag = false;
+                        }
+                        else if (DateFlag)
+                        {
+                            dt.Width = 100;
+                            dt.Height = 30;
+                            dt.FontSize = 10;
+                            dt.VerticalContentAlignment = VerticalAlignment.Center;
+                            dt.Margin = new Thickness(5);                            
+                            if (addControlsCount >= 4)
+                            {
+                                sp1_listcontrols.Children.Add(dt);
+                            }
+                            else
+                            {
+                                sp_listcontrols.Children.Add(dt);
+                            }
+                            addControlsCount++;
+                            datePickerCount++;
+                            DateFlag = false;
+                        }
+                        else if (DescriptionFlag)
+                        {
+                            desTxt.Width = 100;
+                            desTxt.Height = 30;
+                            desTxt.FontSize = 10;
+                            desTxt.VerticalContentAlignment = VerticalAlignment.Center;
+                            desTxt.Margin = new Thickness(5);
+                            desTxt.Text = "Description";                            
+                            if (addControlsCount >= 4)
+                            {
+                                sp1_listcontrols.Children.Add(desTxt);
+                            }
+                            else
+                            {
+                                sp_listcontrols.Children.Add(desTxt);
+                            }
+                            addControlsCount++;
+                            txtDescrCount++;
+                            DescriptionFlag = false;
+                        }
+                        else if (NumberingFlag)
+                        {
+                            numberingTxt.Width = 100;
+                            numberingTxt.Height = 30;
+                            numberingTxt.FontSize = 10;
+                            numberingTxt.VerticalContentAlignment = VerticalAlignment.Center;
+                            numberingTxt.Margin = new Thickness(5);
+                            numberingTxt.Text = "Numbering";                            
+                            if (addControlsCount >= 4)
+                            {
+                                sp1_listcontrols.Children.Add(numberingTxt);
+                            }
+                            else
+                            {
+                                sp_listcontrols.Children.Add(numberingTxt);
+                            }
+                            addControlsCount++;
+                            txtNumberingCount++;
+                            NumberingFlag = false;
+                        }
+                        else if (IncrementFlag)
+                        {
+                            incrementTxt.Width = 100;
+                            incrementTxt.Height = 30;
+                            incrementTxt.FontSize = 10;
+                            incrementTxt.VerticalContentAlignment = VerticalAlignment.Center;
+                            incrementTxt.Margin = new Thickness(5);
+                            incrementTxt.Text = "Increment";                            
+                            if (addControlsCount >= 4)
+                            {
+                                sp1_listcontrols.Children.Add(incrementTxt);
+                            }
+                            else
+                            {
+                                sp_listcontrols.Children.Add(incrementTxt);
+                            }
+                            addControlsCount++;
+                            txtIncrementCount++;
+                            IncrementFlag = false;
+                        }
+
+                        controlsChangedStatus = addControlsCount;
+                        Debug.WriteLine("-------------------" + addControlsCount);
+                    }
+                }
+                else
+                {
+                    int initalCount = 1;
+                    Debug.WriteLine("Not Present");
+                    sp_listcontrols.Children.Clear();
+                    sp1_listcontrols.Children.Clear();
+                    no_contents.Visibility = Visibility.Collapsed;
+                    withContent.Visibility = Visibility.Visible;
+                    subcategory_grid.Visibility = Visibility.Collapsed;
+                    addControlsCount = 0;
+                    cbxProjectIdCount = initalCount;
+                    datePickerCount = initalCount;
+                    txtDescrCount = initalCount;
+                    txtNumberingCount = initalCount;
+                    txtIncrementCount = initalCount;
+                    addControlsCount = 0;
+                    btn_Templatecreate.Visibility = Visibility.Collapsed;
+                    
+                }
+            }
+            catch (Exception ee)
+            {
+                Debug.WriteLine(ee.ToString());
+            }
+        }
+
+
+
+		private void cbx_listTypes_SelectionChanged_1(object sender, SelectionChangedEventArgs e)
+        {
+            withContent.Visibility = Visibility.Visible;
+            
+            //btn_Templatecreate.Visibility = Visibility.Visible;
+            if (addControlsCount <= 15)
+            {
+                if (cbx_listTypes.SelectedIndex > 0)
+                {
+                    #region Initialize
+                    int selectedIndex = cbx_listTypes.SelectedIndex;
+                    string selectedValuesIs = cbx_listTypes.SelectedItem.ToString();
+                    Debug.WriteLine(selectedValuesIs);
+
+                    string beforeValueIs = cbx_listTypes.SelectedValue.ToString();
+                    string selectedValueIs = beforeValueIs.Replace("System.Windows.Controls.ComboBoxItem: ", "");
+                    if (selectedValueIs != "Select Field")
+                    {
+                        items.Add(selectedValueIs);
+                    }
+
+                    ComboBox cbxProjectIdTemplate = new ComboBox();
+                    DatePicker dtTemplate = new DatePicker();
+                    TextBox desTxtTemplate = new TextBox();
+                    TextBox numberingTxtTemplate = new TextBox();
+                    TextBox incrementTxtTemplate = new TextBox();
+                    #endregion
+
+                    #region Date
+                    if (selectedValuesIs == "Date")
+                    {
+                        if (datePickerCount == 1)
+                        {
+                            dtTemplate.Width = 100;
+                            dtTemplate.Height = 30;
+                            dtTemplate.FontSize = 10;
+                            dtTemplate.VerticalContentAlignment = VerticalAlignment.Center;
+                            dtTemplate.Margin = new Thickness(5);
+                            if (addControlsCount >= 15)
+                            {
+                                sp1_listcontrols.Children.Add(dtTemplate);
+                            }
+                            else
+                            {
+                                sp_listcontrols.Children.Add(dtTemplate);
+                            }
+                            addControlsCount++;
+                            datePickerCount++;
+
+                            //remove the item from the combobox
+                            if (GV._listNameFinal.Contains(selectedValuesIs))
+                                GV._listNameFinal.Remove(selectedValuesIs);
+                        }
+                        else
+                        {
+                            MessageBox.Show("Date field already created!");
+                            items.Remove(selectedValuesIs);
+                        }
+                    }
+                    #endregion
+
+                    #region Description
+                    else if (selectedValuesIs == "Description")
+                    {
+                        if (txtDescrCount == 1)
+                        {
+                            desTxtTemplate.Width = 100;
+                            desTxtTemplate.Height = 30;
+                            desTxtTemplate.FontSize = 10;
+                            desTxtTemplate.VerticalContentAlignment = VerticalAlignment.Center;
+                            desTxtTemplate.Margin = new Thickness(5);
+                            desTxtTemplate.Text = "Description";
+
+                            if (addControlsCount >= 15)
+                            {
+                                sp1_listcontrols.Children.Add(desTxtTemplate);
+                            }
+                            else
+                            {
+                                sp_listcontrols.Children.Add(desTxtTemplate);
+                            }
+                            addControlsCount++;
+                            txtDescrCount++;
+
+                            //remove the item from the combobox
+                            if (GV._listNameFinal.Contains(selectedValuesIs))
+                                GV._listNameFinal.Remove(selectedValuesIs);
+                        }
+                        else
+                        {
+                            MessageBox.Show("Description field already created!");
+                            items.Remove(selectedValuesIs);
+                        }
+                    }
+                    #endregion
+
+                    #region Numbering
+                    else if (selectedValuesIs == "Numbering")
+                    {
+                        if (txtNumberingCount == 1)
+                        {
+                            numberingTxtTemplate.Width = 100;
+                            numberingTxtTemplate.Height = 30;
+                            numberingTxtTemplate.FontSize = 10;
+                            numberingTxtTemplate.VerticalContentAlignment = VerticalAlignment.Center;
+                            numberingTxtTemplate.Margin = new Thickness(5);
+                            numberingTxtTemplate.Text = "Numbering";
+                            if (addControlsCount >= 15)
+                            {
+                                sp1_listcontrols.Children.Add(numberingTxtTemplate);
+                            }
+                            else
+                            {
+                                sp_listcontrols.Children.Add(numberingTxtTemplate);
+                            }
+                            addControlsCount++;
+                            txtNumberingCount++;
+                            //remove the item from the combobox
+                            if (GV._listNameFinal.Contains(selectedValuesIs))
+                                GV._listNameFinal.Remove(selectedValuesIs);
+                        }
+                        else
+                        {
+                            MessageBox.Show("Numbering field already created!");
+                            items.Remove(selectedValuesIs);
+                        }
+                    }
+                    #endregion
+
+                    #region Increment
+                    else if (selectedValuesIs == "Increment")
+                    {
+                        if (txtIncrementCount == 1)
+                        {
+                            incrementTxtTemplate.Width = 100;
+                            incrementTxtTemplate.Height = 30;
+                            incrementTxtTemplate.FontSize = 10;
+                            incrementTxtTemplate.VerticalContentAlignment = VerticalAlignment.Center;
+                            incrementTxtTemplate.Margin = new Thickness(5);
+                            incrementTxtTemplate.Text = "Increment";
+
+                            if (addControlsCount >= 15)
+                            {
+                                sp1_listcontrols.Children.Add(incrementTxtTemplate);
+                            }
+                            else
+                            {
+                                sp_listcontrols.Children.Add(incrementTxtTemplate);
+                            }
+                            addControlsCount++;
+                            txtIncrementCount++;
+
+                            //remove the item from the combobox
+                            if (GV._listNameFinal.Contains(selectedValuesIs))
+                                GV._listNameFinal.Remove(selectedValuesIs);
+                        }
+                        else
+                        {
+                            MessageBox.Show("Increment field already created!");
+                            items.Remove(selectedValuesIs);
+                        }
+                    }
+                    #endregion
+
+                    #region Defaiult
+                    else
+                    {
+                        if (!GV.templateContent.Contains(selectedValuesIs))
+                        {
+                            string gettinglistitemsQueryCols = string.Format("select col1,col2 from listdetails where listname = '{0}'", selectedValuesIs);
+                            List<string> ColumnValues = SQLITEGenHelper.GettingSpecified(connn, gettinglistitemsQueryCols);
+                            cbxProjectIdTemplate.Width = 100;
+                            cbxProjectIdTemplate.Height = 30;
+                            cbxProjectIdTemplate.Margin = new Thickness(5);
+                            cbxProjectIdTemplate.ItemsSource = ColumnValues;
+                            cbxProjectIdTemplate.SelectedIndex = 0;
+                            if (addControlsCount >= 15)
+                            {
+                                sp1_listcontrols.Children.Add(cbxProjectIdTemplate);
+                            }
+                            else
+                            {
+                                sp_listcontrols.Children.Add(cbxProjectIdTemplate);
+                            }
+                            addControlsCount++;
+                            cbxProjectIdCount++;
+
+                            if (GV._listNameFinal.Contains(selectedValuesIs))
+                                GV._listNameFinal.Remove(selectedValuesIs);
+                        }
+                        else
+                        {
+                            MessageBox.Show("List already added to the template!");
+                            items.Remove(selectedValuesIs);
+                        }
+                    }
+                    #endregion
+                }
+                cbx_listTypes.SelectedIndex = 0;
+            }
+            #region Add Count Exceeded
+            else
+            {
+                MessageBox.Show("Sorry, You can add limited no of fields only!");
+            }
+
+            if (addControlsCount >= 1)
+            {
+                btn_Templatecreate.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                //btn_Templatecreate.Visibility = Visibility.Collapsed;
+            }   
+            #endregion
+        }
+
+		private void cbx_subcategory_main_SelectionChanged_old(object sender, SelectionChangedEventArgs e)
+        {
+            try
+            {
+                string cbx_subcategoryFinal = cbx_subcategory_main.SelectedValue.ToString();
+                string cmd = string.Format("select * from templates where subcategory='{0}'", cbx_subcategoryFinal);
+                if (SQLITEGenHelper.CheckValuesIsPresentOrNot(connn, cmd))
+                {
+                    try
+                    {
+                        #region Initialize
+                        content_grid_main_control.Visibility = Visibility.Collapsed;
+                        spmain_control.Visibility = Visibility.Visible;
+                        sp1main_control.Visibility = Visibility.Visible;
+                        txt_generatedname.Visibility = Visibility.Visible;
+                        btn_preview.Visibility = Visibility.Visible;
+
+
+                        spmain_control.Children.Clear();
+                        sp1main_control.Children.Clear();
+
+
+                        listprojectid.Children.Clear();
+                        listdate.Children.Clear();
+                        listDes.Children.Clear();
+                        listNum.Children.Clear();
+                        listIncre.Children.Clear();
+
+                        prefix.Children.Clear();
+                        prefix.Orientation = Orientation.Vertical;
+                        suffix.Children.Clear();
+                        suffix.Orientation = Orientation.Vertical;
+                        
+                        BrushConverter bc = new BrushConverter();
+                        //btn_copy.Background = (Brush)bc.ConvertFrom("#C7DFFC");
+                        btn_copy.Background = (Brush)bc.ConvertFrom("#FF80BA45");
+                        btn_copy.Foreground = Brushes.White;
+                        btn_copy.IsEnabled = true;
+
+                        btn_cancel.Background = (Brush)bc.ConvertFrom("#FF80BA45");
+                        btn_cancel.Foreground = Brushes.White;
+                        btn_cancel.IsEnabled = true;
+                        addControlsCount = 0;
+
+
+                        string gettingCommand = string.Format("select templateitems from templates where subcategory = '{0}'", cbx_subcategoryFinal);
+                        string values = SQLITEGenHelper.gettingTemplateValues(connn, gettingCommand);
+                        List<string> names = values.Split(',').Reverse().ToList();
+                        int sizeIs = names.Count;
+
+                        filenamegenerated = new List<string>();
+
+                        Label prefixlabel = new Label();
+                        prefixlabel.Content = "Prefix (Optional)";
+                        prefixlabel.Width = 100;
+                        prefixlabel.Height = 30;
+                        prefixlabel.Margin = new Thickness(0, 0, 0, 0);
+                        prefixlabel.FontSize = 12;
+                        prefix.Children.Add(prefixlabel);
+                        spmain_control.Children.Add(prefix);
+
+                        string asdasd = "Images/AppIcons/plus_icon1.png";
+                        Uri imgURI = new Uri(asdasd, UriKind.Relative);
+                        Button myButton = new Button
+                        {
+                            Width = 100,
+                            Height = 25,
+                            ToolTip = "To add prefix",
+                            Content = new Image
+                            {
+                                Source = new BitmapImage(imgURI),
+                                VerticalAlignment = VerticalAlignment.Center
+                            }
+                        };
+
+                        myButton.Click += MyButton_Click;
+
+
+                        txt_prefix.Width = 100;
+                        txt_prefix.Height = 25;
+                        txt_prefix.Margin = new Thickness(0, 0, 0, 0);
+                        txt_prefix.FontSize = 10;
+                        txt_prefix.VerticalContentAlignment = VerticalAlignment.Center;
+                        prefix.Children.Add(myButton);
+                        string listnameis = "";
+                        #endregion
+
+                        #region Loop
+                        for (int i = sizeIs - 1; i >= 0; i--)
+                        {
+                            IncrementFlagMain = names[i].Contains("Increment");
+                            NumberingFlagMain = names[i].Contains("Numbering");
+                            DescriptionFlagMain = names[i].Contains("Description");
+                            DateFlagMain = names[i].Contains("Date");
+                            string gettinglistnames = "select listname from listtbl";
+                            List<string> listnames = SQLITEGenHelper.GettingListNames(connn, gettinglistnames);
+                            for (int index = 0; index < listnames.Count; index++)
+                            {
+                                if (projectIdFlagMain = names[i].Contains(listnames[index]))
+                                {
+                                    listnameis = listnames[index];
+                                    break;
+                                }
+                            }
+                            Debug.WriteLine("1:" + projectIdFlagMain + "2:" + DateFlagMain + "3:" + DescriptionFlagMain + "4:" + NumberingFlagMain + "5:" + IncrementFlagMain);
+
+                            #region projectIdFlagMain
+                            if (projectIdFlagMain)
+                            {
+                                listprojectid.Children.Clear();
+                                listprojectid.Orientation = Orientation.Vertical;
+                                projectIdpanel = new StackPanel();
+                                projectIdpanel.Children.Clear();
+                                projectIdpanel.Children.Clear();
+                                projectIdpanel.Orientation = Orientation.Horizontal;
+
+                                Label li = new Label();
+                                li.Content = listnameis;
+                                li.Width = 100;
+                                li.Height = 30;
+                                li.Margin = new Thickness(0, 0, 0, 0);
+                                li.FontSize = 12;
+                                listprojectid.Children.Add(li);
+
+                                cbxProj.Width = 100;
+                                cbxProj.Height = 25;
+                                cbxProj.Margin = new Thickness(2, 0, 0, 2);
+                                cbxProj.FontSize = 10;
+
+                                string commandQuery = string.Format("select col1,col2 from listdetails where listname = '{0}'", listnameis);
+                                List<string> itemmmms = SQLITEGenHelper.GettingSpecified(connn, commandQuery);
+
+                                List<string> projectIdValues = SQLITEGenHelper.ListValuesFromtable(connn, "listtbl", "listname"); //(connection,tblname,columnname)
+                                if (itemmmms != null)
+                                {
+                                    cbxProj.SelectedIndex = 0;
+                                    cbxProj.ItemsSource = itemmmms;
+                                    cbxProj.Name = listnameis;
+                                    Debug.Write("\nAdding List: " + listnameis);
+                                }
+                                else
+                                {
+                                    itemmmms.Add("ListName");
+                                    cbxProj.SelectedIndex = 0;
+                                    cbxProj.Name = listnameis;
+                                    Debug.Write("\nAdding List null: " + listnameis);
+                                }
+                                listprojectid.Children.Add(cbxProj);
+
+                                string projectIdplus = "Images/AppIcons/plus_icon1.png";
+                                Uri imgURIprojectId = new Uri(projectIdplus, UriKind.Relative);
+                                Button myButtonproject = new Button
+                                {
+                                    Width = 25,
+                                    Height = 25,
+                                    Margin = new Thickness(2, 28, 0, 0),
+                                    ToolTip = "Add new List Items",
+                                    Content = new Image
+                                    {
+                                        Source = new BitmapImage(imgURIprojectId),
+                                        VerticalAlignment = VerticalAlignment.Center
+                                    }
+                                };
+                                projectIdpanel.Children.Add(listprojectid);
+                                projectIdpanel.Name = listnameis;
+                                MessageBox.Show(listnameis);
+                                myButtonproject.Click += MyButtonproject_Click;
+                                projectIdpanel.Children.Add(myButtonproject);
+
+                                addControlsCount++;
+                                if (addControlsCount >= 5)
+                                {
+                                    Debug.Write("\nControl1: " + projectIdpanel.Name);
+                                    sp1main_control.Children.Add(projectIdpanel);
+                                    filenamegenerated.Add(cbxProj.SelectedValue.ToString());
+                                }
+                                else
+                                {
+                                    Debug.Write("\nControl2: " + projectIdpanel.Name);
+                                    spmain_control.Children.Add(projectIdpanel);
+                                    filenamegenerated.Add(cbxProj.SelectedValue.ToString());
+                                }
+                                cbxProjectIdCount++;
+                            }
+                            #endregion
+
+                            #region DateFlagMain
+                            else if (DateFlagMain)
+                            {
+
+                                listdate.Children.Clear();
+                                listdate.Orientation = Orientation.Vertical;
+                                Label li = new Label();
+                                li.Content = "Date";
+                                li.Width = 100;
+                                li.Height = 30;
+                                li.Margin = new Thickness(0, 0, 0, 0);
+                                li.FontSize = 12;
+                                listdate.Children.Add(li);
+
+
+                                dt.Width = 100;
+                                dt.Height = 25;
+                                dt.FontSize = 10;
+                                dt.SelectedDate = DateTime.Today;
+                                dt.VerticalContentAlignment = VerticalAlignment.Center;
+                                dt.Margin = new Thickness(2, 0, 0, 2);
+                                listdate.Children.Add(dt);
+                                addControlsCount++;
+                                if (addControlsCount >= 5)
+                                {
+                                    sp1main_control.Children.Add(listdate);
+                                    filenamegenerated.Add(dt.Text);
+                                }
+                                else
+                                {
+                                    spmain_control.Children.Add(listdate);
+                                    filenamegenerated.Add(dt.Text);
+                                }
+                                datePickerCount++;
+                            }
+                            #endregion
+
+                            #region DescriptionFlagMain
+                            else if (DescriptionFlagMain)
+                            {
+
+                                listDes.Children.Clear();
+                                listDes.Orientation = Orientation.Vertical;
+
+                                Label li = new Label();
+                                li.Content = "Description";
+                                li.Width = 100;
+                                li.Height = 30;
+                                li.Margin = new Thickness(0, 0, 0, 0);
+                                li.FontSize = 12;
+                                listDes.Children.Add(li);
+
+
+                                desTxt.Width = 100;
+                                desTxt.Height = 25;
+                                desTxt.FontSize = 10;
+                                desTxt.MaxLength = 60;
+                                desTxt.VerticalContentAlignment = VerticalAlignment.Center;
+                                desTxt.Margin = new Thickness(2, 0, 0, 2);
+                                desTxt.Text = "Description";
+
+                                desTextAuto.Width = 100;
+                                desTextAuto.Height = 25;
+                                desTextAuto.Margin = new Thickness(2, 0, 0, 2);
+
+                                List<string> descriptionvaluesValues = SQLITEGenHelper.ListValuesFromtable(connn, "descriptiontbl", "descriptionvalue"); //(connection,tblname,columnname)
+                                if (descriptionvaluesValues != null)
+                                {
+                                    //Adding values to auto field
+                                    foreach (string valuesIs in descriptionvaluesValues)
+                                    {
+                                        //desTextAuto.AddItem(new AutoCompleteEntry(valuesIs, null));
+                                    }
+                                }
+                                listDes.Children.Add(desTextAuto);
+                                addControlsCount++;
+                                if (addControlsCount >= 5)
+                                {
+                                    sp1main_control.Children.Add(listDes);
+                                    filenamegenerated.Add(desTxt.Text);
+                                }
+                                else
+                                {
+                                    spmain_control.Children.Add(listDes);
+                                    filenamegenerated.Add(desTxt.Text);
+                                }
+                                txtDescrCount++;
+
+                            }
+                            #endregion
+
+                            #region NumberingFlagMain
+                            else if (NumberingFlagMain)
+                            {
+
+                                listNum.Children.Clear();
+                                listNum.Orientation = Orientation.Vertical;
+
+                                Label li = new Label();
+                                li.Content = "Numbering";
+                                li.Width = 100;
+                                li.Height = 30;
+                                li.Margin = new Thickness(0, 0, 0, 0);
+                                li.FontSize = 12;
+                                listNum.Children.Add(li);
+
+
+                                numberingTxt.Width = 100;
+                                numberingTxt.Height = 25;
+                                numberingTxt.FontSize = 10;
+                                numberingTxt.VerticalContentAlignment = VerticalAlignment.Center;
+                                numberingTxt.Margin = new Thickness(2, 0, 0, 2);
+                                List<string> numberingValues = SQLITEGenHelper.ListValuesFromtable(connn, "numbering", "numbervalue"); //(connection,tblname,columnname)
+                                if (numberingValues != null)
+                                {
+                                    numberingTxt.SelectedIndex = 0;
+                                    numberingTxt.ItemsSource = numberingValues;
+                                }
+                                else
+                                {
+                                    List<string> initialList = new List<string>();
+                                    initialList.Add("1");
+                                    numberingTxt.SelectedIndex = 0;
+                                    numberingTxt.ItemsSource = initialList;
+                                }
+                                listNum.Children.Add(numberingTxt);
+                                addControlsCount++;
+                                if (addControlsCount >= 5)
+                                {
+                                    sp1main_control.Children.Add(listNum);
+                                    filenamegenerated.Add(numberingTxt.Text);
+                                }
+                                else
+                                {
+                                    spmain_control.Children.Add(listNum);
+                                    filenamegenerated.Add(numberingTxt.Text);
+                                }
+                                txtNumberingCount++;
+
+                            }
+                            #endregion
+
+                            #region IncrementFlagMain
+                            else if (IncrementFlagMain)
+                            {
+                                incrementfieldEnabled = true;
+
+                                listIncre.Children.Clear();
+                                listIncre.Orientation = Orientation.Vertical;
+
+                                Label li = new Label();
+                                li.Content = "Increment";
+                                li.Width = 100;
+                                li.Height = 30;
+                                li.Margin = new Thickness(0, 0, 0, 0);
+                                li.FontSize = 12;
+                                listIncre.Children.Add(li);
+
+                                incrementTxt.Width = 100;
+                                incrementTxt.Height = 25;
+                                incrementTxt.FontSize = 10;
+                                incrementTxt.VerticalContentAlignment = VerticalAlignment.Center;
+                                incrementTxt.Margin = new Thickness(2, 0, 0, 2);
+
+                                List<string> incrementValues = SQLITEGenHelper.ListValuesFromtable(connn, "incrementtbl", "incrementvalue"); //(connection,tblname,columnname)
+                                if (incrementValues != null)
+                                {
+                                    incrementTxt.SelectedIndex = 0;
+                                    incrementTxt.ItemsSource = incrementValues;
+                                }
+                                else
+                                {
+                                    List<string> initialList = new List<string>();
+                                    initialList.Add("1");
+                                    incrementTxt.SelectedIndex = 0;
+                                    incrementTxt.ItemsSource = initialList;
+                                }
+                                listIncre.Children.Add(incrementTxt);
+                                addControlsCount++;
+                                if (addControlsCount >= 5)
+                                {
+                                    sp1main_control.Children.Add(listIncre);
+                                    filenamegenerated.Add(incrementTxt.Text);
+                                }
+                                else
+                                {
+                                    spmain_control.Children.Add(listIncre);
+                                    filenamegenerated.Add(incrementTxt.Text);
+                                }
+                                txtIncrementCount++;
+                            }
+                            #endregion
+                        }
+                        #endregion
+
+                        #region NEXT
+                        if (incrementfieldEnabled)
+                        {
+                            bor_increment.Background = Brushes.Transparent;
+                            btn_increment.IsEnabled = true;
+                            btn_decrement.IsEnabled = true;
+                            txt_fileCount.IsEnabled = true;
+                            incrementfieldEnabled = false;
+                        }
+                        else
+                        {
+                            bor_increment.Background = Brushes.Gray;
+                            bor_increment.Opacity = 0.5;
+                            btn_increment.IsEnabled = false;
+                            btn_decrement.IsEnabled = false;
+                            txt_fileCount.IsEnabled = false;
+                            txt_fileCount.Text = "1";
+                        }
+
+                        Label suffixlabel = new Label();
+                        suffixlabel.Content = "Suffix (Optional)";
+                        suffixlabel.Width = 100;
+                        suffixlabel.Height = 30;
+                        suffixlabel.Margin = new Thickness(0, 0, 0, 0);
+                        suffixlabel.FontSize = 12;
+                        suffix.Children.Add(suffixlabel);
+                        #endregion
+
+                        #region Suffix
+                        string plusicon = "Images/AppIcons/plus_icon1.png";
+                        Uri imgURIsuffix = new Uri(plusicon, UriKind.Relative);
+                        Button suffixbutton = new Button
+                        {
+                            Width = 100,
+                            Height = 25,
+                            ToolTip = "To add suffix",
+                            Content = new Image
+                            {
+                                Source = new BitmapImage(imgURIsuffix),
+                                VerticalAlignment = VerticalAlignment.Center
+                            }
+                        };
+                        suffixbutton.Margin = new Thickness(2, 0, 0, 2);
+                        suffixbutton.Click += Suffixbutton_Click;
+
+                        txt_suffix.Width = 100;
+                        txt_suffix.Height = 25;
+                        txt_suffix.Margin = new Thickness(2, 0, 0, 2);
+                        txt_suffix.FontSize = 10;
+                        txt_suffix.VerticalContentAlignment = VerticalAlignment.Center;
+                        suffix.Children.Add(suffixbutton);
+                        if (addControlsCount <= 3)
+                        {
+                            spmain_control.Children.Add(suffix);
+                        }
+                        else
+                        {
+                            sp1main_control.Children.Add(suffix);
+                        } 
+                        #endregion
+                    }
+                    catch (Exception excep)
+                    {                        
+                        Debug.WriteLine("Error:--"+excep.ToString());
+                    }
+                }
+                else
+                {
+                    spmain_control.Children.Clear();
+                    sp1main_control.Children.Clear();
+                    content_grid_main_control.Visibility = Visibility.Visible;
+                    spmain_control.Visibility = Visibility.Collapsed;
+                    sp1main_control.Visibility = Visibility.Collapsed;
+
+                    bor_increment.Background = Brushes.Gray;
+                    bor_increment.Opacity = 0.5;
+                    btn_increment.IsEnabled = false;
+                    btn_decrement.IsEnabled = false;
+                    txt_fileCount.IsEnabled = false;
+
+                    Debug.WriteLine("Not Present");
+                }
+            }
+            catch(NullReferenceException NullExcep)
+            {
+                bor_increment.Background = Brushes.Gray;
+                bor_increment.Opacity = 0.5;
+                btn_increment.IsEnabled = false;
+                btn_decrement.IsEnabled = false;
+                txt_fileCount.IsEnabled = false;
+                Debug.WriteLine("Null: -----" + NullExcep.ToString());
+            }            
+        }
+
+		if (addControlsCount >= 1)
+            {
+                string nosubCategory = "No Sub category";
+                
+                /*
+                if (lbl_subcateName.Content.ToString() == nosubCategory)
+                {
+                    string tempContents = string.Join(",", (string[])items.ToArray(Type.GetType("System.String")));
+                    Debug.WriteLine("Add Template if" + tempContents);
+                    string category = cbx_category.Text;
+                    string subcategory = "No Sub category";
+                    string tempid = category + "_" + subcategory;
+                    Debug.WriteLine(tempContents);
+                    if (InsertTemplateValues(false, category, subcategory, tempid, tempContents))
+                    {
+                        MessageBox.Show("You have created template without sub category!");
+                    }
+                }
+                else
+                {
+                    string tempContents = string.Join(",", (string[])items.ToArray(Type.GetType("System.String")));
+
+                    Debug.WriteLine("Add Template else" + " > " + tempContents);
+                    string category = cbx_category.Text;
+                    string subcategory = list_Subcategory.SelectedValue.ToString();
+                    string tempid = category + "_" + subcategory;
+                    Debug.WriteLine(tempContents);
+                    if (InsertTemplateValues(true, category, subcategory, tempid, tempContents))
+                    {
+                        MessageBox.Show("Template created!");
+                    }
+                }
+                */
+            }
+			======================================================
+			string filename = "";
+                string projectId ="", datetext="", destext="", numtxt="", incrementtxt = "";
+                txt_generatedname.Text = "";               
+
+                string cbx_subcategoryFinal = cbx_subcategory_main.SelectedValue.ToString();
+                string gettingCommand = string.Format("select templateitems from templates where subcategory = '{0}'", cbx_subcategoryFinal);
+                string values = SQLITEGenHelper.gettingTemplateValues(connn, gettingCommand);
+                List<string> names = values.Split(',').Reverse().ToList();
+                int sizeIs = names.Count;
+                for (int i = sizeIs-1; i >= 0; i--)
+                {
+                    IncrementFlagMain = names[i].Contains("Increment");
+                    NumberingFlagMain = names[i].Contains("Numbering");
+                    DescriptionFlagMain = names[i].Contains("Description");
+                    DateFlagMain = names[i].Contains("Date");
+                    string listnameis = "";
+                    string gettinglistnames = "select distinct listname from listdetails";
+                    List<string> listnames = SQLITEGenHelper.GettingListNames(connn, gettinglistnames);
+                    for (int index = 0; index < listnames.Count; index++)
+                    {
+                        if (projectIdFlagMain = names[i].Contains(listnames[index]))
+                        {
+                            listnameis = listnames[index];
+                            break;
+                        }
+                    }
+
+                    //projectIdFlagMain = names[i].Contains("Project Id");
+
+                    if (projectIdFlagMain)
+                    {
+                        //cbxProj.IsEditable = false;
+
+                        //string gettinglistdetailscol1 = string.Format("select col1 from listdetails where listname = '{0}'", listnameis);
+                        if (newlistname)
+                        {
+                            projectId = cbxProj.Text + "_";
+                            filename = filename + projectId;
+                            projectIdFlagMain = false;
+                            newlistname = false;
+                            string selectValueIspresentornot = string.Format("select listname from listtbl where listname = '{0}'", cbxProj.Text);
+                            if (!SQLITEGenHelper.CheckValuesIsPresentOrNot(connn, selectValueIspresentornot))
+                            {
+                                //Debug.WriteLine("thereitsis");
+                                if (insertListname(cbxProj.Text))
+                                {
+                                    Debug.WriteLine("listname_added");
+                                }
+                            }
+                            else
+                            {
+                                Debug.WriteLine("Nothereitsis");
+                            }
+                        }
+                        else
+                        {
+                            string vals = cbxProj.Text.Split('_')[0];
+
+                            projectId = vals + "_";
+                            filename = filename + projectId;
+                            projectIdFlagMain = false;
+                        }
+                    }
+                    else if (DateFlagMain)
+                    {
+                        try
+                        {                                                        
+                            datetext = dt.SelectedDate.Value.ToString("yyyy-MM-dd") + "_";
+                            filename = filename + datetext;
+                            DateFlagMain = false;
+                        }
+                        catch (Exception)
+                        {
+                            MessageBox.Show("Please Select Date");
+                        }
+                        
+                    }
+                    else if (DescriptionFlagMain)
+                    {
+                        destext = desTextAuto.Text + "_";
+                        filename = filename + destext;
+                        DescriptionFlagMain = false;
+                    }
+                    else if (NumberingFlagMain)
+                    {
+                        numtxt = numberingTxt.SelectedValue.ToString() + "_";
+                        filename = filename + numtxt;
+                        NumberingFlagMain = false;
+                    }
+                    else if (IncrementFlagMain)
+                    {
+                        incrementtxt = incrementTxt.SelectedValue.ToString() + "_";
+                        filename = filename + incrementtxt;
+                        IncrementFlagMain = false;
+                    } 
+                }
+                
+
+                //filename = projectId + datetext + destext + numtxt + incrementtxt;
+                // remove last index value
+                string filenameFinal = filename.TrimEnd(filename[filename.Length - 1]);
+                Debug.WriteLine(filenameFinal);
+
+                if(prefixenabledFlag && suffixenabledFlag)
+                {
+                    filenameFinal = txt_prefix.Text + "_" + filenameFinal + "_" + txt_suffix.Text;
+                } else if (prefixenabledFlag)
+                {
+                    filenameFinal = txt_prefix.Text + "_" + filenameFinal;
+                }else if (suffixenabledFlag)
+                {
+                    filenameFinal = filenameFinal + "_" + txt_suffix.Text;
+                }
+                else
+                {
+                    filenameFinal = filenameFinal;
+                }
+                
+                txt_generatedname.Text = filenameFinal;
+
+                /// commented for developer
+
+                //Store generated name to createdfilenames table.
+                //string categoryIs = cbx_category_main.SelectedValue.ToString();
+                //string subcategoryIs = cbx_subcategory_main.SelectedValue.ToString();
+
+                //InsertCreatedFilename(categoryIs, subcategoryIs, txt_generatedname.Text);                
+
+
+                for (int i = 0; i < sizeIs; i++)
+                {
+                    IncrementFlagMain = names[i].Contains("Increment");
+                    NumberingFlagMain = names[i].Contains("Numbering");
+                    DescriptionFlagMain = names[i].Contains("Description");
+                    DateFlagMain = names[i].Contains("Date");
+                    projectIdFlagMain = names[i].Contains("Project Id");
+                }
+                    //Debug.WriteLine("-----------"+count);
+                    //string aasa = "";
+                    //for (int index = count; index > 0; index--)
+                    //{
+                    //    aasa = aasa + filenamegenerated[index - 1] + "_";
+                    //}
+                    //string asasa = aasa.TrimEnd(aasa[aasa.Length - 1]);
+                    //Debug.WriteLine(asasa);
+                    //txt_generatedname.Text = asasa;

@@ -1,0 +1,213 @@
+﻿<UserControl x:Class="C3D_2016_Anno.Apps.MainControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:C3D_2016_Anno.Apps"
+             xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+             mc:Ignorable="d"  Width="500" Height="800" MinWidth="500" MinHeight="800" Loaded="UserControl_Loaded">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Controls.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Fonts.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Colors.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Accents/cobalt.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Accents/BaseLight.xaml" />
+                <ResourceDictionary Source="/C3D_2016_Anno;component/Resources/Icons.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <Grid Background="White">
+
+        <GroupBox x:Name="groupBox" Header="Definition" Margin="10,10,0,0" VerticalAlignment="Top" Height="133" HorizontalAlignment="Left" Width="479">
+            <Grid>
+                <ComboBox x:Name="cBox_template" ToolTip="{Binding Path=filePath}" SelectedValue="{Binding Path=fileName}" DisplayMemberPath= "fileName" SelectedValuePath="fileName" VerticalAlignment="Top" SelectionChanged="cBox_template_SelectionChanged" Height="35" MinHeight="35" Controls:TextBoxHelper.Watermark="Defnitions" Margin="10,10,130,0" Controls:TextBoxHelper.UseFloatingWatermark="True">
+
+                </ComboBox>
+                <Button Margin="0,10,90,0" Background="Transparent"  x:Name="btn_open_templateFile" Height="35" VerticalAlignment="Top" Width="35" HorizontalAlignment="Right" Click="btn_open_templateFile_Click" >
+                    <Rectangle Width="22"
+                        Height="19"
+                        Fill="#FF3373F2">
+                        <Rectangle.OpacityMask>
+                            <VisualBrush Stretch="Fill"
+                                Visual="{StaticResource appbar_edit}"/>
+                        </Rectangle.OpacityMask>
+                    </Rectangle>
+                </Button>
+                <Button Margin="0,10,50,0" Background="Transparent"  x:Name="btn_fetchtamplateFile" Height="35" VerticalAlignment="Top" Click="btn_fetchtamplateFile_Click" Width="35" HorizontalAlignment="Right" >
+                    <Rectangle Width="22"
+                    		Height="19"
+                    		Fill="#FF3373F2">
+                        <Rectangle.OpacityMask>
+                            <VisualBrush Stretch="Fill"
+                    				Visual="{StaticResource appbar_refresh}"/>
+                        </Rectangle.OpacityMask>
+                    </Rectangle>
+                </Button>
+                <Button Margin="0,10,10,0" Background="Transparent"  x:Name="btn_browse_templateFile" Height="35" VerticalAlignment="Top" Width="35" HorizontalAlignment="Right" Click="btn_browse_templateFile_Click" >
+                    <Rectangle Width="22"
+                        Height="19"
+                        Fill="#FF3373F2">
+                        <Rectangle.OpacityMask>
+                            <VisualBrush Stretch="Fill"
+                                Visual="{StaticResource appbar_folder}"/>
+                        </Rectangle.OpacityMask>
+                    </Rectangle>
+                </Button>
+                <ComboBox x:Name="cBox_Mapper" ToolTip="{Binding Path=filePath}" SelectedValue="{Binding Path=fileName}" DisplayMemberPath= "fileName" SelectedValuePath="fileName" Margin="10,50,130,0" VerticalAlignment="Top" SelectionChanged="cBox_Mapper_SelectionChanged" Height="35" MinHeight="35" Controls:TextBoxHelper.UseFloatingWatermark="True" Controls:TextBoxHelper.Watermark="Note List">
+
+                </ComboBox>
+                <Button Margin="0,50,90,0" Background="Transparent"  x:Name="btn_open_mapperFile" Height="35" VerticalAlignment="Top" Width="35" HorizontalAlignment="Right" Click="btn_open_mapperFile_Click" >
+                    <Rectangle Width="22"
+                        Height="19"
+                        Fill="#FF3373F2">
+                        <Rectangle.OpacityMask>
+                            <VisualBrush Stretch="Fill"
+                                Visual="{StaticResource appbar_edit}"/>
+                        </Rectangle.OpacityMask>
+                    </Rectangle>
+                </Button>
+                <Button Margin="0,50,50,0" Background="Transparent"  x:Name="btn_fetchmapperFiles" Height="34" VerticalAlignment="Top" Click="btn_fetchmapperFiles_Click" Width="35" MinWidth="35" HorizontalAlignment="Right" >
+                    <Rectangle Width="22"
+                        Height="19"
+                        Fill="#FF3373F2">
+                        <Rectangle.OpacityMask>
+                            <VisualBrush Stretch="Fill"
+                                Visual="{StaticResource appbar_refresh}"/>
+                        </Rectangle.OpacityMask>
+                    </Rectangle>
+                </Button>
+                <Button Margin="0,50,10,0" Background="Transparent"  x:Name="btn_browse_mapperFile" Height="35" VerticalAlignment="Top" Width="35" HorizontalAlignment="Right" Click="btn_browse_mapperFile_Click" >
+                    <Rectangle Width="22"
+                        Height="19"
+                        Fill="#FF3373F2">
+                        <Rectangle.OpacityMask>
+                            <VisualBrush Stretch="Fill"
+                                Visual="{StaticResource appbar_folder}"/>
+                        </Rectangle.OpacityMask>
+                    </Rectangle>
+                </Button>
+            </Grid>
+        </GroupBox>
+        <GroupBox x:Name="groupBox1" Header="Selection" HorizontalAlignment="Left" Margin="10,148,0,0" VerticalAlignment="Top" Width="479" Height="83" >
+            <Grid Margin="0,0,0,1">
+                <Label x:Name="label1" Content="Create boundary" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="103"/>
+                <Button Margin="118,10,0,0" Background="Transparent"  x:Name="btn_selectLabels" HorizontalAlignment="Left" Width="26" Height="26" VerticalAlignment="Top" Click="btn_selectLabels_Click">
+                    <Rectangle Width="14"
+                    		Height="11"
+                    		Fill="#FF3373F2">
+                        <Rectangle.OpacityMask>
+                            <VisualBrush Stretch="Fill"
+                    				Visual="{StaticResource appbar_crosshair}"/>
+                        </Rectangle.OpacityMask>
+                    </Rectangle>
+                </Button>
+                <Label x:Name="label1_Copy" Content="Pick Viewport" HorizontalAlignment="Left" Margin="170,10,0,0" VerticalAlignment="Top" Width="82"/>
+                <Button Margin="257,10,0,0" Background="Transparent"  x:Name="btn_selectViewport" HorizontalAlignment="Left" Width="26" Height="26" VerticalAlignment="Top" Click="btn_selectViewport_Click" >
+                    <Rectangle Width="14"
+                        Height="11"
+                        Fill="#FF3373F2">
+                        <Rectangle.OpacityMask>
+                            <VisualBrush Stretch="Fill"
+                                Visual="{StaticResource appbar_image_focus}"/>
+                        </Rectangle.OpacityMask>
+                    </Rectangle>
+                </Button>
+                <Label x:Name="lbl_statusCount" Content="" Margin="288,10,4,0" VerticalAlignment="Top" RenderTransformOrigin="0.509,0.59"/>
+                <Controls:MetroProgressBar x:Name="proBar" Margin="-6,42,-5,-6" Maximum="100" VerticalAlignment="Top" Height="7" Foreground="#FF3373F2" Cursor="Hand"/>
+            </Grid>
+        </GroupBox>
+        <GroupBox x:Name="groupBox2" Header="Preview" Margin="10,236,10,10">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="18*"/>
+                    <RowDefinition Height="85*"/>
+                </Grid.RowDefinitions>
+                <TextBox x:Name="tBox_Heading" Height="35" Controls:TextBoxHelper.ClearTextButton="True" Margin="9,10,248,0" TextWrapping="Wrap" VerticalAlignment="Top" Controls:TextBoxHelper.Watermark="Heading" Controls:TextBoxHelper.UseFloatingWatermark="True" MinHeight="35"/>
+                <ToggleButton Content="Bold" Margin="0,10,171,0"  x:Name="btn_HeadingBold" Height="34" VerticalAlignment="Top" Click="btn_fetchmapperFiles_Click" Width="72" MinWidth="35" HorizontalAlignment="Right" />
+                <ToggleButton Content="Underline" Margin="0,10,94,0" x:Name="btn_HeadingUnderline" Height="34" VerticalAlignment="Top" Click="btn_fetchmapperFiles_Click" MinWidth="35" HorizontalAlignment="Right" Width="72" />
+                <TextBox x:Name="tBox_textHeight" Height="35" Margin="0,10,25,0" TextWrapping="Wrap" Text="1" VerticalAlignment="Top" MinHeight="35" Controls:TextBoxHelper.Watermark="Text Height" Controls:TextBoxHelper.UseFloatingWatermark="True" HorizontalAlignment="Right" Width="64"/>
+                <Button x:Name="btn_CreateKeyNote" Content="Create Keynote" Margin="0,50,25,0" VerticalAlignment="Top" Click="btn_CreateKeyNote_Click" Height="35" MinHeight="35" Foreground="White" Background="#FF3373F2" HorizontalAlignment="Right" Width="124"/>
+                <GroupBox x:Name="groupBox3" Header="Key Note" Margin="0" Grid.Row="1" VerticalAlignment="Top" Height="261" Background="White">
+                    <Grid>
+                        <ComboBox x:Name="cBox_objectType" HorizontalAlignment="Left" IsSynchronizedWithCurrentItem = "True" VerticalAlignment="Top" Width="164" SelectionChanged="cBox_objectType_SelectionChanged" Height="35" Controls:TextBoxHelper.Watermark="Object Type" Controls:TextBoxHelper.UseFloatingWatermark="True" MinHeight="35" MaxDropDownHeight="351"/>
+                        <TabControl x:Name="tabControl" Margin="0,40,0,0">
+                            <TabItem Header="Validated Notes">
+                                <Grid Background="#FFE5E5E5">
+                                    <ListView x:Name="lBox_CurrentNotes">
+                                        <ListView.View>
+                                            <GridView>
+                                                <GridViewColumn Width="120" DisplayMemberBinding="{Binding noteNumber}">
+                                                    <GridViewColumn.Header>
+                                                        <GridViewColumnHeader Tag="noteNumber" Click="notelistColumnHeader_Click">Note Number</GridViewColumnHeader>
+                                                    </GridViewColumn.Header>
+                                                </GridViewColumn>
+                                                <GridViewColumn DisplayMemberBinding="{Binding note}">
+                                                    <GridViewColumn.Header>
+                                                        <GridViewColumnHeader Tag="note" Click="notelistColumnHeader_Click">Note</GridViewColumnHeader>
+                                                    </GridViewColumn.Header>
+                                                </GridViewColumn>
+                                            </GridView>
+                                        </ListView.View>
+                                    </ListView>
+                                </Grid>
+                            </TabItem>
+                            <TabItem Header="Missing Notes">
+                                <Grid Background="#FFE5E5E5">
+                                    <ListView x:Name="lBox_missingNotes" Background="#FFF2F2F2">
+                                        <ListView.View>
+                                            <GridView>
+                                                <GridViewColumn Width="120" DisplayMemberBinding="{Binding noteNumber}">
+                                                    <GridViewColumn.Header>
+                                                        <GridViewColumnHeader Tag="noteNumber" Click="notelistColumnHeader_Click">Note Number</GridViewColumnHeader>
+                                                    </GridViewColumn.Header>
+                                                </GridViewColumn>
+                                                <GridViewColumn DisplayMemberBinding="{Binding note}">
+                                                    <GridViewColumn.Header>
+                                                        <GridViewColumnHeader Tag="note" Click="notelistColumnHeader_Click">Note</GridViewColumnHeader>
+                                                    </GridViewColumn.Header>
+                                                </GridViewColumn>
+                                            </GridView>
+                                        </ListView.View>
+                                    </ListView>
+                                </Grid>
+                            </TabItem>
+                        </TabControl>
+                    </Grid>
+                </GroupBox>
+                <GroupBox x:Name="groupBox4" Header="Labels" Margin="0,266,0,0" Grid.Row="1" Background="White">
+                    <Grid>
+                        <ListView x:Name="lBox_labels" SelectionChanged="lBox_labels_SelectionChanged">
+                            <ListBox.ContextMenu>
+                                <ContextMenu >
+                                    <MenuItem Header="Zoom To" Click="lBox_labels_zoomto_Click"/>
+                                    <MenuItem Header="Select" Click="lBox_labels_select_Click"/>
+                                </ContextMenu>
+                            </ListBox.ContextMenu>
+                            <ListView.View>
+                                <GridView>
+                                    <GridViewColumn Width="120" DisplayMemberBinding="{Binding noteNumber}">
+                                        <GridViewColumn.Header>
+                                            <GridViewColumnHeader Tag="noteNumber" Click="labellistColumnHeader_Click" >Note Number</GridViewColumnHeader>
+                                        </GridViewColumn.Header>
+                                    </GridViewColumn>
+                                    <GridViewColumn DisplayMemberBinding="{Binding prefix}" Width="100">
+                                        <GridViewColumn.Header>
+                                            <GridViewColumnHeader Tag="prefix" Click="labellistColumnHeader_Click">Note</GridViewColumnHeader>
+                                        </GridViewColumn.Header>
+                                    </GridViewColumn>
+                                    <GridViewColumn DisplayMemberBinding="{Binding name}" Width="150">
+                                        <GridViewColumn.Header>
+                                            <GridViewColumnHeader Tag="name" Click="labellistColumnHeader_Click" RenderTransformOrigin="0.514,0.52" >Label Name</GridViewColumnHeader>
+                                        </GridViewColumn.Header>
+                                    </GridViewColumn>
+                                </GridView>
+                            </ListView.View>
+                        </ListView>
+                    </Grid>
+                </GroupBox>
+            </Grid>
+        </GroupBox>
+    </Grid>
+</UserControl>

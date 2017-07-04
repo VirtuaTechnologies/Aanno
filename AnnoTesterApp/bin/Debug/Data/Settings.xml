@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<!--Developed by Zcodia Technologies - Raghulan Gowthaman - Ver 3.20.0 www.raghulangowthaman.com-->
+<App>
+  <Settings name="dbstring">QTJLX05TV19MMDEyXEFVVE9ERVNLVkFVTFQsYTJrZGIsc2Esbm9raWE3NzEw</Settings>
+  <Settings name="appDataPath">C:\Anno\</Settings>
+  <Settings name="logSwitch">true</Settings>
+  <Settings name="errorBoxSwitch">true</Settings>
+  <Settings name="logFile">C:\Anno\log\Anno.log</Settings>
+  <Settings name="debug">true</Settings>
+  <Settings name="templatepathAuto">true</Settings>
+  <Settings name="templatepath">c:\Anno\templates</Settings>
+</App>
