@@ -20,3 +20,25 @@ R:\Dropbox\Projects\ZTProjects\C3D_Anno\Source\C3D_2016_Anno\C3D_Anno_Manager\ob
 R:\Dropbox\Projects\ZTProjects\C3D_Anno\Source\C3D_2016_Anno\C3D_Anno_Manager\obj\Debug\C3D_Anno_Manager.csproj.GenerateResource.Cache
 R:\Dropbox\Projects\ZTProjects\C3D_Anno\Source\C3D_2016_Anno\C3D_Anno_Manager\obj\Debug\C3D_Anno_Manager.exe
 R:\Dropbox\Projects\ZTProjects\C3D_Anno\Source\C3D_2016_Anno\C3D_Anno_Manager\obj\Debug\C3D_Anno_Manager.pdb
+D:\Upwork Projects\rahul\Aanno\C3D_Anno_Manager\bin\Debug\C3D_Anno_Manager.exe.config
+D:\Upwork Projects\rahul\Aanno\C3D_Anno_Manager\obj\Debug\C3D_Anno_Manager.exe
+D:\Upwork Projects\rahul\Aanno\C3D_Anno_Manager\obj\Debug\C3D_Anno_Manager.pdb
+D:\Upwork Projects\rahul\Aanno\C3D_Anno_Manager\bin\Debug\Data\Settings.xml
+D:\Upwork Projects\rahul\Aanno\C3D_Anno_Manager\bin\Debug\C3D_Anno_Manager.exe
+D:\Upwork Projects\rahul\Aanno\C3D_Anno_Manager\bin\Debug\C3D_Anno_Manager.pdb
+D:\Upwork Projects\rahul\Aanno\C3D_Anno_Manager\bin\Debug\MahApps.Metro.dll
+D:\Upwork Projects\rahul\Aanno\C3D_Anno_Manager\bin\Debug\System.Windows.Interactivity.dll
+D:\Upwork Projects\rahul\Aanno\C3D_Anno_Manager\bin\Debug\ZSharpQLogger.dll
+D:\Upwork Projects\rahul\Aanno\C3D_Anno_Manager\bin\Debug\ZSharpXMLHelper.dll
+D:\Upwork Projects\rahul\Aanno\C3D_Anno_Manager\bin\Debug\MahApps.Metro.pdb
+D:\Upwork Projects\rahul\Aanno\C3D_Anno_Manager\bin\Debug\MahApps.Metro.xml
+D:\Upwork Projects\rahul\Aanno\C3D_Anno_Manager\obj\Debug\Resources\Icons.baml
+D:\Upwork Projects\rahul\Aanno\C3D_Anno_Manager\obj\Debug\MainWindow.g.cs
+D:\Upwork Projects\rahul\Aanno\C3D_Anno_Manager\obj\Debug\App.g.cs
+D:\Upwork Projects\rahul\Aanno\C3D_Anno_Manager\obj\Debug\C3D_Anno_Manager_Content.g.cs
+D:\Upwork Projects\rahul\Aanno\C3D_Anno_Manager\obj\Debug\C3D_Anno_Manager_MarkupCompile.cache
+D:\Upwork Projects\rahul\Aanno\C3D_Anno_Manager\obj\Debug\C3D_Anno_Manager_MarkupCompile.lref
+D:\Upwork Projects\rahul\Aanno\C3D_Anno_Manager\obj\Debug\MainWindow.baml
+D:\Upwork Projects\rahul\Aanno\C3D_Anno_Manager\obj\Debug\C3D_Anno_Manager.g.resources
+D:\Upwork Projects\rahul\Aanno\C3D_Anno_Manager\obj\Debug\C3D_Anno_Manager.Properties.Resources.resources
+D:\Upwork Projects\rahul\Aanno\C3D_Anno_Manager\obj\Debug\C3D_Anno_Manager.csproj.GenerateResource.Cache

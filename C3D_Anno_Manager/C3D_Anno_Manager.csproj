@@ -76,6 +76,8 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Data\Nodes.cs" />
+    <Compile Include="DynXMLHelper.cs" />
     <Compile Include="Global\config.cs" />
     <Compile Include="Global\variables.cs" />
     <Compile Include="Helper\GenHelper.cs" />
@@ -89,6 +91,7 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Models\ProjectTemplate.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -112,6 +115,8 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <AppDesigner Include="Properties\" />
+    <None Include="Templates\Common.Mapper" />
+    <None Include="Templates\ProjectA.Mapper" />
     <Resource Include="Resources\Entypo.ttf" />
   </ItemGroup>
   <ItemGroup>
@@ -142,6 +147,8 @@
     <Content Include="Data\Settings.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Resource Include="Templates\ProjectA-Template.xml" />
+    <Resource Include="Templates\ProjectB-Template.xml" />
     <Resource Include="Resources\Entypo-license.txt" />
   </ItemGroup>
   <ItemGroup>

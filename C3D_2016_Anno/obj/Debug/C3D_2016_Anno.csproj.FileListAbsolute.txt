@@ -36,3 +36,24 @@ R:\Dropbox\Projects\ZTProjects\C3D_Anno\Source\C3D_2016_Anno\C3D_2016_Anno\obj\D
 R:\Dropbox\Projects\ZTProjects\C3D_Anno\Source\C3D_2016_Anno\C3D_2016_Anno\obj\Debug\C3D_2016_Anno.pdb
 R:\Dropbox\Projects\ZTProjects\C3D_Anno\Source\C3D_2016_Anno\C3D_2016_Anno\obj\Debug\Apps\Editor.g.cs
 R:\Dropbox\Projects\ZTProjects\C3D_Anno\Source\C3D_2016_Anno\C3D_2016_Anno\obj\Debug\Apps\Editor.baml
+D:\Upwork Projects\rahul\Aanno\C3D_2016_Anno\obj\Debug\C3D_2016_Anno.csprojResolveAssemblyReference.cache
+D:\Upwork Projects\rahul\Aanno\C3D_2016_Anno\obj\Debug\Resources\Icons.baml
+D:\Upwork Projects\rahul\Aanno\C3D_2016_Anno\obj\Debug\Apps\Editor.g.cs
+D:\Upwork Projects\rahul\Aanno\C3D_2016_Anno\obj\Debug\Apps\MainControl.g.cs
+D:\Upwork Projects\rahul\Aanno\C3D_2016_Anno\obj\Debug\C3D_2016_Anno_MarkupCompile.cache
+D:\Upwork Projects\rahul\Aanno\C3D_2016_Anno\obj\Debug\C3D_2016_Anno_MarkupCompile.lref
+D:\Upwork Projects\rahul\Aanno\C3D_2016_Anno\obj\Debug\C3D_2016_Anno.dll
+D:\Upwork Projects\rahul\Aanno\C3D_2016_Anno\obj\Debug\C3D_2016_Anno.pdb
+D:\Upwork Projects\rahul\Release\Data\Settings.xml
+D:\Upwork Projects\rahul\Release\Templates\ProjectA-Template.xml
+D:\Upwork Projects\rahul\Release\Templates\ProjectB-Template.xml
+D:\Upwork Projects\rahul\Release\Templates\Common.Mapper
+D:\Upwork Projects\rahul\Release\Templates\ProjectA.Mapper
+D:\Upwork Projects\rahul\Release\C3D_2016_Anno.dll.config
+D:\Upwork Projects\rahul\Release\C3D_2016_Anno.dll
+D:\Upwork Projects\rahul\Release\C3D_2016_Anno.pdb
+D:\Upwork Projects\rahul\Aanno\C3D_2016_Anno\obj\Debug\Apps\Editor.baml
+D:\Upwork Projects\rahul\Aanno\C3D_2016_Anno\obj\Debug\Apps\MainControl.baml
+D:\Upwork Projects\rahul\Aanno\C3D_2016_Anno\obj\Debug\C3D_2016_Anno.g.resources
+D:\Upwork Projects\rahul\Aanno\C3D_2016_Anno\obj\Debug\C3D_2016_Anno.MyCommands.resources
+D:\Upwork Projects\rahul\Aanno\C3D_2016_Anno\obj\Debug\C3D_2016_Anno.csproj.GenerateResource.Cache

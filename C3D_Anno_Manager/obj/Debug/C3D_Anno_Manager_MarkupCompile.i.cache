@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-R:\Dropbox\Projects\ZTProjects\C3D_Anno\Source\C3D_2016_Anno\C3D_Anno_Manager\obj\Debug\
+D:\Upwork Projects\rahul\Aanno\C3D_Anno_Manager\obj\Debug\
 C3D_Anno_Manager
 none
 false
 DEBUG;TRACE
-R:\Dropbox\Projects\ZTProjects\C3D_Anno\Source\C3D_2016_Anno\C3D_Anno_Manager\App.xaml
+D:\Upwork Projects\rahul\Aanno\C3D_Anno_Manager\App.xaml
 2-701707839
 31642247920
-12897150798
-161760563668
+15808114267
+162001111014
 MainWindow.xaml;Resources\Icons.xaml;
 
-False
+True
 

@@ -136,6 +136,10 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>Libs\ZSharpSQLITEHelper.dll</HintPath>
     </Reference>
+    <Reference Include="ZSharpXMLHelper, Version=1.0.0.0, Culture=neutral, PublicKeyToken=faa560cbe1bb381b, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Libs\ZSharpXMLHelper.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Apps\Editor.xaml.cs">
@@ -144,6 +148,7 @@
     <Compile Include="Apps\MainControl.xaml.cs">
       <DependentUpon>MainControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="DataStore.cs" />
     <Compile Include="Global\config.cs" />
     <Compile Include="Global\variables.cs" />
     <Compile Include="Helper\GenHelper.cs" />
@@ -249,16 +254,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\..\..\..\..\GitHub\ZSharpHelpers\ZSharpCADHelper\ZSharpCADHelper.csproj">
-      <Project>{b81512da-508b-4355-9aca-06d9ed0a79f6}</Project>
-      <Name>ZSharpCADHelper</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\..\..\..\..\GitHub\ZSharpHelpers\ZSharpXMLHelper\ZSharpXMLHelper\ZSharpXMLHelper.csproj">
-      <Project>{7e184ae7-82ec-4431-a1a9-b514f460126d}</Project>
-      <Name>ZSharpXMLHelper</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

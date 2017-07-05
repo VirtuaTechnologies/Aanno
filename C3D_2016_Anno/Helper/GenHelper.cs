@@ -94,7 +94,6 @@ namespace C3D_2016_Anno.Helper
                 //check app path is created if not create it
                 createFolder(GV.appDataPath);
                 createFolder(Path.GetDirectoryName(GV.logFile));
-
                 
             }
             catch (System.Exception ex) { }
