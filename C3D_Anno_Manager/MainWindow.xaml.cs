@@ -20,6 +20,9 @@ using MahApps.Metro.Controls;
 using C3D_Anno_Manager.Data;
 using System.Xml.Linq;
 using System.Collections.ObjectModel;
+using System.Windows.Forms;
+using System.IO;
+using C3D_Anno_Manager.Helper;
 
 namespace C3D_Anno_Manager
 {
@@ -29,48 +32,42 @@ namespace C3D_Anno_Manager
     public partial class MainWindow : MetroWindow
     {
         public ObservableCollection<Nodes> masterList = new ObservableCollection<Nodes>();
+        Helpers helpers = new Helpers();
         public MainWindow()
         {
-            dynamic parser = new DynamicXmlParser("ProjectA-Template.xml");
-            InitializeComponent();
-            Nodes master = new Nodes();
-            List<NodeValues> nodelist = new List<NodeValues>();
-            NodeValues notevalues = new NodeValues();
-            var Name = (((DynamicXmlParser)parser));
-            var name = Name.element.Name.LocalName;
-            var node = (XElement)Name.element.FirstNode;
 
-            while (node != null)
-            {
-                if ((node.Name.ToString() != notevalues.Name) && node.PreviousNode != null)
-                {
-                    master.Note = notevalues.Name;
-                    master.NoteValues = nodelist;
-                    masterList.Add(master);
-                    master = new Nodes();
-                    nodelist = new List<NodeValues>();
-                }
-                notevalues = new NodeValues();
-                notevalues.Name = node.Name.ToString();
-                notevalues.Number = Convert.ToInt16(((XElement)node).FirstAttribute.Value);
-                notevalues.Value = ((XElement)node).FirstNode.ToString();
-                node = (XElement)node.NextNode;
-                nodelist.Add(notevalues);
-                if (node == null)
-                {
-                    master.Note = notevalues.Name;
-                    master.NoteValues = nodelist;
-                    masterList.Add(master);
-                }
-            }
-  
-            noteTypeListBox.ItemsSource = masterList;  
+            InitializeComponent();           
         }
 
         private void listbox_Item_Clicked(object sender, MouseButtonEventArgs e)
         {
-            var selectedItem = (Nodes)noteTypeListBox.SelectedItem;
-            listOfNoteValues.ItemsSource = selectedItem.NoteValues;
+            var selectedItem = sender as ListBoxItem;
+            var itemsToDisplay = (Nodes)selectedItem.Content;
+            listOfNoteValues.ItemsSource = itemsToDisplay.NoteValues;
+        }
+
+        private void Open_FileDialog(object sender, RoutedEventArgs e)
+        {
+            using (var fbd = new FolderBrowserDialog())
+            {
+                DialogResult result = fbd.ShowDialog();
+                if (!string.IsNullOrWhiteSpace(fbd.SelectedPath))
+                {
+                    folderPath.Text = fbd.SelectedPath;
+                }
+            }
+        }
+
+        private void Scan_Folders(object sender, RoutedEventArgs e)
+        {
+
+            listOfFilesListBox.ItemsSource = helpers.GetFiles(folderPath.Text);
+        }
+        private void xmlfile_Item_Clicked(object sender, RoutedEventArgs e)
+        {
+            var selectedItem = sender as ListBoxItem;
+            var fileToParse = (Files)selectedItem.Content;
+            noteTypeListBox.ItemsSource = helpers.ParseXMLFile(fileToParse.FilePath);
         }
     }
 }
