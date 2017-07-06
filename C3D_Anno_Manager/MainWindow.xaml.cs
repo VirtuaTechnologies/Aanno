@@ -32,6 +32,7 @@ namespace C3D_Anno_Manager
     public partial class MainWindow : MetroWindow
     {
         public ObservableCollection<Nodes> masterList = new ObservableCollection<Nodes>();
+        public ObservableCollection<NodeValues> masterNotes = new ObservableCollection<NodeValues>();
         Helpers helpers = new Helpers();
         public MainWindow()
         {
@@ -43,7 +44,8 @@ namespace C3D_Anno_Manager
         {
             var selectedItem = sender as ListBoxItem;
             var itemsToDisplay = (Nodes)selectedItem.Content;
-            listOfNoteValues.ItemsSource = itemsToDisplay.NoteValues;
+            masterNotes = itemsToDisplay.NoteValues;
+            listOfNoteValues.ItemsSource = masterNotes;
         }
 
         private void Open_FileDialog(object sender, RoutedEventArgs e)
@@ -67,7 +69,25 @@ namespace C3D_Anno_Manager
         {
             var selectedItem = sender as ListBoxItem;
             var fileToParse = (Files)selectedItem.Content;
-            noteTypeListBox.ItemsSource = helpers.ParseXMLFile(fileToParse.FilePath);
+            masterList = helpers.ParseXMLFile(fileToParse.FilePath);
+            noteTypeListBox.ItemsSource = masterList;
+            masterNotes = new ObservableCollection<NodeValues>();
+            listOfNoteValues.ItemsSource = masterNotes;
+        }
+
+        private void addNoteButton_Click(object sender, RoutedEventArgs e)
+        {
+            Nodes newNode = new Nodes();
+            newNode.Note = addNoteItemTextBox.Text;
+            masterList.Add(newNode);
+            addNoteItemTextBox.Clear();           
+        }
+
+        private void deleteNoteItemButton_Click(object sender, RoutedEventArgs e)
+        {
+            var selectedItem = noteTypeListBox.SelectedItem;
+            var itemToDelete =  (Nodes)selectedItem;
+            masterList.Remove(itemToDelete);
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,7 +11,7 @@ namespace C3D_Anno_Manager.Data
     {
         public string Note { get; set; }
 
-        public List<NodeValues> NoteValues { get; set; }
+        public ObservableCollection<NodeValues> NoteValues { get; set; }
     }
     public class NodeValues
     {

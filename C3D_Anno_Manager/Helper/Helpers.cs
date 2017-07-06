@@ -34,7 +34,7 @@ namespace C3D_Anno_Manager.Helper
             ObservableCollection<Nodes> masterNodes = new ObservableCollection<Nodes>();
             dynamic parser = new DynamicXmlParser(filePath);
             Nodes master = new Nodes();
-            List<NodeValues> nodelist = new List<NodeValues>();
+            ObservableCollection<NodeValues> nodelist = new ObservableCollection<NodeValues>();
             NodeValues notevalues = new NodeValues();
             var Name = (((DynamicXmlParser)parser));
             var name = Name.element.Name.LocalName;
@@ -48,7 +48,7 @@ namespace C3D_Anno_Manager.Helper
                     master.NoteValues = nodelist;
                     masterNodes.Add(master);
                     master = new Nodes();
-                    nodelist = new List<NodeValues>();
+                    nodelist = new ObservableCollection<NodeValues>();
                 }
                 notevalues = new NodeValues();
                 notevalues.Name = node.Name.ToString();
