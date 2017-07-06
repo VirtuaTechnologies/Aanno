@@ -42,3 +42,5 @@ D:\Upwork Projects\rahul\Aanno\C3D_Anno_Manager\obj\Debug\MainWindow.baml
 D:\Upwork Projects\rahul\Aanno\C3D_Anno_Manager\obj\Debug\C3D_Anno_Manager.g.resources
 D:\Upwork Projects\rahul\Aanno\C3D_Anno_Manager\obj\Debug\C3D_Anno_Manager.Properties.Resources.resources
 D:\Upwork Projects\rahul\Aanno\C3D_Anno_Manager\obj\Debug\C3D_Anno_Manager.csproj.GenerateResource.Cache
+D:\Upwork Projects\rahul\Aanno\C3D_Anno_Manager\bin\Debug\Newtonsoft.Json.dll
+D:\Upwork Projects\rahul\Aanno\C3D_Anno_Manager\bin\Debug\Newtonsoft.Json.xml

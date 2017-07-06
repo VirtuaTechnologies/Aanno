@@ -6,6 +6,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml;
 using System.Xml.Linq;
 
 namespace C3D_Anno_Manager.Helper
@@ -65,6 +66,37 @@ namespace C3D_Anno_Manager.Helper
                 }
             }
             return masterNodes;
+        }
+
+        public bool XMLToObject(string currentfile, ObservableCollection<Nodes> masterList)
+        {
+            var doc = new XmlDocument();
+
+            XElement element = new XElement("Keynotes");
+
+            try
+            {
+
+            
+            using (var writer = new System.IO.StreamWriter(currentfile))
+            {
+                foreach (Nodes n in masterList)
+                {
+                    foreach (NodeValues nv in n.NoteValues)
+                    {
+                        var newelement = new XElement(nv.Name, nv.Value);
+                        newelement.SetAttributeValue("number", nv.Number);
+                        element.Add(newelement);
+                    }
+                }
+                element.Save(writer);
+            }
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
         }
     }
 }

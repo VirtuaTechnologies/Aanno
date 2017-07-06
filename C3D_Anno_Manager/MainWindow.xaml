@@ -113,11 +113,11 @@
                                             </Style>
                                         </ListBox.ItemContainerStyle>
                                         <ListBox.ItemTemplate>
-                                        <DataTemplate>
-                                             <WrapPanel>
+                                            <DataTemplate>
+                                                <WrapPanel>
                                                     <ListBoxItem Content="{Binding Note}"/>
-                                            </WrapPanel>
-                                        </DataTemplate>
+                                                </WrapPanel>
+                                            </DataTemplate>
                                         </ListBox.ItemTemplate>
                                     </ListBox>
                                     <Button Margin="0,22,10,0" Background="Transparent"  x:Name="deleteNoteItemButton" Click="deleteNoteItemButton_Click"  Height="35" VerticalAlignment="Top" Width="36" HorizontalAlignment="Right" ToolTip="Delete Note Type" >
@@ -130,7 +130,7 @@
                                             </Rectangle.OpacityMask>
                                         </Rectangle>
                                     </Button>
-                                    <Button Margin="0,22,92,0" Background="Transparent"  x:Name="btn_fetchtamplateFile1_Copy2" Height="35" VerticalAlignment="Top" Width="36" HorizontalAlignment="Right" ToolTip="Import to CSV" >
+                                    <Button Margin="0,22,92,0" Background="Transparent"  x:Name="moveDownButton" Click="moveDownButton_Click" Height="35" VerticalAlignment="Top" Width="36" HorizontalAlignment="Right" ToolTip="Import to CSV" >
                                         <Rectangle Width="22"
                                             Height="19"
                                             Fill="#FF3373F2">
@@ -140,7 +140,7 @@
                                             </Rectangle.OpacityMask>
                                         </Rectangle>
                                     </Button>
-                                    <Button Margin="0,22,133,0" Background="Transparent"  x:Name="btn_fetchtamplateFile1_Copy3" Height="35" VerticalAlignment="Top" Width="36" HorizontalAlignment="Right" ToolTip="Export to CSV" >
+                                    <Button Margin="0,22,133,0" Background="Transparent"  x:Name="moveUpButton" Click="moveUpButton_Click" Height="35" VerticalAlignment="Top" Width="36" HorizontalAlignment="Right" ToolTip="Export to CSV" >
                                         <Rectangle Width="22"
                                             Height="19"
                                             Fill="#FF3373F2">
@@ -155,11 +155,16 @@
                             </GroupBox>
                             <GroupBox x:Name="groupBox1_Copy" Header="Note Types" Margin="537,0,10,10">
                                 <Grid>
-                                    <DataGrid x:Name="listOfNoteValues">
+                                    <DataGrid x:Name="listOfNoteValues" Margin="0,42,0,0">
                                         <DataGrid.Columns>
                                             <!--<DataGridCheckBoxColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="Note Number"/>
                                             <DataGridCheckBoxColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="Note"/>-->
                                         </DataGrid.Columns>
+                                        <DataGrid.ContextMenu>
+                                            <ContextMenu ItemsSource="{Binding RelativeSource={RelativeSource Self}}">
+                                                <MenuItem Header="Remove" Click="MenuItemRemove_Click"/>
+                                            </ContextMenu>
+                                        </DataGrid.ContextMenu>
                                         <DataGrid.ItemTemplate>
                                             <DataTemplate>
                                                 <WrapPanel>
@@ -169,6 +174,7 @@
                                             </DataTemplate>
                                         </DataGrid.ItemTemplate>
                                     </DataGrid>
+                                    <Button x:Name="buttonApply" Content="Apply" Click="buttonApply_Click"  HorizontalAlignment="Left" Margin="347,6,0,0" VerticalAlignment="Top" Width="75"/>
 
                                 </Grid>
                             </GroupBox>
