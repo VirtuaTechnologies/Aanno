@@ -6,6 +6,8 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Controls;
+using System.Windows.Forms;
 using System.Xml;
 using System.Xml.Linq;
 
@@ -24,6 +26,7 @@ namespace C3D_Anno_Manager.Helper
                     Files file = new Files();
                     file.FileName = fileName.Substring(fileName.LastIndexOf("\\") + 1);
                     file.FilePath = fileName;
+                    file.ModifiedDate = File.GetLastWriteTime(fileName).ToString();
                     files.Add(file);
                 }
             }
@@ -76,7 +79,6 @@ namespace C3D_Anno_Manager.Helper
 
             try
             {
-
             
             using (var writer = new System.IO.StreamWriter(currentfile))
             {
@@ -96,6 +98,60 @@ namespace C3D_Anno_Manager.Helper
             catch
             {
                 return false;
+            }
+        }
+        public void ExportToXML(ObservableCollection<Nodes> nodesToExport)
+        {
+            Microsoft.Win32.SaveFileDialog savefile = new Microsoft.Win32.SaveFileDialog();
+            savefile.FileName = "Document";
+            savefile.DefaultExt = ".xml";
+            savefile.Filter = "XML documents (.xml)|*.xml";
+            Nullable<bool> saveResult = savefile.ShowDialog();
+            if (saveResult == true)
+            {
+                var result = XMLToObject(savefile.FileName, nodesToExport);
+                if (result)
+                {
+                    System.Windows.Forms.MessageBox.Show("XML File Created");
+                }
+                else
+                {
+                    System.Windows.Forms.MessageBox.Show("Error while Creating XML file");
+                }
+            }
+
+        }
+
+        public void ImportFromXML(ObservableCollection<Nodes> masterList)
+        {
+            using (var fbd = new OpenFileDialog())
+            {
+                DialogResult result = fbd.ShowDialog();
+                if (!string.IsNullOrWhiteSpace(fbd.FileName))
+                {
+                    ObservableCollection<Nodes> importNodes = new ObservableCollection<Nodes>();
+                    importNodes = ParseXMLFile(fbd.FileName);
+                    foreach (Nodes newNode in importNodes)
+                    {
+                        if (!masterList.Any(mlist => mlist.Note == newNode.Note))
+                        {
+                            masterList.Add(newNode);
+                        }
+                        else
+                        {
+                            Nodes matchNode = new Nodes();
+                            matchNode = masterList.Where(ml => ml.Note == newNode.Note).First();
+                            var index = masterList.IndexOf(matchNode);
+                            foreach (NodeValues nodeValue in newNode.NoteValues)
+                            {
+                                if (!matchNode.NoteValues.Any(nv => nv.Number == nodeValue.Number))
+                                {
+                                    masterList[index].NoteValues.Add(nodeValue);
+                                }
+                            }
+                        }
+                    }
+                }
             }
         }
     }

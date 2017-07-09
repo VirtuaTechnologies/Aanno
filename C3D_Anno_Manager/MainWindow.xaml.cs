@@ -46,8 +46,8 @@ namespace C3D_Anno_Manager
 
         private void listbox_Item_Clicked(object sender, MouseButtonEventArgs e)
         {
-            var selectedItem = sender as ListBoxItem;
-            var itemsToDisplay = (Nodes)selectedItem.Content;
+            var selectedItem = sender as DataGridRow; ;
+            var itemsToDisplay = (Nodes)selectedItem.Item;
             listOfNoteValues.ItemsSource = itemsToDisplay.NoteValues;
         }
 
@@ -71,8 +71,8 @@ namespace C3D_Anno_Manager
         private void xmlfile_Item_Clicked(object sender, RoutedEventArgs e)
         {
 
-            var selectedItem = sender as ListBoxItem;
-            var fileToParse = (Files)selectedItem.Content;
+            var selectedItem = sender as DataGridRow;
+            var fileToParse = (Files)selectedItem.Item;
             currentfile = fileToParse.FilePath;
             masterList = helpers.ParseXMLFile(fileToParse.FilePath);
             noteTypeListBox.ItemsSource = masterList;
@@ -93,20 +93,21 @@ namespace C3D_Anno_Manager
             masterList.Remove(itemToDelete);
         }
 
-        private void moveDownButton_Click(object sender, RoutedEventArgs e)
+        private void importButton_Click(object sender, RoutedEventArgs e)
         {
-            var selectedItem = (Nodes)noteTypeListBox.SelectedItem;
-            var selectedItemIndex = masterList.IndexOf(selectedItem);
-            if ((selectedItemIndex + 1) < masterList.Count())
-                masterList.Move(selectedItemIndex, selectedItemIndex + 1);
+            helpers.ImportFromXML(masterList);
         }
 
-        private void moveUpButton_Click(object sender, RoutedEventArgs e)
+        private void exportButton_Click(object sender, RoutedEventArgs e)
         {
-            var selectedItem = (Nodes)noteTypeListBox.SelectedItem;
-            var selectedItemIndex = masterList.IndexOf(selectedItem);
-            if (selectedItemIndex > 0)
-                masterList.Move(selectedItemIndex, selectedItemIndex - 1);
+            ObservableCollection<Nodes> exportNodes = new ObservableCollection<Nodes>();
+            foreach (var selectedItem in noteTypeListBox.SelectedItems)
+            {
+                Nodes selectedNode = new Nodes();
+                selectedNode = (Nodes)selectedItem;
+                exportNodes.Add(selectedNode);
+            }
+            helpers.ExportToXML(exportNodes);
         }
 
         private void MenuItemRemove_Click(object sender, RoutedEventArgs e)
@@ -120,6 +121,7 @@ namespace C3D_Anno_Manager
         private void buttonApply_Click(object sender, RoutedEventArgs e)
         {
             var result = helpers.XMLToObject(currentfile, masterList);
+            listOfFilesListBox.ItemsSource = helpers.GetFiles(folderPath.Text);
             if (result)
             {
                 System.Windows.Forms.MessageBox.Show("XML File Updated");
@@ -128,6 +130,14 @@ namespace C3D_Anno_Manager
             {
                 System.Windows.Forms.MessageBox.Show("Error while updating XML file");
             }
+        }
+        private void cloneButton_Click(object sender, RoutedEventArgs e)
+        {
+            var selectedItem = noteTypeListBox.SelectedItem;
+            var itemsToDisplay = (Nodes)selectedItem;
+            masterList.Add(itemsToDisplay);
+            noteTypeListBox.ItemsSource = new ObservableCollection<Nodes>();
+            noteTypeListBox.ItemsSource = masterList;
         }
     }
 }

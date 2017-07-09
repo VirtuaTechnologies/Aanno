@@ -11,5 +11,7 @@ namespace C3D_Anno_Manager.Data
         public string FileName { get; set; }
 
         public string FilePath { get; set; }
+
+        public string ModifiedDate { get; set; }
     }
 }
