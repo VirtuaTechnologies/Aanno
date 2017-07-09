@@ -27,6 +27,8 @@ using System.Xml.Serialization;
 using System.Xml;
 using Newtonsoft.Json;
 using System.Dynamic;
+using GV = C3D_Anno_Manager.Global.variables;
+using C3D_Anno_Manager.Properties;
 
 namespace C3D_Anno_Manager
 {
@@ -42,6 +44,8 @@ namespace C3D_Anno_Manager
         {
 
             InitializeComponent();
+            if(Properties.Settings.Default["folderpath"] != null)
+            folderPath.Text = Properties.Settings.Default["folderpath"].ToString();
         }
 
         private void listbox_Item_Clicked(object sender, MouseButtonEventArgs e)
@@ -65,8 +69,9 @@ namespace C3D_Anno_Manager
 
         private void Scan_Folders(object sender, RoutedEventArgs e)
         {
-
             listOfFilesListBox.ItemsSource = helpers.GetFiles(folderPath.Text);
+            Properties.Settings.Default["folderpath"] = folderPath.Text;
+            Properties.Settings.Default.Save();
         }
         private void xmlfile_Item_Clicked(object sender, RoutedEventArgs e)
         {
@@ -119,7 +124,8 @@ namespace C3D_Anno_Manager
             }
         }
         private void buttonApply_Click(object sender, RoutedEventArgs e)
-        {
+        {   
+
             var result = helpers.XMLToObject(currentfile, masterList);
             listOfFilesListBox.ItemsSource = helpers.GetFiles(folderPath.Text);
             if (result)
@@ -138,6 +144,6 @@ namespace C3D_Anno_Manager
             masterList.Add(itemsToDisplay);
             noteTypeListBox.ItemsSource = new ObservableCollection<Nodes>();
             noteTypeListBox.ItemsSource = masterList;
-        }
+        }        
     }
 }

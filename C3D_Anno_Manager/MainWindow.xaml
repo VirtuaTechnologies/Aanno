@@ -190,7 +190,7 @@
                             </GroupBox>
                             <GroupBox x:Name="groupBox1_Copy" Header="Note Types" Margin="537,0,10,10">
                                 <Grid>
-                                    <DataGrid x:Name="listOfNoteValues" AutoGenerateColumns="False" Margin="0,42,0,0">
+                                    <DataGrid x:Name="listOfNoteValues" AutoGenerateColumns="False"  Margin="0,42,0,0">
                                         <DataGrid.Columns>
                                             <DataGridTextColumn Header="Name" IsReadOnly="True" Binding="{Binding Name}"/>
                                             <DataGridTextColumn Header="Number" Binding="{Binding Number}"/>

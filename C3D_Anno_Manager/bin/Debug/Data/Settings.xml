@@ -5,4 +5,5 @@
   <Settings name="logFile">C:\A2KApps\Transmittal\Data\log.txt</Settings>
   <Settings name="dbstring">QTJLX05TV19MMDEyXEFVVE9ERVNLVkFVTFQsYTJrZGIsc2Esbm9raWE3NzEw</Settings>
   <Settings name="logSwitch">true</Settings>
+  <Settings name="folderpath">D:\Upwork Projects\rahul\Aanno\C3D_Anno_Manager\</Settings>
 </ZApp>

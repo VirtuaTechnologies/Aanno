@@ -26,8 +26,9 @@ namespace C3D_Anno_Manager.Global
         #region - Path
         public static string dataPath;
         public static string appPath;
-        public static string settingsFile;
+        public static string settingsFile = @"Data\Settings.xml";
         public static string logFile;
+        public static string folderPath;
         #endregion
 
     }

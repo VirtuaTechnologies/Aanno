@@ -31,6 +31,7 @@ namespace C3D_Anno_Manager.Helper
                     GV.errorBoxSwitch = bool.Parse(xmlParser.getXMLValue(Global.variables.settingsFile, "Settings", "name", "errorBoxSwitch"));
                     GV.debug = bool.Parse(xmlParser.getXMLValue(Global.variables.settingsFile, "Settings", "name", "debug"));
                     GV.fileStore = xmlParser.getXMLValue(Global.variables.settingsFile, "Settings", "name", "FileStore");
+                    GV.folderPath = xmlParser.getXMLValue(Global.variables.settingsFile, "Settings", "name", "folderpath");
                 }
 
             }
