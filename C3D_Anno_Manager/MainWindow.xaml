@@ -52,8 +52,8 @@
                                     </Rectangle.OpacityMask>
                                 </Rectangle>
                             </Button>
-                            <DataGrid x:Name="listOfFilesListBox" IsReadOnly="True"  AutoGenerateColumns="False" Margin="0,88,4,-16">
-                                
+                            <DataGrid x:Name="listOfFilesListBox" IsReadOnly="True"  AutoGenerateColumns="False" Margin="0,115,4,-16">
+
                                 <DataGrid.Columns>
                                     <DataGridTextColumn Header="File Name" Binding="{Binding FileName}"/>
                                     <DataGridTextColumn Header="Modified Date" Width="*" Binding="{Binding ModifiedDate}"/>
@@ -105,7 +105,7 @@
                             <GroupBox x:Name="groupBox1" Header="Note Types" HorizontalAlignment="Left" Margin="0,0,0,10" Width="532">
                                 <Grid>
                                     <TextBox x:Name="addNoteItemTextBox" HorizontalAlignment="Left" Height="47" Margin="0,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="265" Controls:TextBoxHelper.Watermark="Add Note Type" Controls:TextBoxHelper.UseFloatingWatermark="True"/>
-                                    
+
                                     <Button Margin="0,22,133,0" Background="Transparent" Click="addNoteButton_Click"  x:Name="addNoteButton" Height="35" VerticalAlignment="Top" Width="36" HorizontalAlignment="Right" ToolTip="Add Note Type" >
                                         <Rectangle Width="22"
                                     Height="19"
@@ -116,7 +116,7 @@
                                             </Rectangle.OpacityMask>
                                         </Rectangle>
                                     </Button>
-                                    <DataGrid x:Name="noteTypeListBox"  AutoGenerateColumns="False" Margin="0,62,0,0">
+                                    <DataGrid x:Name="noteTypeListBox"  AutoGenerateColumns="False" Margin="0,84,0,0">
                                         <DataGrid.Columns>
                                             <DataGridTextColumn Header="Note" Width="*" Binding="{Binding Note}"/>
                                         </DataGrid.Columns>
@@ -190,12 +190,27 @@
                             </GroupBox>
                             <GroupBox x:Name="groupBox1_Copy" Header="Note Types" Margin="537,0,10,10">
                                 <Grid>
-                                    <DataGrid x:Name="listOfNoteValues" AutoGenerateColumns="False"  Margin="0,42,0,0">
+                                    <DataGrid x:Name="listOfNoteValues" AutoGenerateColumns="False"  Margin="0,82,0,0">
                                         <DataGrid.Columns>
                                             <DataGridTextColumn Header="Name" IsReadOnly="True" Binding="{Binding Name}"/>
-                                            <DataGridTextColumn Header="Number" Binding="{Binding Number}"/>
-                                            <DataGridTextColumn Header="Value" Binding="{Binding Value}"/>
+                                            <DataGridTextColumn Header="Number" IsReadOnly="True" Binding="{Binding Number}"/>
+                                            <DataGridTextColumn Header="Value" IsReadOnly="True" Binding="{Binding Value}"/>
                                         </DataGrid.Columns>
+                                        <DataGrid.RowStyle>
+                                            <Style TargetType="DataGridRow">
+                                                <EventSetter Event="PreviewMouseLeftButtonDown" Handler="listOfNoteValuesSingleClick" />
+                                                <Setter Property="BorderThickness" Value="1" />
+                                                <Style.Triggers>
+                                                    <Trigger Property="IsSelected" Value="True">
+                                                        <Setter Property="Background" Value="#3373F2" />
+                                                    </Trigger>
+                                                </Style.Triggers>
+                                                <Style.Resources>
+                                                    <SolidColorBrush x:Key="{x:Static SystemColors.HighlightBrushKey}" Color="Transparent" />
+                                                    <SolidColorBrush x:Key="{x:Static SystemColors.HighlightTextBrushKey}" Color="Black" />
+                                                </Style.Resources>
+                                            </Style>
+                                        </DataGrid.RowStyle>
                                         <DataGrid.ContextMenu>
                                             <ContextMenu ItemsSource="{Binding RelativeSource={RelativeSource Self}}">
                                                 <MenuItem Header="Remove" Click="MenuItemRemove_Click"/>
@@ -210,8 +225,12 @@
                                             </DataTemplate>
                                         </DataGrid.ItemTemplate>-->
                                     </DataGrid>
-                                    <Button x:Name="buttonApply" Content="Apply" Click="buttonApply_Click"  HorizontalAlignment="Left" Margin="347,6,0,0" VerticalAlignment="Top" Width="75"/>
-
+                                    <TextBox x:Name="numberTextBox" HorizontalAlignment="Left" Height="30" Margin="10,10,0,0" TextWrapping="Wrap" Controls:TextBoxHelper.Watermark="Number" Controls:TextBoxHelper.UseFloatingWatermark="False" VerticalAlignment="Top" Width="83"/>
+                                    <TextBox x:Name="valueTextBox" HorizontalAlignment="Left" Height="30" Margin="98,10,0,0" TextWrapping="Wrap" Controls:TextBoxHelper.Watermark="Value" Controls:TextBoxHelper.UseFloatingWatermark="False" VerticalAlignment="Top" Width="331"/>
+                                    <Button x:Name="buttonApply" Content="Apply" Click="buttonApply_Click"  HorizontalAlignment="Left" Margin="340,46,0,0" VerticalAlignment="Top" Width="75"/>
+                                    <Button x:Name="buttonAdd" Content="Add" Click="buttonAdd_Click" HorizontalAlignment="Left" Height="27" Margin="10,46,0,0" VerticalAlignment="Top" Width="75"/>
+                                    <Button x:Name="buttonUpdate" Content="Update" Click="buttonUpdate_Click" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="120,46,0,0"/>
+                                    <Button x:Name="buttonDelete" Content="Delete" Click="buttonDelete_Click" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="230,46,0,0"/>
                                 </Grid>
                             </GroupBox>
 

@@ -83,6 +83,14 @@ namespace C3D_Anno_Manager
             noteTypeListBox.ItemsSource = masterList;
             listOfNoteValues.ItemsSource = new ObservableCollection<NodeValues>();
         }
+
+        private void listOfNoteValuesSingleClick(object sender, RoutedEventArgs e)
+        {
+            var selectedItem = sender as DataGridRow;
+            var nodeValue = (NodeValues)selectedItem.Item;
+            numberTextBox.Text = nodeValue.Number.ToString();
+            valueTextBox.Text = nodeValue.Value;
+        }
         private void addNoteButton_Click(object sender, RoutedEventArgs e)
         {
             Nodes newNode = new Nodes();
@@ -144,6 +152,77 @@ namespace C3D_Anno_Manager
             masterList.Add(itemsToDisplay);
             noteTypeListBox.ItemsSource = new ObservableCollection<Nodes>();
             noteTypeListBox.ItemsSource = masterList;
-        }        
+        }
+
+        private void buttonAdd_Click(object sender, RoutedEventArgs e)
+        {   
+            if((numberTextBox.Text != null )&&(valueTextBox.Text != null))
+            {
+                ObservableCollection<NodeValues> nodeValues = new ObservableCollection<NodeValues>();
+                Nodes nodes = new Nodes();
+                nodes = (Nodes)noteTypeListBox.SelectedItem;
+                var numberCheck = nodes.NoteValues.Any(n => n.Number == Convert.ToInt16(numberTextBox.Text));
+                var valueCheck = nodes.NoteValues.Any(n => n.Value == valueTextBox.Text);
+                if(!numberCheck && !valueCheck)
+                {
+                    NodeValues nodeValue = new NodeValues();
+                    nodeValue.Name = nodes.Note;
+                    nodeValue.Number = Convert.ToInt16(numberTextBox.Text);
+                    nodeValue.Value = valueTextBox.Text;
+                    nodes.NoteValues.Add(nodeValue);
+                }
+                else
+                {
+                    System.Windows.MessageBox.Show("Duplicates Not Allowed");
+                }
+                valueTextBox.Clear();
+                numberTextBox.Clear();
+            }
+
+        }
+
+        private void buttonUpdate_Click(object sender, RoutedEventArgs e)
+        {           
+            var nodeValue = (NodeValues)listOfNoteValues.SelectedItem;
+
+            if ((numberTextBox.Text != null) && (valueTextBox.Text != null))
+            {
+
+                ObservableCollection<NodeValues> nodeValues = new ObservableCollection<NodeValues>();
+                Nodes nodes = new Nodes();
+                nodes = (Nodes)noteTypeListBox.SelectedItem;
+                var numberCheck = nodes.NoteValues.Where(n => n.Number != Convert.ToInt16(nodeValue.Number));
+                var valueCheck = nodes.NoteValues.Where(n => n.Value != nodeValue.Value);
+
+                var numberDuplicate = numberCheck.Any(n => n.Number == Convert.ToInt16(numberTextBox.Text));
+                var valueDuplicate = valueCheck.Any(n => n.Value == valueTextBox.Text);
+                if (!numberDuplicate && !valueDuplicate)
+                {
+                    NodeValues updateNodeValue = new NodeValues();
+                    updateNodeValue.Name = nodes.Note;
+                    updateNodeValue.Number = Convert.ToInt16(numberTextBox.Text);
+                    updateNodeValue.Value = valueTextBox.Text;
+                    var index = nodes.NoteValues.IndexOf(nodeValue);
+                    nodes.NoteValues[index] = updateNodeValue;
+                }
+                else
+                {
+                    System.Windows.MessageBox.Show("Duplicates Not Allowed");
+                }
+
+                valueTextBox.Clear();
+                numberTextBox.Clear();    
+            }
+
+
+        }
+
+        private void buttonDelete_Click(object sender, RoutedEventArgs e)
+        {
+            var nodeValue = (NodeValues)listOfNoteValues.SelectedItem;
+            masterList.Where(m => m.Note == nodeValue.Name).First().NoteValues.Remove(nodeValue);
+            valueTextBox.Clear();
+            numberTextBox.Clear();
+        }
     }
 }
