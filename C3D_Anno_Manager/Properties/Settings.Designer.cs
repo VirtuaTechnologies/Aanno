@@ -34,5 +34,17 @@ namespace C3D_Anno_Manager.Properties {
                 this["folderpath"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("C:\\")]
+        public string mapperpath {
+            get {
+                return ((string)(this["mapperpath"]));
+            }
+            set {
+                this["mapperpath"] = value;
+            }
+        }
     }
 }

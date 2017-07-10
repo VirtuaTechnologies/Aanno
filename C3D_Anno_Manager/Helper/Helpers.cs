@@ -10,18 +10,19 @@ using System.Windows.Controls;
 using System.Windows.Forms;
 using System.Xml;
 using System.Xml.Linq;
+using MahApps.Metro.Controls.Dialogs;
 
 namespace C3D_Anno_Manager.Helper
 {
     public class Helpers
     {
-        public ObservableCollection<Files> GetFiles(string folderPath)
+        public ObservableCollection<Files> GetFiles(string folderPath, string extension)
         {
             ObservableCollection<Files> files = new ObservableCollection<Files>();
             string[] fileEntries = Directory.GetFiles(folderPath);
             foreach (string fileName in fileEntries)
             {
-                if (fileName.EndsWith(".xml"))
+                if (fileName.EndsWith(extension))
                 {
                     Files file = new Files();
                     file.FileName = fileName.Substring(fileName.LastIndexOf("\\") + 1);
@@ -57,7 +58,7 @@ namespace C3D_Anno_Manager.Helper
                 notevalues = new NodeValues();
                 notevalues.Name = node.Name.ToString();
                 if (((XElement)node).FirstAttribute != null)
-                notevalues.Number = Convert.ToInt16(((XElement)node).FirstAttribute.Value);
+                notevalues.Number = ((XElement)node).FirstAttribute.Value;
                 notevalues.Value = ((XElement)node).FirstNode.ToString();
                 node = (XElement)node.NextNode;
                 nodelist.Add(notevalues);
@@ -100,26 +101,84 @@ namespace C3D_Anno_Manager.Helper
                 return false;
             }
         }
-        public void ExportToXML(ObservableCollection<Nodes> nodesToExport)
+        public bool ExportToXML(ObservableCollection<Nodes> nodesToExport)
         {
             Microsoft.Win32.SaveFileDialog savefile = new Microsoft.Win32.SaveFileDialog();
             savefile.FileName = "Document";
             savefile.DefaultExt = ".xml";
             savefile.Filter = "XML documents (.xml)|*.xml";
             Nullable<bool> saveResult = savefile.ShowDialog();
+            var result = false;
             if (saveResult == true)
             {
-                var result = XMLToObject(savefile.FileName, nodesToExport);
+                 result = XMLToObject(savefile.FileName, nodesToExport);
+            }
+            return result;
+        }
+        public string ExportToMapper(Nodes nodesToExport , string file)
+        {
+            var status = "error";
+            if (file == null)
+            {
+                Microsoft.Win32.SaveFileDialog savefile = new Microsoft.Win32.SaveFileDialog();
+                savefile.FileName = "Document";
+                savefile.DefaultExt = ".Mapper";
+                savefile.Filter = "Mapper documents (.Mapper)|*.Mapper";
+                Nullable<bool> saveResult = savefile.ShowDialog();
+                if (saveResult == true)
+                {
+                    var result = ObjectToMapper(savefile.FileName, nodesToExport);
+                    if (result)
+                    {
+                        status = "mappercreated";
+                    }
+                    else
+                    {
+                        status = "createfailed";
+                    }
+                }
+            }
+            else
+            {
+                var result = ObjectToMapper(file, nodesToExport);
                 if (result)
                 {
-                    System.Windows.Forms.MessageBox.Show("XML File Created");
+                    status = "mapperupdated";
                 }
                 else
                 {
-                    System.Windows.Forms.MessageBox.Show("Error while Creating XML file");
+                    status = "updatefailed";
                 }
             }
+            return status;
+        }
+    
 
+        public bool ObjectToMapper(string currentfile, Nodes masterList)
+        {
+            var doc = new XmlDocument();
+
+            XElement element = new XElement("App");
+
+            try
+            {
+
+                using (var writer = new System.IO.StreamWriter(currentfile))
+                {                   
+                        foreach (NodeValues nv in masterList.NoteValues)
+                        {
+                            var newelement = new XElement(nv.Name, nv.Value);
+                            newelement.SetAttributeValue("key", nv.Number);
+                            element.Add(newelement);
+                        }
+                    element.Save(writer);
+                }
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
         }
 
         public void ImportFromXML(ObservableCollection<Nodes> masterList)

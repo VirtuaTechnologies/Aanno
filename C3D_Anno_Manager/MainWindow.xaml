@@ -249,10 +249,8 @@
                     </Grid.RowDefinitions>
                     <GroupBox Margin="5,10,10,10" Header="Files">
                         <Grid>
-
-
-                            <TextBox x:Name="textBox5" Text="C:\AANNO\NoteFiles\" Height="47" Margin="0,10,170,0" TextWrapping="Wrap" VerticalAlignment="Top" Controls:TextBoxHelper.Watermark="Location" Controls:TextBoxHelper.UseFloatingWatermark="True"/>
-                            <Button Margin="0,22,90,0" Background="Transparent"  x:Name="btn_fetchtamplateFile5" Height="35" VerticalAlignment="Top" Width="35" HorizontalAlignment="Right" ToolTip="Scan Files" >
+                            <TextBox x:Name="mapperFolderPath" Text="C:\" Height="47" Margin="0,10,170,0" TextWrapping="Wrap" VerticalAlignment="Top" Controls:TextBoxHelper.Watermark="Location" Controls:TextBoxHelper.UseFloatingWatermark="True"/>
+                            <Button Margin="0,22,90,0" Background="Transparent"  x:Name="buttonMapperScan" Click="buttonMapperScan_Click" Height="35" VerticalAlignment="Top" Width="35" HorizontalAlignment="Right" ToolTip="Scan Files" >
                                 <Rectangle Width="22"
                     		Height="19"
                     		Fill="#FF3373F2">
@@ -262,7 +260,7 @@
                                     </Rectangle.OpacityMask>
                                 </Rectangle>
                             </Button>
-                            <Button Margin="0,21,50,0" Background="Transparent"  x:Name="btn_browse_templateFile4" Height="36" VerticalAlignment="Top" Width="35" HorizontalAlignment="Right" ToolTip="Select a folder to scan files" >
+                            <Button Margin="0,21,50,0" Background="Transparent"  x:Name="buttonMapperBrowse" Click="buttonMapperBrowse_Click" Height="36" VerticalAlignment="Top" Width="35" HorizontalAlignment="Right" ToolTip="Select a folder to scan files" >
                                 <Rectangle Width="22"
                         Height="19"
                         Fill="#FF3373F2">
@@ -272,10 +270,28 @@
                                     </Rectangle.OpacityMask>
                                 </Rectangle>
                             </Button>
-                            <ListBox Margin="0,62,4,10">
-                                <ListBoxItem Content="C:\AANNO\NoteFiles\Common.Mapper" IsSelected="True"/>
-                                <ListBoxItem Content="C:\AANNO\NoteFiles\ProjectB.Mapper"/>
-                            </ListBox>
+                            <DataGrid x:Name="listOfMappingFilesListBox" IsReadOnly="True"  AutoGenerateColumns="False" Margin="0,62,4,10">
+                                <DataGrid.Columns>
+                                    <DataGridTextColumn Header="File Name" Binding="{Binding FileName}"/>
+                                    <DataGridTextColumn Header="Modified Date" Width="*" Binding="{Binding ModifiedDate}"/>
+                                </DataGrid.Columns>
+                                <DataGrid.RowStyle>
+                                    <Style TargetType="DataGridRow">
+                                        <EventSetter Event="PreviewMouseLeftButtonDown" Handler="mapperfile_Item_Clicked" />
+                                        <Setter Property="BorderBrush" Value="LightGray" />
+                                        <Setter Property="BorderThickness" Value="1" />
+                                        <Style.Triggers>
+                                            <Trigger Property="IsSelected" Value="True">
+                                                <Setter Property="Background" Value="#3373F2" />
+                                            </Trigger>
+                                        </Style.Triggers>
+                                        <Style.Resources>
+                                            <SolidColorBrush x:Key="{x:Static SystemColors.HighlightBrushKey}" Color="Transparent" />
+                                            <SolidColorBrush x:Key="{x:Static SystemColors.HighlightTextBrushKey}" Color="Black" />
+                                        </Style.Resources>
+                                    </Style>
+                                </DataGrid.RowStyle>
+                            </DataGrid>
                             <Button Margin="0,21,10,0" Background="Transparent"  x:Name="btn_browse_templateFile_Copy3" Height="36" VerticalAlignment="Top" Width="35" HorizontalAlignment="Right" ToolTip="Zip selected files" >
                                 <Rectangle Width="22"
                                     Height="19"
@@ -305,8 +321,8 @@
                             </Grid.RowDefinitions>
                             <GroupBox x:Name="groupBox111" Header="Note Types" HorizontalAlignment="Left" Margin="0,0,0,10" Width="532">
                                 <Grid>
-                                    <TextBox x:Name="textBox11" HorizontalAlignment="Left" Height="47" Margin="0,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="346" Controls:TextBoxHelper.Watermark="Add Note Type" Controls:TextBoxHelper.UseFloatingWatermark="True"/>
-                                    <Button Margin="0,22,51,0" Background="Transparent"  x:Name="btn_fetchtamplateFile11" Height="35" VerticalAlignment="Top" Width="36" HorizontalAlignment="Right" ToolTip="Add Note Type" >
+                                    <TextBox x:Name="addMappingNoteTextBox" HorizontalAlignment="Left" Height="47" Margin="0,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="346" Controls:TextBoxHelper.Watermark="Add Note Type" Controls:TextBoxHelper.UseFloatingWatermark="True"/>
+                                    <Button Margin="0,22,51,0" Background="Transparent"  x:Name="buttonAddMappingNote" Click="buttonAddMappingNote_Click" Height="35" VerticalAlignment="Top" Width="36" HorizontalAlignment="Right" ToolTip="Add Note Type" >
                                         <Rectangle Width="22"
                                     Height="19"
                                     Fill="#FF3373F2">
@@ -316,13 +332,28 @@
                                             </Rectangle.OpacityMask>
                                         </Rectangle>
                                     </Button>
-                                    <ListBox x:Name="listBox12" Margin="0,62,0,0">
-                                        <ListBoxItem Content="WATERNOTES"/>
-                                        <ListBoxItem Content="IRRIGATIONNOTES" IsSelected="True"/>
-                                        <ListBoxItem Content="PAVINGNOTES"/>
-                                        <ListBoxItem Content="GRADINGNOTES"/>
-                                    </ListBox>
-                                    <Button Margin="0,22,10,0" Background="Transparent"  x:Name="btn_fetchtamplateFile1_Copy13" Height="35" VerticalAlignment="Top" Width="36" HorizontalAlignment="Right" ToolTip="Delete Note Type" >
+                                    <DataGrid x:Name="mappingNoteTypeListBox"  AutoGenerateColumns="False" Margin="0,62,0,0">
+                                        <DataGrid.Columns>
+                                            <DataGridTextColumn Header="Note" Width="*" Binding="{Binding Key}"/>
+                                        </DataGrid.Columns>
+                                        <DataGrid.RowStyle>
+                                            <Style TargetType="DataGridRow">
+                                                <EventSetter Event="PreviewMouseLeftButtonDown" Handler="mapping_listbox_Item_Clicked" />
+                                                <Setter Property="BorderThickness" Value="1" />
+                                                <Style.Triggers>
+                                                    <Trigger Property="IsSelected" Value="True">
+                                                        <Setter Property="Background" Value="#3373F2" />
+                                                    </Trigger>
+                                                </Style.Triggers>
+                                                <Style.Resources>
+                                                    <SolidColorBrush x:Key="{x:Static SystemColors.HighlightBrushKey}" Color="Transparent" />
+                                                    <SolidColorBrush x:Key="{x:Static SystemColors.HighlightTextBrushKey}" Color="Black" />
+                                                </Style.Resources>
+
+                                            </Style>
+                                        </DataGrid.RowStyle>
+                                    </DataGrid>
+                                    <Button Margin="0,22,10,0" Background="Transparent"  x:Name="buttonDeleteMappingNote" Click="buttonDeleteMappingNote_Click" Height="35" VerticalAlignment="Top" Width="36" HorizontalAlignment="Right" ToolTip="Delete Note Type" >
                                         <Rectangle Width="22"
                                             Height="19"
                                             Fill="#FF3373F2">
@@ -332,7 +363,7 @@
                                             </Rectangle.OpacityMask>
                                         </Rectangle>
                                     </Button>
-                                    <Button Margin="0,22,92,0" Background="Transparent"  x:Name="btn_fetchtamplateFile1_Copy21" Height="35" VerticalAlignment="Top" Width="36" HorizontalAlignment="Right" ToolTip="Import to CSV" >
+                                    <Button Margin="0,22,92,0" Background="Transparent"  x:Name="importMapping" Click="importMapping_Click"  Height="35" VerticalAlignment="Top" Width="36" HorizontalAlignment="Right" ToolTip="Import to CSV" >
                                         <Rectangle Width="22"
                                             Height="19"
                                             Fill="#FF3373F2">
@@ -342,7 +373,7 @@
                                             </Rectangle.OpacityMask>
                                         </Rectangle>
                                     </Button>
-                                    <Button Margin="0,22,133,0" Background="Transparent"  x:Name="btn_fetchtamplateFile1_Copy31" Height="35" VerticalAlignment="Top" Width="36" HorizontalAlignment="Right" ToolTip="Export to CSV" >
+                                    <Button Margin="0,22,133,0" Background="Transparent"  x:Name="exportMapping" Click="exportMapping_Click" Height="35" VerticalAlignment="Top" Width="36" HorizontalAlignment="Right" ToolTip="Export to CSV" >
                                         <Rectangle Width="22"
                                             Height="19"
                                             Fill="#FF3373F2">
@@ -357,57 +388,39 @@
                             </GroupBox>
                             <GroupBox x:Name="groupBox1_Copy1" Header="Note Keys" Margin="537,0,10,10">
                                 <Grid>
-                                    <TextBox x:Name="textBox21" Height="47" Margin="0,10,183,0" TextWrapping="Wrap" VerticalAlignment="Top" Controls:TextBoxHelper.Watermark="Add Note Keys" Controls:TextBoxHelper.UseFloatingWatermark="True"/>
-                                    <Button Margin="0,22,61,0" Background="Transparent"  x:Name="btn_fetchtamplateFile12" Height="35" VerticalAlignment="Top" Width="35" HorizontalAlignment="Right" ToolTip="Add Note Type" >
-                                        <Rectangle Width="22"
-                                            Height="19"
-                                            Fill="#FF3373F2">
-                                            <Rectangle.OpacityMask>
-                                                <VisualBrush Stretch="Fill"
-                                                    Visual="{StaticResource appbar_add}"/>
-                                            </Rectangle.OpacityMask>
-                                        </Rectangle>
-                                    </Button>
-                                    <Button Margin="0,22,101,0" Background="Transparent"  x:Name="btn_fetchtamplateFile1_Copy241" Height="35" VerticalAlignment="Top" Width="36" HorizontalAlignment="Right" ToolTip="Import to CSV" >
-                                        <Rectangle Width="22"
-                                            Height="19"
-                                            Fill="#FF3373F2">
-                                            <Rectangle.OpacityMask>
-                                                <VisualBrush Stretch="Fill"
-                                                    Visual="{StaticResource appbar_download}"/>
-                                            </Rectangle.OpacityMask>
-                                        </Rectangle>
-                                    </Button>
-                                    <Button Margin="0,22,142,0" Background="Transparent"  x:Name="btn_fetchtamplateFile1_Copy341" Height="35" VerticalAlignment="Top" Width="36" HorizontalAlignment="Right" ToolTip="Export to CSV" >
-                                        <Rectangle Width="22"
-                                            Height="19"
-                                            Fill="#FF3373F2">
-                                            <Rectangle.OpacityMask>
-                                                <VisualBrush Stretch="Fill"
-                                                    Visual="{StaticResource appbar_upload}"/>
-                                            </Rectangle.OpacityMask>
-                                        </Rectangle>
-                                    </Button>
-
-                                    <ListBox x:Name="listBox11" Margin="0,62,0,0">
-                                        <ListBoxItem Content="IRR"/>
-                                        <ListBoxItem Content="IRRI" IsSelected="True"/>
-                                        <ListBoxItem Content="IR"/>
-                                    </ListBox>
-                                    <Button Margin="0,22,21,0" Background="Transparent"  x:Name="btn_fetchtamplateFile1_Copy11" Height="35" VerticalAlignment="Top" Width="35" HorizontalAlignment="Right" ToolTip="Delete Note Type" >
-                                        <Rectangle Width="22"
-                                            Height="19"
-                                            Fill="#FF3373F2">
-                                            <Rectangle.OpacityMask>
-                                                <VisualBrush Stretch="Fill"
-                                                    Visual="{StaticResource appbar_delete}"/>
-                                            </Rectangle.OpacityMask>
-                                        </Rectangle>
-                                    </Button>
+                                    <TextBox x:Name="noteKeyTextBox" Height="17" Margin="24,2,159,0" TextWrapping="Wrap" VerticalAlignment="Top" Controls:TextBoxHelper.Watermark="Add Note Keys" Controls:TextBoxHelper.UseFloatingWatermark="False"/>
+                                    <DataGrid x:Name="listOfMappingKeys" AutoGenerateColumns="False"  Margin="0,62,0,0">
+                                        <DataGrid.Columns>
+                                            <DataGridTextColumn Header="Key" IsReadOnly="True" Binding="{Binding Number}"/>
+                                        </DataGrid.Columns>
+                                        <DataGrid.RowStyle>
+                                            <Style TargetType="DataGridRow">
+                                                <EventSetter Event="PreviewMouseLeftButtonDown" Handler="listOfMappingKeysSingleClick" />
+                                                <Setter Property="BorderThickness" Value="1" />
+                                                <Style.Triggers>
+                                                    <Trigger Property="IsSelected" Value="True">
+                                                        <Setter Property="Background" Value="#3373F2" />
+                                                    </Trigger>
+                                                </Style.Triggers>
+                                                <Style.Resources>
+                                                    <SolidColorBrush x:Key="{x:Static SystemColors.HighlightBrushKey}" Color="Transparent" />
+                                                    <SolidColorBrush x:Key="{x:Static SystemColors.HighlightTextBrushKey}" Color="Black" />
+                                                </Style.Resources>
+                                            </Style>
+                                        </DataGrid.RowStyle>
+                                        <DataGrid.ContextMenu>
+                                            <ContextMenu ItemsSource="{Binding RelativeSource={RelativeSource Self}}">
+                                                <MenuItem Header="Remove" Click="MenuItemRemove_Click"/>
+                                            </ContextMenu>
+                                        </DataGrid.ContextMenu>
+                                    </DataGrid>
+                                    <Button x:Name="addKeyButton" Click="addKeyButton_Click" Content="Add" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="22,31,0,0"/>
+                                    <Button x:Name="updateKeyButton" Click="updateKeyButton_Click" Content="Update" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="122,31,0,0"/>
+                                    <Button x:Name="deleteKeyButton" Click="deleteKeyButton_Click" Content="Delete" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="222,31,0,0"/>
+                                    <Button x:Name="applyMapperButton" Content="Apply" Click="applyMapperButton_Click" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="322,31,0,0"/>
 
                                 </Grid>
                             </GroupBox>
-
                         </Grid>
                     </GroupBox>
                 </Grid>

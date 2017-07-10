@@ -22,8 +22,7 @@ namespace C3D_Anno_Manager.Data
     public class NodeValues
     {
         public string Name { get; set; }
-        public int Number { get; set; }
+        public string Number { get; set; }
         public string Value { get; set; }
-
     }    
 }
