@@ -298,8 +298,20 @@ namespace C3D_Anno_Manager
                     ObservableCollection<NodeValues> nodeValues = new ObservableCollection<NodeValues>();
                     Nodes nodes = new Nodes();
                     nodes = (Nodes)noteTypeListBox.SelectedItem;
-                    var numberCheck = nodes.NoteValues.Any(n => n.Number == numberTextBox.Text);
-                    var valueCheck = nodes.NoteValues.Any(n => n.Value == valueTextBox.Text);
+                    bool numberCheck = true;
+                    bool valueCheck = true;
+                    if (nodes.NoteValues != null)
+                    { 
+                    numberCheck = nodes.NoteValues.Any(n => n.Number == numberTextBox.Text);
+                    valueCheck = nodes.NoteValues.Any(n => n.Value == valueTextBox.Text);
+                    }
+                    else
+                    {
+                        numberCheck = false;
+                        valueCheck = false;
+                        nodes.NoteValues = new ObservableCollection<NodeValues>();
+                        listOfNoteValues.ItemsSource = nodes.NoteValues;
+                    }
                     if (!numberCheck && !valueCheck)
                     {
                         NodeValues nodeValue = new NodeValues();
