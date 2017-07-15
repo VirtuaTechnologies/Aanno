@@ -279,6 +279,8 @@ namespace C3D_2016_Anno.Apps
                     GH.getFileObject(file, "template");
                 }
                 //set that file to the combobox
+                cBox_template.SelectedIndex = cBox_template.Items.Count - 1;
+
                 UIH.toastIT("Defnition files read sucessfully!", "File Read", NotificationType.Information);
             }
             catch (System.Exception ee)
@@ -309,6 +311,8 @@ namespace C3D_2016_Anno.Apps
                     GH.getFileObject(ofd.Filename, "mapper");
                     GH.getMapper(ofd.Filename);
                 }
+                //set that file to the combobox
+                cBox_Mapper.SelectedIndex = cBox_Mapper.Items.Count - 1;
 
                 //set that file to the combobox
                 UIH.toastIT("Note list files read sucessfully!", "File Read", NotificationType.Information);
@@ -906,10 +910,32 @@ namespace C3D_2016_Anno.Apps
             }
         }
 
-
         #endregion
 
+        private void btn_openXMLMan_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                Document acDoc = Autodesk.AutoCAD.ApplicationServices.Application.DocumentManager.MdiActiveDocument;
+
+                // Draws a circle and zooms to the extents or 
+                // limits of the drawing
+                acDoc.SendStringToExecute("xmlMan ", true, false, false);
+            }
+            catch (Autodesk.Civil.CivilException ex)
+            {
+                GH.errorBox(ex.ToString());
+            }
+            catch (Autodesk.AutoCAD.Runtime.Exception ex)
+            {
+                GH.errorBox(ex.ToString());
+            }
+            catch (System.Exception ee)
+            {
+                GH.errorBox(ee.ToString());
+            }
         
+        }
     }
 
     public class SortAdorner : Adorner

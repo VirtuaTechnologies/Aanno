@@ -44,4 +44,32 @@ D:\Upwork Projects\rahul\Aanno\C3D_Anno_Manager\obj\Debug\C3D_Anno_Manager.Prope
 D:\Upwork Projects\rahul\Aanno\C3D_Anno_Manager\obj\Debug\C3D_Anno_Manager.csproj.GenerateResource.Cache
 D:\Upwork Projects\rahul\Aanno\C3D_Anno_Manager\bin\Debug\Newtonsoft.Json.dll
 D:\Upwork Projects\rahul\Aanno\C3D_Anno_Manager\bin\Debug\Newtonsoft.Json.xml
-D:\Upwork Projects\rahul\Aanno\C3D_Anno_Manager\obj\Debug\C3D_Anno_Manager.csprojResolveAssemblyReference.cache
+R:\GitHub\Aanno\C3D_Anno_Manager\bin\Debug\C3D_Anno_Manager.exe.config
+R:\GitHub\Aanno\C3D_Anno_Manager\obj\Debug\C3D_Anno_Manager.exe
+R:\GitHub\Aanno\C3D_Anno_Manager\obj\Debug\C3D_Anno_Manager.pdb
+R:\GitHub\Aanno\C3D_Anno_Manager\bin\Debug\Data\Settings.xml
+R:\GitHub\Aanno\C3D_Anno_Manager\bin\Debug\C3D_Anno_Manager.exe
+R:\GitHub\Aanno\C3D_Anno_Manager\bin\Debug\C3D_Anno_Manager.pdb
+R:\GitHub\Aanno\C3D_Anno_Manager\bin\Debug\MahApps.Metro.dll
+R:\GitHub\Aanno\C3D_Anno_Manager\bin\Debug\Newtonsoft.Json.dll
+R:\GitHub\Aanno\C3D_Anno_Manager\bin\Debug\System.Windows.Interactivity.dll
+R:\GitHub\Aanno\C3D_Anno_Manager\bin\Debug\ZSharpQLogger.dll
+R:\GitHub\Aanno\C3D_Anno_Manager\bin\Debug\ZSharpXMLHelper.dll
+R:\GitHub\Aanno\C3D_Anno_Manager\bin\Debug\MahApps.Metro.pdb
+R:\GitHub\Aanno\C3D_Anno_Manager\bin\Debug\MahApps.Metro.xml
+R:\GitHub\Aanno\C3D_Anno_Manager\bin\Debug\Newtonsoft.Json.xml
+R:\GitHub\Aanno\C3D_Anno_Manager\obj\Debug\Resources\Icons.baml
+R:\GitHub\Aanno\C3D_Anno_Manager\obj\Debug\MainWindow.g.cs
+R:\GitHub\Aanno\C3D_Anno_Manager\obj\Debug\App.g.cs
+R:\GitHub\Aanno\C3D_Anno_Manager\obj\Debug\C3D_Anno_Manager_Content.g.cs
+R:\GitHub\Aanno\C3D_Anno_Manager\obj\Debug\C3D_Anno_Manager_MarkupCompile.cache
+R:\GitHub\Aanno\C3D_Anno_Manager\obj\Debug\C3D_Anno_Manager_MarkupCompile.lref
+R:\GitHub\Aanno\C3D_Anno_Manager\obj\Debug\MainWindow.baml
+R:\GitHub\Aanno\C3D_Anno_Manager\obj\Debug\C3D_Anno_Manager.g.resources
+R:\GitHub\Aanno\C3D_Anno_Manager\obj\Debug\C3D_Anno_Manager.Properties.Resources.resources
+R:\GitHub\Aanno\C3D_Anno_Manager\obj\Debug\C3D_Anno_Manager.csproj.GenerateResource.Cache
+R:\GitHub\Aanno\Release\XMLMan\Data\Settings.xml
+R:\GitHub\Aanno\Release\XMLMan\C3D_Anno_Manager.exe.config
+R:\GitHub\Aanno\Release\XMLMan\C3D_Anno_Manager.exe
+R:\GitHub\Aanno\Release\XMLMan\C3D_Anno_Manager.pdb
+R:\GitHub\Aanno\C3D_Anno_Manager\obj\Debug\C3D_Anno_Manager.csprojResolveAssemblyReference.cache

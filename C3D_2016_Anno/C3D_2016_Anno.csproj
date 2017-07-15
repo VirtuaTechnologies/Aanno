@@ -38,7 +38,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>..\..\Release\</OutputPath>
+    <OutputPath>..\Release\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -124,6 +124,10 @@
       <HintPath>..\packages\Xceed.Wpf.Controls.6.2.17123.15050\lib\net40\Xceed.Wpf.Controls.v6.2.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="ZSharpCADHelper, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Libs\ZSharpCADHelper.dll</HintPath>
+    </Reference>
     <Reference Include="ZSharpGeneralHelper, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>Libs\ZSharpGeneralHelper.dll</HintPath>
@@ -148,7 +152,6 @@
     <Compile Include="Apps\MainControl.xaml.cs">
       <DependentUpon>MainControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="DataStore.cs" />
     <Compile Include="Global\config.cs" />
     <Compile Include="Global\variables.cs" />
     <Compile Include="Helper\GenHelper.cs" />

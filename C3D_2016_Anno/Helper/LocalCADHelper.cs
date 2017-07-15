@@ -1493,6 +1493,14 @@ namespace C3D_2016_Anno.Helper
                                 GH.qprint("\nstyle.Info : " + pstyle.StyleName.ToString() + " | " + Helper.LabelTextExtractor.GetDisplayedLabelText(objID));// + " | " + pstyle.Description.ToString() + " | " + pstyle.DisplayName.ToString());
                             }
                             break;
+                        case "AeccDbStaOffsetLabel":
+                            {
+                                //dispaly details about the selected object
+                                StationOffsetLabel pstyle = (StationOffsetLabel)transnew.GetObject(objID, OpenMode.ForWrite);
+                                result = pstyle.StyleName.ToString();
+                                GH.qprint("\nstyle.Info : " + pstyle.StyleName.ToString() + " | " + Helper.LabelTextExtractor.GetDisplayedLabelText(objID));// + " | " + pstyle.Description.ToString() + " | " + pstyle.DisplayName.ToString());
+                            }
+                            break;
                     }
                     #endregion
 
@@ -1553,6 +1561,13 @@ namespace C3D_2016_Anno.Helper
                             {
                                 //dispaly details about the selected object
                                 StructureLabel pstyle = (StructureLabel)trans.GetObject(objID, OpenMode.ForWrite);
+                                objStyleId = pstyle.StyleId;
+                            }
+                            break;
+                        case "AeccDbStaOffsetLabel":
+                            {
+                                //dispaly details about the selected object
+                                StationOffsetLabel pstyle = (StationOffsetLabel)trans.GetObject(objID, OpenMode.ForWrite);
                                 objStyleId = pstyle.StyleId;
                             }
                             break;

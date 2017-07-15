@@ -21,6 +21,7 @@ using System.Runtime.InteropServices;
 using AcAp = Autodesk.AutoCAD.ApplicationServices.Application;
 using System.ComponentModel;
 using Notifications.Wpf;
+using System.Diagnostics;
 
 // This line is not mandatory, but improves loading performances
 [assembly: CommandClass(typeof(C3D_2016_Anno.MyCommands))]
@@ -118,6 +119,20 @@ namespace C3D_2016_Anno
             }
         }
 
+        [CommandMethod("xmlMan")]
+        public void xmlMan() // This method can have any name
+        {
+            try
+            {
+                //open xml manager
+                Process.Start(GV.xmlManPath);
+            }
+            catch (System.Exception ex)
+            {
+                GH.writeLog("\n ERROR: " + ex.ToString());
+            }
+        }
+
         [CommandMethod("_loadLib")]
         public void loadLib() // This method can have any name
         {
@@ -134,7 +149,7 @@ namespace C3D_2016_Anno
             }
         }
 
-        [CommandMethod("eman")]
+        [CommandMethod("__eman")]
         public void eman() // This method can have any name
         {
             try

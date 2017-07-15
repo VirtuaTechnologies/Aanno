@@ -42,6 +42,7 @@ namespace C3D_2016_Anno.Global
         public static string Constr = "Data Source=_dfgdb.s3db;Version=3;";
         public static string settingsFile = appPath + @"\Data\Settings.xml";
         public static string templatepath = appPath + @"\Templates";
+        public static string xmlManPath = appPath + @"\XMLMan\C3D_Anno_Manager.exe";
         public static string logFile;
         public static string appDataPath;
 
