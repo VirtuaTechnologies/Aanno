@@ -13,9 +13,6 @@ R:\Dropbox\Projects\ZTProjects\C3D_Anno\Source\C3D_2016_Anno\C3D_2016_Anno\bin\D
 R:\Dropbox\Projects\ZTProjects\C3D_Anno\Source\C3D_2016_Anno\C3D_2016_Anno\bin\Debug\ZSharpSQLITEHelper.dll
 R:\Dropbox\Projects\ZTProjects\C3D_Anno\Source\C3D_2016_Anno\C3D_2016_Anno\bin\Debug\ZSharpXMLHelper.dll
 R:\Dropbox\Projects\ZTProjects\C3D_Anno\Source\Release\Data\Settings.xml
-R:\Dropbox\Projects\ZTProjects\C3D_Anno\Source\Release\DevZone\Log\Log.txt
-R:\Dropbox\Projects\ZTProjects\C3D_Anno\Source\Release\Help\ReadME.txt
-R:\Dropbox\Projects\ZTProjects\C3D_Anno\Source\Release\Help\ReleaseNotes.txt
 R:\Dropbox\Projects\ZTProjects\C3D_Anno\Source\Release\Templates\ProjectA-Template.xml
 R:\Dropbox\Projects\ZTProjects\C3D_Anno\Source\Release\Templates\ProjectB-Template.xml
 R:\Dropbox\Projects\ZTProjects\C3D_Anno\Source\Release\Templates\Common.Mapper
@@ -23,7 +20,6 @@ R:\Dropbox\Projects\ZTProjects\C3D_Anno\Source\Release\Templates\ProjectA.Mapper
 R:\Dropbox\Projects\ZTProjects\C3D_Anno\Source\Release\C3D_2016_Anno.dll.config
 R:\Dropbox\Projects\ZTProjects\C3D_Anno\Source\Release\C3D_2016_Anno.dll
 R:\Dropbox\Projects\ZTProjects\C3D_Anno\Source\Release\C3D_2016_Anno.pdb
-R:\Dropbox\Projects\ZTProjects\C3D_Anno\Source\C3D_2016_Anno\C3D_2016_Anno\obj\Debug\C3D_2016_Anno.csprojResolveAssemblyReference.cache
 R:\Dropbox\Projects\ZTProjects\C3D_Anno\Source\C3D_2016_Anno\C3D_2016_Anno\obj\Debug\Resources\Icons.baml
 R:\Dropbox\Projects\ZTProjects\C3D_Anno\Source\C3D_2016_Anno\C3D_2016_Anno\obj\Debug\Apps\MainControl.g.cs
 R:\Dropbox\Projects\ZTProjects\C3D_Anno\Source\C3D_2016_Anno\C3D_2016_Anno\obj\Debug\C3D_2016_Anno_MarkupCompile.cache
@@ -36,24 +32,23 @@ R:\Dropbox\Projects\ZTProjects\C3D_Anno\Source\C3D_2016_Anno\C3D_2016_Anno\obj\D
 R:\Dropbox\Projects\ZTProjects\C3D_Anno\Source\C3D_2016_Anno\C3D_2016_Anno\obj\Debug\C3D_2016_Anno.pdb
 R:\Dropbox\Projects\ZTProjects\C3D_Anno\Source\C3D_2016_Anno\C3D_2016_Anno\obj\Debug\Apps\Editor.g.cs
 R:\Dropbox\Projects\ZTProjects\C3D_Anno\Source\C3D_2016_Anno\C3D_2016_Anno\obj\Debug\Apps\Editor.baml
-D:\Upwork Projects\rahul\Aanno\C3D_2016_Anno\obj\Debug\C3D_2016_Anno.csprojResolveAssemblyReference.cache
-D:\Upwork Projects\rahul\Aanno\C3D_2016_Anno\obj\Debug\Resources\Icons.baml
-D:\Upwork Projects\rahul\Aanno\C3D_2016_Anno\obj\Debug\Apps\Editor.g.cs
-D:\Upwork Projects\rahul\Aanno\C3D_2016_Anno\obj\Debug\Apps\MainControl.g.cs
-D:\Upwork Projects\rahul\Aanno\C3D_2016_Anno\obj\Debug\C3D_2016_Anno_MarkupCompile.cache
-D:\Upwork Projects\rahul\Aanno\C3D_2016_Anno\obj\Debug\C3D_2016_Anno_MarkupCompile.lref
-D:\Upwork Projects\rahul\Aanno\C3D_2016_Anno\obj\Debug\C3D_2016_Anno.dll
-D:\Upwork Projects\rahul\Aanno\C3D_2016_Anno\obj\Debug\C3D_2016_Anno.pdb
-D:\Upwork Projects\rahul\Release\Data\Settings.xml
-D:\Upwork Projects\rahul\Release\Templates\ProjectA-Template.xml
-D:\Upwork Projects\rahul\Release\Templates\ProjectB-Template.xml
-D:\Upwork Projects\rahul\Release\Templates\Common.Mapper
-D:\Upwork Projects\rahul\Release\Templates\ProjectA.Mapper
-D:\Upwork Projects\rahul\Release\C3D_2016_Anno.dll.config
-D:\Upwork Projects\rahul\Release\C3D_2016_Anno.dll
-D:\Upwork Projects\rahul\Release\C3D_2016_Anno.pdb
-D:\Upwork Projects\rahul\Aanno\C3D_2016_Anno\obj\Debug\Apps\Editor.baml
-D:\Upwork Projects\rahul\Aanno\C3D_2016_Anno\obj\Debug\Apps\MainControl.baml
-D:\Upwork Projects\rahul\Aanno\C3D_2016_Anno\obj\Debug\C3D_2016_Anno.g.resources
-D:\Upwork Projects\rahul\Aanno\C3D_2016_Anno\obj\Debug\C3D_2016_Anno.MyCommands.resources
-D:\Upwork Projects\rahul\Aanno\C3D_2016_Anno\obj\Debug\C3D_2016_Anno.csproj.GenerateResource.Cache
+R:\GitHub\Aanno\Release\Data\Settings.xml
+R:\GitHub\Aanno\Release\Templates\ProjectA-Template.xml
+R:\GitHub\Aanno\Release\Templates\ProjectB-Template.xml
+R:\GitHub\Aanno\Release\Templates\Common.Mapper
+R:\GitHub\Aanno\Release\Templates\ProjectA.Mapper
+R:\GitHub\Aanno\Release\C3D_2016_Anno.dll.config
+R:\GitHub\Aanno\Release\C3D_2016_Anno.dll
+R:\GitHub\Aanno\Release\C3D_2016_Anno.pdb
+R:\GitHub\Aanno\C3D_2016_Anno\obj\Debug\Resources\Icons.baml
+R:\GitHub\Aanno\C3D_2016_Anno\obj\Debug\Apps\Editor.g.cs
+R:\GitHub\Aanno\C3D_2016_Anno\obj\Debug\Apps\MainControl.g.cs
+R:\GitHub\Aanno\C3D_2016_Anno\obj\Debug\C3D_2016_Anno_MarkupCompile.cache
+R:\GitHub\Aanno\C3D_2016_Anno\obj\Debug\C3D_2016_Anno_MarkupCompile.lref
+R:\GitHub\Aanno\C3D_2016_Anno\obj\Debug\Apps\Editor.baml
+R:\GitHub\Aanno\C3D_2016_Anno\obj\Debug\Apps\MainControl.baml
+R:\GitHub\Aanno\C3D_2016_Anno\obj\Debug\C3D_2016_Anno.g.resources
+R:\GitHub\Aanno\C3D_2016_Anno\obj\Debug\C3D_2016_Anno.MyCommands.resources
+R:\GitHub\Aanno\C3D_2016_Anno\obj\Debug\C3D_2016_Anno.csproj.GenerateResource.Cache
+R:\GitHub\Aanno\C3D_2016_Anno\obj\Debug\C3D_2016_Anno.dll
+R:\GitHub\Aanno\C3D_2016_Anno\obj\Debug\C3D_2016_Anno.pdb

@@ -75,7 +75,7 @@ namespace C3D_2016_Anno.Helper
                     GV.errorToast = bool.Parse(xmlParser.getXMLValue(Global.variables.settingsFile, "Settings", "name", "errorToast"));
                     GV.infoToast = bool.Parse(xmlParser.getXMLValue(Global.variables.settingsFile, "Settings", "name", "infoToast"));
                     GV.showViewportBoundary = bool.Parse(xmlParser.getXMLValue(Global.variables.settingsFile, "Settings", "name", "showViewportBoundary"));
-
+                    //GV.xmlManPath = xmlParser.getXMLValue(Global.variables.settingsFile, "Settings", "name", "xmlManPath");
                     tempalteFiles = new List<string>();
                     mapperFiles = new List<string>();
                 }
@@ -94,6 +94,7 @@ namespace C3D_2016_Anno.Helper
                 //check app path is created if not create it
                 createFolder(GV.appDataPath);
                 createFolder(Path.GetDirectoryName(GV.logFile));
+
                 
             }
             catch (System.Exception ex) { }
@@ -118,19 +119,11 @@ namespace C3D_2016_Anno.Helper
 
                 if (type == "template")
                 {
-                    if (!tempalteFiles.Contains(file))
-                    {
-                        GV.templateFiles.Add(FI);
-                        tempalteFiles.Add(file);
-                    }
+                    GV.templateFiles.Add(FI);
                 }
                 else
                 {
-                    if (!mapperFiles.Contains(file))
-                    {
-                        GV.mapperFiles.Add(FI);
-                        mapperFiles.Add(file);
-                    }
+                    GV.mapperFiles.Add(FI);
                 }
 
             }

@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:C3D_2016_Anno.Apps"
              xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
-             mc:Ignorable="d"  Width="500" Height="800" MinWidth="500" MinHeight="800" Loaded="UserControl_Loaded">
+             mc:Ignorable="d"  Width="500" Height="965" MinWidth="500" MinHeight="800" Loaded="UserControl_Loaded">
     <UserControl.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
@@ -20,8 +20,10 @@
     </UserControl.Resources>
     <Grid Background="White">
 
+
         <GroupBox x:Name="groupBox" Header="Definition" Margin="10,10,0,0" VerticalAlignment="Top" Height="133" HorizontalAlignment="Left" Width="479">
             <Grid>
+
                 <ComboBox x:Name="cBox_template" ToolTip="{Binding Path=filePath}" SelectedValue="{Binding Path=fileName}" DisplayMemberPath= "fileName" SelectedValuePath="fileName" VerticalAlignment="Top" SelectionChanged="cBox_template_SelectionChanged" Height="35" MinHeight="35" Controls:TextBoxHelper.Watermark="Defnitions" Margin="10,10,130,0" Controls:TextBoxHelper.UseFloatingWatermark="True">
 
                 </ComboBox>
@@ -209,5 +211,6 @@
                 </GroupBox>
             </Grid>
         </GroupBox>
+        <Button x:Name="btn_openXMLMan" Content="Open XML Manager" HorizontalAlignment="Left" Margin="356,11,0,0" VerticalAlignment="Top" Width="116" Height="26" Background="{x:Null}" Foreground="White" Click="btn_openXMLMan_Click"/>
     </Grid>
 </UserControl>
