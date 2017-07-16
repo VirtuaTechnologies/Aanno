@@ -73,3 +73,8 @@ R:\GitHub\Aanno\Release\XMLMan\C3D_Anno_Manager.exe.config
 R:\GitHub\Aanno\Release\XMLMan\C3D_Anno_Manager.exe
 R:\GitHub\Aanno\Release\XMLMan\C3D_Anno_Manager.pdb
 R:\GitHub\Aanno\C3D_Anno_Manager\obj\Debug\C3D_Anno_Manager.csprojResolveAssemblyReference.cache
+D:\Upwork Projects\rahul\Aanno\Release\XMLMan\Data\Settings.xml
+D:\Upwork Projects\rahul\Aanno\Release\XMLMan\C3D_Anno_Manager.exe.config
+D:\Upwork Projects\rahul\Aanno\Release\XMLMan\C3D_Anno_Manager.exe
+D:\Upwork Projects\rahul\Aanno\Release\XMLMan\C3D_Anno_Manager.pdb
+D:\Upwork Projects\rahul\Aanno\C3D_Anno_Manager\obj\Debug\C3D_Anno_Manager.csprojResolveAssemblyReference.cache
