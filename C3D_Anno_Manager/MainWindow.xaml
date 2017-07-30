@@ -75,26 +75,6 @@
                                     </Style>
                                 </DataGrid.RowStyle>
                             </DataGrid>
-                            <Button Margin="0,21,10,0" Background="Transparent"  x:Name="btn_browse_templateFile_Copy" Height="36" VerticalAlignment="Top" Width="35" HorizontalAlignment="Right" ToolTip="Zip selected files" >
-                                <Rectangle Width="22"
-                                    Height="19"
-                                    Fill="#FF3373F2">
-                                    <Rectangle.OpacityMask>
-                                        <VisualBrush Stretch="Fill"
-                                            Visual="{StaticResource appbar_download}"/>
-                                    </Rectangle.OpacityMask>
-                                </Rectangle>
-                            </Button>
-                            <Button Margin="0,22,130,0" Background="Transparent"  x:Name="btn_fetchtamplateFile_Copy" Height="35" VerticalAlignment="Top" Width="35" HorizontalAlignment="Right" ToolTip="add files" >
-                                <Rectangle Width="22"
-                                    Height="19"
-                                    Fill="#FF3373F2">
-                                    <Rectangle.OpacityMask>
-                                        <VisualBrush Stretch="Fill"
-                                            Visual="{StaticResource appbar_add}"/>
-                                    </Rectangle.OpacityMask>
-                                </Rectangle>
-                            </Button>
                         </Grid>
                     </GroupBox>
                     <GroupBox x:Name="groupBox" Grid.Column="1" Header="Editor" Margin="5,10,6,5">
@@ -227,7 +207,6 @@
                                     </DataGrid>
                                     <TextBox x:Name="numberTextBox" HorizontalAlignment="Left" Height="30" Margin="10,10,0,0" TextWrapping="Wrap" Controls:TextBoxHelper.Watermark="Number" Controls:TextBoxHelper.UseFloatingWatermark="False" VerticalAlignment="Top" Width="83"/>
                                     <TextBox x:Name="valueTextBox" HorizontalAlignment="Left" Height="30" Margin="98,10,0,0" TextWrapping="Wrap" Controls:TextBoxHelper.Watermark="Value" Controls:TextBoxHelper.UseFloatingWatermark="False" VerticalAlignment="Top" Width="331"/>
-                                    <Button x:Name="buttonApply" Content="Apply" Click="buttonApply_Click"  HorizontalAlignment="Left" Margin="340,46,0,0" VerticalAlignment="Top" Width="75"/>
                                     <Button x:Name="buttonAdd" Content="Add" Click="buttonAdd_Click" HorizontalAlignment="Left" Height="27" Margin="10,46,0,0" VerticalAlignment="Top" Width="75"/>
                                     <Button x:Name="buttonUpdate" Content="Update" Click="buttonUpdate_Click" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="120,46,0,0"/>
                                     <Button x:Name="buttonDelete" Content="Delete" Click="buttonDelete_Click" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="230,46,0,0"/>
@@ -292,26 +271,6 @@
                                     </Style>
                                 </DataGrid.RowStyle>
                             </DataGrid>
-                            <Button Margin="0,21,10,0" Background="Transparent"  x:Name="btn_browse_templateFile_Copy3" Height="36" VerticalAlignment="Top" Width="35" HorizontalAlignment="Right" ToolTip="Zip selected files" >
-                                <Rectangle Width="22"
-                                    Height="19"
-                                    Fill="#FF3373F2">
-                                    <Rectangle.OpacityMask>
-                                        <VisualBrush Stretch="Fill"
-                                            Visual="{StaticResource appbar_download}"/>
-                                    </Rectangle.OpacityMask>
-                                </Rectangle>
-                            </Button>
-                            <Button Margin="0,22,130,0" Background="Transparent"  x:Name="btn_fetchtamplateFile_Copy2" Height="35" VerticalAlignment="Top" Width="35" HorizontalAlignment="Right" ToolTip="add files" >
-                                <Rectangle Width="22"
-                                    Height="19"
-                                    Fill="#FF3373F2">
-                                    <Rectangle.OpacityMask>
-                                        <VisualBrush Stretch="Fill"
-                                            Visual="{StaticResource appbar_add}"/>
-                                    </Rectangle.OpacityMask>
-                                </Rectangle>
-                            </Button>
                         </Grid>
                     </GroupBox>
                     <GroupBox x:Name="groupBox11" Grid.Column="1" Header="Editor" Margin="0,10,6,5">
@@ -363,7 +322,7 @@
                                             </Rectangle.OpacityMask>
                                         </Rectangle>
                                     </Button>
-                                    <Button Margin="0,22,92,0" Background="Transparent"  x:Name="importMapping" Click="importMapping_Click"  Height="35" VerticalAlignment="Top" Width="36" HorizontalAlignment="Right" ToolTip="Import to CSV" >
+                                    <Button Margin="0,22,92,0" Background="Transparent"  x:Name="importMapping" Click="importMapping_Click"  Height="35" VerticalAlignment="Top" Width="36" HorizontalAlignment="Right" ToolTip="Import Mapping" >
                                         <Rectangle Width="22"
                                             Height="19"
                                             Fill="#FF3373F2">
@@ -373,7 +332,7 @@
                                             </Rectangle.OpacityMask>
                                         </Rectangle>
                                     </Button>
-                                    <Button Margin="0,22,133,0" Background="Transparent"  x:Name="exportMapping" Click="exportMapping_Click" Height="35" VerticalAlignment="Top" Width="36" HorizontalAlignment="Right" ToolTip="Export to CSV" >
+                                    <Button Margin="0,22,133,0" Background="Transparent"  x:Name="exportMapping" Click="exportMapping_Click" Height="35" VerticalAlignment="Top" Width="36" HorizontalAlignment="Right" ToolTip="Export Mapping" >
                                         <Rectangle Width="22"
                                             Height="19"
                                             Fill="#FF3373F2">
@@ -417,7 +376,6 @@
                                     <Button x:Name="addKeyButton" Click="addKeyButton_Click" Content="Add" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="22,31,0,0"/>
                                     <Button x:Name="updateKeyButton" Click="updateKeyButton_Click" Content="Update" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="122,31,0,0"/>
                                     <Button x:Name="deleteKeyButton" Click="deleteKeyButton_Click" Content="Delete" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="222,31,0,0"/>
-                                    <Button x:Name="applyMapperButton" Content="Apply" Click="applyMapperButton_Click" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="322,31,0,0"/>
 
                                 </Grid>
                             </GroupBox>

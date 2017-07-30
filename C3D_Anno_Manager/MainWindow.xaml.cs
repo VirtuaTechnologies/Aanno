@@ -253,7 +253,7 @@ namespace C3D_Anno_Manager
 
             }
         }
-        private void buttonApply_Click(object sender, RoutedEventArgs e)
+        private void ApplyXmlchanges()
         {
             try
             {
@@ -332,7 +332,7 @@ namespace C3D_Anno_Manager
             {
 
             }
-
+            ApplyXmlchanges();
         }
 
         private void addKeyButton_Click(object sender, RoutedEventArgs e)
@@ -365,6 +365,7 @@ namespace C3D_Anno_Manager
             {
 
             }
+            ApplyMapperChanges();
         }
 
         private void buttonUpdate_Click(object sender, RoutedEventArgs e)
@@ -406,6 +407,7 @@ namespace C3D_Anno_Manager
             {
 
             }
+            ApplyXmlchanges();
         }
 
         private void updateKeyButton_Click(object sender, RoutedEventArgs e)
@@ -440,6 +442,7 @@ namespace C3D_Anno_Manager
             {
 
             }
+            ApplyMapperChanges();
         }
 
         private void buttonDelete_Click(object sender, RoutedEventArgs e)
@@ -455,6 +458,7 @@ namespace C3D_Anno_Manager
             {
 
             }
+            ApplyXmlchanges();
         }
         private void deleteKeyButton_Click(object sender, RoutedEventArgs e)
         {
@@ -478,6 +482,7 @@ namespace C3D_Anno_Manager
             {
 
             }
+            ApplyMapperChanges();
         }
 
         private void buttonMapperBrowse_Click(object sender, RoutedEventArgs e)
@@ -583,7 +588,7 @@ namespace C3D_Anno_Manager
             }
         }
 
-        private void applyMapperButton_Click(object sender, RoutedEventArgs e)
+        private void ApplyMapperChanges()
         {
             try
             {
