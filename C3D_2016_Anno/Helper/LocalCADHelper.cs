@@ -368,8 +368,16 @@ namespace C3D_2016_Anno.Helper
 
                         if (dictRes.TryGetValue(noteKey, out result))
                         {
-                            GH.qprint("LI.noteNumber =   " + result);
-                            LI.noteNumber = Convert.ToInt32(result);
+                            int n;
+                            if (int.TryParse(result, out n))
+                            {
+                                GH.qprint("LI.noteNumber =   " + n);
+                                LI.noteNumber = n;
+                            }
+                            else
+                            {
+                                return;
+                            }
 
                         }
                     }
@@ -1620,8 +1628,9 @@ namespace C3D_2016_Anno.Helper
                             {
                                 if(resVal.Count > 0)
                                     CompNameVals.Add(component.Name, resVal[i]);// resVal[i]);
+                                i++;
                             }
-                            i++;
+                            
                         }
 
 

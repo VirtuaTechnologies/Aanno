@@ -280,7 +280,8 @@ namespace C3D_2016_Anno.Apps
                 }
                 //set that file to the combobox
                 cBox_template.SelectedIndex = cBox_template.Items.Count - 1;
-
+                C3D_2016_Anno.Global.fileItem FI = (C3D_2016_Anno.Global.fileItem)cBox_template.SelectedItem;
+                GH.getTemplateDetails(FI.filePath);
                 UIH.toastIT("Defnition files read sucessfully!", "File Read", NotificationType.Information);
             }
             catch (System.Exception ee)
@@ -309,11 +310,13 @@ namespace C3D_2016_Anno.Apps
                 {
                     //extract the data from the selected file.
                     GH.getFileObject(ofd.Filename, "mapper");
-                    GH.getMapper(ofd.Filename);
+                    
                 }
                 //set that file to the combobox
                 cBox_Mapper.SelectedIndex = cBox_Mapper.Items.Count - 1;
-
+                C3D_2016_Anno.Global.fileItem FI = (C3D_2016_Anno.Global.fileItem)cBox_Mapper.SelectedItem;
+                
+                GH.getMapper(FI.filePath);
                 //set that file to the combobox
                 UIH.toastIT("Note list files read sucessfully!", "File Read", NotificationType.Information);
             }
@@ -373,6 +376,32 @@ namespace C3D_2016_Anno.Apps
                 GH.getFiles("mapper");
                 cBox_Mapper.SelectedIndex = index;
                 UIH.toastIT("Note files read sucessfully!", "File Read", NotificationType.Information);
+            }
+            catch (System.Exception ee)
+            {
+                GH.writeLog(ee.ToString());
+            }
+        }
+
+        private void btn_fetchSelectedtamplateFile_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                C3D_2016_Anno.Global.fileItem FI = (C3D_2016_Anno.Global.fileItem)cBox_template.SelectedItem;
+                GH.getTemplateDetails(FI.filePath);
+            }
+            catch (System.Exception ee)
+            {
+                GH.writeLog(ee.ToString());
+            }
+        }
+
+        private void btn_fetchSelectedmapperFiles_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                C3D_2016_Anno.Global.fileItem FI = (C3D_2016_Anno.Global.fileItem)cBox_Mapper.SelectedItem;
+                GH.getMapper(FI.filePath);
             }
             catch (System.Exception ee)
             {
@@ -936,6 +965,8 @@ namespace C3D_2016_Anno.Apps
             }
         
         }
+
+       
     }
 
     public class SortAdorner : Adorner

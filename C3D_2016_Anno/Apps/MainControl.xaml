@@ -24,10 +24,10 @@
         <GroupBox x:Name="groupBox" Header="Definition" Margin="10,10,0,0" VerticalAlignment="Top" Height="133" HorizontalAlignment="Left" Width="479">
             <Grid>
 
-                <ComboBox x:Name="cBox_template" ToolTip="{Binding Path=filePath}" SelectedValue="{Binding Path=fileName}" DisplayMemberPath= "fileName" SelectedValuePath="fileName" VerticalAlignment="Top" SelectionChanged="cBox_template_SelectionChanged" Height="35" MinHeight="35" Controls:TextBoxHelper.Watermark="Defnitions" Margin="10,10,130,0" Controls:TextBoxHelper.UseFloatingWatermark="True">
+                <ComboBox x:Name="cBox_template" ToolTip="{Binding Path=filePath}" SelectedValue="{Binding Path=fileName}" DisplayMemberPath= "fileName" SelectedValuePath="fileName" VerticalAlignment="Top" SelectionChanged="cBox_template_SelectionChanged" Height="35" MinHeight="35" Controls:TextBoxHelper.Watermark="Defnitions" Margin="10,10,165,0" Controls:TextBoxHelper.UseFloatingWatermark="True">
 
                 </ComboBox>
-                <Button Margin="0,10,90,0" Background="Transparent"  x:Name="btn_open_templateFile" Height="35" VerticalAlignment="Top" Width="35" HorizontalAlignment="Right" Click="btn_open_templateFile_Click" >
+                <Button Margin="0,10,125,0" Background="Transparent"  x:Name="btn_open_templateFile" Height="35" VerticalAlignment="Top" Width="35" HorizontalAlignment="Right" Click="btn_open_templateFile_Click" ToolTip="Open selected file in notepad" >
                     <Rectangle Width="22"
                         Height="19"
                         Fill="#FF3373F2">
@@ -37,7 +37,7 @@
                         </Rectangle.OpacityMask>
                     </Rectangle>
                 </Button>
-                <Button Margin="0,10,50,0" Background="Transparent"  x:Name="btn_fetchtamplateFile" Height="35" VerticalAlignment="Top" Click="btn_fetchtamplateFile_Click" Width="35" HorizontalAlignment="Right" >
+                <Button Margin="0,10,85,0" Background="Transparent"  x:Name="btn_fetchSelectedtamplateFile" Height="35" VerticalAlignment="Top" Width="35" HorizontalAlignment="Right" ToolTip="Refresh selected file" Click="btn_fetchSelectedtamplateFile_Click" >
                     <Rectangle Width="22"
                     		Height="19"
                     		Fill="#FF3373F2">
@@ -47,7 +47,7 @@
                         </Rectangle.OpacityMask>
                     </Rectangle>
                 </Button>
-                <Button Margin="0,10,10,0" Background="Transparent"  x:Name="btn_browse_templateFile" Height="35" VerticalAlignment="Top" Width="35" HorizontalAlignment="Right" Click="btn_browse_templateFile_Click" >
+                <Button Margin="0,10,45,0" Background="Transparent"  x:Name="btn_browse_templateFile" Height="35" VerticalAlignment="Top" Width="35" HorizontalAlignment="Right" Click="btn_browse_templateFile_Click" ToolTip="Browse a file." >
                     <Rectangle Width="22"
                         Height="19"
                         Fill="#FF3373F2">
@@ -57,10 +57,20 @@
                         </Rectangle.OpacityMask>
                     </Rectangle>
                 </Button>
-                <ComboBox x:Name="cBox_Mapper" ToolTip="{Binding Path=filePath}" SelectedValue="{Binding Path=fileName}" DisplayMemberPath= "fileName" SelectedValuePath="fileName" Margin="10,50,130,0" VerticalAlignment="Top" SelectionChanged="cBox_Mapper_SelectionChanged" Height="35" MinHeight="35" Controls:TextBoxHelper.UseFloatingWatermark="True" Controls:TextBoxHelper.Watermark="Note List">
+                <Button Margin="0,10,5,0" Background="Transparent"  x:Name="btn_browse_templateFile_Copy" Height="35" VerticalAlignment="Top" Width="35" HorizontalAlignment="Right" Click="btn_fetchtamplateFile_Click" ToolTip="Scan and get all files from the default template folder" >
+                    <Rectangle Width="22"
+                        Height="19"
+                        Fill="#FF3373F2">
+                        <Rectangle.OpacityMask>
+                            <VisualBrush Stretch="Fill"
+                                Visual="{StaticResource appbar_download}"/>
+                        </Rectangle.OpacityMask>
+                    </Rectangle>
+                </Button>
+                <ComboBox x:Name="cBox_Mapper" ToolTip="{Binding Path=filePath}" SelectedValue="{Binding Path=fileName}" DisplayMemberPath= "fileName" SelectedValuePath="fileName" Margin="10,50,165,0" VerticalAlignment="Top" SelectionChanged="cBox_Mapper_SelectionChanged" Height="35" MinHeight="35" Controls:TextBoxHelper.UseFloatingWatermark="True" Controls:TextBoxHelper.Watermark="Note List">
 
                 </ComboBox>
-                <Button Margin="0,50,90,0" Background="Transparent"  x:Name="btn_open_mapperFile" Height="35" VerticalAlignment="Top" Width="35" HorizontalAlignment="Right" Click="btn_open_mapperFile_Click" >
+                <Button Margin="0,49,125,0" Background="Transparent"  x:Name="btn_open_mapperFile" Height="35" VerticalAlignment="Top" Width="35" HorizontalAlignment="Right" Click="btn_open_mapperFile_Click" ToolTip="Open selected file in notepad" >
                     <Rectangle Width="22"
                         Height="19"
                         Fill="#FF3373F2">
@@ -70,7 +80,7 @@
                         </Rectangle.OpacityMask>
                     </Rectangle>
                 </Button>
-                <Button Margin="0,50,50,0" Background="Transparent"  x:Name="btn_fetchmapperFiles" Height="34" VerticalAlignment="Top" Click="btn_fetchmapperFiles_Click" Width="35" MinWidth="35" HorizontalAlignment="Right" >
+                <Button Margin="0,50,85,0" Background="Transparent"  x:Name="btn_fetchSelectedmapperFiles" Height="34" VerticalAlignment="Top" Width="35" MinWidth="35" HorizontalAlignment="Right" ToolTip="Refresh selected file" Click="btn_fetchSelectedmapperFiles_Click" >
                     <Rectangle Width="22"
                         Height="19"
                         Fill="#FF3373F2">
@@ -80,7 +90,7 @@
                         </Rectangle.OpacityMask>
                     </Rectangle>
                 </Button>
-                <Button Margin="0,50,10,0" Background="Transparent"  x:Name="btn_browse_mapperFile" Height="35" VerticalAlignment="Top" Width="35" HorizontalAlignment="Right" Click="btn_browse_mapperFile_Click" >
+                <Button Margin="0,49,45,0" Background="Transparent"  x:Name="btn_browse_mapperFile" Height="35" VerticalAlignment="Top" Width="35" HorizontalAlignment="Right" Click="btn_browse_mapperFile_Click" ToolTip="Browse a file." >
                     <Rectangle Width="22"
                         Height="19"
                         Fill="#FF3373F2">
@@ -90,12 +100,23 @@
                         </Rectangle.OpacityMask>
                     </Rectangle>
                 </Button>
+                <Button Margin="0,49,5,0" Background="Transparent"  x:Name="btn_browse_mapperFile_Copy" Height="35" VerticalAlignment="Top" Width="35" HorizontalAlignment="Right" Click="btn_fetchmapperFiles_Click" ToolTip="Scan and get all files from the default template folder" >
+                    <Rectangle Width="22"
+                        Height="19"
+                        Fill="#FF3373F2">
+                        <Rectangle.OpacityMask>
+                            <VisualBrush Stretch="Fill"
+                                Visual="{StaticResource appbar_download}"/>
+                        </Rectangle.OpacityMask>
+                    </Rectangle>
+                </Button>
+
             </Grid>
         </GroupBox>
         <GroupBox x:Name="groupBox1" Header="Selection" HorizontalAlignment="Left" Margin="10,148,0,0" VerticalAlignment="Top" Width="479" Height="83" >
             <Grid Margin="0,0,0,1">
                 <Label x:Name="label1" Content="Create boundary" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="103"/>
-                <Button Margin="118,10,0,0" Background="Transparent"  x:Name="btn_selectLabels" HorizontalAlignment="Left" Width="26" Height="26" VerticalAlignment="Top" Click="btn_selectLabels_Click">
+                <Button Margin="118,10,0,0" Background="Transparent"  x:Name="btn_selectLabels" HorizontalAlignment="Left" Width="26" Height="26" VerticalAlignment="Top" Click="btn_selectLabels_Click" ToolTip="Selected labels from screen">
                     <Rectangle Width="14"
                     		Height="11"
                     		Fill="#FF3373F2">
@@ -106,7 +127,7 @@
                     </Rectangle>
                 </Button>
                 <Label x:Name="label1_Copy" Content="Pick Viewport" HorizontalAlignment="Left" Margin="170,10,0,0" VerticalAlignment="Top" Width="82"/>
-                <Button Margin="257,10,0,0" Background="Transparent"  x:Name="btn_selectViewport" HorizontalAlignment="Left" Width="26" Height="26" VerticalAlignment="Top" Click="btn_selectViewport_Click" >
+                <Button Margin="257,10,0,0" Background="Transparent"  x:Name="btn_selectViewport" HorizontalAlignment="Left" Width="26" Height="26" VerticalAlignment="Top" Click="btn_selectViewport_Click" ToolTip="Selected viewport to process the labels within the viewport." >
                     <Rectangle Width="14"
                         Height="11"
                         Fill="#FF3373F2">
@@ -116,7 +137,7 @@
                         </Rectangle.OpacityMask>
                     </Rectangle>
                 </Button>
-                <Label x:Name="lbl_statusCount" Content="" Margin="288,10,4,0" VerticalAlignment="Top" RenderTransformOrigin="0.509,0.59"/>
+                <Label x:Name="lbl_statusCount" Content="" Margin="288,10,4,0" VerticalAlignment="Top" RenderTransformOrigin="0.509,0.59" ToolTip="Labels processed."/>
                 <Controls:MetroProgressBar x:Name="proBar" Margin="-6,42,-5,-6" Maximum="100" VerticalAlignment="Top" Height="7" Foreground="#FF3373F2" Cursor="Hand"/>
             </Grid>
         </GroupBox>
@@ -126,11 +147,11 @@
                     <RowDefinition Height="18*"/>
                     <RowDefinition Height="85*"/>
                 </Grid.RowDefinitions>
-                <TextBox x:Name="tBox_Heading" Height="35" Controls:TextBoxHelper.ClearTextButton="True" Margin="9,10,248,0" TextWrapping="Wrap" VerticalAlignment="Top" Controls:TextBoxHelper.Watermark="Heading" Controls:TextBoxHelper.UseFloatingWatermark="True" MinHeight="35"/>
+                <TextBox x:Name="tBox_Heading" Height="35" Controls:TextBoxHelper.ClearTextButton="True" Margin="9,10,248,0" TextWrapping="Wrap" VerticalAlignment="Top" Controls:TextBoxHelper.Watermark="Heading" Controls:TextBoxHelper.UseFloatingWatermark="True" MinHeight="35" ToolTip="Specify heading here."/>
                 <ToggleButton Content="Bold" Margin="0,10,171,0"  x:Name="btn_HeadingBold" Height="34" VerticalAlignment="Top" Click="btn_fetchmapperFiles_Click" Width="72" MinWidth="35" HorizontalAlignment="Right" />
                 <ToggleButton Content="Underline" Margin="0,10,94,0" x:Name="btn_HeadingUnderline" Height="34" VerticalAlignment="Top" Click="btn_fetchmapperFiles_Click" MinWidth="35" HorizontalAlignment="Right" Width="72" />
                 <TextBox x:Name="tBox_textHeight" Height="35" Margin="0,10,25,0" TextWrapping="Wrap" Text="1" VerticalAlignment="Top" MinHeight="35" Controls:TextBoxHelper.Watermark="Text Height" Controls:TextBoxHelper.UseFloatingWatermark="True" HorizontalAlignment="Right" Width="64"/>
-                <Button x:Name="btn_CreateKeyNote" Content="Create Keynote" Margin="0,50,25,0" VerticalAlignment="Top" Click="btn_CreateKeyNote_Click" Height="35" MinHeight="35" Foreground="White" Background="#FF3373F2" HorizontalAlignment="Right" Width="124"/>
+                <Button x:Name="btn_CreateKeyNote" Content="Create Keynote" Margin="0,50,25,0" VerticalAlignment="Top" Click="btn_CreateKeyNote_Click" Height="35" MinHeight="35" Foreground="White" Background="#FF3373F2" HorizontalAlignment="Right" Width="124" ToolTip="Add keynote to drawing."/>
                 <GroupBox x:Name="groupBox3" Header="Key Note" Margin="0" Grid.Row="1" VerticalAlignment="Top" Height="261" Background="White">
                     <Grid>
                         <ComboBox x:Name="cBox_objectType" HorizontalAlignment="Left" IsSynchronizedWithCurrentItem = "True" VerticalAlignment="Top" Width="164" SelectionChanged="cBox_objectType_SelectionChanged" Height="35" Controls:TextBoxHelper.Watermark="Object Type" Controls:TextBoxHelper.UseFloatingWatermark="True" MinHeight="35" MaxDropDownHeight="351"/>

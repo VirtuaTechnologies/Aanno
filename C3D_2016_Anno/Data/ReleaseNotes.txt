@@ -1,4 +1,28 @@
 ﻿========================
+Release Notes -AANNO AutoCAD plugin - 20170806 - Ver 4.43.0
+========================
+- XML manager- added update function and removed the needed for APPLY button so the changes maded by the user to the XML is instantly updated.
+- Added tool tips to the xml manager UI elements.
+- Removed redundent controls from the XML manager.
+- Aanno - fixed the issue picking up certain labels.
+
+========================
+Release Notes -AANNO AutoCAD plugin - 20170730 - Ver 4.42.0
+========================
+- Fixed the tool palette size issue, made it dock to left.
+- Additional validation added to check if the KN value is text. if so it would ignore it.
+- Added seperate button to scan the details folder for defnition and note list files.
+- Added tool tips to all the buttons.
+
+========================
+Release Notes -AANNO AutoCAD plugin - 20170716 - Ver 4.41.0
+========================
+- Added additional label styles (Offset station labels)
+- Setting up the opened mapper and note definition files in the dropdown box
+- Fixed minor ui corrections
+- Create an AutoCAD command and integrated the XML manager to the autoCAD plagins so the xml manager can be fired from the plugin UI or as an autocad command "xmlMan"
+
+========================
 Release Notes - 20170527 - Ver 4.40.0
 ========================
 - Added custom seperator in the settings file for keynotes (keynoteSeperator)

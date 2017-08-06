@@ -73,12 +73,12 @@ namespace C3D_2016_Anno
                         // Create the palette set
                         palSet = new PaletteSet("Note Creator");
 
-                        palSet.Style =  PaletteSetStyles.ShowPropertiesMenu |
+                        palSet.Style = PaletteSetStyles.ShowPropertiesMenu |
                                         PaletteSetStyles.ShowAutoHideButton |
                                         PaletteSetStyles.ShowCloseButton;
                         palSet.MinimumSize = new System.Drawing.Size(500, 800);
                         palSet.Size = new System.Drawing.Size(500, 800);
-                        
+
                         palSet.DockEnabled =
                           (DockSides)((int)DockSides.Left + (int)DockSides.Right);
 
@@ -86,19 +86,20 @@ namespace C3D_2016_Anno
                         ElementHost mcHost = new ElementHost();
                         mcHost.AutoSize = true;
                         mcHost.Dock = DockStyle.Fill;
-                        mcHost.Width = 500;
-                        mcHost.Height = 800;
-                        mcHost.Size = new System.Drawing.Size(500, 800);
-                        mcHost.MinimumSize = new System.Drawing.Size(500, 800);
+                        //mcHost.Width = 500;
+                        //mcHost.Height = 800;
+                        //mcHost.Size = new System.Drawing.Size(500, 800);
+                        //mcHost.MinimumSize = new System.Drawing.Size(500, 800);
                         mcHost.Child = mc;
-                        mcHost.Child.RenderSize = new System.Windows.Size(500, 800);
+                        //mcHost.Child.RenderSize = new System.Windows.Size(500, 800);
                         palSet.Add("Note Creator", mcHost);
                         // Display our palette set
                         palSet.KeepFocus = true;
                         palSet.Visible = true;
                         //palSet.Dock = DockSides.;
-                        
+
                         palSet.SetSize(new System.Drawing.Size(500, 800));
+                        palSet.Dock = DockSides.Left;
                     }
                     else
                     {
