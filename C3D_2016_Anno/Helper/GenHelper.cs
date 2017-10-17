@@ -25,7 +25,7 @@ namespace C3D_2016_Anno.Helper
                 getSettings();
                 setPath();
                 setLogFiles();
-                getFiles("all");
+                //getFiles("all");
 
                 
             }

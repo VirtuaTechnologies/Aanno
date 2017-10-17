@@ -1,4 +1,10 @@
 ﻿========================
+Release Notes -AANNO AutoCAD plugin - 20171017 - Ver 4.44.0.0
+========================
+- Remove auto populate all templates and mappers which causes the issue that if the keys exists on different mapper files then the collections gets mixed up
+- Added option to clear all the existing mapping and template information when a file is selected.
+
+========================
 Release Notes -AANNO AutoCAD plugin - 20170806 - Ver 4.43.0
 ========================
 - XML manager- added update function and removed the needed for APPLY button so the changes maded by the user to the XML is instantly updated.

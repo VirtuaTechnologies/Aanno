@@ -140,10 +140,6 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>Libs\ZSharpSQLITEHelper.dll</HintPath>
     </Reference>
-    <Reference Include="ZSharpXMLHelper, Version=1.0.0.0, Culture=neutral, PublicKeyToken=faa560cbe1bb381b, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>Libs\ZSharpXMLHelper.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Apps\Editor.xaml.cs">
@@ -257,6 +253,12 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\ZSharpHelpers\ZSharpXMLHelper\ZSharpXMLHelper\ZSharpXMLHelper.csproj">
+      <Project>{7e184ae7-82ec-4431-a1a9-b514f460126d}</Project>
+      <Name>ZSharpXMLHelper</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

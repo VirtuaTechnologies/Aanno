@@ -965,8 +965,7 @@ namespace C3D_2016_Anno.Apps
             }
         
         }
-
-       
+        
     }
 
     public class SortAdorner : Adorner
