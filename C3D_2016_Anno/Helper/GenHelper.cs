@@ -12,9 +12,13 @@ using System.Windows;
 using ZSharpQLogger;
 using VSharpSettingsHelper;
 using GV = C3D_2016_Anno.Global.variables;
+using Microsoft.VisualBasic.FileIO;
+using System.Data;
 
 namespace C3D_2016_Anno.Helper
 {
+//Mapper > XMLMapper, CSVMapper1, CSVMapper2
+//Notes > XMLNotes, CSVNotes1, CSVNotes2, 
     public class GenHelper
     {
         char[] extTrimChar = {'.'};
@@ -187,7 +191,7 @@ namespace C3D_2016_Anno.Helper
                     GV.templateFiles.Clear();
                     //get all the template files
                     
-                    foreach (string file in Directory.GetFiles(GV.templatepath, "*." + GV.templateFileExt, SearchOption.AllDirectories))
+                    foreach (string file in Directory.GetFiles(GV.templatepath, "*." + GV.templateFileExt, System.IO.SearchOption.AllDirectories))
                     {
                         getFileObject(file, "template");
                     }
@@ -197,7 +201,7 @@ namespace C3D_2016_Anno.Helper
                 {
                     GV.mapperFiles.Clear();
                     //get all mapper files
-                    foreach (string file in Directory.GetFiles(GV.templatepath, "*." + GV.MapperFileExt, SearchOption.AllDirectories))
+                    foreach (string file in Directory.GetFiles(GV.templatepath, "*." + GV.MapperFileExt, System.IO.SearchOption.AllDirectories))
                     {
                         getFileObject(file, "mapper");
                     }
@@ -235,7 +239,7 @@ namespace C3D_2016_Anno.Helper
                 GV.templateFileExt = Path.GetExtension(file).Replace(".", string.Empty);
 
 
-                if (GV.templateFileExt == "xml")
+                if (GV.templateFileExt == "XMLNotes")
                 {
                     #region XML
                     //getFiles();
@@ -263,7 +267,7 @@ namespace C3D_2016_Anno.Helper
                     } 
                     #endregion
                 }
-                else
+                else if (GV.templateFileExt == "CSVNotes1")
                 {
                     #region CSV File
                     using (StreamReader sr = new StreamReader(file))
@@ -282,7 +286,7 @@ namespace C3D_2016_Anno.Helper
 
                             if (GV.notesDict.TryGetValue(vals[0].Replace(GV.CSVfilecharReplace, ""), out dictCheckOut))
                             {
-                                
+
                                 if (!GV.notesDict[vals[0].Replace(GV.CSVfilecharReplace, "")].TryGetValue(Convert.ToInt16(vals[1].Replace(GV.CSVfilecharReplace, "")), out dictCheckOut1))
                                 {
                                     GV.notesDict[vals[0].Replace(GV.CSVfilecharReplace, "")].Add(Convert.ToInt16(vals[1].Replace(GV.CSVfilecharReplace, "")), vals[2].Replace(GV.CSVfilecharReplace, ""));
@@ -301,7 +305,55 @@ namespace C3D_2016_Anno.Helper
                                 }
                             }
                         }
-                    } 
+                    }
+                    #endregion
+                }
+                else
+                {
+                    #region CSV File 2
+                    GV.notesDict.Clear();
+                    using (TextFieldParser MyReader = new TextFieldParser(file))
+                    {
+                        Dictionary<string, string> mapDict = new Dictionary<string, string>();
+                        MyReader.TextFieldType = FieldType.Delimited;
+                        MyReader.SetDelimiters(",");
+                        MyReader.HasFieldsEnclosedInQuotes = true;
+                        string[] currentRow;
+                        currentRow = MyReader.ReadFields();
+                        DataTable dt = new DataTable();
+                        while (!MyReader.EndOfData)
+                        {
+                            DataRow row = dt.NewRow();
+                            currentRow = MyReader.ReadFields();
+                            var dictCheckOut = new Dictionary<int, string>();
+                            List<string> vals = new List<string>();
+                            vals = currentRow.ToList<string>();
+                            string dictCheckOut1;
+
+                            if (GV.notesDict.TryGetValue(vals[0].Replace(GV.CSVfilecharReplace, ""), out dictCheckOut))
+                            {
+
+                                if (!GV.notesDict[vals[0].Replace(GV.CSVfilecharReplace, "")].TryGetValue(Convert.ToInt16(vals[1].Replace(GV.CSVfilecharReplace, "")), out dictCheckOut1))
+                                {
+                                    GV.notesDict[vals[0].Replace(GV.CSVfilecharReplace, "")].Add(Convert.ToInt16(vals[1].Replace(GV.CSVfilecharReplace, "")), vals[2].Replace(GV.CSVfilecharReplace, ""));
+                                }
+                            }
+                            else
+                            {
+                                Dictionary<int, string> noteItem = new Dictionary<int, string>();
+                                string key = vals[0].Replace(GV.CSVfilecharReplace, "");
+                                GV.notesDict.Add(key, noteItem);
+                                var innerdict = GV.notesDict[vals[0].Replace(GV.CSVfilecharReplace, "")];
+                                var innerDictKey = Convert.ToInt16(vals[1].Replace(GV.CSVfilecharReplace, ""));
+                                if (!innerdict.TryGetValue(innerDictKey, out dictCheckOut1))
+                                {
+                                    GV.notesDict[vals[0].Replace(GV.CSVfilecharReplace, "")].Add(Convert.ToInt16(vals[1].Replace(GV.CSVfilecharReplace, "")), vals[2].Replace(GV.CSVfilecharReplace, ""));
+                                }
+                            }
+
+                            dt.Rows.Add(row);
+                        }
+                    }
                     #endregion
                 }
             }
@@ -315,11 +367,11 @@ namespace C3D_2016_Anno.Helper
                 GV.ObtTypes.Clear();
                 GV.MapperFileExt = Path.GetExtension(file).Replace(".", string.Empty);
 
-                if (GV.MapperFileExt == "mapper")
+                if (GV.MapperFileExt == "XMLMapper")
                 {
                     GV.Mapper = xmlParser.getXMLVaulesStrings(file, "STYLE", GV.XMLMapperAtt);
                 }
-                else if (GV.MapperFileExt == "qmap") // CSV file - Format -  "val1", "val 2 - here , this", val3"
+                else if (GV.MapperFileExt == "CSVMapper1") // CSV file - Format -  "val1", "val 2 - here , this", "val3"
                 {
                     string dictCheckOut1;
                     #region Process regular CSV file

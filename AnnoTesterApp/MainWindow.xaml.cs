@@ -20,6 +20,8 @@ using MahApps.Metro;
 using MahApps.Metro.Controls;
 using System.IO;
 using System.Text.RegularExpressions;
+using Microsoft.VisualBasic.FileIO;
+using System.Data;
 
 namespace AnnoTesterApp
 {
@@ -225,49 +227,41 @@ namespace AnnoTesterApp
         {
             try
             {
-                using (StreamReader sr = new StreamReader("CSV FMT.qmap"))
+                using (TextFieldParser MyReader = new TextFieldParser("CSV FMT.qmap"))
                 {
                     Dictionary<string, string> mapDict = new Dictionary<string, string>();
-                    string currentLine;
-                    List<string> test = new List<string>();
-                    bool startString = false;
-
-                    // currentLine will be null when the StreamReader reaches the end of file
-                    while ((currentLine = sr.ReadLine()) != null)
+                    MyReader.TextFieldType = FieldType.Delimited;
+                    MyReader.SetDelimiters(",");
+                    MyReader.HasFieldsEnclosedInQuotes = true;
+                    string[] currentRow;
+                    currentRow = MyReader.ReadFields();
+                    DataTable dt = new DataTable();
+                    while (!MyReader.EndOfData)
                     {
-                        List<string> vals = new List<string>();
-                        int i = 0;
-                        string val1;
-                        foreach (char c in currentLine)
+                        DataRow row = dt.NewRow();
+                        currentRow = MyReader.ReadFields();
+                        for (int i = 0; i < currentRow.Length; i++)
                         {
-                            char[] chars;
-                            if (c == '"')
-                            {
-                                
-                                i++;
-                            }
-                            //start "
+
+                            List<string> vals = new List<string>();
+                            vals = currentRow.ToList<string>();
+                            //mapDict[i] = vals[i];
                         }
-
-                        //    vals = currentLine.Split(',').ToList();
-
-                        ////check if the key exitst in main dict
-                        //if (mapDict.ContainsKey(vals[0]))
-                        //{
-                        //    mapDict[vals[0]] = vals[1];
-
-                        //}
-                        //else
-                        //{
-                        //    mapDict.Add(vals[0], vals[1]);
-                        //}
+                        dt.Rows.Add(row);
                     }
                 }
+
+               
             }
             catch (System.Exception ee)
             {
                 MessageBox.Show(ee.ToString());
             }
+        }
+
+        private void btn_readTemp2_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

@@ -262,7 +262,7 @@ namespace C3D_2016_Anno.Apps
             {
                 // Create an instance of the open file dialog box.
                 OpenFileDialog ofd = new OpenFileDialog();
-                ofd.Filter = "Tempalte XML files (*.xml)|*.xml|Tempalte CSV files (*.def)|*.def"; //"XML files (*.xml)|*.def";
+                ofd.Filter = "Tempalte XML files (*.XMLNotes)|*.XMLNotes|CSV Notes without double quotes (*.CSVNotes1)|*.CSVNotes1|CSV Notes with double quotes (*.CSVNotes2)|*.CSVNotes2"; //"XML files (*.xml)|*.def";
                 DialogResult sdResult = ofd.ShowDialog();
 
                 //Autodesk.AutoCAD.Windows.OpenFileDialog ofd = new Autodesk.AutoCAD.Windows.OpenFileDialog("Select a defnition file(s)", "",
@@ -314,7 +314,7 @@ namespace C3D_2016_Anno.Apps
                 //if (sdResult != System.Windows.Forms.DialogResult.OK) return;
                 // Create an instance of the open file dialog box.
                 OpenFileDialog ofd = new OpenFileDialog();
-                ofd.Filter = "Mapper XML files (*.Mapper)|*.Mapper|Mapper CSV files (*.map)|*.map"; // "Mapper files (*.Mapper)|*.map";
+                ofd.Filter = "Mapper XML files (*.XMLMapper)|*.XMLMapper|CSV Mapper (*.CSVMapper1)|*.CSVMapper1"; // "Mapper files (*.Mapper)|*.map";
                 DialogResult sdResult = ofd.ShowDialog();
 
                 foreach (string file in ofd.FileNames)
@@ -675,7 +675,7 @@ namespace C3D_2016_Anno.Apps
                 {
                     //rest progressbar
                     proBar.Value = 0;
-
+                    GV.all_label_coll.Clear();
                     clearUIValues();
                     GV.clearSelection();
                     tBox_Heading.Text = "";
@@ -776,6 +776,7 @@ namespace C3D_2016_Anno.Apps
                     cBox_objectType.ItemsSource = null;
                     lBox_labels.ItemsSource = null;
                     GV.clearSelection();
+                    GV.all_label_coll.Clear();
                     tBox_Heading.Text = "";
 
                     //rest progressbar
