@@ -34,23 +34,13 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="AcCoreMgd">
-      <HintPath>..\C3D_2016_Anno\Libs\AcCoreMgd.dll</HintPath>
-    </Reference>
-    <Reference Include="AcDbMgd">
-      <HintPath>..\C3D_2016_Anno\Libs\AcDbMgd.dll</HintPath>
-    </Reference>
-    <Reference Include="AecBaseMgd">
-      <HintPath>..\C3D_2016_Anno\Libs\AecBaseMgd.dll</HintPath>
-    </Reference>
-    <Reference Include="AeccDbMgd">
-      <HintPath>..\C3D_2016_Anno\Libs\AeccDbMgd.dll</HintPath>
-    </Reference>
     <Reference Include="MahApps.Metro, Version=1.4.3.0, Culture=neutral, PublicKeyToken=f4fb5a3c4d1e5b4f, processorArchitecture=MSIL">
       <HintPath>..\packages\MahApps.Metro.1.4.3\lib\net45\MahApps.Metro.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="System" />
+    <Reference Include="System">
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Data" />
     <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\MahApps.Metro.1.4.3\lib\net45\System.Windows.Interactivity.dll</HintPath>
@@ -158,9 +148,9 @@
     <Content Include="Libs\ZSharpXMLHelper.dll" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\C3D_2016_Anno\C3D_2016_Anno.csproj">
-      <Project>{416d1c53-3b83-4cc2-ad92-a5a067385fd8}</Project>
-      <Name>C3D_2016_Anno</Name>
+    <ProjectReference Include="..\..\ZSharpHelpers\VSharpSettingsHelper\VSharpSettingsHelper.csproj">
+      <Project>{a02585d3-56d6-4e4f-96a7-1aea853dffd1}</Project>
+      <Name>VSharpSettingsHelper</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

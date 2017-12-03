@@ -1,4 +1,11 @@
 ﻿========================
+Release Notes -AANNO AutoCAD plugin - 20171111 - Ver 4.45.0.0
+========================
+- Added options to read CSV based tempalte and mapper file
+- User can use both XML and CSV based file in any combination.
+- CSV file will allow special chars, space, quotes and other limitation which XML file have
+
+========================
 Release Notes -AANNO AutoCAD plugin - 20171017 - Ver 4.44.0.0
 ========================
 - Remove auto populate all templates and mappers which causes the issue that if the keys exists on different mapper files then the collections gets mixed up

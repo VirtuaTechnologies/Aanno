@@ -112,7 +112,9 @@ namespace C3D_2016_Anno.Apps
                 GH.qprint("GV.ObtTypes.Count() ==> 2>  " + GV.ObtTypes.Count());
                 foreach (var noteitem in GV.allnotes)
                 {
-                    GH.qprint("noteitem.Key: " + noteitem.Key);
+                    
+                    //test
+                   
                     if (GV.Mapper.ContainsKey(noteitem.Key))
                     {
                         GH.qprint("noteitem.Key in Mapper > >  " + noteitem.Key);
@@ -259,18 +261,23 @@ namespace C3D_2016_Anno.Apps
             try
             {
                 // Create an instance of the open file dialog box.
-                Autodesk.AutoCAD.Windows.OpenFileDialog ofd = new Autodesk.AutoCAD.Windows.OpenFileDialog("Select a defnition file(s)", "",
-                               "xml;",
-                               "Select a defnition file(s)",
-                               Autodesk.AutoCAD.Windows.OpenFileDialog.OpenFileDialogFlags.DefaultIsFolder |
-                               Autodesk.AutoCAD.Windows.OpenFileDialog.OpenFileDialogFlags.ForceDefaultFolder |
-                               Autodesk.AutoCAD.Windows.OpenFileDialog.OpenFileDialogFlags.AllowMultiple
-                             );
+                OpenFileDialog ofd = new OpenFileDialog();
+                ofd.Filter = "Tempalte XML files (*.xml)|*.xml|Tempalte CSV files (*.def)|*.def"; //"XML files (*.xml)|*.def";
                 DialogResult sdResult = ofd.ShowDialog();
+
+                //Autodesk.AutoCAD.Windows.OpenFileDialog ofd = new Autodesk.AutoCAD.Windows.OpenFileDialog("Select a defnition file(s)", "",
+                //               "xml;DEF|*.def",
+                //               "Select a defnition file(s)",
+                //               Autodesk.AutoCAD.Windows.OpenFileDialog.OpenFileDialogFlags.DefaultIsFolder |
+                //               Autodesk.AutoCAD.Windows.OpenFileDialog.OpenFileDialogFlags.ForceDefaultFolder |
+                //               Autodesk.AutoCAD.Windows.OpenFileDialog.OpenFileDialogFlags.AllowMultiple
+                //             );
+                
+                //DialogResult sdResult = ofd.ShowDialog();
 
                 if (sdResult != System.Windows.Forms.DialogResult.OK) return;
 
-                foreach (string file in ofd.GetFilenames())
+                foreach (string file in ofd.FileNames)
                 {
                     //if the file dont exits add
 
@@ -295,21 +302,25 @@ namespace C3D_2016_Anno.Apps
             try
             {
                 // Create an instance of the open file dialog box.
-                Autodesk.AutoCAD.Windows.OpenFileDialog ofd = new Autodesk.AutoCAD.Windows.OpenFileDialog("Select a Note list file(s)", "",
-                               "Mapper;",
-                               "Select a Note list file(s)",
-                               Autodesk.AutoCAD.Windows.OpenFileDialog.OpenFileDialogFlags.DefaultIsFolder |
-                               Autodesk.AutoCAD.Windows.OpenFileDialog.OpenFileDialogFlags.ForceDefaultFolder |
-                               Autodesk.AutoCAD.Windows.OpenFileDialog.OpenFileDialogFlags.AllowMultiple
-                             );
+                //Autodesk.AutoCAD.Windows.OpenFileDialog ofd = new Autodesk.AutoCAD.Windows.OpenFileDialog("Select a Note list file(s)", "",
+                //               "Mapper;",
+                //               "Select a Note list file(s)",
+                //               Autodesk.AutoCAD.Windows.OpenFileDialog.OpenFileDialogFlags.DefaultIsFolder |
+                //               Autodesk.AutoCAD.Windows.OpenFileDialog.OpenFileDialogFlags.ForceDefaultFolder |
+                //               Autodesk.AutoCAD.Windows.OpenFileDialog.OpenFileDialogFlags.AllowMultiple
+                //             );
+                //DialogResult sdResult = ofd.ShowDialog();
+
+                //if (sdResult != System.Windows.Forms.DialogResult.OK) return;
+                // Create an instance of the open file dialog box.
+                OpenFileDialog ofd = new OpenFileDialog();
+                ofd.Filter = "Mapper XML files (*.Mapper)|*.Mapper|Mapper CSV files (*.map)|*.map"; // "Mapper files (*.Mapper)|*.map";
                 DialogResult sdResult = ofd.ShowDialog();
 
-                if (sdResult != System.Windows.Forms.DialogResult.OK) return;
-
-                foreach (string file in ofd.GetFilenames())
+                foreach (string file in ofd.FileNames)
                 {
                     //extract the data from the selected file.
-                    GH.getFileObject(ofd.Filename, "mapper");
+                    GH.getFileObject(file, "mapper");
                     
                 }
                 //set that file to the combobox

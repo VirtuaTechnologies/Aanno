@@ -1,2 +1,2 @@
-﻿This is an Intelectual Property of Zcodia Technologies and Raghulan Gowthaman.
-www.zcodiatechnologies.com.au
+﻿//This is an Intelectual Property of Virtua Technologies and Raghulan Gowthaman.
+//www.virtuatechnoliges.com.au

@@ -16,10 +16,10 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using GV = C3D_2016_Anno.Global.variables;
-using GH = C3D_2016_Anno.Helper.GenHelper;
 using MahApps.Metro;
 using MahApps.Metro.Controls;
+using System.IO;
+using System.Text.RegularExpressions;
 
 namespace AnnoTesterApp
 {
@@ -34,6 +34,8 @@ namespace AnnoTesterApp
             //GH.initializeSettings();
             //fetchDATA();
         }
+
+        
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
@@ -51,7 +53,7 @@ namespace AnnoTesterApp
             }
             catch (System.Exception ee)
             {
-                GH.writeLog(ee.ToString());
+                ///GH.writeLog(ee.ToString());
             }
 
         }
@@ -64,7 +66,7 @@ namespace AnnoTesterApp
             }
             catch (System.Exception ee)
             {
-                GH.writeLog(ee.ToString());
+                //GH.writeLog(ee.ToString());
             }
 
         }
@@ -73,12 +75,11 @@ namespace AnnoTesterApp
         {
             try
             {
-                cBox_template.ItemsSource = GV.templateFiles;
-                cBox_Mapper.ItemsSource = GV.mapperFiles;
+                
             }
             catch (System.Exception ee)
             {
-                GH.writeLog(ee.ToString());
+                //GH.writeLog(ee.ToString());
             }
         }
 
@@ -87,7 +88,7 @@ namespace AnnoTesterApp
         {
             try
             {
-                GH.getFiles("template");
+                //GH.getFiles("template");
             }
             catch (System.Exception ee)
             {
@@ -100,7 +101,7 @@ namespace AnnoTesterApp
             
             try
             {
-                GH.getFiles("mapper");
+                //GH.getFiles("mapper");
             }
             catch (System.Exception ee)
             {
@@ -112,8 +113,7 @@ namespace AnnoTesterApp
         {
             try
             {
-                C3D_2016_Anno.Global.fileItem FI = (C3D_2016_Anno.Global.fileItem)cBox_template.SelectedItem;
-                GH.getTemplateDetails(FI.filePath);
+                
             }
             catch (System.Exception ee)
             {
@@ -126,16 +126,148 @@ namespace AnnoTesterApp
         {
             try
             {
-                C3D_2016_Anno.Global.fileItem FI = (C3D_2016_Anno.Global.fileItem)cBox_Mapper.SelectedItem;
-                GH.getMapper(FI.filePath);
+                
             }
             catch (System.Exception ee)
             {
                 MessageBox.Show(ee.ToString());
             }
         }
+
         #endregion
 
+        private void btn_readTemplate_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                using (StreamReader sr = new StreamReader("DefinitionSample-Space_spl.def"))
+                {
+                    Dictionary<string, Dictionary<int, string>> notesDict = new Dictionary<string, Dictionary<int, string>>();
+                    string currentLine;
+                    // currentLine will be null when the StreamReader reaches the end of file
+                    while ((currentLine = sr.ReadLine()) != null)
+                    {
+                        List<string> vals = new List<string>();
+                        vals = currentLine.Split('>').ToList();
 
+                        //check if the key exitst in main dict
+                        if(notesDict.ContainsKey(vals[0]))
+                        {
+                            if (!notesDict[vals[0]].ContainsKey(Convert.ToInt16(vals[1])))
+                            {
+                                notesDict[vals[0]].Add(Convert.ToInt16(vals[1]), vals[2].Replace("\"", ""));
+                            }
+                            
+                        }
+                        else
+                        {
+                            string dictCheckOut1;
+
+                            Dictionary<int, string> noteItem = new Dictionary<int, string>();
+                            string key = vals[0].Replace("\"", "");
+
+                            notesDict.Add(vals[0].Replace("\"", ""), noteItem);
+
+                            var innerdict = notesDict[key];
+                            var innerDictKey = Convert.ToInt16(vals[1].Replace("\"", ""));
+
+                            if (!innerdict.TryGetValue(innerDictKey, out dictCheckOut1))
+                            {
+                                notesDict[vals[0]].Add(Convert.ToInt16(vals[1]), vals[2].Replace("\"", ""));
+                            }
+                        }
+
+                        
+
+                    }
+                }
+            }
+            catch (System.Exception ee)
+            {
+                MessageBox.Show(ee.ToString());
+            }
+        }
+
+        private void btn_readMapper_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                using (StreamReader sr = new StreamReader("MapSample.map"))
+                {
+                    Dictionary<string, string> mapDict = new Dictionary<string, string>();
+                    string currentLine;
+                    // currentLine will be null when the StreamReader reaches the end of file
+                    while ((currentLine = sr.ReadLine()) != null)
+                    {
+                        List<string> vals = new List<string>();
+                        vals = currentLine.Split('>').ToList();
+
+                        //check if the key exitst in main dict
+                        if (mapDict.ContainsKey(vals[0]))
+                        {
+                            mapDict[vals[0]] = vals[1];
+
+                        }
+                        else
+                        {
+                            mapDict.Add(vals[0],vals[1]);
+                        }
+                    }
+                }
+            }
+            catch (System.Exception ee)
+            {
+                MessageBox.Show(ee.ToString());
+            }
+        }
+
+        private void btn_readMap2_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                using (StreamReader sr = new StreamReader("CSV FMT.qmap"))
+                {
+                    Dictionary<string, string> mapDict = new Dictionary<string, string>();
+                    string currentLine;
+                    List<string> test = new List<string>();
+                    bool startString = false;
+
+                    // currentLine will be null when the StreamReader reaches the end of file
+                    while ((currentLine = sr.ReadLine()) != null)
+                    {
+                        List<string> vals = new List<string>();
+                        int i = 0;
+                        string val1;
+                        foreach (char c in currentLine)
+                        {
+                            char[] chars;
+                            if (c == '"')
+                            {
+                                
+                                i++;
+                            }
+                            //start "
+                        }
+
+                        //    vals = currentLine.Split(',').ToList();
+
+                        ////check if the key exitst in main dict
+                        //if (mapDict.ContainsKey(vals[0]))
+                        //{
+                        //    mapDict[vals[0]] = vals[1];
+
+                        //}
+                        //else
+                        //{
+                        //    mapDict.Add(vals[0], vals[1]);
+                        //}
+                    }
+                }
+            }
+            catch (System.Exception ee)
+            {
+                MessageBox.Show(ee.ToString());
+            }
+        }
     }
 }

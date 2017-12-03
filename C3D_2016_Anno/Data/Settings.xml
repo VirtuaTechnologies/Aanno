@@ -6,7 +6,7 @@
   <Settings name="logSwitch">true</Settings>
   <Settings name="errorBoxSwitch">true</Settings>
   <Settings name="logFile">C:\Anno\log\Anno.log</Settings>
-  <Settings name="debug">true</Settings>
+  <Settings name="debug">false</Settings>
   <Settings name="templatepathAuto">true</Settings>
   <Settings name="templatepath">c:\Anno\templates</Settings>
   <Settings name="notenumberKey">KN,CN</Settings>
@@ -14,10 +14,18 @@
   <Settings name="IncludeMultiLeader">true</Settings>
   <Settings name="MultiLeaderAtt">TAGNUMBER</Settings>
   <Settings name="keynotetexttype">mtext</Settings>
-  <Settings name="keynoteSeperator">[nbsp].[nbsp]</Settings> <!--Use [nbsp] For blank space-->
+  <Settings name="keynoteSeperator">.[nbsp]</Settings> <!--Use [nbsp] For blank space-->
   <Settings name="sucessToast">true</Settings>
   <Settings name="errorToast">true</Settings>
   <Settings name="infoToast">true</Settings>
   <Settings name="showViewportBoundary">true</Settings>
+  <Settings name="templateFileExt">def</Settings> <!--xml or def or qdef-->
+  <Settings name="MapperFileExt">map</Settings> <!--mapper or map or qmap-->
+  <Settings name="XMLTemplateAtt">name</Settings>
+  <Settings name="CSVfilecharReplace">false</Settings>
+  <Settings name="XMLMapperAtt">name</Settings>
+  <Settings name="templateFileDelimiter">></Settings>
+  <Settings name="MapperFileDelimiter">></Settings>
+  
   
 </App>

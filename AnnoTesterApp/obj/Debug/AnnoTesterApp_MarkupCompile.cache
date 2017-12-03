@@ -4,16 +4,16 @@
 winexe
 C#
 .cs
-R:\Dropbox\Projects\ZTProjects\C3D_Anno\Source\C3D_2016_Anno\AnnoTesterApp\obj\Debug\
+R:\GitHub\Aanno\AnnoTesterApp\obj\Debug\
 AnnoTesterApp
 none
 false
 DEBUG;TRACE
-R:\Dropbox\Projects\ZTProjects\C3D_Anno\Source\C3D_2016_Anno\AnnoTesterApp\App.xaml
+R:\GitHub\Aanno\AnnoTesterApp\App.xaml
 2-701707839
 31642247920
 82135275979
-212119627669
+16945429012
 MainWindow.xaml;Resources\Icons.xaml;
 
 False

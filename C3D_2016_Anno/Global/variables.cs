@@ -34,6 +34,7 @@ namespace C3D_2016_Anno.Global
         public static bool errorToast = false;
         public static bool infoToast = false;
         public static bool showViewportBoundary = false;
+        
         #endregion
 
         #region - Path
@@ -63,6 +64,13 @@ namespace C3D_2016_Anno.Global
         public static bool dllLoadStatus;
         public static ProgressMeter pmeter = new ProgressMeter();
         public static string keynoteSeperator;
+        public static string templateFileExt;
+        public static string MapperFileExt;
+        public static char templateFileDelimiter;
+        public static char MapperFileDelimiter;
+        public static string XMLTemplateAtt;
+        public static string XMLMapperAtt;
+        public static string CSVfilecharReplace;
         #endregion
 
         #region ACAD Vars

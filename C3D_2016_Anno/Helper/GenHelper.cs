@@ -10,13 +10,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using ZSharpQLogger;
-using ZSharpXMLHelper;
+using VSharpSettingsHelper;
 using GV = C3D_2016_Anno.Global.variables;
 
 namespace C3D_2016_Anno.Helper
 {
     public class GenHelper
     {
+        char[] extTrimChar = {'.'};
         public static void initializeSettings()
         {
             try
@@ -75,11 +76,31 @@ namespace C3D_2016_Anno.Helper
                     GV.errorToast = bool.Parse(xmlParser.getXMLValue(Global.variables.settingsFile, "Settings", "name", "errorToast"));
                     GV.infoToast = bool.Parse(xmlParser.getXMLValue(Global.variables.settingsFile, "Settings", "name", "infoToast"));
                     GV.showViewportBoundary = bool.Parse(xmlParser.getXMLValue(Global.variables.settingsFile, "Settings", "name", "showViewportBoundary"));
+                    if(bool.Parse(xmlParser.getXMLValue(Global.variables.settingsFile, "Settings", "name", "CSVfilecharReplace")))
+                    {
+                        GV.CSVfilecharReplace = "\"";
+                    }
+                    else
+                    {
+                        GV.CSVfilecharReplace = "[noval]";
+                    }
                     //GV.xmlManPath = xmlParser.getXMLValue(Global.variables.settingsFile, "Settings", "name", "xmlManPath");
                     tempalteFiles = new List<string>();
                     mapperFiles = new List<string>();
-                }
 
+                    //set the defnition and mapper file format xml or csv
+                    GV.templateFileExt = xmlParser.getXMLValue(Global.variables.settingsFile, "Settings", "name", "templateFileExt");
+                    GV.MapperFileExt = xmlParser.getXMLValue(Global.variables.settingsFile, "Settings", "name", "MapperFileExt");
+
+                    //delimiters
+                    GV.templateFileDelimiter = Convert.ToChar(xmlParser.getXMLValue(Global.variables.settingsFile, "Settings", "name", "templateFileDelimiter"));
+                    GV.MapperFileDelimiter = Convert.ToChar(xmlParser.getXMLValue(Global.variables.settingsFile, "Settings", "name", "MapperFileDelimiter"));
+
+                    GV.XMLTemplateAtt = xmlParser.getXMLValue(Global.variables.settingsFile, "Settings", "name", "XMLTemplateAtt");
+                    GV.XMLMapperAtt = xmlParser.getXMLValue(Global.variables.settingsFile, "Settings", "name", "XMLMapperAtt");
+                    //remove double q
+                    
+                }
                 
             }
             catch (System.Exception ee)
@@ -104,6 +125,7 @@ namespace C3D_2016_Anno.Helper
             if (GV.errorBoxSwitch)
                 MessageBox.Show(message);
         }
+
         private static Global.fileItem FI;
         private static List<string> tempalteFiles;
         private static List<string> mapperFiles;
@@ -113,7 +135,7 @@ namespace C3D_2016_Anno.Helper
             {
                 Global.fileItem FI = new Global.fileItem();
                 FI.filePath = file;
-                FI.fileName = Path.GetFileNameWithoutExtension(file);
+                FI.fileName = Path.GetFileNameWithoutExtension(file).Replace(".", string.Empty);
                 FI.type = type;
                 FI.checkSum = GetMD5HashFromFile(file);
 
@@ -156,37 +178,28 @@ namespace C3D_2016_Anno.Helper
         {
             try
             {
+                #region CSV Parser
+                //set file extension to ser
+                #endregion
+                #region XML Parser
                 if (action == "template" || action == "all")
                 {
                     GV.templateFiles.Clear();
                     //get all the template files
-                    foreach (string file in Directory.GetFiles(GV.templatepath, "*.xml", SearchOption.AllDirectories))
+                    
+                    foreach (string file in Directory.GetFiles(GV.templatepath, "*." + GV.templateFileExt, SearchOption.AllDirectories))
                     {
-                        //Global.fileItem FI = new Global.fileItem();
-                        //FI.filePath = file;
-                        //FI.fileName = Path.GetFileNameWithoutExtension(file);
-                        //FI.type = "mapper";
-                        //FI.checkSum = GetMD5HashFromFile(file);
                         getFileObject(file, "template");
-
                     }
-
-
                 }
-
 
                 if (action == "mapper" || action == "all")
                 {
                     GV.mapperFiles.Clear();
                     //get all mapper files
-                    foreach (string file in Directory.GetFiles(GV.templatepath, "*.Mapper", SearchOption.AllDirectories))
+                    foreach (string file in Directory.GetFiles(GV.templatepath, "*." + GV.MapperFileExt, SearchOption.AllDirectories))
                     {
-                        //Global.fileItem FI = new Global.fileItem();
-                        //FI.filePath = file;
-                        //FI.fileName = Path.GetFileNameWithoutExtension(file);
-                        //FI.checkSum = GetMD5HashFromFile(file);
                         getFileObject(file, "mapper");
-
                     }
 
                     foreach (Global.fileItem mapFile in GV.mapperFiles)
@@ -196,11 +209,8 @@ namespace C3D_2016_Anno.Helper
                             GV.commonMapper = mapFile;
                         }
                     }
-                }
-
-                //common mapper
-
-
+                } 
+                #endregion
             }
             catch (System.Exception ex) { }
         }
@@ -220,35 +230,80 @@ namespace C3D_2016_Anno.Helper
         {
             try
             {
-                //getFiles();
                 GV.NoteColl.Clear();
+                //GV.notesDict.Clear();
+                GV.templateFileExt = Path.GetExtension(file).Replace(".", string.Empty);
 
-                writeLog("\n --------------FILE: " + file);
-                //get the keys
-                List<string> keys = xmlParser.getXMLKeys(file, "KeyNotes");
 
-                foreach (var key in keys)
+                if (GV.templateFileExt == "xml")
                 {
-                    extractNotes(file, key, "number");
-                }
-                //List<string> val = xmlParser.getXMLVaules(file, "SEWERNOTES", "name", "note");
-                //print values
-                foreach (var item in GV.notesDict)
-                {
-                    writeLog("\n KEY: " + item.Key);
-                    Dictionary<int, string> dictfromXML = new Dictionary<int, string>();
-                    dictfromXML = item.Value;
-                    foreach (var noteitem in dictfromXML)
+                    #region XML
+                    //getFiles();
+                    
+
+                    writeLog("\n --------------FILE: " + file);
+                    //get the keys
+                    List<string> keys = xmlParser.getXMLKeys(file, "KeyNotes");
+
+                    foreach (var key in keys)
                     {
-                        writeLog("\n ======: " + noteitem.Key + "== " + noteitem.Value);
+                        extractNotes(file, key, GV.XMLTemplateAtt);//
                     }
+                    //List<string> val = xmlParser.getXMLVaules(file, "SEWERNOTES", "name", "note");
+                    //print values
+                    foreach (var item in GV.notesDict)
+                    {
+                        writeLog("\n KEY: " + item.Key);
+                        Dictionary<int, string> dictfromXML = new Dictionary<int, string>();
+                        dictfromXML = item.Value;
+                        foreach (var noteitem in dictfromXML)
+                        {
+                            writeLog("\n ======: " + noteitem.Key + "== " + noteitem.Value);
+                        }
+                    } 
+                    #endregion
                 }
+                else
+                {
+                    #region CSV File
+                    using (StreamReader sr = new StreamReader(file))
+                    {
+                        GV.notesDict.Clear();
+                        string currentLine;
+                        // currentLine will be null when the StreamReader reaches the end of file
+                        while ((currentLine = sr.ReadLine()) != null)
+                        {
+                            List<string> vals = new List<string>();
+                            vals = currentLine.Split(GV.templateFileDelimiter).ToList();
 
-                //get all the template files with ext XML
-                //foreach (string file in Directory.GetFiles(GV.templatepath, "*.xml", SearchOption.AllDirectories))
-                //{
+                            //check if the key exitst in main dict
+                            var dictCheckOut = new Dictionary<int, string>();
+                            string dictCheckOut1;
 
-                //}
+                            if (GV.notesDict.TryGetValue(vals[0].Replace(GV.CSVfilecharReplace, ""), out dictCheckOut))
+                            {
+                                
+                                if (!GV.notesDict[vals[0].Replace(GV.CSVfilecharReplace, "")].TryGetValue(Convert.ToInt16(vals[1].Replace(GV.CSVfilecharReplace, "")), out dictCheckOut1))
+                                {
+                                    GV.notesDict[vals[0].Replace(GV.CSVfilecharReplace, "")].Add(Convert.ToInt16(vals[1].Replace(GV.CSVfilecharReplace, "")), vals[2].Replace(GV.CSVfilecharReplace, ""));
+                                }
+                            }
+                            else
+                            {
+                                Dictionary<int, string> noteItem = new Dictionary<int, string>();
+                                string key = vals[0].Replace(GV.CSVfilecharReplace, "");
+                                GV.notesDict.Add(key, noteItem);
+                                var innerdict = GV.notesDict[vals[0].Replace(GV.CSVfilecharReplace, "")];
+                                var innerDictKey = Convert.ToInt16(vals[1].Replace(GV.CSVfilecharReplace, ""));
+                                if (!innerdict.TryGetValue(innerDictKey, out dictCheckOut1))
+                                {
+                                    GV.notesDict[vals[0].Replace(GV.CSVfilecharReplace, "")].Add(Convert.ToInt16(vals[1].Replace(GV.CSVfilecharReplace, "")), vals[2].Replace(GV.CSVfilecharReplace, ""));
+                                }
+                            }
+                        }
+                    } 
+                    #endregion
+                }
             }
             catch(System.Exception ex) { }
         }
@@ -257,18 +312,79 @@ namespace C3D_2016_Anno.Helper
             try
             {
                 GV.Mapper.Clear();
-                GV.Mapper = xmlParser.getXMLVaulesStrings(file, "STYLE", "key");
                 GV.ObtTypes.Clear();
+                GV.MapperFileExt = Path.GetExtension(file).Replace(".", string.Empty);
 
-                foreach (var mapItem in GV.Mapper)
+                if (GV.MapperFileExt == "mapper")
                 {
-                    if(!GV.ObtTypes.Contains(mapItem.Value))
-                    {
-                        GV.ObtTypes.Add(mapItem.Value);
-                    }
-
-                    qprint("\n Mapper ======: " + mapItem.Key + "== " + mapItem.Value);
+                    GV.Mapper = xmlParser.getXMLVaulesStrings(file, "STYLE", GV.XMLMapperAtt);
                 }
+                else if (GV.MapperFileExt == "qmap") // CSV file - Format -  "val1", "val 2 - here , this", val3"
+                {
+                    string dictCheckOut1;
+                    #region Process regular CSV file
+                    using (StreamReader sr = new StreamReader(file))
+                    {
+                        string currentLine;
+                        // currentLine will be null when the StreamReader reaches the end of file
+                        while ((currentLine = sr.ReadLine()) != null)
+                        {
+                            List<string> vals = new List<string>();
+                            vals = currentLine.Split(',').ToList();
+
+                            //check if the key exitst in main dict
+                            if (GV.Mapper.TryGetValue(vals[0], out dictCheckOut1))
+                            {
+                                GV.Mapper[vals[0]] = vals[1].Replace("\"", "");
+                            }
+                            else
+                            {
+                                GV.Mapper.Add(vals[0].Replace("\"", ""), vals[1].Replace("\"", ""));
+                            }
+                        }
+                    }
+                    #endregion
+                }
+                else // CSV file
+                {
+                    string dictCheckOut1;
+                    #region Process regular CSV file
+                    using (StreamReader sr = new StreamReader(file))
+                    {
+                        string currentLine;
+                        // currentLine will be null when the StreamReader reaches the end of file
+                        while ((currentLine = sr.ReadLine()) != null)
+                        {
+                            List<string> vals = new List<string>();
+                            vals = currentLine.Split(GV.MapperFileDelimiter).ToList();
+
+                            //check if the key exitst in main dict
+                            if (GV.Mapper.TryGetValue(vals[0], out dictCheckOut1))
+                            {
+                                GV.Mapper[vals[0]] = vals[1].Replace(GV.CSVfilecharReplace, "");
+                            }
+                            else
+                            {
+                                GV.Mapper.Add(vals[0].Replace(GV.CSVfilecharReplace, ""), vals[1].Replace(GV.CSVfilecharReplace, ""));
+                            }
+                        }
+                    } 
+                    #endregion
+                }
+
+                #region Add obj type
+                if (GV.Mapper.Count > 0)
+                {
+                    foreach (var mapItem in GV.Mapper)
+                    {
+                        if (!GV.ObtTypes.Contains(mapItem.Value))
+                        {
+                            GV.ObtTypes.Add(mapItem.Value);
+                        }
+                        qprint("\n Mapper ======: " + mapItem.Key + "== " + mapItem.Value);
+                    }
+                } 
+                #endregion
             }
             catch (System.Exception ex) { qprint(ex.ToString()); }
         }
@@ -379,11 +495,11 @@ namespace C3D_2016_Anno.Helper
             {
                 Dictionary<int, string> dictfromXML = new Dictionary<int, string>();
                 dictfromXML = xmlParser.getXMLVaulesSpec(file, XMLKey, att);
-                 
 
+                Dictionary<int, string> dictCheckOut1 = new Dictionary<int, string>();
                 //create a dictionary or use existing.
                 //check if the dictionary exists
-                if (!GV.notesDict.ContainsKey(XMLKey))
+                if (!GV.notesDict.TryGetValue(XMLKey, out dictCheckOut1))
                 {
                     GV.notesDict.Add(XMLKey, dictfromXML);
                 }

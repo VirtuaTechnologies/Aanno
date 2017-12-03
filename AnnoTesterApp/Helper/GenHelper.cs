@@ -5,9 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using GV = AnnoTesterApp.Global.variables;
-using ZSharpXMLHelper;
 using ZSharpQLogger;
 using System.Reflection;
+using VSharpSettingsHelper;
 
 namespace AnnoTesterApp.Helper
 {
