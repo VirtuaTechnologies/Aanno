@@ -12,7 +12,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Virtua Technologies")]
-[assembly: AssemblyProduct("C3D_2016_Anno")]
+[assembly: AssemblyProduct("AutoAnno")]
 [assembly: AssemblyCopyright("Copyright ©  Virtua Technologies 2016")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -27,8 +27,8 @@ using System.Runtime.InteropServices;
 // You can specify all the values or you can default the Build and Revision Numbers 
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("4.45.0.0")]
-[assembly: AssemblyFileVersion("4.45.0.0")]
+[assembly: AssemblyVersion("4.45.1.1")]
+[assembly: AssemblyFileVersion("4.45.1.1")]
 
 // In order to sign your assembly you must specify a key to use. Refer to the 
 // Microsoft .NET Framework documentation for more information on assembly signing.

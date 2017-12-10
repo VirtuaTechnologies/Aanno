@@ -37,8 +37,6 @@ namespace AnnoTesterApp
             //fetchDATA();
         }
 
-        
-
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             ContextMenu cm = this.FindResource("cmButton") as ContextMenu;
@@ -234,7 +232,6 @@ namespace AnnoTesterApp
                     MyReader.SetDelimiters(",");
                     MyReader.HasFieldsEnclosedInQuotes = true;
                     string[] currentRow;
-                    currentRow = MyReader.ReadFields();
                     DataTable dt = new DataTable();
                     while (!MyReader.EndOfData)
                     {

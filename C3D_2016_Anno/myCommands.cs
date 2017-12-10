@@ -22,6 +22,7 @@ using AcAp = Autodesk.AutoCAD.ApplicationServices.Application;
 using System.ComponentModel;
 using Notifications.Wpf;
 using System.Diagnostics;
+using System.Reflection;
 
 // This line is not mandatory, but improves loading performances
 [assembly: CommandClass(typeof(C3D_2016_Anno.MyCommands))]
@@ -71,7 +72,11 @@ namespace C3D_2016_Anno
                     {
 
                         // Create the palette set
-                        palSet = new PaletteSet("Note Creator");
+                        Assembly assembly = Assembly.GetExecutingAssembly();
+                        FileVersionInfo fvi = FileVersionInfo.GetVersionInfo(assembly.Location);
+
+                        string palTitle = string.Format("{0} (Ver {1}) License {2}", fvi.ProductName.ToString(), fvi.ProductVersion.ToString(), GV.licInformation);
+                        palSet = new PaletteSet(palTitle);
 
                         palSet.Style = PaletteSetStyles.ShowPropertiesMenu |
                                         PaletteSetStyles.ShowAutoHideButton |

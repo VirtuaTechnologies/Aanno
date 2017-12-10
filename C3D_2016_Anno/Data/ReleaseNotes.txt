@@ -1,4 +1,20 @@
 ﻿========================
+Release Notes -AANNO AutoCAD plugin - 20171210 - Ver 4.45.1.1
+========================
+- Added product information, version number and licensing details to the pal header
+- swtiched the location of mapper and notelist dropdown
+- Adjusted controls in the preview panel so some space can be saved.
+- Spelling mistake corrections
+
+========================
+Release Notes -AANNO AutoCAD plugin - 20171205 - Ver 4.45.1.0
+========================
+- CSV with double quotes
+- remember the last openeded location
+- Other bug fixes
+- Display the path for the choosen file.
+
+========================
 Release Notes -AANNO AutoCAD plugin - 20171111 - Ver 4.45.0.0
 ========================
 - Added options to read CSV based tempalte and mapper file

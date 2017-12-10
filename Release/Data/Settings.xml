@@ -14,13 +14,16 @@
   <Settings name="IncludeMultiLeader">true</Settings>
   <Settings name="MultiLeaderAtt">TAGNUMBER</Settings>
   <Settings name="keynotetexttype">mtext</Settings>
-  <Settings name="keynoteSeperator">.[nbsp]</Settings> <!--Use [nbsp] For blank space-->
+  <Settings name="keynoteSeperator">.[nbsp]</Settings>
+  <!--Use [nbsp] For blank space-->
   <Settings name="sucessToast">true</Settings>
   <Settings name="errorToast">true</Settings>
   <Settings name="infoToast">true</Settings>
   <Settings name="showViewportBoundary">true</Settings>
-  <Settings name="templateFileExt">def</Settings> <!--xml or def or qdef-->
-  <Settings name="MapperFileExt">map</Settings> <!--mapper or map or qmap-->
+  <Settings name="templateFileExt">def</Settings>
+  <!--xml or def or qdef-->
+  <Settings name="MapperFileExt">map</Settings>
+  <!--mapper or map or qmap-->
   <Settings name="XMLTemplateAtt">number</Settings>
   <Settings name="CSVfilecharReplace">false</Settings>
   <Settings name="XMLMapperAtt">name</Settings>

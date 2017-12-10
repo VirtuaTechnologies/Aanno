@@ -235,6 +235,8 @@ namespace C3D_2016_Anno.Helper
             try
             {
                 GV.NoteColl.Clear();
+                GV.notesDict.Clear();
+
                 //GV.notesDict.Clear();
                 GV.templateFileExt = Path.GetExtension(file).Replace(".", string.Empty);
 
@@ -319,7 +321,6 @@ namespace C3D_2016_Anno.Helper
                         MyReader.SetDelimiters(",");
                         MyReader.HasFieldsEnclosedInQuotes = true;
                         string[] currentRow;
-                        currentRow = MyReader.ReadFields();
                         DataTable dt = new DataTable();
                         while (!MyReader.EndOfData)
                         {
