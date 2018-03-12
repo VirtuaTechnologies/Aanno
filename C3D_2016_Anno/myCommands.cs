@@ -37,7 +37,7 @@ namespace C3D_2016_Anno
     public class MyCommands
     {
 
-        static PaletteSet palSet = null;
+        public static PaletteSet palSet = null;
         static string templateWarning;
         public static Apps.MainControl mc;
         public static ElementHost mcHost;

@@ -33,7 +33,7 @@ namespace C3D_2016_Anno.Apps
 
         private void button_Copy_Click(object sender, RoutedEventArgs e)
         {
-            
+            MyCommands.palSet.Visible = false;
         }
     }
 }
