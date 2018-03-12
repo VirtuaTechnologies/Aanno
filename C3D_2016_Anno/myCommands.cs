@@ -40,6 +40,7 @@ namespace C3D_2016_Anno
         static PaletteSet palSet = null;
         static string templateWarning;
         public static Apps.MainControl mc;
+        public static ElementHost mcHost;
         //public static Apps.MainControl mw = new Apps.MainControl();
 
         // Modal Command with localized name
@@ -88,14 +89,15 @@ namespace C3D_2016_Anno
                           (DockSides)((int)DockSides.Left + (int)DockSides.Right);
 
                         Apps.MainControl mc = new Apps.MainControl();
-                        ElementHost mcHost = new ElementHost();
+                        Apps.login lg = new Apps.login();
+                        mcHost = new ElementHost();
                         mcHost.AutoSize = true;
                         mcHost.Dock = DockStyle.Fill;
                         //mcHost.Width = 500;
                         //mcHost.Height = 800;
                         //mcHost.Size = new System.Drawing.Size(500, 800);
                         //mcHost.MinimumSize = new System.Drawing.Size(500, 800);
-                        mcHost.Child = mc;
+                        mcHost.Child = lg;// mc;
                         //mcHost.Child.RenderSize = new System.Windows.Size(500, 800);
                         palSet.Add("Note Creator", mcHost);
                         // Display our palette set

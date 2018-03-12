@@ -147,6 +147,9 @@
     <Compile Include="Apps\Editor.xaml.cs">
       <DependentUpon>Editor.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Apps\login.xaml.cs">
+      <DependentUpon>login.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Apps\MainControl.xaml.cs">
       <DependentUpon>MainControl.xaml</DependentUpon>
     </Compile>
@@ -240,6 +243,10 @@
   </ItemGroup>
   <ItemGroup>
     <Page Include="Apps\Editor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Apps\login.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

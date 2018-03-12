@@ -60,3 +60,5 @@ R:\GitHub\Aanno\C3D_2016_Anno\obj\Debug\C3D_2016_Anno.MyCommands.resources
 R:\GitHub\Aanno\C3D_2016_Anno\obj\Debug\C3D_2016_Anno.csproj.GenerateResource.Cache
 R:\GitHub\Aanno\C3D_2016_Anno\obj\Debug\C3D_2016_Anno.dll
 R:\GitHub\Aanno\C3D_2016_Anno\obj\Debug\C3D_2016_Anno.pdb
+R:\GitHub\Aanno\C3D_2016_Anno\obj\Debug\Apps\login.g.cs
+R:\GitHub\Aanno\C3D_2016_Anno\obj\Debug\Apps\login.baml
