@@ -14,6 +14,11 @@ using VSharpSettingsHelper;
 using GV = C3D_2016_Anno.Global.variables;
 using Microsoft.VisualBasic.FileIO;
 using System.Data;
+using System.Windows.Media.Imaging;
+using System.Windows.Media;
+using System.Windows.Interop;
+using System.Runtime.InteropServices;
+using System.Drawing;
 
 namespace C3D_2016_Anno.Helper
 {
@@ -499,6 +504,33 @@ namespace C3D_2016_Anno.Helper
             }
         }
 
+        [DllImport("gdi32.dll", EntryPoint = "DeleteObject")]
+        [return: MarshalAs(UnmanagedType.Bool)]
+        public static extern bool DeleteObject([In] IntPtr hObject);
+        public static ImageSource ImageSourceForBitmap(Bitmap bmp)
+        {
+            var handle = bmp.GetHbitmap();
+            try
+            {
+                return Imaging.CreateBitmapSourceFromHBitmap(handle, IntPtr.Zero, Int32Rect.Empty, BitmapSizeOptions.FromEmptyOptions());
+            }
+            finally { DeleteObject(handle); }
+        }
+
+        public static BitmapImage getBitmap(string imageName, int Height, int Width)
+        {
+            BitmapImage image = new BitmapImage();
+            string[] vals = Assembly.GetExecutingAssembly().GetManifestResourceNames();
+            image.BeginInit();
+            image.StreamSource
+                = Assembly.GetExecutingAssembly().GetManifestResourceStream(imageName);
+            // image.UriSource = new Uri(imageName);
+            image.DecodePixelHeight = Height;
+            image.DecodePixelWidth = Width;
+            image.EndInit();
+
+            return image;
+        }
         private void firstTime()
         {
             GV.regPath = @"Software\" + GV.globalPath + "\\" + GV.appName;
@@ -622,5 +654,7 @@ namespace C3D_2016_Anno.Helper
 
             return true;
         }
+
+
     }
 }

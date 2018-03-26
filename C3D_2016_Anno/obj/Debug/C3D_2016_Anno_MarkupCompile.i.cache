@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 
-4740851112
+5181697268
 6-64295847
-151708447
-32804969797
-Apps\Editor.xaml;Apps\login.xaml;Apps\MainControl.xaml;Resources\Icons.xaml;
+16-203875758
+39106590069
+Apps\Editor.xaml;Apps\login.xaml;Apps\MainControl.xaml;Resources\Icons.xaml;Resources\IconsNonShared.xaml;
 
-True
+False
 

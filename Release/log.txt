@@ -1,0 +1,71 @@
+
+15/03/2018 11:37:55 PM appSettingFilePathR:\GitHub\Aanno\Release\Data\LicensingSettings.xml
+15/03/2018 11:37:55 PM URLhttp://virtualogin.com/index.php/api/auth/pr_login.json
+15/03/2018 11:37:55 PM UserNameDemo@email.com
+15/03/2018 11:37:55 PM Passwordwt*37064
+15/03/2018 11:37:55 PM conn_keyvtechdev
+15/03/2018 11:37:55 PM app_id6912949810393
+15/03/2018 11:37:56 PM API Response:- {"responseCode":1,"responseStatus":"Sucess","responseMessage":"User Details","response":{"profileid":"17","userid":"1","username":null,"email":"demo@email.com","default_profile":"0","image":"http:\/\/virtualogin.com\/\/uploads\/profile_images\/","s_image":null,"f_name":"Prasaath","l_name":"Hari","gender":"Male","dob":"1970-01-01","height":"150","weight":"85","blood_group":"O+ve","c_city":null,"c_state":null,"c_country":null,"c_zip":null,"fb_acc":"https:\/\/www.facebook.com\/jilaba17","fb_id":null,"fb_name":null,"fb_image":null,"linkedin":"https:\/\/www.linkedin.com\/in\/shribalaji-ganesan-07924879\/","linkedin_id":null,"linkedin_name":null,"linkedin_image":null,"twitter":"https:\/\/twitter.com\/jilabaji","twitter_id":null,"twitter_name":null,"twitter_image":null,"insta":"https:\/\/www.instagram.com\/jilabaji\/","insta_id":null,"insta_name":null,"insta_image":null,"snapchat":null,"snapchat_id":null,"snapchat_name":null,"snapchat_image":null,"last_login":"2018-03-10 14:22:34","since_from":"2017-07-22 13:12:08","up_is_deleted":"0","up_deleteddt":null,"up_status":"1","pemail":"demo@email.com","small_image":"http:\/\/virtualogin.com\/\/uploads\/profile_images\/","loginsession":"AK14562PL1236"}}
+15/03/2018 11:37:56 PM API Response:- 
+15/03/2018 11:37:59 PM API Response:- {"responseCode":"1","responseStatus":"Success","responseMessage":"This Seat Already Allocated","response":{"lic_info":{"interval":"60","seat_id":"86","expire_on":"2018-03-21 12:38:00"},"Message":{"type":"1","msg":"asdasd","closeapp":"1"}}}
+15/03/2018 11:37:59 PM License File Path:R:\GitHub\Aanno\Release\\License.xml
+15/03/2018 11:40:38 PM appSettingFilePathR:\GitHub\Aanno\Release\Data\LicensingSettings.xml
+15/03/2018 11:40:38 PM URLhttp://virtualogin.com/index.php/api/auth/pr_login.json
+15/03/2018 11:40:38 PM UserNameDemo@email.com
+15/03/2018 11:40:38 PM Passwordwt*37064
+15/03/2018 11:40:38 PM conn_keyvtechdev
+15/03/2018 11:40:38 PM app_id6912949810393
+15/03/2018 11:40:38 PM API Response:- {"responseCode":1,"responseStatus":"Sucess","responseMessage":"User Details","response":{"profileid":"17","userid":"1","username":null,"email":"demo@email.com","default_profile":"0","image":"http:\/\/virtualogin.com\/\/uploads\/profile_images\/","s_image":null,"f_name":"Prasaath","l_name":"Hari","gender":"Male","dob":"1970-01-01","height":"150","weight":"85","blood_group":"O+ve","c_city":null,"c_state":null,"c_country":null,"c_zip":null,"fb_acc":"https:\/\/www.facebook.com\/jilaba17","fb_id":null,"fb_name":null,"fb_image":null,"linkedin":"https:\/\/www.linkedin.com\/in\/shribalaji-ganesan-07924879\/","linkedin_id":null,"linkedin_name":null,"linkedin_image":null,"twitter":"https:\/\/twitter.com\/jilabaji","twitter_id":null,"twitter_name":null,"twitter_image":null,"insta":"https:\/\/www.instagram.com\/jilabaji\/","insta_id":null,"insta_name":null,"insta_image":null,"snapchat":null,"snapchat_id":null,"snapchat_name":null,"snapchat_image":null,"last_login":"2018-03-10 14:22:34","since_from":"2017-07-22 13:12:08","up_is_deleted":"0","up_deleteddt":null,"up_status":"1","pemail":"demo@email.com","small_image":"http:\/\/virtualogin.com\/\/uploads\/profile_images\/","loginsession":"AK14562PL1236"}}
+15/03/2018 11:40:38 PM API Response:- 
+15/03/2018 11:40:41 PM API Response:- {"responseCode":"1","responseStatus":"Success","responseMessage":"Seat Allocated","response":{"lic_info":{"interval":"60","seat_id":"89","expire_on":"2018-03-21 12:40:42"},"Message":{"type":"1","msg":"asdasd","closeapp":"1"}}}
+15/03/2018 11:40:41 PM License File Path:R:\GitHub\Aanno\Release\\License.xml
+15/03/2018 11:40:51 PM appSettingFilePathR:\GitHub\Aanno\Release\Data\LicensingSettings.xml
+15/03/2018 11:40:51 PM URLhttp://virtualogin.com/index.php/api/auth/pr_login.json
+15/03/2018 11:40:51 PM UserNameDemo@email.com
+15/03/2018 11:40:51 PM Passwordwt*37064
+15/03/2018 11:40:51 PM conn_keyvtechdev
+15/03/2018 11:40:51 PM app_id6912949810393
+15/03/2018 11:40:51 PM API Response:- {"responseCode":1,"responseStatus":"Sucess","responseMessage":"User Details","response":{"profileid":"17","userid":"1","username":null,"email":"demo@email.com","default_profile":"0","image":"http:\/\/virtualogin.com\/\/uploads\/profile_images\/","s_image":null,"f_name":"Prasaath","l_name":"Hari","gender":"Male","dob":"1970-01-01","height":"150","weight":"85","blood_group":"O+ve","c_city":null,"c_state":null,"c_country":null,"c_zip":null,"fb_acc":"https:\/\/www.facebook.com\/jilaba17","fb_id":null,"fb_name":null,"fb_image":null,"linkedin":"https:\/\/www.linkedin.com\/in\/shribalaji-ganesan-07924879\/","linkedin_id":null,"linkedin_name":null,"linkedin_image":null,"twitter":"https:\/\/twitter.com\/jilabaji","twitter_id":null,"twitter_name":null,"twitter_image":null,"insta":"https:\/\/www.instagram.com\/jilabaji\/","insta_id":null,"insta_name":null,"insta_image":null,"snapchat":null,"snapchat_id":null,"snapchat_name":null,"snapchat_image":null,"last_login":"2018-03-10 14:22:34","since_from":"2017-07-22 13:12:08","up_is_deleted":"0","up_deleteddt":null,"up_status":"1","pemail":"demo@email.com","small_image":"http:\/\/virtualogin.com\/\/uploads\/profile_images\/","loginsession":"AK14562PL1236"}}
+15/03/2018 11:40:51 PM API Response:- 
+15/03/2018 11:40:54 PM API Response:- {"responseCode":"1","responseStatus":"Success","responseMessage":"Seat Allocated","response":{"lic_info":{"interval":"60","seat_id":"90","expire_on":"2018-03-21 12:40:54"},"Message":{"type":"1","msg":"asdasd","closeapp":"1"}}}
+15/03/2018 11:40:54 PM License File Path:R:\GitHub\Aanno\Release\\License.xml
+16/03/2018 12:05:36 AM appSettingFilePathR:\GitHub\Aanno\Release\Data\LicensingSettings.xml
+16/03/2018 12:05:36 AM URLhttp://virtualogin.com/index.php/api/auth/pr_login.json
+16/03/2018 12:05:36 AM UserNameDemo@email.com
+16/03/2018 12:05:36 AM Passwordwt*37064
+16/03/2018 12:05:36 AM conn_keyvtechdev
+16/03/2018 12:05:36 AM app_id6912949810393
+16/03/2018 12:05:37 AM API Response:- {"responseCode":1,"responseStatus":"Sucess","responseMessage":"User Details","response":{"profileid":"17","userid":"1","username":null,"email":"demo@email.com","default_profile":"0","image":"http:\/\/virtualogin.com\/\/uploads\/profile_images\/","s_image":null,"f_name":"Prasaath","l_name":"Hari","gender":"Male","dob":"1970-01-01","height":"150","weight":"85","blood_group":"O+ve","c_city":null,"c_state":null,"c_country":null,"c_zip":null,"fb_acc":"https:\/\/www.facebook.com\/jilaba17","fb_id":null,"fb_name":null,"fb_image":null,"linkedin":"https:\/\/www.linkedin.com\/in\/shribalaji-ganesan-07924879\/","linkedin_id":null,"linkedin_name":null,"linkedin_image":null,"twitter":"https:\/\/twitter.com\/jilabaji","twitter_id":null,"twitter_name":null,"twitter_image":null,"insta":"https:\/\/www.instagram.com\/jilabaji\/","insta_id":null,"insta_name":null,"insta_image":null,"snapchat":null,"snapchat_id":null,"snapchat_name":null,"snapchat_image":null,"last_login":"2018-03-10 14:22:34","since_from":"2017-07-22 13:12:08","up_is_deleted":"0","up_deleteddt":null,"up_status":"1","pemail":"demo@email.com","small_image":"http:\/\/virtualogin.com\/\/uploads\/profile_images\/","loginsession":"AK14562PL1236"}}
+16/03/2018 12:05:37 AM API Response:- 
+16/03/2018 12:05:40 AM API Response:- {"responseCode":"1","responseStatus":"Success","responseMessage":"Seat Allocated","response":{"lic_info":{"interval":"60","seat_id":"91","expire_on":"2018-03-21 13:05:40"},"Message":{"type":"1","msg":"asdasd","closeapp":"1"}}}
+16/03/2018 12:05:40 AM License File Path:R:\GitHub\Aanno\Release\\License.xml
+16/03/2018 12:08:54 AM appSettingFilePathR:\GitHub\Aanno\Release\Data\LicensingSettings.xml
+16/03/2018 12:08:54 AM URLhttp://virtualogin.com/index.php/api/auth/pr_login.json
+16/03/2018 12:08:54 AM UserNameDemo@email.com
+16/03/2018 12:08:54 AM Passwordwt*37064
+16/03/2018 12:08:54 AM conn_keyvtechdev
+16/03/2018 12:08:54 AM app_id6912949810393
+16/03/2018 12:08:55 AM API Response:- {"responseCode":1,"responseStatus":"Sucess","responseMessage":"User Details","response":{"profileid":"17","userid":"1","username":null,"email":"demo@email.com","default_profile":"0","image":"http:\/\/virtualogin.com\/\/uploads\/profile_images\/","s_image":null,"f_name":"Prasaath","l_name":"Hari","gender":"Male","dob":"1970-01-01","height":"150","weight":"85","blood_group":"O+ve","c_city":null,"c_state":null,"c_country":null,"c_zip":null,"fb_acc":"https:\/\/www.facebook.com\/jilaba17","fb_id":null,"fb_name":null,"fb_image":null,"linkedin":"https:\/\/www.linkedin.com\/in\/shribalaji-ganesan-07924879\/","linkedin_id":null,"linkedin_name":null,"linkedin_image":null,"twitter":"https:\/\/twitter.com\/jilabaji","twitter_id":null,"twitter_name":null,"twitter_image":null,"insta":"https:\/\/www.instagram.com\/jilabaji\/","insta_id":null,"insta_name":null,"insta_image":null,"snapchat":null,"snapchat_id":null,"snapchat_name":null,"snapchat_image":null,"last_login":"2018-03-10 14:22:34","since_from":"2017-07-22 13:12:08","up_is_deleted":"0","up_deleteddt":null,"up_status":"1","pemail":"demo@email.com","small_image":"http:\/\/virtualogin.com\/\/uploads\/profile_images\/","loginsession":"AK14562PL1236"}}
+16/03/2018 12:08:55 AM API Response:- 
+16/03/2018 12:08:58 AM API Response:- {"responseCode":"1","responseStatus":"Success","responseMessage":"Seat Allocated","response":{"lic_info":{"interval":"60","seat_id":"92","expire_on":"2018-03-21 13:08:58"},"Message":{"type":"1","msg":"asdasd","closeapp":"1"}}}
+16/03/2018 12:08:58 AM License File Path:R:\GitHub\Aanno\Release\\License.xml
+16/03/2018 12:10:05 AM appSettingFilePathR:\GitHub\Aanno\Release\Data\LicensingSettings.xml
+16/03/2018 12:10:05 AM URLhttp://virtualogin.com/index.php/api/auth/pr_login.json
+16/03/2018 12:10:05 AM UserNameDemo@email.com
+16/03/2018 12:10:05 AM Passwordwt*37064
+16/03/2018 12:10:05 AM conn_keyvtechdev
+16/03/2018 12:10:05 AM app_id6912949810393
+16/03/2018 12:10:06 AM API Response:- {"responseCode":1,"responseStatus":"Sucess","responseMessage":"User Details","response":{"profileid":"17","userid":"1","username":null,"email":"demo@email.com","default_profile":"0","image":"http:\/\/virtualogin.com\/\/uploads\/profile_images\/","s_image":null,"f_name":"Prasaath","l_name":"Hari","gender":"Male","dob":"1970-01-01","height":"150","weight":"85","blood_group":"O+ve","c_city":null,"c_state":null,"c_country":null,"c_zip":null,"fb_acc":"https:\/\/www.facebook.com\/jilaba17","fb_id":null,"fb_name":null,"fb_image":null,"linkedin":"https:\/\/www.linkedin.com\/in\/shribalaji-ganesan-07924879\/","linkedin_id":null,"linkedin_name":null,"linkedin_image":null,"twitter":"https:\/\/twitter.com\/jilabaji","twitter_id":null,"twitter_name":null,"twitter_image":null,"insta":"https:\/\/www.instagram.com\/jilabaji\/","insta_id":null,"insta_name":null,"insta_image":null,"snapchat":null,"snapchat_id":null,"snapchat_name":null,"snapchat_image":null,"last_login":"2018-03-10 14:22:34","since_from":"2017-07-22 13:12:08","up_is_deleted":"0","up_deleteddt":null,"up_status":"1","pemail":"demo@email.com","small_image":"http:\/\/virtualogin.com\/\/uploads\/profile_images\/","loginsession":"AK14562PL1236"}}
+16/03/2018 12:10:06 AM API Response:- 
+16/03/2018 12:10:08 AM API Response:- {"responseCode":"1","responseStatus":"Success","responseMessage":"Seat Allocated","response":{"lic_info":{"interval":"60","seat_id":"93","expire_on":"2018-03-21 13:10:09"},"Message":{"type":"1","msg":"asdasd","closeapp":"1"}}}
+16/03/2018 12:10:08 AM License File Path:R:\GitHub\Aanno\Release\\License.xml
+23/03/2018 10:22:41 PM appSettingFilePathR:\GitHub\Aanno\Release\Data\LicensingSettings.xml
+23/03/2018 10:22:41 PM URLhttp://virtualogin.com/index.php/api/auth/pr_login.json
+23/03/2018 10:22:41 PM UserNameDemo@email.com
+23/03/2018 10:22:41 PM Passwordwt*37064
+23/03/2018 10:22:41 PM conn_keyvtechdev
+23/03/2018 10:22:41 PM app_id6912949810393
+23/03/2018 10:22:42 PM API Response:- {"responseCode":1,"responseStatus":"Sucess","responseMessage":"User Details","response":{"profileid":"17","userid":"1","username":null,"email":"demo@email.com","default_profile":"0","image":"http:\/\/virtualogin.com\/\/uploads\/profile_images\/","s_image":null,"f_name":"Prasaath","l_name":"Hari","gender":"Male","dob":"1970-01-01","height":"150","weight":"85","blood_group":"O+ve","c_city":null,"c_state":null,"c_country":null,"c_zip":null,"fb_acc":"https:\/\/www.facebook.com\/jilaba17","fb_id":null,"fb_name":null,"fb_image":null,"linkedin":"https:\/\/www.linkedin.com\/in\/shribalaji-ganesan-07924879\/","linkedin_id":null,"linkedin_name":null,"linkedin_image":null,"twitter":"https:\/\/twitter.com\/jilabaji","twitter_id":null,"twitter_name":null,"twitter_image":null,"insta":"https:\/\/www.instagram.com\/jilabaji\/","insta_id":null,"insta_name":null,"insta_image":null,"snapchat":null,"snapchat_id":null,"snapchat_name":null,"snapchat_image":null,"last_login":"2018-03-10 14:22:34","since_from":"2017-07-22 13:12:08","up_is_deleted":"0","up_deleteddt":null,"up_status":"1","pemail":"demo@email.com","small_image":"http:\/\/virtualogin.com\/\/uploads\/profile_images\/","loginsession":"AK14562PL1236"}}
+23/03/2018 10:22:42 PM API Response:- 
+23/03/2018 10:22:45 PM API Response:- {"responseCode":"1","responseStatus":"Success","responseMessage":"Seat Allocated","response":{"lic_info":{"interval":"60","seat_id":"96","expire_on":"2018-03-29 11:22:48"},"Message":{"type":"1","msg":"asdasd","closeapp":"1"}}}
+23/03/2018 10:22:45 PM License File Path:R:\GitHub\Aanno\Release\\License.xml

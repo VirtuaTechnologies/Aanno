@@ -62,3 +62,16 @@ R:\GitHub\Aanno\C3D_2016_Anno\obj\Debug\C3D_2016_Anno.dll
 R:\GitHub\Aanno\C3D_2016_Anno\obj\Debug\C3D_2016_Anno.pdb
 R:\GitHub\Aanno\C3D_2016_Anno\obj\Debug\Apps\login.g.cs
 R:\GitHub\Aanno\C3D_2016_Anno\obj\Debug\Apps\login.baml
+D:\Projects\RaghuRam\AutoCAD\SourceCode\Aanno-master\C3D_2016_Anno\obj\Debug\C3D_2016_Anno.csprojResolveAssemblyReference.cache
+D:\Projects\RaghuRam\AutoCAD\SourceCode\Aanno-master\C3D_2016_Anno\obj\Debug\Resources\Icons.baml
+D:\Projects\RaghuRam\AutoCAD\SourceCode\Aanno-master\C3D_2016_Anno\obj\Debug\Resources\IconsNonShared.baml
+D:\Projects\RaghuRam\AutoCAD\SourceCode\Aanno-master\C3D_2016_Anno\obj\Debug\Apps\Editor.g.cs
+D:\Projects\RaghuRam\AutoCAD\SourceCode\Aanno-master\C3D_2016_Anno\obj\Debug\Apps\login.g.cs
+D:\Projects\RaghuRam\AutoCAD\SourceCode\Aanno-master\C3D_2016_Anno\obj\Debug\Apps\MainControl.g.cs
+D:\Projects\RaghuRam\AutoCAD\SourceCode\Aanno-master\C3D_2016_Anno\obj\Debug\C3D_2016_Anno_MarkupCompile.cache
+D:\Projects\RaghuRam\AutoCAD\SourceCode\Aanno-master\C3D_2016_Anno\obj\Debug\C3D_2016_Anno_MarkupCompile.lref
+D:\Projects\RaghuRam\AutoCAD\SourceCode\Aanno-master\C3D_2016_Anno\obj\Debug\C3D_2016_Anno.dll
+D:\Projects\RaghuRam\AutoCAD\SourceCode\Aanno-master\C3D_2016_Anno\obj\Debug\C3D_2016_Anno.pdb
+R:\GitHub\Aanno\Release\data\LicensingSettings.xml
+R:\GitHub\Aanno\C3D_2016_Anno\obj\Debug\Resources\IconsNonShared.baml
+R:\GitHub\Aanno\C3D_2016_Anno\obj\Debug\C3D_2016_Anno.Properties.Resources.resources

@@ -23,6 +23,8 @@ using System.ComponentModel;
 using Notifications.Wpf;
 using System.Diagnostics;
 using System.Reflection;
+using Autodesk.Windows;
+using System.Windows.Media.Imaging;
 
 // This line is not mandatory, but improves loading performances
 [assembly: CommandClass(typeof(C3D_2016_Anno.MyCommands))]
@@ -97,7 +99,7 @@ namespace C3D_2016_Anno
                         //mcHost.Height = 800;
                         //mcHost.Size = new System.Drawing.Size(500, 800);
                         //mcHost.MinimumSize = new System.Drawing.Size(500, 800);
-                        mcHost.Child = lg;// mc;
+                        mcHost.Child = mc; //lg;// 
                         //mcHost.Child.RenderSize = new System.Windows.Size(500, 800);
                         palSet.Add("Note Creator", mcHost);
                         // Display our palette set
@@ -124,6 +126,161 @@ namespace C3D_2016_Anno
             catch (System.Exception ex)
             {
                 GH.writeLog("\n ERROR: " + ex.ToString());
+            }
+        }
+
+        public static string cmdtoRun;
+        [CommandMethod("AAui")]
+        public void AAui() // This method can have any name
+        {
+            try
+            {
+                Helper.GenHelper.initializeSettings();
+
+                Autodesk.Windows.RibbonControl ribbonControl = Autodesk.Windows.ComponentManager.Ribbon;
+
+                RibbonTab Tab = new RibbonTab();
+                Tab.Title = "AutoAnno";
+                Tab.Id = "AutoAnno_TAB_ID";
+
+                var ribbon = ComponentManager.Ribbon;
+                var tabExsits = ribbon.FindTab("AutoAnno_TAB_ID");
+
+                if (tabExsits == null)
+                {
+                    ribbonControl.Tabs.Add(Tab);
+
+                    Autodesk.Windows.RibbonPanelSource srcPanel = new Autodesk.Windows.RibbonPanelSource();
+                    srcPanel.Title = "AutoAnno Tools";
+
+                    RibbonPanel Panel = new RibbonPanel();
+                    Panel.Source = srcPanel;
+                    Tab.Panels.Add(Panel);
+
+                    // Aano button 
+                    Autodesk.Windows.RibbonButton Aano_btn = new Autodesk.Windows.RibbonButton();
+                    Aano_btn.Text = "AutoAnno";
+                    Aano_btn.LargeImage = Helper.GenHelper.getBitmap("C3D_2016_Anno.Resources.Icons.AAIcon (1).png", 32, 32);//new Bitmap(new Uri("pack://application:,,,;component/Resources/Icons/AAIcon (1).png"));//Helper.GenHelper.ImageSourceForBitmap(C3D_2016_Anno.Properties.Resources.AAIcon__1_);// 
+                    Aano_btn.Orientation = System.Windows.Controls.Orientation.Vertical;
+                    Aano_btn.Size = RibbonItemSize.Large;
+                    Aano_btn.ShowText = true;
+                    Aano_btn.ShowImage = true;
+                    Aano_btn.Id = "AutoAnno_click";
+                    cmdtoRun = "AAnno ";
+                    Aano_btn.CommandHandler = new AAuiRibbonButtonCommandHandler();
+                    srcPanel.Items.Add(Aano_btn);
+
+                    //xml manager button
+                    Autodesk.Windows.RibbonButton xml_btn = new Autodesk.Windows.RibbonButton();
+                    xml_btn.Text = "XML Manager";
+                    xml_btn.LargeImage = Helper.GenHelper.getBitmap("C3D_2016_Anno.Resources.Icons.XML.png", 32, 32);//new Bitmap(new Uri("pack://application:,,,;component/Resources/Icons/AAIcon (1).png"));//Helper.GenHelper.ImageSourceForBitmap(C3D_2016_Anno.Properties.Resources.AAIcon__1_);// 
+                    xml_btn.Orientation = System.Windows.Controls.Orientation.Vertical;
+                    xml_btn.Size = RibbonItemSize.Large;
+                    xml_btn.ShowText = true;
+                    xml_btn.ShowImage = true;
+                    xml_btn.Id = "xml_btn_click";
+                    cmdtoRun = "xmlMan ";
+                    xml_btn.CommandHandler = new AAuiRibbonButtonCommandHandler();
+                    srcPanel.Items.Add(xml_btn);
+
+                    //settings button
+                    Autodesk.Windows.RibbonButton settings_btn = new Autodesk.Windows.RibbonButton();
+                    settings_btn.Text = "Settings";
+                    settings_btn.LargeImage = Helper.GenHelper.getBitmap("C3D_2016_Anno.Resources.Icons.settings.png", 32, 32);//new Bitmap(new Uri("pack://application:,,,;component/Resources/Icons/AAIcon (1).png"));//Helper.GenHelper.ImageSourceForBitmap(C3D_2016_Anno.Properties.Resources.AAIcon__1_);// 
+                    settings_btn.Orientation = System.Windows.Controls.Orientation.Vertical;
+                    settings_btn.Size = RibbonItemSize.Large;
+                    settings_btn.ShowText = true;
+                    settings_btn.ShowImage = true;
+                    settings_btn.Id = "settings_btn_click";
+                    settings_btn.CommandHandler = new AAuiRibbonButtonCommandHandler();
+                    srcPanel.Items.Add(settings_btn);
+
+                    //help button
+                    Autodesk.Windows.RibbonButton help_btn = new Autodesk.Windows.RibbonButton();
+                    help_btn.Text = "Help";
+                    help_btn.LargeImage = Helper.GenHelper.getBitmap("C3D_2016_Anno.Resources.Icons.help.png", 32, 32);//new Bitmap(new Uri("pack://application:,,,;component/Resources/Icons/AAIcon (1).png"));//Helper.GenHelper.ImageSourceForBitmap(C3D_2016_Anno.Properties.Resources.AAIcon__1_);// 
+                    help_btn.Orientation = System.Windows.Controls.Orientation.Vertical;
+                    help_btn.Size = RibbonItemSize.Large;
+                    help_btn.ShowText = true;
+                    help_btn.ShowImage = true;
+                    help_btn.Id = "help_btn_click";
+                    help_btn.CommandHandler = new AAuiRibbonButtonCommandHandler();
+                    srcPanel.Items.Add(help_btn);
+
+                    //email button
+                    Autodesk.Windows.RibbonButton email_btn = new Autodesk.Windows.RibbonButton();
+                    email_btn.Text = "Email";
+                    email_btn.LargeImage = Helper.GenHelper.getBitmap("C3D_2016_Anno.Resources.Icons.email.png", 32, 32);//new Bitmap(new Uri("pack://application:,,,;component/Resources/Icons/AAIcon (1).png"));//Helper.GenHelper.ImageSourceForBitmap(C3D_2016_Anno.Properties.Resources.AAIcon__1_);// 
+                    email_btn.Orientation = System.Windows.Controls.Orientation.Vertical;
+                    email_btn.Size = RibbonItemSize.Large;
+                    email_btn.ShowText = true;
+                    email_btn.ShowImage = true;
+                    email_btn.Id = "email_btn_click";
+                    email_btn.CommandHandler = new AAuiRibbonButtonCommandHandler();
+                    srcPanel.Items.Add(email_btn);
+
+                    //www button
+                    Autodesk.Windows.RibbonButton www_btn = new Autodesk.Windows.RibbonButton();
+                    www_btn.Text = "WWW";
+                    www_btn.LargeImage = Helper.GenHelper.getBitmap("C3D_2016_Anno.Resources.Icons.www.png", 32, 32);//new Bitmap(new Uri("pack://application:,,,;component/Resources/Icons/AAIcon (1).png"));//Helper.GenHelper.ImageSourceForBitmap(C3D_2016_Anno.Properties.Resources.AAIcon__1_);// 
+                    www_btn.Orientation = System.Windows.Controls.Orientation.Vertical;
+                    www_btn.Size = RibbonItemSize.Large;
+                    www_btn.ShowText = true;
+                    www_btn.ShowImage = true;
+                    www_btn.Id = "www_btn_click";
+                    www_btn.CommandHandler = new AAuiRibbonButtonCommandHandler();
+                    srcPanel.Items.Add(www_btn);
+
+                    Tab.IsActive = true;
+                }
+            }
+            catch (System.Exception ex)
+            {
+                MessageBox.Show("error: " + ex.ToString());
+            }
+        }
+
+        public class AAuiRibbonButtonCommandHandler : System.Windows.Input.ICommand
+        {
+            public bool CanExecute(object parameter)
+            {
+                return true; //return true means the button always enabled
+            }
+
+            public event EventHandler CanExecuteChanged;
+
+            public void Execute(object parameter)
+            {
+                RibbonCommandItem cmd = parameter as RibbonCommandItem;
+                Document dwg = Autodesk.AutoCAD.ApplicationServices.Application.DocumentManager.MdiActiveDocument;
+                if (cmd.AutomationName == "Email")
+                {
+                    System.Diagnostics.Process.Start("mailto:jeffinphx@hotmail.com");
+                }
+                else if (cmd.AutomationName == "WWW")
+                {
+                    System.Diagnostics.Process.Start("http://www.autoanno.com");
+                }
+                else if (cmd.AutomationName == "Settings")
+                {
+                    System.Diagnostics.Process.Start(Global.variables.settingsFile); 
+                }
+                else if (cmd.AutomationName == "XML Manager")
+                {
+                    dwg.SendStringToExecute("xmlMan ", true, false, true);
+                }
+                else if (cmd.AutomationName == "Help")
+                {
+                    MessageBox.Show("Help Documents Coming Soon !", "AutoAnno");
+                }
+                else if (cmd.AutomationName == "AutoAnno")
+                {
+                    dwg.SendStringToExecute("AutoAnno ", true, false, true);
+                }
+                else
+                {
+                    MessageBox.Show("Command not Found : " + cmd.AutomationName, "AutoAnno");
+                }
             }
         }
 

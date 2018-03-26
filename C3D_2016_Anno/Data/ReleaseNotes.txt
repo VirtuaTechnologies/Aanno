@@ -1,4 +1,15 @@
 ﻿========================
+Release Notes -AANNO AutoCAD plugin - 20180327 - Ver 4.45.1.2
+========================
+- Added virtualicense SDK
+- Added VLic login screen to the app with logout api integration completed and tested
+- Add ribbon (Anno tool, XML manger, Settings, Helpdoc, open email and www link)
+- Checked ribbon tab instance to make sure only one tab is open at a time.
+- if the tool is fiered first it would check if the tab is open if not it would open the tab after opening the aano pal.
+Command to fire the applicaiton: Aanno
+Command to fire the ribbon: aaui
+
+========================
 Release Notes -AANNO AutoCAD plugin - 20171210 - Ver 4.45.1.1
 ========================
 - Added product information, version number and licensing details to the pal header

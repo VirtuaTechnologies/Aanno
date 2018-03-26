@@ -33,6 +33,7 @@ using System.Windows.Threading;
 using Notifications.Wpf;
 using System.Windows.Forms;
 using System.Diagnostics;
+using MahApps.Metro;
 
 namespace C3D_2016_Anno.Apps
 {
@@ -44,14 +45,57 @@ namespace C3D_2016_Anno.Apps
         #region Generic
         public static string mTextLabel = "";
         public static bool boolRes;
+        LicensingSDK.LicensingUtility utility = new LicensingSDK.LicensingUtility();
+        LicensingSDK.LicensingTimer timer = new LicensingSDK.LicensingTimer();
         public MainControl()
         {
             try
             {
                 InitializeComponent();
+
+                //set theme
+                               
+
+                loginUserControl.LicAppId = "6912949810393"; // provide lic appid
+                loginUserControl.LicSecretekey = "vtechdev"; // provide secreate Key appid
+                loginUserControl.AppVersionId = "Dev_AND_1523"; // provide app version
+
+                loginUserControl.LoginButtonClick += LoginUserControl_LoginButtonClick;
+                loginUserControl.CloseButtonClick += LoginUserControl_CloseButtonClick;
+
+                if (utility.IsUserLogin() == false)
+                {
+                    //do processsing here for show/hide control
+                    loginUserControl.Visibility = System.Windows.Visibility.Visible;
+                    groupBox.Visibility = System.Windows.Visibility.Collapsed;
+                    groupBox1.Visibility = System.Windows.Visibility.Collapsed;
+                    groupBox2.Visibility = System.Windows.Visibility.Collapsed;
+                    groupBox4.Visibility = System.Windows.Visibility.Collapsed;
+                    btn_openXMLMan.Visibility = System.Windows.Visibility.Collapsed;
+                    BtnLogOut.Visibility = System.Windows.Visibility.Collapsed;
+                }
+                else
+                {
+                    LicensingSDK.Entities.LicenseStatus status = utility.CheckValidLicense();
+                    if (status.licStatus == false)
+                    {
+                        System.Windows.MessageBox.Show(status.licMessage);
+                        loginUserControl.Visibility = System.Windows.Visibility.Visible;
+                        //Show Login Screen or any Other Redirections
+                    }
+                    else
+                    {
+                        loginUserControl.Visibility = System.Windows.Visibility.Collapsed;
+                        // timer.InitalizeTimer();
+                    }
+                }
+
                 this.Loaded += UserControl1_Loaded;
                 fetchDATA();
-                
+
+                //load ribbon
+                GV.Doc.SendStringToExecute("AAui ", true, false, true);
+
             }
             catch (System.Exception ee)
             {
@@ -964,7 +1008,43 @@ namespace C3D_2016_Anno.Apps
             }
         
         }
-        
+
+        private void LoginUserControl_CloseButtonClick()
+        {
+            //Close from App or any Other Steps Need to Taken
+            MyCommands.palSet.Visible = false;
+        }
+
+        private void LoginUserControl_LoginButtonClick(LicensingSDK.LoginControl sender, string type, LicensingSDK.APIEntities.MainResponse loginResponse)
+        {
+
+            if (loginResponse != null && loginResponse.responseStatus == "Success")
+            {
+                //timer.InitalizeTimer();
+                loginUserControl.Visibility = System.Windows.Visibility.Collapsed;
+
+                groupBox.Visibility = System.Windows.Visibility.Visible;
+                groupBox1.Visibility = System.Windows.Visibility.Visible;
+                groupBox2.Visibility = System.Windows.Visibility.Visible;
+                groupBox4.Visibility = System.Windows.Visibility.Visible;
+                btn_openXMLMan.Visibility = System.Windows.Visibility.Visible;
+                BtnLogOut.Visibility = System.Windows.Visibility.Visible;
+
+            }
+        }
+        private void BtnLogOut_Click(object sender, RoutedEventArgs e)
+        {
+            LicensingSDK.APIEntities.LogOutResponse response = utility.LogOutApp();
+            loginUserControl.Visibility = System.Windows.Visibility.Visible;
+            groupBox.Visibility = System.Windows.Visibility.Collapsed;
+            groupBox1.Visibility = System.Windows.Visibility.Collapsed;
+            groupBox2.Visibility = System.Windows.Visibility.Collapsed;
+            groupBox4.Visibility = System.Windows.Visibility.Collapsed;
+            btn_openXMLMan.Visibility = System.Windows.Visibility.Collapsed;
+            BtnLogOut.Visibility = System.Windows.Visibility.Collapsed;
+
+            timer.StopTimer();
+        }
     }
 
     public class SortAdorner : Adorner
