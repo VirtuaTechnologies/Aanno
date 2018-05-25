@@ -45,8 +45,8 @@ namespace C3D_2016_Anno.Apps
         #region Generic
         public static string mTextLabel = "";
         public static bool boolRes;
-        LicensingSDK.LicensingUtility utility = new LicensingSDK.LicensingUtility();
-        LicensingSDK.LicensingTimer timer = new LicensingSDK.LicensingTimer();
+        VirtuaLicense.LicensingUtility utility = new VirtuaLicense.LicensingUtility();
+        VirtuaLicense.LicensingTimer timer = new VirtuaLicense.LicensingTimer();
         public MainControl()
         {
             try
@@ -54,16 +54,20 @@ namespace C3D_2016_Anno.Apps
                 InitializeComponent();
 
                 //set theme
-                               
 
-                loginUserControl.LicAppId = "6912949810393"; // provide lic appid
+                loginUserControl.LicAppId = "SecDevID_WEB_1.0.0.0_1521808771"; // provide lic appid
                 loginUserControl.LicSecretekey = "vtechdev"; // provide secreate Key appid
                 loginUserControl.AppVersionId = "Dev_AND_1523"; // provide app version
+                loginUserControl.AppLicNo = "127"; // provide app version
+                //loginUserControl.LicAppPath = GV.loginappPath;
+                timer.loginControlInstance = loginUserControl;
+                loginUserControl.ReadConfigurations();
 
+                bool isUserLogin = utility.IsUserLogin();
                 loginUserControl.LoginButtonClick += LoginUserControl_LoginButtonClick;
                 loginUserControl.CloseButtonClick += LoginUserControl_CloseButtonClick;
 
-                if (utility.IsUserLogin() == false)
+                if (isUserLogin == false)
                 {
                     //do processsing here for show/hide control
                     loginUserControl.Visibility = System.Windows.Visibility.Visible;
@@ -76,17 +80,29 @@ namespace C3D_2016_Anno.Apps
                 }
                 else
                 {
-                    LicensingSDK.Entities.LicenseStatus status = utility.CheckValidLicense();
+                    VirtuaLicense.Entities.LicenseStatus status = utility.CheckValidLicense();
                     if (status.licStatus == false)
                     {
                         System.Windows.MessageBox.Show(status.licMessage);
                         loginUserControl.Visibility = System.Windows.Visibility.Visible;
                         //Show Login Screen or any Other Redirections
+                        groupBox.Visibility = System.Windows.Visibility.Collapsed;
+                        groupBox1.Visibility = System.Windows.Visibility.Collapsed;
+                        groupBox2.Visibility = System.Windows.Visibility.Collapsed;
+                        groupBox4.Visibility = System.Windows.Visibility.Collapsed;
+                        btn_openXMLMan.Visibility = System.Windows.Visibility.Collapsed;
+                        BtnLogOut.Visibility = System.Windows.Visibility.Collapsed;
                     }
                     else
                     {
                         loginUserControl.Visibility = System.Windows.Visibility.Collapsed;
-                        // timer.InitalizeTimer();
+                        timer.InitalizeTimer();
+                        groupBox.Visibility = System.Windows.Visibility.Visible;
+                        groupBox1.Visibility = System.Windows.Visibility.Visible;
+                        groupBox2.Visibility = System.Windows.Visibility.Visible;
+                        groupBox4.Visibility = System.Windows.Visibility.Visible;
+                        btn_openXMLMan.Visibility = System.Windows.Visibility.Visible;
+                        BtnLogOut.Visibility = System.Windows.Visibility.Visible;
                     }
                 }
 
@@ -116,13 +132,13 @@ namespace C3D_2016_Anno.Apps
                 cBox_template.SelectedIndex = 0;
                 cBox_Mapper.ItemsSource = GV.mapperFiles;
                 cBox_Mapper.SelectedIndex = 0;
-                
+
                 cBox_objectType.ItemsSource = GV.ObtTypes;
                 //cBox_objectType.SelectedIndex = 0;
 
                 //set window title
-                
-                
+
+
             }
             catch (System.Exception ee)
             {
@@ -160,9 +176,9 @@ namespace C3D_2016_Anno.Apps
                 GH.qprint("GV.ObtTypes.Count() ==> 2>  " + GV.ObtTypes.Count());
                 foreach (var noteitem in GV.allnotes)
                 {
-                    
+
                     //test
-                   
+
                     if (GV.Mapper.ContainsKey(noteitem.Key))
                     {
                         GH.qprint("noteitem.Key in Mapper > >  " + noteitem.Key);
@@ -226,12 +242,12 @@ namespace C3D_2016_Anno.Apps
 
             notificationManager.Show(new NotificationContent
             {
-                Title = GV.appName + " | " +  title,
+                Title = GV.appName + " | " + title,
                 Message = message,
                 Type = NotificationType
             });
         }
-        
+
         private async void UserControl1_Loaded(object sender, RoutedEventArgs e)
         {
             MetroWindow window = Window.GetWindow(this) as MetroWindow;
@@ -240,7 +256,7 @@ namespace C3D_2016_Anno.Apps
                 await window.ShowMessageAsync("This is the title", "Some message");
             }
         }
-        
+
         #region ProgressBar
         private delegate void UpdateProgressBarDelegate(System.Windows.DependencyProperty dp, Object value);
 
@@ -342,7 +358,7 @@ namespace C3D_2016_Anno.Apps
         {
             try
             {
-                
+
                 OpenFileDialog ofd = new OpenFileDialog();
                 ofd.Filter = "Mapper XML files (*.XMLMapper)|*.XMLMapper|CSV Mapper (*.CSVMapper1)|*.CSVMapper1"; // "Mapper files (*.Mapper)|*.map";
                 ofd.RestoreDirectory = true;
@@ -352,12 +368,12 @@ namespace C3D_2016_Anno.Apps
                 {
                     //extract the data from the selected file.
                     GH.getFileObject(file, "mapper");
-                    
+
                 }
                 //set that file to the combobox
                 cBox_Mapper.SelectedIndex = cBox_Mapper.Items.Count - 1;
                 C3D_2016_Anno.Global.fileItem FI = (C3D_2016_Anno.Global.fileItem)cBox_Mapper.SelectedItem;
-                
+
                 GH.getMapper(FI.filePath);
                 //set that file to the combobox
                 UIH.toastIT("Note list files read sucessfully!", "File Read", NotificationType.Information);
@@ -495,7 +511,7 @@ namespace C3D_2016_Anno.Apps
                 lBox_missingNotes.ItemsSource = filteredLabels.GroupBy(n => n.noteNumber).Select(g => g.First()).Where(x => x.noteFound == false).ToList();
                 lBox_labels.ItemsSource = filteredLabels;
 
-                if(filteredLabels.Count > 0)
+                if (filteredLabels.Count > 0)
                     tBox_Heading.Text = objTypeSelected;
 
             }
@@ -592,8 +608,8 @@ namespace C3D_2016_Anno.Apps
         {
             try
             {
-                
-                
+
+
             }
             catch (System.Exception ee)
             {
@@ -693,7 +709,7 @@ namespace C3D_2016_Anno.Apps
                 else
                     boolRes = true;
             }
-            catch(System.Exception ex){ }
+            catch (System.Exception ex) { }
             return boolRes;
         }
         private void btn_selectLabels_Click(object sender, RoutedEventArgs e)
@@ -760,7 +776,7 @@ namespace C3D_2016_Anno.Apps
                                 Helper.UIHelper.DoEvents();
 
                                 GV.pBarCurrentVal = index;
-                                
+
                                 //assign it work
                                 //bw.ReportProgress(index);
                                 index++;
@@ -908,7 +924,7 @@ namespace C3D_2016_Anno.Apps
                         GV.textHeight = Convert.ToDouble(tBox_textHeight.Text);
                         //get items
                         mTextLabel = "";
-                        
+
                         //key note heading
                         if (tBox_Heading.Text != "")
                         {
@@ -917,19 +933,19 @@ namespace C3D_2016_Anno.Apps
                             {
                                 mTextLabel += "{";
                             }
-                                if (btn_HeadingBold.IsChecked == true)
+                            if (btn_HeadingBold.IsChecked == true)
                             {
                                 mTextLabel += "\\f" + GV.currentFont + "|b1;";
                             }
 
-                            if(btn_HeadingUnderline.IsChecked == true)
+                            if (btn_HeadingUnderline.IsChecked == true)
                             {
                                 mTextLabel += "\\L";
                             }
 
                             mTextLabel += tBox_Heading.Text + @"}\P";
                             mTextLabel = mTextLabel.Replace(@"\\", @"\");
-                            
+
                         }
                         else
                         {
@@ -1006,7 +1022,7 @@ namespace C3D_2016_Anno.Apps
             {
                 GH.errorBox(ee.ToString());
             }
-        
+
         }
 
         private void LoginUserControl_CloseButtonClick()
@@ -1015,12 +1031,12 @@ namespace C3D_2016_Anno.Apps
             MyCommands.palSet.Visible = false;
         }
 
-        private void LoginUserControl_LoginButtonClick(LicensingSDK.LoginControl sender, string type, LicensingSDK.APIEntities.MainResponse loginResponse)
+        private void LoginUserControl_LoginButtonClick(VirtuaLicense.LoginControl sender, string type, VirtuaLicense.APIEntities.MainResponse loginResponse)
         {
 
             if (loginResponse != null && loginResponse.responseStatus == "Success")
             {
-                //timer.InitalizeTimer();
+                timer.InitalizeTimer();
                 loginUserControl.Visibility = System.Windows.Visibility.Collapsed;
 
                 groupBox.Visibility = System.Windows.Visibility.Visible;
@@ -1034,55 +1050,79 @@ namespace C3D_2016_Anno.Apps
         }
         private void BtnLogOut_Click(object sender, RoutedEventArgs e)
         {
-            LicensingSDK.APIEntities.LogOutResponse response = utility.LogOutApp();
-            loginUserControl.Visibility = System.Windows.Visibility.Visible;
-            groupBox.Visibility = System.Windows.Visibility.Collapsed;
-            groupBox1.Visibility = System.Windows.Visibility.Collapsed;
-            groupBox2.Visibility = System.Windows.Visibility.Collapsed;
-            groupBox4.Visibility = System.Windows.Visibility.Collapsed;
-            btn_openXMLMan.Visibility = System.Windows.Visibility.Collapsed;
-            BtnLogOut.Visibility = System.Windows.Visibility.Collapsed;
+            try
+            {
+                VirtuaLicense.APIEntities.LogOutResponse logOutResponse = utility.LogOutApp();
 
-            timer.StopTimer();
+                if (logOutResponse != null && logOutResponse.responseStatus.ToLower() == "Success".ToLower())
+                {
+                    loginUserControl.Visibility = System.Windows.Visibility.Visible;
+                    groupBox.Visibility = System.Windows.Visibility.Collapsed;
+                    groupBox1.Visibility = System.Windows.Visibility.Collapsed;
+                    groupBox2.Visibility = System.Windows.Visibility.Collapsed;
+                    groupBox4.Visibility = System.Windows.Visibility.Collapsed;
+                    btn_openXMLMan.Visibility = System.Windows.Visibility.Collapsed;
+                    BtnLogOut.Visibility = System.Windows.Visibility.Collapsed;
+                }
+                else if (logOutResponse != null)
+                {
+                    System.Windows.MessageBox.Show(logOutResponse.responseMessage);
+                }
+                else
+                {
+                    System.Windows.MessageBox.Show("Error in Logging Out from Application, Please check internet connection");
+                }
+
+                if (timer != null)
+                    timer.StopTimer();
+            }
+            catch (System.Exception ex)
+            {
+                System.Windows.MessageBox.Show(ex.ToString());
+            }
+            finally
+            {
+                timer.StopTimer();
+            }
         }
-    }
 
-    public class SortAdorner : Adorner
-    {
-        private static Geometry ascGeometry =
-                Geometry.Parse("M 0 4 L 3.5 0 L 7 4 Z");
-
-        private static Geometry descGeometry =
-                Geometry.Parse("M 0 0 L 3.5 4 L 7 0 Z");
-
-        public ListSortDirection Direction { get; private set; }
-
-        public SortAdorner(UIElement element, ListSortDirection dir)
-                : base(element)
+        public class SortAdorner : Adorner
         {
-            this.Direction = dir;
-        }
+            private static Geometry ascGeometry =
+                    Geometry.Parse("M 0 4 L 3.5 0 L 7 4 Z");
 
-        protected override void OnRender(DrawingContext drawingContext)
-        {
-            base.OnRender(drawingContext);
+            private static Geometry descGeometry =
+                    Geometry.Parse("M 0 0 L 3.5 4 L 7 0 Z");
 
-            if (AdornedElement.RenderSize.Width < 20)
-                return;
+            public ListSortDirection Direction { get; private set; }
 
-            TranslateTransform transform = new TranslateTransform
-                    (
-                            AdornedElement.RenderSize.Width - 15,
-                            (AdornedElement.RenderSize.Height - 5) / 2
-                    );
-            drawingContext.PushTransform(transform);
+            public SortAdorner(UIElement element, ListSortDirection dir)
+                    : base(element)
+            {
+                this.Direction = dir;
+            }
 
-            Geometry geometry = ascGeometry;
-            if (this.Direction == ListSortDirection.Descending)
-                geometry = descGeometry;
-            drawingContext.DrawGeometry(Brushes.Black, null, geometry);
+            protected override void OnRender(DrawingContext drawingContext)
+            {
+                base.OnRender(drawingContext);
 
-            drawingContext.Pop();
+                if (AdornedElement.RenderSize.Width < 20)
+                    return;
+
+                TranslateTransform transform = new TranslateTransform
+                        (
+                                AdornedElement.RenderSize.Width - 15,
+                                (AdornedElement.RenderSize.Height - 5) / 2
+                        );
+                drawingContext.PushTransform(transform);
+
+                Geometry geometry = ascGeometry;
+                if (this.Direction == ListSortDirection.Descending)
+                    geometry = descGeometry;
+                drawingContext.DrawGeometry(Brushes.Black, null, geometry);
+
+                drawingContext.Pop();
+            }
         }
     }
 }

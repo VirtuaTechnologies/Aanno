@@ -95,11 +95,7 @@
       <HintPath>Libs\AeccDbMgd.dll</HintPath>
     </Reference>
     <Reference Include="IndexedDictionary, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\LicensingSDK.1.8.0\lib\net45\IndexedDictionary.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="LicensingSDK, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\LicensingSDK.1.8.0\lib\net45\LicensingSDK.dll</HintPath>
+      <HintPath>..\packages\VirtuaLicense.1.0.0\lib\net45\IndexedDictionary.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="MahApps.Metro, Version=1.4.3.0, Culture=neutral, PublicKeyToken=f4fb5a3c4d1e5b4f, processorArchitecture=MSIL">
@@ -116,7 +112,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="RestSharp, Version=105.2.3.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\LicensingSDK.1.8.0\lib\net45\RestSharp.dll</HintPath>
+      <HintPath>..\packages\VirtuaLicense.1.0.0\lib\net45\RestSharp.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
@@ -139,6 +135,10 @@
     </Reference>
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
+    <Reference Include="VirtuaLicense, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\VirtuaLicense.1.0.0\lib\net45\VirtuaLicense.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
@@ -152,11 +152,11 @@
       <HintPath>Libs\ZSharpCADHelper.dll</HintPath>
     </Reference>
     <Reference Include="ZSharpGeneralHelper, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\LicensingSDK.1.8.0\lib\net45\ZSharpGeneralHelper.dll</HintPath>
+      <HintPath>..\packages\VirtuaLicense.1.0.0\lib\net45\ZSharpGeneralHelper.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="ZSharpLogger, Version=1.0.0.0, Culture=neutral, PublicKeyToken=6a7dbe7784478c75, processorArchitecture=MSIL">
-      <HintPath>..\packages\LicensingSDK.1.8.0\lib\net45\ZSharpLogger.dll</HintPath>
+      <HintPath>..\packages\VirtuaLicense.1.0.0\lib\net45\ZSharpLogger.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="ZSharpQLogger, Version=1.0.0.0, Culture=neutral, PublicKeyToken=83c8e2bd9ae0a3fc, processorArchitecture=MSIL">
@@ -168,7 +168,7 @@
       <HintPath>Libs\ZSharpSQLITEHelper.dll</HintPath>
     </Reference>
     <Reference Include="ZSharpXMLHelper, Version=1.0.0.0, Culture=neutral, PublicKeyToken=faa560cbe1bb381b, processorArchitecture=MSIL">
-      <HintPath>..\packages\LicensingSDK.1.8.0\lib\net45\ZSharpXMLHelper.dll</HintPath>
+      <HintPath>..\packages\VirtuaLicense.1.0.0\lib\net45\ZSharpXMLHelper.dll</HintPath>
       <Private>True</Private>
     </Reference>
   </ItemGroup>
@@ -317,12 +317,12 @@
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <Import Project="..\packages\LicensingSDK.1.8.0\Build\LicensingSDK.targets" Condition="Exists('..\packages\LicensingSDK.1.8.0\Build\LicensingSDK.targets')" />
+  <Import Project="..\packages\VirtuaLicense.1.0.0\Build\VirtuaLicense.targets" Condition="Exists('..\packages\VirtuaLicense.1.0.0\Build\VirtuaLicense.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
       <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
     </PropertyGroup>
-    <Error Condition="!Exists('..\packages\LicensingSDK.1.8.0\Build\LicensingSDK.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\LicensingSDK.1.8.0\Build\LicensingSDK.targets'))" />
+    <Error Condition="!Exists('..\packages\VirtuaLicense.1.0.0\Build\VirtuaLicense.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\VirtuaLicense.1.0.0\Build\VirtuaLicense.targets'))" />
   </Target>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

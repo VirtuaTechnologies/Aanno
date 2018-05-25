@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:C3D_2016_Anno.Apps"
              xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
-              xmlns:localsdk="clr-namespace:LicensingSDK;assembly=LicensingSDK"
+              xmlns:localsdk="clr-namespace:VirtuaLicense;assembly=VirtuaLicense"
              mc:Ignorable="d"  Width="353" Height="701" MinWidth="500" MinHeight="800" Loaded="UserControl_Loaded">
     <UserControl.Resources>
         <ResourceDictionary>
@@ -245,7 +245,7 @@
             </Grid>
         </GroupBox>
         <Button x:Name="btn_openXMLMan" Content="Open XML Manager" Margin="0,11,140,0" VerticalAlignment="Top" Height="26" Background="{x:Null}" Foreground="White" Click="btn_openXMLMan_Click" HorizontalAlignment="Right" Width="116"/>
-        <localsdk:LoginControl x:Name="loginUserControl" MinWidth="350" Margin="0,150,11,150" Visibility="Collapsed" ></localsdk:LoginControl>
+        <localsdk:LoginControl x:Name="loginUserControl" MinWidth="200"  Visibility="Visible" ></localsdk:LoginControl>
         <Button x:Name="BtnLogOut" Content="Logout" Margin="0,11,19,0" VerticalAlignment="Top" Height="26" Background="{x:Null}" Foreground="White" Click="BtnLogOut_Click" HorizontalAlignment="Right" Width="116"/>
     </Grid>
     
