@@ -1,15 +1,19 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <!--Developed by Zcodia Technologies - Raghulan Gowthaman - Ver 1.00.0 www.raghulangowthaman.com-->
-<App> <!-- Add as many settings needed-->
+<App>
+  <!-- Add as many settings needed-->
   <Settings name="SyncInterval">300000</Settings>
   <Settings name="RememberCredentials">true</Settings>
   <Settings name="LoginonWindowStartup">true</Settings>
-  <Settings name="LastLoginTime"></Settings>
-  <Settings name="ApiLoginURL">http://demo.webmigrates.com/VirtuaLicense/developer.php/api/developer_api/assign_app_seat.json</Settings>
-  <Settings name="ApiLogoutURL">http://demo.webmigrates.com/VirtuaLicense/developer.php/api/developer_api/release_machine.json</Settings>
+  <Settings name="LastLoginTime">5/06/2018 10:24:15 PM</Settings>
+  <Settings name="ThemeAccent">cobalt</Settings>
+  <Settings name="ThemeType">BaseLight</Settings>
+  <Settings name="LastLoginTime">5/06/2018 10:24:15 PM</Settings>
+  <Settings name="ApiLoginURL">http://virtualicense.com/developer.php/api/developer_api/assign_app_seat.json</Settings>
+  <Settings name="ApiLogoutURL">http://virtualicense.com/developer.php/api/developer_api/release_machine.json</Settings>
   <Settings name="VirtuaLoginURL">http://virtualogin.com/index.php/api/auth/pr_login.json</Settings>
   <Settings name="VirtuaLogoutURL">http://virtualogin.com/index.php/api/auth/logout.json</Settings>
   <Settings name="logSwitch">true</Settings>
-  <Settings name="AccountUserName"></Settings>
-  <Settings name="AccountPassword"></Settings>
+  <Settings name="AccountUserName">U6moPSEkg1rMaZTJ3cnsFjRIobhg7XHV</Settings>
+  <Settings name="AccountPassword">ciDt8ly8+AI=</Settings>
 </App>
