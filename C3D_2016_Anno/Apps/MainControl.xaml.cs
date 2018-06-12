@@ -326,7 +326,7 @@ namespace C3D_2016_Anno.Apps
             {
                 // Create an instance of the open file dialog box.
                 OpenFileDialog ofd = new OpenFileDialog();
-                ofd.Filter = "Template XML files (*.XMLNotes)|*.XMLNotes|CSV Notes without double quotes (*.CSVNotes1)|*.CSVNotes1|CSV Notes with double quotes (*.CSVNotes2)|*.CSVNotes2"; //"XML files (*.xml)|*.def";
+                ofd.Filter = "Note list XML files (*.XMLNotes)|*.XMLNotes|CSV Notes without double quotes (*.CSVNotes1)|*.CSVNotes1|CSV Notes with double quotes (*.CSVNotes2)|*.CSVNotes2"; //"XML files (*.xml)|*.def";
                 ofd.RestoreDirectory = true;
                 DialogResult sdResult = ofd.ShowDialog();
 
@@ -346,7 +346,7 @@ namespace C3D_2016_Anno.Apps
                 cBox_template.SelectedIndex = cBox_template.Items.Count - 1;
                 C3D_2016_Anno.Global.fileItem FI = (C3D_2016_Anno.Global.fileItem)cBox_template.SelectedItem;
                 GH.getTemplateDetails(FI.filePath);
-                UIH.toastIT("Defnition files read sucessfully!", "File Read", NotificationType.Information);
+                UIH.toastIT("Note list files read sucessfully!", "File Read", NotificationType.Information);
             }
             catch (System.Exception ee)
             {
@@ -376,7 +376,7 @@ namespace C3D_2016_Anno.Apps
 
                 GH.getMapper(FI.filePath);
                 //set that file to the combobox
-                UIH.toastIT("Note list files read sucessfully!", "File Read", NotificationType.Information);
+                UIH.toastIT("Mapper files read sucessfully!", "File Read", NotificationType.Information);
             }
             catch (System.Exception ee)
             {

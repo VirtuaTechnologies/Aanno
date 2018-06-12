@@ -1,12 +1,15 @@
-﻿
-<<<<<<< HEAD
+﻿========================
+Release Notes -AANNO AutoCAD plugin - 20180612 - Ver 4.45.1.4
+========================
+Notification Error fixed when loading mapper files anad note list files.
+
 ========================
 Release Notes -AANNO AutoCAD plugin - 20180526 - Ver 4.45.1.3
 ========================
 Updated Licensing SDK to latest version.
 Cleared the login form overlay issue
 Updated login form styling to match the app
-=======
+
 =======================
 Release Notes -AANNO AutoCAD plugin - 20180327 - Ver 4.45.1.3
 ========================
