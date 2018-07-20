@@ -98,9 +98,9 @@
       <HintPath>..\packages\VirtuaLicense.1.0.0\lib\net45\IndexedDictionary.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="MahApps.Metro, Version=1.4.3.0, Culture=neutral, PublicKeyToken=f4fb5a3c4d1e5b4f, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
+    <Reference Include="MahApps.Metro, Version=1.4.0.42, Culture=neutral, PublicKeyToken=f4fb5a3c4d1e5b4f, processorArchitecture=MSIL">
       <HintPath>..\packages\MahApps.Metro.1.4.0\lib\net45\MahApps.Metro.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
@@ -123,8 +123,8 @@
     <Reference Include="System.Windows" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\MahApps.Metro.1.4.0\lib\net45\System.Windows.Interactivity.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="System.Xaml" />
     <Reference Include="System.Xml.Linq">
@@ -138,6 +138,10 @@
     <Reference Include="VirtuaLicense, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\VirtuaLicense.1.0.0\lib\net45\VirtuaLicense.dll</HintPath>
       <Private>True</Private>
+    </Reference>
+    <Reference Include="VSharpSettingsHelper, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Libs\VSharpSettingsHelper.dll</HintPath>
     </Reference>
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
@@ -270,8 +274,6 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <SubType>Designer</SubType>
     </None>
-    <Resource Include="Resources\WindowsIcons-license.txt" />
-    <Resource Include="Resources\Entypo-license.txt" />
     <EmbeddedResource Include="Resources\Icons\AAIcon %281%29.png" />
     <EmbeddedResource Include="Resources\Icons\AAIcon %282%29.png" />
     <EmbeddedResource Include="Resources\Icons\AAIcon %283%29.png" />
@@ -280,6 +282,8 @@
     <EmbeddedResource Include="Resources\Icons\settings.png" />
     <EmbeddedResource Include="Resources\Icons\email.png" />
     <EmbeddedResource Include="Resources\Icons\www.png" />
+    <Resource Include="Resources\WindowsIcons-license.txt" />
+    <Resource Include="Resources\Entypo-license.txt" />
     <Content Include="Templates\ProjectB-Template.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -310,19 +314,13 @@
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\ZSharpHelpers\VSharpSettingsHelper\VSharpSettingsHelper.csproj">
-      <Project>{a02585d3-56d6-4e4f-96a7-1aea853dffd1}</Project>
-      <Name>VSharpSettingsHelper</Name>
-    </ProjectReference>
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <Import Project="..\packages\VirtuaLicense.1.0.0\Build\VirtuaLicense.targets" Condition="Exists('..\packages\VirtuaLicense.1.0.0\Build\VirtuaLicense.targets')" />
+  <Import Project="..\packages\VirtuaLicense.1.0.0\build\VirtuaLicense.targets" Condition="Exists('..\packages\VirtuaLicense.1.0.0\build\VirtuaLicense.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
       <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
     </PropertyGroup>
-    <Error Condition="!Exists('..\packages\VirtuaLicense.1.0.0\Build\VirtuaLicense.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\VirtuaLicense.1.0.0\Build\VirtuaLicense.targets'))" />
+    <Error Condition="!Exists('..\packages\VirtuaLicense.1.0.0\build\VirtuaLicense.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\VirtuaLicense.1.0.0\build\VirtuaLicense.targets'))" />
   </Target>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

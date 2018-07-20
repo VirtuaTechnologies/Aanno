@@ -245,7 +245,7 @@
             </Grid>
         </GroupBox>
         <Button x:Name="btn_openXMLMan" Content="Open XML Manager" Margin="0,11,140,0" VerticalAlignment="Top" Height="26" Background="{x:Null}" Foreground="White" Click="btn_openXMLMan_Click" HorizontalAlignment="Right" Width="116"/>
-        <localsdk:LoginControl x:Name="loginUserControl" MinWidth="200"  Visibility="Visible" ></localsdk:LoginControl>
+        <localsdk:LoginControl x:Name="loginUserControl" Width="500"  Visibility="Visible" ></localsdk:LoginControl>
         <Button x:Name="BtnLogOut" Content="Logout" Margin="0,11,19,0" VerticalAlignment="Top" Height="26" Background="{x:Null}" Foreground="White" Click="BtnLogOut_Click" HorizontalAlignment="Right" Width="116"/>
     </Grid>
     
