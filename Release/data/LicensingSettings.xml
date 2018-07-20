@@ -5,8 +5,11 @@
   <Settings name="RememberCredentials">true</Settings>
   <Settings name="LoginonWindowStartup">true</Settings>
   <Settings name="LastLoginTime"></Settings>
-  <Settings name="ApiLoginURL">http://demo.webmigrates.com/VirtuaLicense/developer.php/api/developer_api/assign_app_seat.json</Settings>
-  <Settings name="ApiLogoutURL">http://demo.webmigrates.com/VirtuaLicense/developer.php/api/developer_api/release_machine.json</Settings>
+  <Settings name="ThemeAccent">cobalt</Settings>
+  <Settings name="ThemeType">BaseLight</Settings>
+  <Settings name="LastLoginTime"></Settings>
+  <Settings name="ApiLoginURL">http://virtualicense.com/developer.php/api/developer_api/assign_app_seat.json</Settings>
+  <Settings name="ApiLogoutURL">http://virtualicense.com/developer.php/api/developer_api/release_machine.json</Settings>
   <Settings name="VirtuaLoginURL">http://virtualogin.com/index.php/api/auth/pr_login.json</Settings>
   <Settings name="VirtuaLogoutURL">http://virtualogin.com/index.php/api/auth/logout.json</Settings>
   <Settings name="logSwitch">true</Settings>
