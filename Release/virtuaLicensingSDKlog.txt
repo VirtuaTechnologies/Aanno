@@ -1,414 +1,253 @@
 
-26/05/2018 8:11:11 PM ReadConfigurations Start
-26/05/2018 8:11:11 PM ReadConfigurations-appSettingFilePath: R:\GitHub\Aanno\Release\Data\LicensingSettings.xml
-26/05/2018 8:11:11 PM ReadConfigurations-rememberCredentials: true
-26/05/2018 8:11:11 PM ReadConfigurations-loginwindowsStartup:true
-26/05/2018 8:11:11 PM ReadConfigurations-ThemeAccent: Green
-26/05/2018 8:11:11 PM ReadConfigurations-ThemeType: BaseLight
-26/05/2018 8:11:11 PM ReadConfigurations Start
-26/05/2018 8:11:11 PM ReadConfigurations-appSettingFilePath: R:\GitHub\Aanno\Release\Data\LicensingSettings.xml
-26/05/2018 8:11:11 PM ReadConfigurations-rememberCredentials: true
-26/05/2018 8:11:11 PM ReadConfigurations-loginwindowsStartup:true
-26/05/2018 8:11:11 PM ReadConfigurations-ThemeAccent: Green
-26/05/2018 8:11:11 PM ReadConfigurations-ThemeType: BaseLight
-26/05/2018 8:11:11 PM Start CheckLicense
-26/05/2018 8:11:11 PM CheckLicense Path: R:\GitHub\Aanno\Release\License.XML
-26/05/2018 8:11:11 PM Start ApplicationStatus
-26/05/2018 8:11:13 PM End ApplicationStatus
-26/05/2018 8:11:13 PM InitalizeTimer
-26/05/2018 8:11:13 PM InitalizeTimer Interval60
-26/05/2018 8:11:14 PM ReadConfigurations Start
-26/05/2018 8:11:14 PM ReadConfigurations-appSettingFilePath: R:\GitHub\Aanno\Release\Data\LicensingSettings.xml
-26/05/2018 8:11:14 PM ReadConfigurations-rememberCredentials: true
-26/05/2018 8:11:14 PM ReadConfigurations-loginwindowsStartup:true
-26/05/2018 8:11:14 PM ReadConfigurations-ThemeAccent: Green
-26/05/2018 8:11:14 PM ReadConfigurations-ThemeType: BaseLight
-26/05/2018 8:11:14 PM ReadConfigurations Start
-26/05/2018 8:11:14 PM ReadConfigurations-appSettingFilePath: R:\GitHub\Aanno\Release\Data\LicensingSettings.xml
-26/05/2018 8:11:14 PM ReadConfigurations-rememberCredentials: true
-26/05/2018 8:11:14 PM ReadConfigurations-loginwindowsStartup:true
-26/05/2018 8:11:14 PM ReadConfigurations-ThemeAccent: Green
-26/05/2018 8:11:14 PM ReadConfigurations-ThemeType: BaseLight
-26/05/2018 8:11:14 PM Start CheckLicense
-26/05/2018 8:11:14 PM CheckLicense Path: R:\GitHub\Aanno\Release\License.XML
-26/05/2018 8:11:14 PM Start ApplicationStatus
-26/05/2018 8:11:16 PM End ApplicationStatus
-26/05/2018 8:11:16 PM InitalizeTimer
-26/05/2018 8:11:16 PM InitalizeTimer Interval60
-26/05/2018 8:11:19 PM LogOutApp Called
-26/05/2018 8:11:19 PM LogOutApp apiLogoutURL:http://virtualicense.com/developer.php/api/developer_api/release_machine.json
-26/05/2018 8:11:19 PM LogOutApp accountUserName:postman_one@gmail.com
-26/05/2018 8:11:19 PM LogOutApp AccontLicenseAppId:SecDevID_WEB_1.0.0.0_1521808771
-26/05/2018 8:11:19 PM LogOutApp AccontLicenseSeatId:49_SecDevID_WEB_1.0.0.0_1521808771_1522991403_6157971336
-26/05/2018 8:11:19 PM callPostAPI URL: http://virtualicense.com/developer.php/api/developer_api/release_machine.json
-26/05/2018 8:11:19 PM callPostAPI Parameters Key: email_id Value: postman_one@gmail.com
-26/05/2018 8:11:19 PM callPostAPI Parameters Key: mac_id Value: 646E6960C6F1
-26/05/2018 8:11:19 PM callPostAPI Parameters Key: app_id Value: SecDevID_WEB_1.0.0.0_1521808771
-26/05/2018 8:11:19 PM callPostAPI Parameters Key: seat_number Value: 49_SecDevID_WEB_1.0.0.0_1521808771_1522991403_6157971336
-26/05/2018 8:11:21 PM callPostAPI Response:{"responseCode":"0","responseStatus":"Success","responseMessage":"This seat was release success","response":[]}
-26/05/2018 8:11:21 PM callPostAPI ResponseStatusCode:OK
-26/05/2018 8:11:21 PM LogOutApp Response:VirtuaLicense.Helper.APIResult
-26/05/2018 8:11:21 PM LogOutApp Response status:success
-26/05/2018 8:11:21 PM StopTimer
-26/05/2018 8:11:21 PM StopTimer
-26/05/2018 8:12:46 PM DoWork Start
-26/05/2018 8:12:46 PM VirtuaLogin Start
-26/05/2018 8:12:46 PM VirtuaLogin Start
-26/05/2018 8:12:46 PM VirtuaLogin appSettingFilePathR:\GitHub\Aanno\Release\Data\LicensingSettings.xml
-26/05/2018 8:12:46 PM VirtuaLogin URLhttp://virtualogin.com/index.php/api/auth/pr_login.json
-26/05/2018 8:12:46 PM callPostAPI URL: http://virtualogin.com/index.php/api/auth/pr_login.json
-26/05/2018 8:12:46 PM callPostAPI Parameters Key: email Value: postman_one@gmail.com
-26/05/2018 8:12:46 PM callPostAPI Parameters Key: pass Value: pass:12345
-26/05/2018 8:12:46 PM callPostAPI Parameters Key: conn_key Value: vtechdev
-26/05/2018 8:12:46 PM callPostAPI Parameters Key: app_id Value: SecDevID_WEB_1.0.0.0_1521808771
-26/05/2018 8:12:46 PM callPostAPI Parameters Key: app_version_id Value: Dev_AND_1523
-26/05/2018 8:12:46 PM callPostAPI Parameters Key: location Value: location
-26/05/2018 8:12:46 PM callPostAPI Parameters Key: loc_lat Value: 0.00
-26/05/2018 8:12:46 PM callPostAPI Parameters Key: loc_long Value: 0.00
-26/05/2018 8:12:46 PM callPostAPI Parameters Key: ip_address Value: 192.168.71.1
-26/05/2018 8:12:47 PM callPostAPI Response:{"responseCode":0,"responseStatus":"Error","responseMessage":"Invalid Email or Password","response":null}
-26/05/2018 8:12:47 PM callPostAPI ResponseStatusCode:OK
-26/05/2018 8:12:47 PM API Response:- {"responseCode":0,"responseStatus":"Error","responseMessage":"Invalid Email or Password","response":null}
-26/05/2018 8:12:47 PM API Response:- 
-26/05/2018 8:13:47 PM DoWork Start
-26/05/2018 8:13:47 PM VirtuaLogin Start
-26/05/2018 8:13:47 PM VirtuaLogin Start
-26/05/2018 8:13:47 PM VirtuaLogin appSettingFilePathR:\GitHub\Aanno\Release\Data\LicensingSettings.xml
-26/05/2018 8:13:47 PM VirtuaLogin URLhttp://virtualogin.com/index.php/api/auth/pr_login.json
-26/05/2018 8:13:47 PM callPostAPI URL: http://virtualogin.com/index.php/api/auth/pr_login.json
-26/05/2018 8:13:47 PM callPostAPI Parameters Key: email Value: postman_one@gmail.com
-26/05/2018 8:13:47 PM callPostAPI Parameters Key: pass Value: 12345
-26/05/2018 8:13:47 PM callPostAPI Parameters Key: conn_key Value: vtechdev
-26/05/2018 8:13:47 PM callPostAPI Parameters Key: app_id Value: SecDevID_WEB_1.0.0.0_1521808771
-26/05/2018 8:13:47 PM callPostAPI Parameters Key: app_version_id Value: Dev_AND_1523
-26/05/2018 8:13:47 PM callPostAPI Parameters Key: location Value: location
-26/05/2018 8:13:47 PM callPostAPI Parameters Key: loc_lat Value: 0.00
-26/05/2018 8:13:47 PM callPostAPI Parameters Key: loc_long Value: 0.00
-26/05/2018 8:13:47 PM callPostAPI Parameters Key: ip_address Value: 192.168.71.1
-26/05/2018 8:13:48 PM callPostAPI Response:{"responseCode":1,"responseStatus":"Sucess","responseMessage":"User Details","response":{"profileid":"99","userid":"84","username":"","email":"postman_one@gmail.com","default_profile":"0","image":"http:\/\/virtualogin.com\/\/uploads\/profile_images\/","s_image":null,"f_name":null,"l_name":null,"gender":null,"dob":null,"height":"0","weight":"0","blood_group":null,"c_city":null,"c_state":null,"c_country":null,"c_zip":null,"fb_acc":null,"fb_id":null,"fb_name":null,"fb_image":null,"linkedin":null,"linkedin_id":null,"linkedin_name":null,"linkedin_image":null,"twitter":null,"twitter_id":null,"twitter_name":null,"twitter_image":null,"insta":null,"insta_id":null,"insta_name":null,"insta_image":null,"snapchat":null,"snapchat_id":null,"snapchat_name":null,"snapchat_image":null,"last_login":"2018-03-28 07:25:17","since_from":"2018-03-27 08:20:41","up_is_deleted":"0","up_deleteddt":null,"up_status":"1","pemail":"postman_one@gmail.com","small_image":"http:\/\/virtualogin.com\/\/uploads\/profile_images\/","loginsession":"AK14562PL1236"}}
-26/05/2018 8:13:48 PM callPostAPI ResponseStatusCode:OK
-26/05/2018 8:13:48 PM API Response:- {"responseCode":1,"responseStatus":"Sucess","responseMessage":"User Details","response":{"profileid":"99","userid":"84","username":"","email":"postman_one@gmail.com","default_profile":"0","image":"http:\/\/virtualogin.com\/\/uploads\/profile_images\/","s_image":null,"f_name":null,"l_name":null,"gender":null,"dob":null,"height":"0","weight":"0","blood_group":null,"c_city":null,"c_state":null,"c_country":null,"c_zip":null,"fb_acc":null,"fb_id":null,"fb_name":null,"fb_image":null,"linkedin":null,"linkedin_id":null,"linkedin_name":null,"linkedin_image":null,"twitter":null,"twitter_id":null,"twitter_name":null,"twitter_image":null,"insta":null,"insta_id":null,"insta_name":null,"insta_image":null,"snapchat":null,"snapchat_id":null,"snapchat_name":null,"snapchat_image":null,"last_login":"2018-03-28 07:25:17","since_from":"2018-03-27 08:20:41","up_is_deleted":"0","up_deleteddt":null,"up_status":"1","pemail":"postman_one@gmail.com","small_image":"http:\/\/virtualogin.com\/\/uploads\/profile_images\/","loginsession":"AK14562PL1236"}}
-26/05/2018 8:13:48 PM API Response:- 
-26/05/2018 8:13:48 PM VirtuaLogin End
-26/05/2018 8:13:50 PM callPostAPI URL: http://virtualicense.com/developer.php/api/developer_api/assign_app_seat.json
-26/05/2018 8:13:50 PM callPostAPI Parameters Key: email_id Value: postman_one@gmail.com
-26/05/2018 8:13:50 PM callPostAPI Parameters Key: cpu_id Value: BFEBFBFF000906EA
-26/05/2018 8:13:50 PM callPostAPI Parameters Key: mac_id Value: 646E6960C6F1
-26/05/2018 8:13:50 PM callPostAPI Parameters Key: app_id Value: SecDevID_WEB_1.0.0.0_1521808771
-26/05/2018 8:13:50 PM callPostAPI Parameters Key: motherboard_id Value: 73AC5506-97A1-49B2-8210-B06EBF602F6A
-26/05/2018 8:13:50 PM callPostAPI Parameters Key: disk_id Value: 3471844813
-26/05/2018 8:13:50 PM callPostAPI Parameters Key: device_flag Value: 2
-26/05/2018 8:13:50 PM callPostAPI Parameters Key: latitude Value: 0.00
-26/05/2018 8:13:50 PM callPostAPI Parameters Key: longitude Value: 0.00
-26/05/2018 8:13:50 PM callPostAPI Parameters Key: ip_address Value: 192.168.71.1
-26/05/2018 8:13:50 PM callPostAPI Parameters Key: lic_no Value: 127
-26/05/2018 8:13:51 PM callPostAPI Response:{"responseCode":"1","responseStatus":"Success","responseMessage":"Seat Allocated","response":{"lic_info":{"interval":"60","seat_id":"49_SecDevID_WEB_1.0.0.0_1521808771_1527329631_1247784699","expire_on":"2018-06-05 10:13:51","time":"10","flag":"day","offline_status":"false","borrow_day":"0"},"Message":{"type":"1","msg":"this message for check for close 1","closeapp":"0"}}}
-26/05/2018 8:13:51 PM callPostAPI ResponseStatusCode:OK
-26/05/2018 8:13:51 PM Dowork API Response:- {"responseCode":"1","responseStatus":"Success","responseMessage":"Seat Allocated","response":{"lic_info":{"interval":"60","seat_id":"49_SecDevID_WEB_1.0.0.0_1521808771_1527329631_1247784699","expire_on":"2018-06-05 10:13:51","time":"10","flag":"day","offline_status":"false","borrow_day":"0"},"Message":{"type":"1","msg":"this message for check for close 1","closeapp":"0"}}}
-26/05/2018 8:13:51 PM License File Path:R:\GitHub\Aanno\Release\\License.xml
-26/05/2018 8:13:51 PM InitalizeTimer
-26/05/2018 8:13:51 PM InitalizeTimer Interval60
-26/05/2018 8:13:54 PM LogOutApp Called
-26/05/2018 8:13:54 PM LogOutApp apiLogoutURL:http://virtualicense.com/developer.php/api/developer_api/release_machine.json
-26/05/2018 8:13:54 PM LogOutApp accountUserName:postman_one@gmail.com
-26/05/2018 8:13:54 PM LogOutApp AccontLicenseAppId:SecDevID_WEB_1.0.0.0_1521808771
-26/05/2018 8:13:54 PM LogOutApp AccontLicenseSeatId:49_SecDevID_WEB_1.0.0.0_1521808771_1527329631_1247784699
-26/05/2018 8:13:54 PM callPostAPI URL: http://virtualicense.com/developer.php/api/developer_api/release_machine.json
-26/05/2018 8:13:54 PM callPostAPI Parameters Key: email_id Value: postman_one@gmail.com
-26/05/2018 8:13:54 PM callPostAPI Parameters Key: mac_id Value: 646E6960C6F1
-26/05/2018 8:13:54 PM callPostAPI Parameters Key: app_id Value: SecDevID_WEB_1.0.0.0_1521808771
-26/05/2018 8:13:54 PM callPostAPI Parameters Key: seat_number Value: 49_SecDevID_WEB_1.0.0.0_1521808771_1527329631_1247784699
-26/05/2018 8:13:55 PM callPostAPI Response:{"responseCode":"0","responseStatus":"Success","responseMessage":"This seat was release success","response":[]}
-26/05/2018 8:13:55 PM callPostAPI ResponseStatusCode:OK
-26/05/2018 8:13:55 PM LogOutApp Response:VirtuaLicense.Helper.APIResult
-26/05/2018 8:13:55 PM LogOutApp Response status:success
-26/05/2018 8:13:55 PM StopTimer
-26/05/2018 8:13:55 PM StopTimer
-26/05/2018 8:13:57 PM DoWork Start
-26/05/2018 8:13:57 PM VirtuaLogin Start
-26/05/2018 8:13:57 PM VirtuaLogin Start
-26/05/2018 8:13:57 PM VirtuaLogin appSettingFilePathR:\GitHub\Aanno\Release\Data\LicensingSettings.xml
-26/05/2018 8:13:57 PM VirtuaLogin URLhttp://virtualogin.com/index.php/api/auth/pr_login.json
-26/05/2018 8:13:57 PM callPostAPI URL: http://virtualogin.com/index.php/api/auth/pr_login.json
-26/05/2018 8:13:57 PM callPostAPI Parameters Key: email Value: postman_one@gmail.com
-26/05/2018 8:13:57 PM callPostAPI Parameters Key: pass Value: 12345
-26/05/2018 8:13:57 PM callPostAPI Parameters Key: conn_key Value: vtechdev
-26/05/2018 8:13:57 PM callPostAPI Parameters Key: app_id Value: SecDevID_WEB_1.0.0.0_1521808771
-26/05/2018 8:13:57 PM callPostAPI Parameters Key: app_version_id Value: Dev_AND_1523
-26/05/2018 8:13:57 PM callPostAPI Parameters Key: location Value: location
-26/05/2018 8:13:57 PM callPostAPI Parameters Key: loc_lat Value: 0.00
-26/05/2018 8:13:57 PM callPostAPI Parameters Key: loc_long Value: 0.00
-26/05/2018 8:13:57 PM callPostAPI Parameters Key: ip_address Value: 192.168.71.1
-26/05/2018 8:13:57 PM callPostAPI Response:{"responseCode":1,"responseStatus":"Sucess","responseMessage":"User Details","response":{"profileid":"99","userid":"84","username":"","email":"postman_one@gmail.com","default_profile":"0","image":"http:\/\/virtualogin.com\/\/uploads\/profile_images\/","s_image":null,"f_name":null,"l_name":null,"gender":null,"dob":null,"height":"0","weight":"0","blood_group":null,"c_city":null,"c_state":null,"c_country":null,"c_zip":null,"fb_acc":null,"fb_id":null,"fb_name":null,"fb_image":null,"linkedin":null,"linkedin_id":null,"linkedin_name":null,"linkedin_image":null,"twitter":null,"twitter_id":null,"twitter_name":null,"twitter_image":null,"insta":null,"insta_id":null,"insta_name":null,"insta_image":null,"snapchat":null,"snapchat_id":null,"snapchat_name":null,"snapchat_image":null,"last_login":"2018-03-28 07:25:17","since_from":"2018-03-27 08:20:41","up_is_deleted":"0","up_deleteddt":null,"up_status":"1","pemail":"postman_one@gmail.com","small_image":"http:\/\/virtualogin.com\/\/uploads\/profile_images\/","loginsession":"AK14562PL1236"}}
-26/05/2018 8:13:57 PM callPostAPI ResponseStatusCode:OK
-26/05/2018 8:13:57 PM API Response:- {"responseCode":1,"responseStatus":"Sucess","responseMessage":"User Details","response":{"profileid":"99","userid":"84","username":"","email":"postman_one@gmail.com","default_profile":"0","image":"http:\/\/virtualogin.com\/\/uploads\/profile_images\/","s_image":null,"f_name":null,"l_name":null,"gender":null,"dob":null,"height":"0","weight":"0","blood_group":null,"c_city":null,"c_state":null,"c_country":null,"c_zip":null,"fb_acc":null,"fb_id":null,"fb_name":null,"fb_image":null,"linkedin":null,"linkedin_id":null,"linkedin_name":null,"linkedin_image":null,"twitter":null,"twitter_id":null,"twitter_name":null,"twitter_image":null,"insta":null,"insta_id":null,"insta_name":null,"insta_image":null,"snapchat":null,"snapchat_id":null,"snapchat_name":null,"snapchat_image":null,"last_login":"2018-03-28 07:25:17","since_from":"2018-03-27 08:20:41","up_is_deleted":"0","up_deleteddt":null,"up_status":"1","pemail":"postman_one@gmail.com","small_image":"http:\/\/virtualogin.com\/\/uploads\/profile_images\/","loginsession":"AK14562PL1236"}}
-26/05/2018 8:13:57 PM API Response:- 
-26/05/2018 8:13:57 PM VirtuaLogin End
-26/05/2018 8:14:00 PM callPostAPI URL: http://virtualicense.com/developer.php/api/developer_api/assign_app_seat.json
-26/05/2018 8:14:00 PM callPostAPI Parameters Key: email_id Value: postman_one@gmail.com
-26/05/2018 8:14:00 PM callPostAPI Parameters Key: cpu_id Value: BFEBFBFF000906EA
-26/05/2018 8:14:00 PM callPostAPI Parameters Key: mac_id Value: 646E6960C6F1
-26/05/2018 8:14:00 PM callPostAPI Parameters Key: app_id Value: SecDevID_WEB_1.0.0.0_1521808771
-26/05/2018 8:14:00 PM callPostAPI Parameters Key: motherboard_id Value: 73AC5506-97A1-49B2-8210-B06EBF602F6A
-26/05/2018 8:14:00 PM callPostAPI Parameters Key: disk_id Value: 3471844813
-26/05/2018 8:14:00 PM callPostAPI Parameters Key: device_flag Value: 2
-26/05/2018 8:14:00 PM callPostAPI Parameters Key: latitude Value: 0.00
-26/05/2018 8:14:00 PM callPostAPI Parameters Key: longitude Value: 0.00
-26/05/2018 8:14:00 PM callPostAPI Parameters Key: ip_address Value: 192.168.71.1
-26/05/2018 8:14:00 PM callPostAPI Parameters Key: lic_no Value: 127
-26/05/2018 8:14:00 PM callPostAPI Response:{"responseCode":"1","responseStatus":"Success","responseMessage":"Seat Allocated","response":{"lic_info":{"interval":"60","seat_id":"49_SecDevID_WEB_1.0.0.0_1521808771_1527329640_4851884877","expire_on":"2018-06-05 10:14:00","time":"10","flag":"day","offline_status":"false","borrow_day":"0"},"Message":{"type":"1","msg":"this message for check for close 1","closeapp":"0"}}}
-26/05/2018 8:14:00 PM callPostAPI ResponseStatusCode:OK
-26/05/2018 8:14:00 PM Dowork API Response:- {"responseCode":"1","responseStatus":"Success","responseMessage":"Seat Allocated","response":{"lic_info":{"interval":"60","seat_id":"49_SecDevID_WEB_1.0.0.0_1521808771_1527329640_4851884877","expire_on":"2018-06-05 10:14:00","time":"10","flag":"day","offline_status":"false","borrow_day":"0"},"Message":{"type":"1","msg":"this message for check for close 1","closeapp":"0"}}}
-26/05/2018 8:14:00 PM License File Path:R:\GitHub\Aanno\Release\\License.xml
-26/05/2018 8:14:00 PM InitalizeTimer
-26/05/2018 8:14:00 PM InitalizeTimer Interval60
-26/05/2018 8:14:03 PM LogOutApp Called
-26/05/2018 8:14:03 PM LogOutApp apiLogoutURL:http://virtualicense.com/developer.php/api/developer_api/release_machine.json
-26/05/2018 8:14:03 PM LogOutApp accountUserName:postman_one@gmail.com
-26/05/2018 8:14:03 PM LogOutApp AccontLicenseAppId:SecDevID_WEB_1.0.0.0_1521808771
-26/05/2018 8:14:03 PM LogOutApp AccontLicenseSeatId:49_SecDevID_WEB_1.0.0.0_1521808771_1527329640_4851884877
-26/05/2018 8:14:03 PM callPostAPI URL: http://virtualicense.com/developer.php/api/developer_api/release_machine.json
-26/05/2018 8:14:03 PM callPostAPI Parameters Key: email_id Value: postman_one@gmail.com
-26/05/2018 8:14:03 PM callPostAPI Parameters Key: mac_id Value: 646E6960C6F1
-26/05/2018 8:14:03 PM callPostAPI Parameters Key: app_id Value: SecDevID_WEB_1.0.0.0_1521808771
-26/05/2018 8:14:03 PM callPostAPI Parameters Key: seat_number Value: 49_SecDevID_WEB_1.0.0.0_1521808771_1527329640_4851884877
-26/05/2018 8:14:04 PM callPostAPI Response:{"responseCode":"0","responseStatus":"Success","responseMessage":"This seat was release success","response":[]}
-26/05/2018 8:14:04 PM callPostAPI ResponseStatusCode:OK
-26/05/2018 8:14:04 PM LogOutApp Response:VirtuaLicense.Helper.APIResult
-26/05/2018 8:14:04 PM LogOutApp Response status:success
-26/05/2018 8:14:04 PM StopTimer
-26/05/2018 8:14:04 PM StopTimer
-26/05/2018 8:14:12 PM DoWork Start
-26/05/2018 8:14:12 PM VirtuaLogin Start
-26/05/2018 8:14:12 PM VirtuaLogin Start
-26/05/2018 8:14:12 PM VirtuaLogin appSettingFilePathR:\GitHub\Aanno\Release\Data\LicensingSettings.xml
-26/05/2018 8:14:12 PM VirtuaLogin URLhttp://virtualogin.com/index.php/api/auth/pr_login.json
-26/05/2018 8:14:12 PM callPostAPI URL: http://virtualogin.com/index.php/api/auth/pr_login.json
-26/05/2018 8:14:12 PM callPostAPI Parameters Key: email Value: postman_one@gmail.com
-26/05/2018 8:14:12 PM callPostAPI Parameters Key: pass Value: 12345
-26/05/2018 8:14:12 PM callPostAPI Parameters Key: conn_key Value: vtechdev
-26/05/2018 8:14:12 PM callPostAPI Parameters Key: app_id Value: SecDevID_WEB_1.0.0.0_1521808771
-26/05/2018 8:14:12 PM callPostAPI Parameters Key: app_version_id Value: Dev_AND_1523
-26/05/2018 8:14:12 PM callPostAPI Parameters Key: location Value: location
-26/05/2018 8:14:12 PM callPostAPI Parameters Key: loc_lat Value: 0.00
-26/05/2018 8:14:12 PM callPostAPI Parameters Key: loc_long Value: 0.00
-26/05/2018 8:14:12 PM callPostAPI Parameters Key: ip_address Value: 192.168.71.1
-26/05/2018 8:14:13 PM callPostAPI Response:{"responseCode":1,"responseStatus":"Sucess","responseMessage":"User Details","response":{"profileid":"99","userid":"84","username":"","email":"postman_one@gmail.com","default_profile":"0","image":"http:\/\/virtualogin.com\/\/uploads\/profile_images\/","s_image":null,"f_name":null,"l_name":null,"gender":null,"dob":null,"height":"0","weight":"0","blood_group":null,"c_city":null,"c_state":null,"c_country":null,"c_zip":null,"fb_acc":null,"fb_id":null,"fb_name":null,"fb_image":null,"linkedin":null,"linkedin_id":null,"linkedin_name":null,"linkedin_image":null,"twitter":null,"twitter_id":null,"twitter_name":null,"twitter_image":null,"insta":null,"insta_id":null,"insta_name":null,"insta_image":null,"snapchat":null,"snapchat_id":null,"snapchat_name":null,"snapchat_image":null,"last_login":"2018-03-28 07:25:17","since_from":"2018-03-27 08:20:41","up_is_deleted":"0","up_deleteddt":null,"up_status":"1","pemail":"postman_one@gmail.com","small_image":"http:\/\/virtualogin.com\/\/uploads\/profile_images\/","loginsession":"AK14562PL1236"}}
-26/05/2018 8:14:13 PM callPostAPI ResponseStatusCode:OK
-26/05/2018 8:14:13 PM API Response:- {"responseCode":1,"responseStatus":"Sucess","responseMessage":"User Details","response":{"profileid":"99","userid":"84","username":"","email":"postman_one@gmail.com","default_profile":"0","image":"http:\/\/virtualogin.com\/\/uploads\/profile_images\/","s_image":null,"f_name":null,"l_name":null,"gender":null,"dob":null,"height":"0","weight":"0","blood_group":null,"c_city":null,"c_state":null,"c_country":null,"c_zip":null,"fb_acc":null,"fb_id":null,"fb_name":null,"fb_image":null,"linkedin":null,"linkedin_id":null,"linkedin_name":null,"linkedin_image":null,"twitter":null,"twitter_id":null,"twitter_name":null,"twitter_image":null,"insta":null,"insta_id":null,"insta_name":null,"insta_image":null,"snapchat":null,"snapchat_id":null,"snapchat_name":null,"snapchat_image":null,"last_login":"2018-03-28 07:25:17","since_from":"2018-03-27 08:20:41","up_is_deleted":"0","up_deleteddt":null,"up_status":"1","pemail":"postman_one@gmail.com","small_image":"http:\/\/virtualogin.com\/\/uploads\/profile_images\/","loginsession":"AK14562PL1236"}}
-26/05/2018 8:14:13 PM API Response:- 
-26/05/2018 8:14:13 PM VirtuaLogin End
-26/05/2018 8:14:15 PM callPostAPI URL: http://virtualicense.com/developer.php/api/developer_api/assign_app_seat.json
-26/05/2018 8:14:15 PM callPostAPI Parameters Key: email_id Value: postman_one@gmail.com
-26/05/2018 8:14:15 PM callPostAPI Parameters Key: cpu_id Value: BFEBFBFF000906EA
-26/05/2018 8:14:15 PM callPostAPI Parameters Key: mac_id Value: 646E6960C6F1
-26/05/2018 8:14:15 PM callPostAPI Parameters Key: app_id Value: SecDevID_WEB_1.0.0.0_1521808771
-26/05/2018 8:14:15 PM callPostAPI Parameters Key: motherboard_id Value: 73AC5506-97A1-49B2-8210-B06EBF602F6A
-26/05/2018 8:14:15 PM callPostAPI Parameters Key: disk_id Value: 3471844813
-26/05/2018 8:14:15 PM callPostAPI Parameters Key: device_flag Value: 2
-26/05/2018 8:14:15 PM callPostAPI Parameters Key: latitude Value: 0.00
-26/05/2018 8:14:15 PM callPostAPI Parameters Key: longitude Value: 0.00
-26/05/2018 8:14:15 PM callPostAPI Parameters Key: ip_address Value: 192.168.71.1
-26/05/2018 8:14:15 PM callPostAPI Parameters Key: lic_no Value: 127
-26/05/2018 8:14:16 PM callPostAPI Response:{"responseCode":"1","responseStatus":"Success","responseMessage":"Seat Allocated","response":{"lic_info":{"interval":"60","seat_id":"49_SecDevID_WEB_1.0.0.0_1521808771_1527329656_4939075375","expire_on":"2018-06-05 10:14:16","time":"10","flag":"day","offline_status":"false","borrow_day":"0"},"Message":{"type":"1","msg":"this message for check for close 1","closeapp":"0"}}}
-26/05/2018 8:14:16 PM callPostAPI ResponseStatusCode:OK
-26/05/2018 8:14:16 PM Dowork API Response:- {"responseCode":"1","responseStatus":"Success","responseMessage":"Seat Allocated","response":{"lic_info":{"interval":"60","seat_id":"49_SecDevID_WEB_1.0.0.0_1521808771_1527329656_4939075375","expire_on":"2018-06-05 10:14:16","time":"10","flag":"day","offline_status":"false","borrow_day":"0"},"Message":{"type":"1","msg":"this message for check for close 1","closeapp":"0"}}}
-26/05/2018 8:14:16 PM License File Path:R:\GitHub\Aanno\Release\\License.xml
-26/05/2018 8:14:16 PM InitalizeTimer
-26/05/2018 8:14:16 PM InitalizeTimer Interval60
-26/05/2018 8:15:57 PM LogOutApp Called
-26/05/2018 8:15:57 PM LogOutApp apiLogoutURL:http://virtualicense.com/developer.php/api/developer_api/release_machine.json
-26/05/2018 8:15:57 PM LogOutApp accountUserName:postman_one@gmail.com
-26/05/2018 8:15:57 PM LogOutApp AccontLicenseAppId:SecDevID_WEB_1.0.0.0_1521808771
-26/05/2018 8:15:57 PM LogOutApp AccontLicenseSeatId:49_SecDevID_WEB_1.0.0.0_1521808771_1527329656_4939075375
-26/05/2018 8:15:57 PM callPostAPI URL: http://virtualicense.com/developer.php/api/developer_api/release_machine.json
-26/05/2018 8:15:57 PM callPostAPI Parameters Key: email_id Value: postman_one@gmail.com
-26/05/2018 8:15:57 PM callPostAPI Parameters Key: mac_id Value: 646E6960C6F1
-26/05/2018 8:15:57 PM callPostAPI Parameters Key: app_id Value: SecDevID_WEB_1.0.0.0_1521808771
-26/05/2018 8:15:57 PM callPostAPI Parameters Key: seat_number Value: 49_SecDevID_WEB_1.0.0.0_1521808771_1527329656_4939075375
-26/05/2018 8:15:59 PM callPostAPI Response:{"responseCode":"0","responseStatus":"Success","responseMessage":"This seat was release success","response":[]}
-26/05/2018 8:15:59 PM callPostAPI ResponseStatusCode:OK
-26/05/2018 8:15:59 PM LogOutApp Response:VirtuaLicense.Helper.APIResult
-26/05/2018 8:15:59 PM LogOutApp Response status:success
-26/05/2018 8:15:59 PM StopTimer
-26/05/2018 8:15:59 PM StopTimer
-26/05/2018 8:16:51 PM ReadConfigurations Start
-26/05/2018 8:16:51 PM ReadConfigurations-appSettingFilePath: R:\GitHub\Aanno\Release\Data\LicensingSettings.xml
-26/05/2018 8:16:51 PM ReadConfigurations-rememberCredentials: true
-26/05/2018 8:16:51 PM ReadConfigurations-loginwindowsStartup:true
-26/05/2018 8:16:51 PM ReadConfigurations-ThemeAccent: cobalt
-26/05/2018 8:16:51 PM ReadConfigurations-ThemeType: BaseLight
-26/05/2018 8:16:51 PM ReadConfigurations Start
-26/05/2018 8:16:51 PM ReadConfigurations-appSettingFilePath: R:\GitHub\Aanno\Release\Data\LicensingSettings.xml
-26/05/2018 8:16:51 PM ReadConfigurations-rememberCredentials: true
-26/05/2018 8:16:51 PM ReadConfigurations-loginwindowsStartup:true
-26/05/2018 8:16:51 PM ReadConfigurations-ThemeAccent: cobalt
-26/05/2018 8:16:51 PM ReadConfigurations-ThemeType: BaseLight
-26/05/2018 8:16:51 PM ReadConfigurations Start
-26/05/2018 8:16:51 PM ReadConfigurations-appSettingFilePath: R:\GitHub\Aanno\Release\Data\LicensingSettings.xml
-26/05/2018 8:16:51 PM ReadConfigurations-rememberCredentials: true
-26/05/2018 8:16:51 PM ReadConfigurations-loginwindowsStartup:true
-26/05/2018 8:16:51 PM ReadConfigurations-ThemeAccent: cobalt
-26/05/2018 8:16:51 PM ReadConfigurations-ThemeType: BaseLight
-26/05/2018 8:16:51 PM ReadConfigurations Start
-26/05/2018 8:16:51 PM ReadConfigurations-appSettingFilePath: R:\GitHub\Aanno\Release\Data\LicensingSettings.xml
-26/05/2018 8:16:51 PM ReadConfigurations-rememberCredentials: true
-26/05/2018 8:16:51 PM ReadConfigurations-loginwindowsStartup:true
-26/05/2018 8:16:51 PM ReadConfigurations-ThemeAccent: cobalt
-26/05/2018 8:16:51 PM ReadConfigurations-ThemeType: BaseLight
-29/05/2018 1:48:10 PM ReadConfigurations Start
-29/05/2018 1:48:10 PM ReadConfigurations-appSettingFilePath: R:\GitHub\Aanno\Release\Data\LicensingSettings.xml
-29/05/2018 1:48:10 PM ReadConfigurations-rememberCredentials: true
-29/05/2018 1:48:10 PM ReadConfigurations-loginwindowsStartup:true
-29/05/2018 1:48:10 PM ReadConfigurations-ThemeAccent: cobalt
-29/05/2018 1:48:10 PM ReadConfigurations-ThemeType: BaseLight
-29/05/2018 1:48:10 PM ReadConfigurations Start
-29/05/2018 1:48:10 PM ReadConfigurations-appSettingFilePath: R:\GitHub\Aanno\Release\Data\LicensingSettings.xml
-29/05/2018 1:48:10 PM ReadConfigurations-rememberCredentials: true
-29/05/2018 1:48:10 PM ReadConfigurations-loginwindowsStartup:true
-29/05/2018 1:48:10 PM ReadConfigurations-ThemeAccent: cobalt
-29/05/2018 1:48:10 PM ReadConfigurations-ThemeType: BaseLight
-29/05/2018 1:48:10 PM ReadConfigurations Start
-29/05/2018 1:48:10 PM ReadConfigurations-appSettingFilePath: R:\GitHub\Aanno\Release\Data\LicensingSettings.xml
-29/05/2018 1:48:10 PM ReadConfigurations-rememberCredentials: true
-29/05/2018 1:48:10 PM ReadConfigurations-loginwindowsStartup:true
-29/05/2018 1:48:10 PM ReadConfigurations-ThemeAccent: cobalt
-29/05/2018 1:48:10 PM ReadConfigurations-ThemeType: BaseLight
-29/05/2018 1:48:10 PM ReadConfigurations Start
-29/05/2018 1:48:10 PM ReadConfigurations-appSettingFilePath: R:\GitHub\Aanno\Release\Data\LicensingSettings.xml
-29/05/2018 1:48:10 PM ReadConfigurations-rememberCredentials: true
-29/05/2018 1:48:10 PM ReadConfigurations-loginwindowsStartup:true
-29/05/2018 1:48:10 PM ReadConfigurations-ThemeAccent: cobalt
-29/05/2018 1:48:10 PM ReadConfigurations-ThemeType: BaseLight
-5/06/2018 10:23:23 PM ReadConfigurations Start
-5/06/2018 10:23:23 PM ReadConfigurations-appSettingFilePath: R:\GitHub\Aanno\Release\Data\LicensingSettings.xml
-5/06/2018 10:23:23 PM ReadConfigurations-rememberCredentials: true
-5/06/2018 10:23:23 PM ReadConfigurations-loginwindowsStartup:true
-5/06/2018 10:23:23 PM ReadConfigurations-ThemeAccent: cobalt
-5/06/2018 10:23:23 PM ReadConfigurations-ThemeType: BaseLight
-5/06/2018 10:23:23 PM ReadConfigurations Start
-5/06/2018 10:23:23 PM ReadConfigurations-appSettingFilePath: R:\GitHub\Aanno\Release\Data\LicensingSettings.xml
-5/06/2018 10:23:23 PM ReadConfigurations-rememberCredentials: true
-5/06/2018 10:23:23 PM ReadConfigurations-loginwindowsStartup:true
-5/06/2018 10:23:23 PM ReadConfigurations-ThemeAccent: cobalt
-5/06/2018 10:23:23 PM ReadConfigurations-ThemeType: BaseLight
-5/06/2018 10:23:24 PM ReadConfigurations Start
-5/06/2018 10:23:24 PM ReadConfigurations-appSettingFilePath: R:\GitHub\Aanno\Release\Data\LicensingSettings.xml
-5/06/2018 10:23:24 PM ReadConfigurations-rememberCredentials: true
-5/06/2018 10:23:24 PM ReadConfigurations-loginwindowsStartup:true
-5/06/2018 10:23:24 PM ReadConfigurations-ThemeAccent: cobalt
-5/06/2018 10:23:24 PM ReadConfigurations-ThemeType: BaseLight
-5/06/2018 10:23:24 PM ReadConfigurations Start
-5/06/2018 10:23:24 PM ReadConfigurations-appSettingFilePath: R:\GitHub\Aanno\Release\Data\LicensingSettings.xml
-5/06/2018 10:23:24 PM ReadConfigurations-rememberCredentials: true
-5/06/2018 10:23:24 PM ReadConfigurations-loginwindowsStartup:true
-5/06/2018 10:23:24 PM ReadConfigurations-ThemeAccent: cobalt
-5/06/2018 10:23:24 PM ReadConfigurations-ThemeType: BaseLight
-5/06/2018 10:24:04 PM DoWork Start
-5/06/2018 10:24:04 PM VirtuaLogin Start
-5/06/2018 10:24:04 PM VirtuaLogin Start
-5/06/2018 10:24:04 PM VirtuaLogin appSettingFilePathR:\GitHub\Aanno\Release\Data\LicensingSettings.xml
-5/06/2018 10:24:04 PM VirtuaLogin URLhttp://virtualogin.com/index.php/api/auth/pr_login.json
-5/06/2018 10:24:04 PM callPostAPI URL: http://virtualogin.com/index.php/api/auth/pr_login.json
-5/06/2018 10:24:04 PM callPostAPI Parameters Key: email Value: postman_one@gmail.com
-5/06/2018 10:24:04 PM callPostAPI Parameters Key: pass Value: 12345
-5/06/2018 10:24:04 PM callPostAPI Parameters Key: conn_key Value: vtechdev
-5/06/2018 10:24:04 PM callPostAPI Parameters Key: app_id Value: SecDevID_WEB_1.0.0.0_1521808771
-5/06/2018 10:24:04 PM callPostAPI Parameters Key: app_version_id Value: Dev_AND_1523
-5/06/2018 10:24:04 PM callPostAPI Parameters Key: location Value: location
-5/06/2018 10:24:04 PM callPostAPI Parameters Key: loc_lat Value: 0.00
-5/06/2018 10:24:04 PM callPostAPI Parameters Key: loc_long Value: 0.00
-5/06/2018 10:24:04 PM callPostAPI Parameters Key: ip_address Value: 192.168.71.1
-5/06/2018 10:24:05 PM callPostAPI Response:{"responseCode":1,"responseStatus":"Sucess","responseMessage":"User Details","response":{"profileid":"99","userid":"84","username":"","email":"postman_one@gmail.com","default_profile":"0","image":"http:\/\/virtualogin.com\/\/uploads\/profile_images\/","s_image":null,"f_name":null,"l_name":null,"gender":null,"dob":null,"height":"0","weight":"0","blood_group":null,"c_city":null,"c_state":null,"c_country":null,"c_zip":null,"fb_acc":null,"fb_id":null,"fb_name":null,"fb_image":null,"linkedin":null,"linkedin_id":null,"linkedin_name":null,"linkedin_image":null,"twitter":null,"twitter_id":null,"twitter_name":null,"twitter_image":null,"insta":null,"insta_id":null,"insta_name":null,"insta_image":null,"snapchat":null,"snapchat_id":null,"snapchat_name":null,"snapchat_image":null,"last_login":"2018-03-28 07:25:17","since_from":"2018-03-27 08:20:41","up_is_deleted":"0","up_deleteddt":null,"up_status":"1","pemail":"postman_one@gmail.com","small_image":"http:\/\/virtualogin.com\/\/uploads\/profile_images\/","loginsession":"AK14562PL1236"}}
-5/06/2018 10:24:05 PM callPostAPI ResponseStatusCode:OK
-5/06/2018 10:24:05 PM API Response:- {"responseCode":1,"responseStatus":"Sucess","responseMessage":"User Details","response":{"profileid":"99","userid":"84","username":"","email":"postman_one@gmail.com","default_profile":"0","image":"http:\/\/virtualogin.com\/\/uploads\/profile_images\/","s_image":null,"f_name":null,"l_name":null,"gender":null,"dob":null,"height":"0","weight":"0","blood_group":null,"c_city":null,"c_state":null,"c_country":null,"c_zip":null,"fb_acc":null,"fb_id":null,"fb_name":null,"fb_image":null,"linkedin":null,"linkedin_id":null,"linkedin_name":null,"linkedin_image":null,"twitter":null,"twitter_id":null,"twitter_name":null,"twitter_image":null,"insta":null,"insta_id":null,"insta_name":null,"insta_image":null,"snapchat":null,"snapchat_id":null,"snapchat_name":null,"snapchat_image":null,"last_login":"2018-03-28 07:25:17","since_from":"2018-03-27 08:20:41","up_is_deleted":"0","up_deleteddt":null,"up_status":"1","pemail":"postman_one@gmail.com","small_image":"http:\/\/virtualogin.com\/\/uploads\/profile_images\/","loginsession":"AK14562PL1236"}}
-5/06/2018 10:24:05 PM API Response:- 
-5/06/2018 10:24:06 PM VirtuaLogin End
-5/06/2018 10:24:08 PM callPostAPI URL: http://virtualicense.com/developer.php/api/developer_api/assign_app_seat.json
-5/06/2018 10:24:08 PM callPostAPI Parameters Key: email_id Value: postman_one@gmail.com
-5/06/2018 10:24:08 PM callPostAPI Parameters Key: cpu_id Value: BFEBFBFF000906EA
-5/06/2018 10:24:08 PM callPostAPI Parameters Key: mac_id Value: 646E6960C6F1
-5/06/2018 10:24:08 PM callPostAPI Parameters Key: app_id Value: SecDevID_WEB_1.0.0.0_1521808771
-5/06/2018 10:24:08 PM callPostAPI Parameters Key: motherboard_id Value: 73AC5506-97A1-49B2-8210-B06EBF602F6A
-5/06/2018 10:24:08 PM callPostAPI Parameters Key: disk_id Value: 3471844813
-5/06/2018 10:24:08 PM callPostAPI Parameters Key: device_flag Value: 2
-5/06/2018 10:24:08 PM callPostAPI Parameters Key: latitude Value: 0.00
-5/06/2018 10:24:08 PM callPostAPI Parameters Key: longitude Value: 0.00
-5/06/2018 10:24:08 PM callPostAPI Parameters Key: ip_address Value: 192.168.71.1
-5/06/2018 10:24:08 PM callPostAPI Parameters Key: lic_no Value: 127
-5/06/2018 10:24:09 PM callPostAPI Response:{"responseCode":"1","responseStatus":"Success","responseMessage":"Seat Allocated","response":{"lic_info":{"interval":"60","seat_id":"49_SecDevID_WEB_1.0.0.0_1521808771_1528201450_6021413632","expire_on":"2018-06-15 12:24:10","time":"10","flag":"day","offline_status":"false","borrow_day":"0"},"Message":{"type":"1","msg":"this message for check for close 1","closeapp":"0"}}}
-5/06/2018 10:24:09 PM callPostAPI ResponseStatusCode:OK
-5/06/2018 10:24:09 PM Dowork API Response:- {"responseCode":"1","responseStatus":"Success","responseMessage":"Seat Allocated","response":{"lic_info":{"interval":"60","seat_id":"49_SecDevID_WEB_1.0.0.0_1521808771_1528201450_6021413632","expire_on":"2018-06-15 12:24:10","time":"10","flag":"day","offline_status":"false","borrow_day":"0"},"Message":{"type":"1","msg":"this message for check for close 1","closeapp":"0"}}}
-5/06/2018 10:24:09 PM License File Path:R:\GitHub\Aanno\Release\\License.xml
-5/06/2018 10:24:09 PM InitalizeTimer
-5/06/2018 10:24:09 PM InitalizeTimer Interval60
-5/06/2018 10:24:11 PM LogOutApp Called
-5/06/2018 10:24:11 PM LogOutApp apiLogoutURL:http://virtualicense.com/developer.php/api/developer_api/release_machine.json
-5/06/2018 10:24:11 PM LogOutApp accountUserName:postman_one@gmail.com
-5/06/2018 10:24:11 PM LogOutApp AccontLicenseAppId:SecDevID_WEB_1.0.0.0_1521808771
-5/06/2018 10:24:11 PM LogOutApp AccontLicenseSeatId:49_SecDevID_WEB_1.0.0.0_1521808771_1528201450_6021413632
-5/06/2018 10:24:11 PM callPostAPI URL: http://virtualicense.com/developer.php/api/developer_api/release_machine.json
-5/06/2018 10:24:11 PM callPostAPI Parameters Key: email_id Value: postman_one@gmail.com
-5/06/2018 10:24:11 PM callPostAPI Parameters Key: mac_id Value: 646E6960C6F1
-5/06/2018 10:24:11 PM callPostAPI Parameters Key: app_id Value: SecDevID_WEB_1.0.0.0_1521808771
-5/06/2018 10:24:11 PM callPostAPI Parameters Key: seat_number Value: 49_SecDevID_WEB_1.0.0.0_1521808771_1528201450_6021413632
-5/06/2018 10:24:11 PM callPostAPI Response:{"responseCode":"0","responseStatus":"Success","responseMessage":"This seat was release success","response":[]}
-5/06/2018 10:24:11 PM callPostAPI ResponseStatusCode:OK
-5/06/2018 10:24:11 PM LogOutApp Response:VirtuaLicense.Helper.APIResult
-5/06/2018 10:24:11 PM LogOutApp Response status:success
-5/06/2018 10:24:11 PM StopTimer
-5/06/2018 10:24:11 PM StopTimer
-5/06/2018 10:24:12 PM DoWork Start
-5/06/2018 10:24:12 PM VirtuaLogin Start
-5/06/2018 10:24:12 PM VirtuaLogin Start
-5/06/2018 10:24:12 PM VirtuaLogin appSettingFilePathR:\GitHub\Aanno\Release\Data\LicensingSettings.xml
-5/06/2018 10:24:12 PM VirtuaLogin URLhttp://virtualogin.com/index.php/api/auth/pr_login.json
-5/06/2018 10:24:12 PM callPostAPI URL: http://virtualogin.com/index.php/api/auth/pr_login.json
-5/06/2018 10:24:12 PM callPostAPI Parameters Key: email Value: postman_one@gmail.com
-5/06/2018 10:24:12 PM callPostAPI Parameters Key: pass Value: 12345
-5/06/2018 10:24:12 PM callPostAPI Parameters Key: conn_key Value: vtechdev
-5/06/2018 10:24:12 PM callPostAPI Parameters Key: app_id Value: SecDevID_WEB_1.0.0.0_1521808771
-5/06/2018 10:24:12 PM callPostAPI Parameters Key: app_version_id Value: Dev_AND_1523
-5/06/2018 10:24:12 PM callPostAPI Parameters Key: location Value: location
-5/06/2018 10:24:12 PM callPostAPI Parameters Key: loc_lat Value: 0.00
-5/06/2018 10:24:12 PM callPostAPI Parameters Key: loc_long Value: 0.00
-5/06/2018 10:24:12 PM callPostAPI Parameters Key: ip_address Value: 192.168.71.1
-5/06/2018 10:24:13 PM callPostAPI Response:{"responseCode":1,"responseStatus":"Sucess","responseMessage":"User Details","response":{"profileid":"99","userid":"84","username":"","email":"postman_one@gmail.com","default_profile":"0","image":"http:\/\/virtualogin.com\/\/uploads\/profile_images\/","s_image":null,"f_name":null,"l_name":null,"gender":null,"dob":null,"height":"0","weight":"0","blood_group":null,"c_city":null,"c_state":null,"c_country":null,"c_zip":null,"fb_acc":null,"fb_id":null,"fb_name":null,"fb_image":null,"linkedin":null,"linkedin_id":null,"linkedin_name":null,"linkedin_image":null,"twitter":null,"twitter_id":null,"twitter_name":null,"twitter_image":null,"insta":null,"insta_id":null,"insta_name":null,"insta_image":null,"snapchat":null,"snapchat_id":null,"snapchat_name":null,"snapchat_image":null,"last_login":"2018-03-28 07:25:17","since_from":"2018-03-27 08:20:41","up_is_deleted":"0","up_deleteddt":null,"up_status":"1","pemail":"postman_one@gmail.com","small_image":"http:\/\/virtualogin.com\/\/uploads\/profile_images\/","loginsession":"AK14562PL1236"}}
-5/06/2018 10:24:13 PM callPostAPI ResponseStatusCode:OK
-5/06/2018 10:24:13 PM API Response:- {"responseCode":1,"responseStatus":"Sucess","responseMessage":"User Details","response":{"profileid":"99","userid":"84","username":"","email":"postman_one@gmail.com","default_profile":"0","image":"http:\/\/virtualogin.com\/\/uploads\/profile_images\/","s_image":null,"f_name":null,"l_name":null,"gender":null,"dob":null,"height":"0","weight":"0","blood_group":null,"c_city":null,"c_state":null,"c_country":null,"c_zip":null,"fb_acc":null,"fb_id":null,"fb_name":null,"fb_image":null,"linkedin":null,"linkedin_id":null,"linkedin_name":null,"linkedin_image":null,"twitter":null,"twitter_id":null,"twitter_name":null,"twitter_image":null,"insta":null,"insta_id":null,"insta_name":null,"insta_image":null,"snapchat":null,"snapchat_id":null,"snapchat_name":null,"snapchat_image":null,"last_login":"2018-03-28 07:25:17","since_from":"2018-03-27 08:20:41","up_is_deleted":"0","up_deleteddt":null,"up_status":"1","pemail":"postman_one@gmail.com","small_image":"http:\/\/virtualogin.com\/\/uploads\/profile_images\/","loginsession":"AK14562PL1236"}}
-5/06/2018 10:24:13 PM API Response:- 
-5/06/2018 10:24:13 PM VirtuaLogin End
-5/06/2018 10:24:15 PM callPostAPI URL: http://virtualicense.com/developer.php/api/developer_api/assign_app_seat.json
-5/06/2018 10:24:15 PM callPostAPI Parameters Key: email_id Value: postman_one@gmail.com
-5/06/2018 10:24:15 PM callPostAPI Parameters Key: cpu_id Value: BFEBFBFF000906EA
-5/06/2018 10:24:15 PM callPostAPI Parameters Key: mac_id Value: 646E6960C6F1
-5/06/2018 10:24:15 PM callPostAPI Parameters Key: app_id Value: SecDevID_WEB_1.0.0.0_1521808771
-5/06/2018 10:24:15 PM callPostAPI Parameters Key: motherboard_id Value: 73AC5506-97A1-49B2-8210-B06EBF602F6A
-5/06/2018 10:24:15 PM callPostAPI Parameters Key: disk_id Value: 3471844813
-5/06/2018 10:24:15 PM callPostAPI Parameters Key: device_flag Value: 2
-5/06/2018 10:24:15 PM callPostAPI Parameters Key: latitude Value: 0.00
-5/06/2018 10:24:15 PM callPostAPI Parameters Key: longitude Value: 0.00
-5/06/2018 10:24:15 PM callPostAPI Parameters Key: ip_address Value: 192.168.71.1
-5/06/2018 10:24:15 PM callPostAPI Parameters Key: lic_no Value: 127
-5/06/2018 10:24:15 PM callPostAPI Response:{"responseCode":"1","responseStatus":"Success","responseMessage":"Seat Allocated","response":{"lic_info":{"interval":"60","seat_id":"49_SecDevID_WEB_1.0.0.0_1521808771_1528201456_2850586084","expire_on":"2018-06-15 12:24:16","time":"10","flag":"day","offline_status":"false","borrow_day":"0"},"Message":{"type":"1","msg":"this message for check for close 1","closeapp":"0"}}}
-5/06/2018 10:24:15 PM callPostAPI ResponseStatusCode:OK
-5/06/2018 10:24:15 PM Dowork API Response:- {"responseCode":"1","responseStatus":"Success","responseMessage":"Seat Allocated","response":{"lic_info":{"interval":"60","seat_id":"49_SecDevID_WEB_1.0.0.0_1521808771_1528201456_2850586084","expire_on":"2018-06-15 12:24:16","time":"10","flag":"day","offline_status":"false","borrow_day":"0"},"Message":{"type":"1","msg":"this message for check for close 1","closeapp":"0"}}}
-5/06/2018 10:24:15 PM License File Path:R:\GitHub\Aanno\Release\\License.xml
-5/06/2018 10:24:15 PM InitalizeTimer
-5/06/2018 10:24:15 PM InitalizeTimer Interval60
-5/06/2018 10:24:17 PM LogOutApp Called
-5/06/2018 10:24:17 PM LogOutApp apiLogoutURL:http://virtualicense.com/developer.php/api/developer_api/release_machine.json
-5/06/2018 10:24:17 PM LogOutApp accountUserName:postman_one@gmail.com
-5/06/2018 10:24:17 PM LogOutApp AccontLicenseAppId:SecDevID_WEB_1.0.0.0_1521808771
-5/06/2018 10:24:17 PM LogOutApp AccontLicenseSeatId:49_SecDevID_WEB_1.0.0.0_1521808771_1528201456_2850586084
-5/06/2018 10:24:17 PM callPostAPI URL: http://virtualicense.com/developer.php/api/developer_api/release_machine.json
-5/06/2018 10:24:17 PM callPostAPI Parameters Key: email_id Value: postman_one@gmail.com
-5/06/2018 10:24:17 PM callPostAPI Parameters Key: mac_id Value: 646E6960C6F1
-5/06/2018 10:24:17 PM callPostAPI Parameters Key: app_id Value: SecDevID_WEB_1.0.0.0_1521808771
-5/06/2018 10:24:17 PM callPostAPI Parameters Key: seat_number Value: 49_SecDevID_WEB_1.0.0.0_1521808771_1528201456_2850586084
-5/06/2018 10:24:17 PM callPostAPI Response:{"responseCode":"0","responseStatus":"Success","responseMessage":"This seat was release success","response":[]}
-5/06/2018 10:24:17 PM callPostAPI ResponseStatusCode:OK
-5/06/2018 10:24:17 PM LogOutApp Response:VirtuaLicense.Helper.APIResult
-5/06/2018 10:24:17 PM LogOutApp Response status:success
-5/06/2018 10:24:17 PM StopTimer
-5/06/2018 10:24:17 PM StopTimer
+22/07/2018 7:55:31 PM ReadConfigurations Start
+22/07/2018 7:55:31 PM ReadConfigurations-appSettingFilePath: R:\GitHub\Aanno\Release\Data\LicensingSettings.xml
+22/07/2018 7:55:31 PM ReadConfigurations-rememberCredentials: true
+22/07/2018 7:55:31 PM ReadConfigurations-loginwindowsStartup:true
+22/07/2018 7:55:31 PM ReadConfigurations-ThemeAccent: cobalt
+22/07/2018 7:55:31 PM ReadConfigurations-ThemeType: BaseLight
+22/07/2018 7:55:31 PM ReadConfigurations Start
+22/07/2018 7:55:31 PM ReadConfigurations-appSettingFilePath: R:\GitHub\Aanno\Release\Data\LicensingSettings.xml
+22/07/2018 7:55:31 PM ReadConfigurations-rememberCredentials: true
+22/07/2018 7:55:31 PM ReadConfigurations-loginwindowsStartup:true
+22/07/2018 7:55:31 PM ReadConfigurations-ThemeAccent: cobalt
+22/07/2018 7:55:31 PM ReadConfigurations-ThemeType: BaseLight
+22/07/2018 7:55:31 PM Start CheckLicense
+22/07/2018 7:55:31 PM CheckLicense Path: R:\GitHub\Aanno\Release\License.XML
+22/07/2018 7:55:31 PM Start ApplicationStatus
+22/07/2018 7:55:31 PM End ApplicationStatus
+22/07/2018 7:55:35 PM ReadConfigurations Start
+22/07/2018 7:55:35 PM ReadConfigurations-appSettingFilePath: R:\GitHub\Aanno\Release\Data\LicensingSettings.xml
+22/07/2018 7:55:35 PM ReadConfigurations-rememberCredentials: true
+22/07/2018 7:55:35 PM ReadConfigurations-loginwindowsStartup:true
+22/07/2018 7:55:35 PM ReadConfigurations-ThemeAccent: cobalt
+22/07/2018 7:55:35 PM ReadConfigurations-ThemeType: BaseLight
+22/07/2018 7:55:35 PM ReadConfigurations Start
+22/07/2018 7:55:35 PM ReadConfigurations-appSettingFilePath: R:\GitHub\Aanno\Release\Data\LicensingSettings.xml
+22/07/2018 7:55:35 PM ReadConfigurations-rememberCredentials: true
+22/07/2018 7:55:35 PM ReadConfigurations-loginwindowsStartup:true
+22/07/2018 7:55:35 PM ReadConfigurations-ThemeAccent: cobalt
+22/07/2018 7:55:35 PM ReadConfigurations-ThemeType: BaseLight
+22/07/2018 7:55:35 PM Start CheckLicense
+22/07/2018 7:55:35 PM CheckLicense Path: R:\GitHub\Aanno\Release\License.XML
+22/07/2018 7:55:35 PM Start ApplicationStatus
+22/07/2018 7:55:35 PM End ApplicationStatus
+22/07/2018 7:55:37 PM DoWork Start
+22/07/2018 7:55:37 PM VirtuaLogin Start
+22/07/2018 7:55:37 PM VirtuaLogin Start
+22/07/2018 7:55:37 PM VirtuaLogin appSettingFilePathR:\GitHub\Aanno\Release\Data\LicensingSettings.xml
+22/07/2018 7:55:37 PM VirtuaLogin URLhttp://virtualogin.com/index.php/api/auth/pr_login.json
+22/07/2018 7:55:37 PM callPostAPI URL: http://virtualogin.com/index.php/api/auth/pr_login.json
+22/07/2018 7:55:37 PM callPostAPI Parameters Key: email Value: postman_one@gmail.com
+22/07/2018 7:55:37 PM callPostAPI Parameters Key: pass Value: 12345
+22/07/2018 7:55:37 PM callPostAPI Parameters Key: conn_key Value: vtechdev
+22/07/2018 7:55:37 PM callPostAPI Parameters Key: app_id Value: SecDevID_WEB_1.0.0.0_1521808771
+22/07/2018 7:55:38 PM callPostAPI Parameters Key: app_version_id Value: Dev_AND_1523
+22/07/2018 7:55:38 PM callPostAPI Parameters Key: location Value: location
+22/07/2018 7:55:38 PM callPostAPI Parameters Key: loc_lat Value: 0.00
+22/07/2018 7:55:38 PM callPostAPI Parameters Key: loc_long Value: 0.00
+22/07/2018 7:55:38 PM callPostAPI Parameters Key: ip_address Value: 192.168.71.1
+22/07/2018 7:55:38 PM callPostAPI Response:{"responseCode":1,"responseStatus":"Sucess","responseMessage":"User Details","response":{"profileid":"99","userid":"84","username":"","email":"postman_one@gmail.com","default_profile":"0","image":"http:\/\/virtualogin.com\/\/uploads\/profile_images\/","s_image":null,"f_name":null,"l_name":null,"gender":null,"dob":null,"height":"0","weight":"0","blood_group":null,"c_city":null,"c_state":null,"c_country":null,"c_zip":null,"fb_acc":null,"fb_id":null,"fb_name":null,"fb_image":null,"linkedin":null,"linkedin_id":null,"linkedin_name":null,"linkedin_image":null,"twitter":null,"twitter_id":null,"twitter_name":null,"twitter_image":null,"insta":null,"insta_id":null,"insta_name":null,"insta_image":null,"snapchat":null,"snapchat_id":null,"snapchat_name":null,"snapchat_image":null,"last_login":"2018-03-28 07:25:17","since_from":"2018-03-27 08:20:41","up_is_deleted":"0","up_deleteddt":null,"up_status":"1","pemail":"postman_one@gmail.com","small_image":"http:\/\/virtualogin.com\/\/uploads\/profile_images\/","loginsession":"AK14562PL1236"}}
+22/07/2018 7:55:38 PM callPostAPI ResponseStatusCode:OK
+22/07/2018 7:55:38 PM API Response:- {"responseCode":1,"responseStatus":"Sucess","responseMessage":"User Details","response":{"profileid":"99","userid":"84","username":"","email":"postman_one@gmail.com","default_profile":"0","image":"http:\/\/virtualogin.com\/\/uploads\/profile_images\/","s_image":null,"f_name":null,"l_name":null,"gender":null,"dob":null,"height":"0","weight":"0","blood_group":null,"c_city":null,"c_state":null,"c_country":null,"c_zip":null,"fb_acc":null,"fb_id":null,"fb_name":null,"fb_image":null,"linkedin":null,"linkedin_id":null,"linkedin_name":null,"linkedin_image":null,"twitter":null,"twitter_id":null,"twitter_name":null,"twitter_image":null,"insta":null,"insta_id":null,"insta_name":null,"insta_image":null,"snapchat":null,"snapchat_id":null,"snapchat_name":null,"snapchat_image":null,"last_login":"2018-03-28 07:25:17","since_from":"2018-03-27 08:20:41","up_is_deleted":"0","up_deleteddt":null,"up_status":"1","pemail":"postman_one@gmail.com","small_image":"http:\/\/virtualogin.com\/\/uploads\/profile_images\/","loginsession":"AK14562PL1236"}}
+22/07/2018 7:55:38 PM API Response:- 
+22/07/2018 7:55:39 PM VirtuaLogin End
+22/07/2018 7:55:41 PM callPostAPI URL: http://virtualicense.com/developer.php/api/developer_api/assign_app_seat.json
+22/07/2018 7:55:41 PM callPostAPI Parameters Key: email_id Value: postman_one@gmail.com
+22/07/2018 7:55:41 PM callPostAPI Parameters Key: cpu_id Value: BFEBFBFF000906EA
+22/07/2018 7:55:41 PM callPostAPI Parameters Key: mac_id Value: 646E6960C6F1
+22/07/2018 7:55:41 PM callPostAPI Parameters Key: app_id Value: SecDevID_WEB_1.0.0.0_1521808771
+22/07/2018 7:55:41 PM callPostAPI Parameters Key: motherboard_id Value: 73AC5506-97A1-49B2-8210-B06EBF602F6A
+22/07/2018 7:55:41 PM callPostAPI Parameters Key: disk_id Value: 3471844813
+22/07/2018 7:55:41 PM callPostAPI Parameters Key: device_flag Value: 2
+22/07/2018 7:55:41 PM callPostAPI Parameters Key: latitude Value: 0.00
+22/07/2018 7:55:41 PM callPostAPI Parameters Key: longitude Value: 0.00
+22/07/2018 7:55:41 PM callPostAPI Parameters Key: ip_address Value: 192.168.71.1
+22/07/2018 7:55:41 PM callPostAPI Parameters Key: lic_no Value: 127
+22/07/2018 7:55:42 PM callPostAPI Response:{"responseCode":"1","responseStatus":"Success","responseMessage":"This Seat Already Allocated","response":{"lic_info":{"interval":"60","seat_id":"49_SecDevID_WEB_1.0.0.0_1521808771_1532253247_2838525554","expire_on":"2018-08-01 09:54:07","time":"10","flag":"day","offline_status":"false","borrow_day":"0"},"Message":{"type":"1","msg":"this message for check for close 1","closeapp":"0"}}}
+22/07/2018 7:55:42 PM callPostAPI ResponseStatusCode:OK
+22/07/2018 7:55:42 PM Dowork API Response:- {"responseCode":"1","responseStatus":"Success","responseMessage":"This Seat Already Allocated","response":{"lic_info":{"interval":"60","seat_id":"49_SecDevID_WEB_1.0.0.0_1521808771_1532253247_2838525554","expire_on":"2018-08-01 09:54:07","time":"10","flag":"day","offline_status":"false","borrow_day":"0"},"Message":{"type":"1","msg":"this message for check for close 1","closeapp":"0"}}}
+22/07/2018 7:55:42 PM License File Path:R:\GitHub\Aanno\Release\\License.xml
+22/07/2018 7:55:42 PM InitalizeTimer
+22/07/2018 7:55:42 PM InitalizeTimer Interval60
+22/07/2018 7:55:43 PM LogOutApp Called
+22/07/2018 7:55:43 PM LogOutApp apiLogoutURL:http://virtualicense.com/developer.php/api/developer_api/release_machine.json
+22/07/2018 7:55:43 PM LogOutApp accountUserName:postman_one@gmail.com
+22/07/2018 7:55:43 PM LogOutApp AccontLicenseAppId:SecDevID_WEB_1.0.0.0_1521808771
+22/07/2018 7:55:43 PM LogOutApp AccontLicenseSeatId:49_SecDevID_WEB_1.0.0.0_1521808771_1532253247_2838525554
+22/07/2018 7:55:43 PM callPostAPI URL: http://virtualicense.com/developer.php/api/developer_api/release_machine.json
+22/07/2018 7:55:43 PM callPostAPI Parameters Key: email_id Value: postman_one@gmail.com
+22/07/2018 7:55:43 PM callPostAPI Parameters Key: mac_id Value: 646E6960C6F1
+22/07/2018 7:55:43 PM callPostAPI Parameters Key: app_id Value: SecDevID_WEB_1.0.0.0_1521808771
+22/07/2018 7:55:43 PM callPostAPI Parameters Key: seat_number Value: 49_SecDevID_WEB_1.0.0.0_1521808771_1532253247_2838525554
+22/07/2018 7:55:44 PM callPostAPI Response:{"responseCode":"0","responseStatus":"Success","responseMessage":"This seat was release success","response":[]}
+22/07/2018 7:55:44 PM callPostAPI ResponseStatusCode:OK
+22/07/2018 7:55:44 PM LogOutApp Response:VirtuaLicense.Helper.APIResult
+22/07/2018 7:55:44 PM LogOutApp Response status:success
+22/07/2018 7:55:44 PM StopTimer
+22/07/2018 7:55:44 PM StopTimer
+22/07/2018 7:55:45 PM DoWork Start
+22/07/2018 7:55:45 PM VirtuaLogin Start
+22/07/2018 7:55:45 PM VirtuaLogin Start
+22/07/2018 7:55:45 PM VirtuaLogin appSettingFilePathR:\GitHub\Aanno\Release\Data\LicensingSettings.xml
+22/07/2018 7:55:45 PM VirtuaLogin URLhttp://virtualogin.com/index.php/api/auth/pr_login.json
+22/07/2018 7:55:45 PM callPostAPI URL: http://virtualogin.com/index.php/api/auth/pr_login.json
+22/07/2018 7:55:45 PM callPostAPI Parameters Key: email Value: postman_one@gmail.com
+22/07/2018 7:55:45 PM callPostAPI Parameters Key: pass Value: 12345
+22/07/2018 7:55:45 PM callPostAPI Parameters Key: conn_key Value: vtechdev
+22/07/2018 7:55:45 PM callPostAPI Parameters Key: app_id Value: SecDevID_WEB_1.0.0.0_1521808771
+22/07/2018 7:55:45 PM callPostAPI Parameters Key: app_version_id Value: Dev_AND_1523
+22/07/2018 7:55:45 PM callPostAPI Parameters Key: location Value: location
+22/07/2018 7:55:45 PM callPostAPI Parameters Key: loc_lat Value: 0.00
+22/07/2018 7:55:45 PM callPostAPI Parameters Key: loc_long Value: 0.00
+22/07/2018 7:55:45 PM callPostAPI Parameters Key: ip_address Value: 192.168.71.1
+22/07/2018 7:55:45 PM callPostAPI Response:{"responseCode":1,"responseStatus":"Sucess","responseMessage":"User Details","response":{"profileid":"99","userid":"84","username":"","email":"postman_one@gmail.com","default_profile":"0","image":"http:\/\/virtualogin.com\/\/uploads\/profile_images\/","s_image":null,"f_name":null,"l_name":null,"gender":null,"dob":null,"height":"0","weight":"0","blood_group":null,"c_city":null,"c_state":null,"c_country":null,"c_zip":null,"fb_acc":null,"fb_id":null,"fb_name":null,"fb_image":null,"linkedin":null,"linkedin_id":null,"linkedin_name":null,"linkedin_image":null,"twitter":null,"twitter_id":null,"twitter_name":null,"twitter_image":null,"insta":null,"insta_id":null,"insta_name":null,"insta_image":null,"snapchat":null,"snapchat_id":null,"snapchat_name":null,"snapchat_image":null,"last_login":"2018-03-28 07:25:17","since_from":"2018-03-27 08:20:41","up_is_deleted":"0","up_deleteddt":null,"up_status":"1","pemail":"postman_one@gmail.com","small_image":"http:\/\/virtualogin.com\/\/uploads\/profile_images\/","loginsession":"AK14562PL1236"}}
+22/07/2018 7:55:45 PM callPostAPI ResponseStatusCode:OK
+22/07/2018 7:55:45 PM API Response:- {"responseCode":1,"responseStatus":"Sucess","responseMessage":"User Details","response":{"profileid":"99","userid":"84","username":"","email":"postman_one@gmail.com","default_profile":"0","image":"http:\/\/virtualogin.com\/\/uploads\/profile_images\/","s_image":null,"f_name":null,"l_name":null,"gender":null,"dob":null,"height":"0","weight":"0","blood_group":null,"c_city":null,"c_state":null,"c_country":null,"c_zip":null,"fb_acc":null,"fb_id":null,"fb_name":null,"fb_image":null,"linkedin":null,"linkedin_id":null,"linkedin_name":null,"linkedin_image":null,"twitter":null,"twitter_id":null,"twitter_name":null,"twitter_image":null,"insta":null,"insta_id":null,"insta_name":null,"insta_image":null,"snapchat":null,"snapchat_id":null,"snapchat_name":null,"snapchat_image":null,"last_login":"2018-03-28 07:25:17","since_from":"2018-03-27 08:20:41","up_is_deleted":"0","up_deleteddt":null,"up_status":"1","pemail":"postman_one@gmail.com","small_image":"http:\/\/virtualogin.com\/\/uploads\/profile_images\/","loginsession":"AK14562PL1236"}}
+22/07/2018 7:55:45 PM API Response:- 
+22/07/2018 7:55:45 PM VirtuaLogin End
+22/07/2018 7:55:48 PM callPostAPI URL: http://virtualicense.com/developer.php/api/developer_api/assign_app_seat.json
+22/07/2018 7:55:48 PM callPostAPI Parameters Key: email_id Value: postman_one@gmail.com
+22/07/2018 7:55:48 PM callPostAPI Parameters Key: cpu_id Value: BFEBFBFF000906EA
+22/07/2018 7:55:48 PM callPostAPI Parameters Key: mac_id Value: 646E6960C6F1
+22/07/2018 7:55:48 PM callPostAPI Parameters Key: app_id Value: SecDevID_WEB_1.0.0.0_1521808771
+22/07/2018 7:55:48 PM callPostAPI Parameters Key: motherboard_id Value: 73AC5506-97A1-49B2-8210-B06EBF602F6A
+22/07/2018 7:55:48 PM callPostAPI Parameters Key: disk_id Value: 3471844813
+22/07/2018 7:55:48 PM callPostAPI Parameters Key: device_flag Value: 2
+22/07/2018 7:55:48 PM callPostAPI Parameters Key: latitude Value: 0.00
+22/07/2018 7:55:48 PM callPostAPI Parameters Key: longitude Value: 0.00
+22/07/2018 7:55:48 PM callPostAPI Parameters Key: ip_address Value: 192.168.71.1
+22/07/2018 7:55:48 PM callPostAPI Parameters Key: lic_no Value: 127
+22/07/2018 7:55:48 PM callPostAPI Response:{"responseCode":"1","responseStatus":"Success","responseMessage":"Seat Allocated","response":{"lic_info":{"interval":"60","seat_id":"49_SecDevID_WEB_1.0.0.0_1521808771_1532253348_1883462913","expire_on":"2018-08-01 09:55:48","time":"10","flag":"day","offline_status":"false","borrow_day":"0"},"Message":{"type":"1","msg":"this message for check for close 1","closeapp":"0"}}}
+22/07/2018 7:55:48 PM callPostAPI ResponseStatusCode:OK
+22/07/2018 7:55:48 PM Dowork API Response:- {"responseCode":"1","responseStatus":"Success","responseMessage":"Seat Allocated","response":{"lic_info":{"interval":"60","seat_id":"49_SecDevID_WEB_1.0.0.0_1521808771_1532253348_1883462913","expire_on":"2018-08-01 09:55:48","time":"10","flag":"day","offline_status":"false","borrow_day":"0"},"Message":{"type":"1","msg":"this message for check for close 1","closeapp":"0"}}}
+22/07/2018 7:55:48 PM License File Path:R:\GitHub\Aanno\Release\\License.xml
+22/07/2018 7:55:48 PM InitalizeTimer
+22/07/2018 7:55:48 PM InitalizeTimer Interval60
+11/11/2018 10:47:06 AM ReadConfigurations Start
+11/11/2018 10:47:06 AM ReadConfigurations-appSettingFilePath: R:\GitHub\Aanno\Release\Data\LicensingSettings.xml
+11/11/2018 10:47:06 AM ReadConfigurations-rememberCredentials: true
+11/11/2018 10:47:06 AM ReadConfigurations-loginwindowsStartup:true
+11/11/2018 10:47:06 AM ReadConfigurations-ThemeAccent: cobalt
+11/11/2018 10:47:06 AM ReadConfigurations-ThemeType: BaseLight
+11/11/2018 10:47:06 AM ReadConfigurations Start
+11/11/2018 10:47:06 AM ReadConfigurations-appSettingFilePath: R:\GitHub\Aanno\Release\Data\LicensingSettings.xml
+11/11/2018 10:47:06 AM ReadConfigurations-rememberCredentials: true
+11/11/2018 10:47:06 AM ReadConfigurations-loginwindowsStartup:true
+11/11/2018 10:47:06 AM ReadConfigurations-ThemeAccent: cobalt
+11/11/2018 10:47:06 AM ReadConfigurations-ThemeType: BaseLight
+11/11/2018 10:47:06 AM Start CheckLicense
+11/11/2018 10:47:06 AM CheckLicense Path: R:\GitHub\Aanno\Release\License.XML
+11/11/2018 10:47:06 AM Start ApplicationStatus
+11/11/2018 10:47:08 AM End ApplicationStatus
+11/11/2018 10:47:41 AM ReadConfigurations Start
+11/11/2018 10:47:41 AM ReadConfigurations-appSettingFilePath: R:\GitHub\Aanno\Release\Data\LicensingSettings.xml
+11/11/2018 10:47:41 AM ReadConfigurations-rememberCredentials: true
+11/11/2018 10:47:41 AM ReadConfigurations-loginwindowsStartup:true
+11/11/2018 10:47:41 AM ReadConfigurations-ThemeAccent: cobalt
+11/11/2018 10:47:41 AM ReadConfigurations-ThemeType: BaseLight
+11/11/2018 10:47:41 AM ReadConfigurations Start
+11/11/2018 10:47:41 AM ReadConfigurations-appSettingFilePath: R:\GitHub\Aanno\Release\Data\LicensingSettings.xml
+11/11/2018 10:47:41 AM ReadConfigurations-rememberCredentials: true
+11/11/2018 10:47:41 AM ReadConfigurations-loginwindowsStartup:true
+11/11/2018 10:47:41 AM ReadConfigurations-ThemeAccent: cobalt
+11/11/2018 10:47:41 AM ReadConfigurations-ThemeType: BaseLight
+11/11/2018 10:47:42 AM Start CheckLicense
+11/11/2018 10:47:42 AM CheckLicense Path: R:\GitHub\Aanno\Release\License.XML
+11/11/2018 10:47:42 AM Start ApplicationStatus
+11/11/2018 10:47:44 AM End ApplicationStatus
+25/11/2018 10:32:19 PM ReadConfigurations Start
+25/11/2018 10:32:19 PM ReadConfigurations-appSettingFilePath: R:\GitHub\Aanno\Release\Data\LicensingSettings.xml
+25/11/2018 10:32:19 PM ReadConfigurations-rememberCredentials: true
+25/11/2018 10:32:19 PM ReadConfigurations-loginwindowsStartup:true
+25/11/2018 10:32:19 PM ReadConfigurations-ThemeAccent: cobalt
+25/11/2018 10:32:19 PM ReadConfigurations-ThemeType: BaseLight
+25/11/2018 10:32:19 PM ReadConfigurations Start
+25/11/2018 10:32:19 PM ReadConfigurations-appSettingFilePath: R:\GitHub\Aanno\Release\Data\LicensingSettings.xml
+25/11/2018 10:32:19 PM ReadConfigurations-rememberCredentials: true
+25/11/2018 10:32:19 PM ReadConfigurations-loginwindowsStartup:true
+25/11/2018 10:32:19 PM ReadConfigurations-ThemeAccent: cobalt
+25/11/2018 10:32:19 PM ReadConfigurations-ThemeType: BaseLight
+25/11/2018 10:32:26 PM Start CheckLicense
+25/11/2018 10:32:26 PM CheckLicense Path: R:\GitHub\Aanno\Release\License.XML
+25/11/2018 10:32:26 PM Start ApplicationStatus
+25/11/2018 10:32:28 PM End ApplicationStatus
+25/11/2018 10:35:39 PM ReadConfigurations Start
+25/11/2018 10:35:39 PM ReadConfigurations-appSettingFilePath: R:\GitHub\Aanno\Release\Data\LicensingSettings.xml
+25/11/2018 10:35:39 PM ReadConfigurations-rememberCredentials: true
+25/11/2018 10:35:39 PM ReadConfigurations-loginwindowsStartup:true
+25/11/2018 10:35:39 PM ReadConfigurations-ThemeAccent: cobalt
+25/11/2018 10:35:39 PM ReadConfigurations-ThemeType: BaseLight
+25/11/2018 10:35:39 PM ReadConfigurations Start
+25/11/2018 10:35:39 PM ReadConfigurations-appSettingFilePath: R:\GitHub\Aanno\Release\Data\LicensingSettings.xml
+25/11/2018 10:35:39 PM ReadConfigurations-rememberCredentials: true
+25/11/2018 10:35:39 PM ReadConfigurations-loginwindowsStartup:true
+25/11/2018 10:35:39 PM ReadConfigurations-ThemeAccent: cobalt
+25/11/2018 10:35:39 PM ReadConfigurations-ThemeType: BaseLight
+25/11/2018 10:35:39 PM Start CheckLicense
+25/11/2018 10:35:39 PM CheckLicense Path: R:\GitHub\Aanno\Release\License.XML
+25/11/2018 10:35:39 PM Start ApplicationStatus
+25/11/2018 10:35:42 PM End ApplicationStatus
+9/12/2018 6:57:53 PM ReadConfigurations Start
+9/12/2018 6:57:53 PM ReadConfigurations-appSettingFilePath: R:\GitHub\Aanno\Release\Data\LicensingSettings.xml
+9/12/2018 6:57:53 PM ReadConfigurations-rememberCredentials: true
+9/12/2018 6:57:53 PM ReadConfigurations-loginwindowsStartup:true
+9/12/2018 6:57:53 PM ReadConfigurations-ThemeAccent: cobalt
+9/12/2018 6:57:53 PM ReadConfigurations-ThemeType: BaseLight
+9/12/2018 6:57:53 PM ReadConfigurations Start
+9/12/2018 6:57:53 PM ReadConfigurations-appSettingFilePath: R:\GitHub\Aanno\Release\Data\LicensingSettings.xml
+9/12/2018 6:57:53 PM ReadConfigurations-rememberCredentials: true
+9/12/2018 6:57:53 PM ReadConfigurations-loginwindowsStartup:true
+9/12/2018 6:57:53 PM ReadConfigurations-ThemeAccent: cobalt
+9/12/2018 6:57:53 PM ReadConfigurations-ThemeType: BaseLight
+9/12/2018 6:57:53 PM Start CheckLicense
+9/12/2018 6:57:53 PM CheckLicense Path: R:\GitHub\Aanno\Release\License.XML
+9/12/2018 6:57:53 PM Start ApplicationStatus
+9/12/2018 6:57:56 PM End ApplicationStatus
+10/12/2018 11:45:58 PM ReadConfigurations Start
+10/12/2018 11:45:58 PM ReadConfigurations-appSettingFilePath: R:\GitHub\Aanno\Release\Data\LicensingSettings.xml
+10/12/2018 11:45:58 PM ReadConfigurations-rememberCredentials: true
+10/12/2018 11:45:58 PM ReadConfigurations-loginwindowsStartup:true
+10/12/2018 11:45:58 PM ReadConfigurations-ThemeAccent: cobalt
+10/12/2018 11:45:58 PM ReadConfigurations-ThemeType: BaseLight
+10/12/2018 11:45:58 PM ReadConfigurations Start
+10/12/2018 11:45:58 PM ReadConfigurations-appSettingFilePath: R:\GitHub\Aanno\Release\Data\LicensingSettings.xml
+10/12/2018 11:45:58 PM ReadConfigurations-rememberCredentials: true
+10/12/2018 11:45:58 PM ReadConfigurations-loginwindowsStartup:true
+10/12/2018 11:45:58 PM ReadConfigurations-ThemeAccent: cobalt
+10/12/2018 11:45:58 PM ReadConfigurations-ThemeType: BaseLight
+10/12/2018 11:45:58 PM Start CheckLicense
+10/12/2018 11:45:58 PM CheckLicense Path: R:\GitHub\Aanno\Release\License.XML
+10/12/2018 11:45:58 PM Start ApplicationStatus
+10/12/2018 11:46:00 PM End ApplicationStatus
+10/12/2018 11:51:16 PM ReadConfigurations Start
+10/12/2018 11:51:16 PM ReadConfigurations-appSettingFilePath: R:\GitHub\Aanno\Release\Data\LicensingSettings.xml
+10/12/2018 11:51:16 PM ReadConfigurations-rememberCredentials: true
+10/12/2018 11:51:16 PM ReadConfigurations-loginwindowsStartup:true
+10/12/2018 11:51:16 PM ReadConfigurations-ThemeAccent: cobalt
+10/12/2018 11:51:16 PM ReadConfigurations-ThemeType: BaseLight
+10/12/2018 11:51:16 PM ReadConfigurations Start
+10/12/2018 11:51:16 PM ReadConfigurations-appSettingFilePath: R:\GitHub\Aanno\Release\Data\LicensingSettings.xml
+10/12/2018 11:51:16 PM ReadConfigurations-rememberCredentials: true
+10/12/2018 11:51:16 PM ReadConfigurations-loginwindowsStartup:true
+10/12/2018 11:51:16 PM ReadConfigurations-ThemeAccent: cobalt
+10/12/2018 11:51:16 PM ReadConfigurations-ThemeType: BaseLight
+10/12/2018 11:51:16 PM Start CheckLicense
+10/12/2018 11:51:16 PM CheckLicense Path: R:\GitHub\Aanno\Release\License.XML
+10/12/2018 11:51:16 PM Start ApplicationStatus
+10/12/2018 11:51:19 PM End ApplicationStatus
+11/12/2018 12:02:51 AM ReadConfigurations Start
+11/12/2018 12:02:51 AM ReadConfigurations-appSettingFilePath: R:\GitHub\Aanno\Release\Data\LicensingSettings.xml
+11/12/2018 12:02:51 AM ReadConfigurations-rememberCredentials: true
+11/12/2018 12:02:51 AM ReadConfigurations-loginwindowsStartup:true
+11/12/2018 12:02:51 AM ReadConfigurations-ThemeAccent: cobalt
+11/12/2018 12:02:51 AM ReadConfigurations-ThemeType: BaseLight
+11/12/2018 12:02:51 AM ReadConfigurations Start
+11/12/2018 12:02:51 AM ReadConfigurations-appSettingFilePath: R:\GitHub\Aanno\Release\Data\LicensingSettings.xml
+11/12/2018 12:02:51 AM ReadConfigurations-rememberCredentials: true
+11/12/2018 12:02:51 AM ReadConfigurations-loginwindowsStartup:true
+11/12/2018 12:02:51 AM ReadConfigurations-ThemeAccent: cobalt
+11/12/2018 12:02:51 AM ReadConfigurations-ThemeType: BaseLight
+11/12/2018 12:02:51 AM Start CheckLicense
+11/12/2018 12:02:51 AM CheckLicense Path: R:\GitHub\Aanno\Release\License.XML
+11/12/2018 12:02:51 AM Start ApplicationStatus
+11/12/2018 12:02:53 AM End ApplicationStatus

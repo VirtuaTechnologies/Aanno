@@ -1,5 +1,5 @@
-﻿//This is an Intelectual Property of Zcodia Technologies and Raghulan Gowthaman.
-//www.zcodiatechnologies.com.au
+﻿//Developed by AutoAnno, LLC, Copyright 2010-2018, all rights reserved. www.autoanno.com
+//www.autoanno.com
 
 
 using System;

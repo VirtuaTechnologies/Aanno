@@ -1,4 +1,4 @@
-﻿// (C) Copyright 2016 by  
+﻿// (C) Copyright 2016 by  Developed by AutoAnno, LLC, Copyright 2010-2018, all rights reserved. www.autoanno.com
 
 //
 using System.Reflection;
@@ -11,9 +11,9 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("C3D_2016_Anno")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Virtua Technologies")]
+[assembly: AssemblyCompany("AutoAnno, LLC")]
 [assembly: AssemblyProduct("AutoAnno")]
-[assembly: AssemblyCopyright("Copyright ©  Virtua Technologies 2016")]
+[assembly: AssemblyCopyright("Copyright ©  AutoAnno, LLC, Copyright 2010-2018")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

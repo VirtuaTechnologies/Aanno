@@ -1,4 +1,14 @@
-﻿========================
+﻿This is Intellectual Property of AutoAnno, LLC and Jeffery J. Bohl, all rights reserved. www.autoanno.com
+
+========================
+Release Notes -AAPro AutoCAD plugin - 20180612 - Ver 4.46.1.4
+========================
+- Added additional methods to make the exiting label reader function like reusable method
+- updated the Anno to use the new reusable method, and bug fixes around that.
+- added a functio to get label name, prefix.
+- Create UI for Aanno pro ( may be this needs to be moved to the tool pal at later stage as a another tab rather than a window)
+
+========================
 Release Notes -AANNO AutoCAD plugin - 20180612 - Ver 4.45.1.4
 ========================
 Notification Error fixed when loading mapper files anad note list files.

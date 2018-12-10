@@ -81,10 +81,18 @@ namespace C3D_2016_Anno.Global
         public static Viewport SelectedViewport;
         public static PromptEntityResult propmptRes;
         public static ObjectId viewportShpObj;
+
+        //remote file
+        public static Editor rEd;
+        public static Document rDoc;
+        public static Database rDb;
         #endregion
 
         #region C3D Vars
         public static CivilDocument CDoc;
+
+        //remote file
+        public static CivilDocument rCDoc;
         #endregion
 
         #region Collections

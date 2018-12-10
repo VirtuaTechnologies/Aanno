@@ -27,6 +27,7 @@ namespace C3D_2016_Anno.Helper
     {
         public static Apps.MainControl MC = new Apps.MainControl();
         private static bool boolRes;
+        private static string res;
         public static void createMtextwithJIG(string text)
         {
             try
@@ -135,6 +136,34 @@ namespace C3D_2016_Anno.Helper
             }
 
         }
+
+        public static void getRemoteDwgVars(string file, string password)
+        {
+            try
+            {
+                using (GV.rDb = new Database(false, true))
+                {
+                    GV.rDb.ReadDwgFile(file, System.IO.FileShare.None, false, password);
+                    GV.rDoc = Autodesk.AutoCAD.ApplicationServices.Application.DocumentManager.GetDocument(GV.rDb);
+                    GV.rEd = GV.rDoc.Editor;
+                    GV.CDoc = Autodesk.Civil.ApplicationServices.CivilDocument.GetCivilDocument(GV.rDb);
+                }
+            }
+            catch (Autodesk.Civil.CivilException ex)
+            {
+                GH.errorBox(ex.ToString());
+            }
+            catch (Autodesk.AutoCAD.Runtime.Exception ex)
+            {
+                GH.errorBox(ex.ToString());
+            }
+            catch (System.Exception ee)
+            {
+                GH.errorBox(ee.ToString());
+            }
+
+        }
+
         public static TypedValue[] selFilterRes;
         public static TypedValue[] selectionFilter(string objType)
         {
@@ -310,6 +339,56 @@ namespace C3D_2016_Anno.Helper
             {
                 GH.errorBox(ee.ToString());
             }
+        }
+
+        public static string getObjType(ObjectId objID)
+        {
+            try
+            {
+                res = objID.ObjectClass.DxfName.ToString();
+            }
+            catch (Autodesk.Civil.CivilException ex)
+            {
+                GH.errorBox(ex.ToString());
+            }
+            catch (Autodesk.AutoCAD.Runtime.Exception ex)
+            {
+                GH.errorBox(ex.ToString());
+            }
+            catch (System.Exception ee)
+            {
+                GH.errorBox(ee.ToString());
+            }
+            return res;
+        }
+
+        public static string getLabelName(ObjectId objID)
+        {
+            try
+            {
+                //check if the object is Multileader
+                if (objID.ObjectClass.DxfName.ToString() == "MULTILEADER")
+                {
+                    res = Helper.MultiLeaderHelper.getMultiLeaderName(objID);
+                }
+                else
+                {
+                    res = Helper.LabelTextExtractor.getLabelName(objID);
+                }
+            }
+            catch (Autodesk.Civil.CivilException ex)
+            {
+                GH.errorBox(ex.ToString());
+            }
+            catch (Autodesk.AutoCAD.Runtime.Exception ex)
+            {
+                GH.errorBox(ex.ToString());
+            }
+            catch (System.Exception ee)
+            {
+                GH.errorBox(ee.ToString());
+            }
+            return res;
         }
         public static void getlabelvalueSpecific(ObjectId objID)
         {
@@ -1867,6 +1946,22 @@ namespace C3D_2016_Anno.Helper
                 //GH.errorBox(ee.ToString());
             }
             return strResult;
+        }
+
+        public static void getAllmulitleaderfromDWG(string dwgFile)
+        {
+            try
+            {
+
+            }
+            catch (Autodesk.AutoCAD.Runtime.Exception ex)
+            {
+                GH.errorBox(ex.ToString());
+            }
+            catch (System.Exception ee)
+            {
+                GH.errorBox(ee.ToString());
+            }
         }
 
         public static string getMultiLeaderAttVal(ObjectId objectID, string attName)

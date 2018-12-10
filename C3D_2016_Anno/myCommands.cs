@@ -129,6 +129,47 @@ namespace C3D_2016_Anno
             }
         }
 
+        [CommandMethod("aapro")]
+        [CommandMethod("AAnnoPro")]
+        public void AAnnoPro() // This method can have any name
+        {
+            try
+            {
+
+                LCH.getCurrentDwgVars();
+
+                GH.writeLog("\n Running command : AAnno");
+                if (GV.Doc != null)
+                {
+                    //check and load dll
+
+                    Helper.GenHelper.initializeSettings();
+                    if (GV.loaddll)
+                    {
+                        if (GV.dllLoadStatus == false)
+                        {
+                            GV.Doc.SendStringToExecute("_loadLib ", true, false, false);
+                        }
+                    }
+
+                    GH.writeLog("\n Starting Tool");
+                    #region Fire Get style window
+                    Apps.AAPro AP = new Apps.AAPro();
+                    AP.Show();
+                    #endregion
+
+                }
+                else
+                {
+                    GH.writeLog("\n Tool P not started");
+                }
+            }
+            catch (System.Exception ex)
+            {
+                GH.writeLog("\n ERROR: " + ex.ToString());
+            }
+        }
+
         public static string cmdtoRun;
         [CommandMethod("AAui")]
         public void AAui() // This method can have any name
@@ -169,6 +210,19 @@ namespace C3D_2016_Anno
                     cmdtoRun = "AAnno ";
                     Aano_btn.CommandHandler = new AAuiRibbonButtonCommandHandler();
                     srcPanel.Items.Add(Aano_btn);
+
+                    // Aano pro button 
+                    Autodesk.Windows.RibbonButton Aano_pro_btn = new Autodesk.Windows.RibbonButton();
+                    Aano_pro_btn.Text = "AutoAnnoPro";
+                    Aano_pro_btn.LargeImage = Helper.GenHelper.getBitmap("C3D_2016_Anno.Resources.Icons.ai.png", 32, 32);//new Bitmap(new Uri("pack://application:,,,;component/Resources/Icons/AAIcon (1).png"));//Helper.GenHelper.ImageSourceForBitmap(C3D_2016_Anno.Properties.Resources.AAIcon__1_);// 
+                    Aano_pro_btn.Orientation = System.Windows.Controls.Orientation.Vertical;
+                    Aano_pro_btn.Size = RibbonItemSize.Large;
+                    Aano_pro_btn.ShowText = true;
+                    Aano_pro_btn.ShowImage = true;
+                    Aano_pro_btn.Id = "AutoAnnoPro_click";
+                    cmdtoRun = "AAnnoPro ";
+                    Aano_pro_btn.CommandHandler = new AAuiRibbonButtonCommandHandler();
+                    srcPanel.Items.Add(Aano_pro_btn);
 
                     //xml manager button
                     Autodesk.Windows.RibbonButton xml_btn = new Autodesk.Windows.RibbonButton();
@@ -276,6 +330,10 @@ namespace C3D_2016_Anno
                 else if (cmd.AutomationName == "AutoAnno")
                 {
                     dwg.SendStringToExecute("AutoAnno ", true, false, true);
+                }
+                else if (cmd.AutomationName == "AutoAnnoPro")
+                {
+                    dwg.SendStringToExecute("AAnnoPro ", true, false, true);
                 }
                 else
                 {

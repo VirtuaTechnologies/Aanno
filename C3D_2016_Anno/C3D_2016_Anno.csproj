@@ -177,6 +177,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Apps\AAPro.xaml.cs">
+      <DependentUpon>AAPro.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Apps\Editor.xaml.cs">
       <DependentUpon>Editor.xaml</DependentUpon>
     </Compile>
@@ -239,7 +242,6 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="DevZone\CodeDump.txt" />
-    <Resource Include="DevZone\ReleaseNotes.txt" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Data\ReadMe.txt">
@@ -284,6 +286,7 @@
     <EmbeddedResource Include="Resources\Icons\www.png" />
     <Resource Include="Resources\WindowsIcons-license.txt" />
     <Resource Include="Resources\Entypo-license.txt" />
+    <EmbeddedResource Include="Resources\Icons\ai.png" />
     <Content Include="Templates\ProjectB-Template.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -293,6 +296,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <Page Include="Apps\AAPro.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Apps\Editor.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
