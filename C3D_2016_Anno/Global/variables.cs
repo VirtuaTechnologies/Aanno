@@ -114,6 +114,7 @@ namespace C3D_2016_Anno.Global
         public static Dictionary<string, object> ui_controls_Coll = new Dictionary<string, object>();
         public static ObservableCollection<labelItem> all_label_coll = new ObservableCollection<labelItem>();
         public static Dictionary<string, List<labelItem>> all_label_coll_Sorted = new Dictionary<string, List<labelItem>>();
+        public static ObservableCollection<labelComponentItem> labelComponentItem_coll = new ObservableCollection<labelComponentItem>();
 
         public  static void clearCollection()
         {
@@ -159,6 +160,19 @@ namespace C3D_2016_Anno.Global
 
         public string objType { get; set; }
         public int noteNumber { get; set; }
+        public Dictionary<string, string> properties { get; set; }
+        public ObjectId objID { get; set; }
+        public string note { get; set; }
+        public bool noteFound { get; set; }
+    }
+
+    public class labelComponentItem
+    {
+        public string styleName { get; set; }
+        public string labelprefix { get; set; }
+
+        public string objType { get; set; }
+        public int KNComponentID { get; set; }
         public Dictionary<string, string> properties { get; set; }
         public ObjectId objID { get; set; }
         public string note { get; set; }

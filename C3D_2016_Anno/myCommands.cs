@@ -40,9 +40,11 @@ namespace C3D_2016_Anno
     {
 
         public static PaletteSet palSet = null;
+        public static PaletteSet aapropalSet = null;
         static string templateWarning;
         public static Apps.MainControl mc;
         public static ElementHost mcHost;
+        public static ElementHost aaproHost;
         //public static Apps.MainControl mw = new Apps.MainControl();
 
         // Modal Command with localized name
@@ -152,16 +154,53 @@ namespace C3D_2016_Anno
                         }
                     }
 
-                    GH.writeLog("\n Starting Tool");
-                    #region Fire Get style window
-                    Apps.AAPro AP = new Apps.AAPro();
-                    AP.Show();
-                    #endregion
+                    GH.writeLog("\n Starting Tool Pallette");
+                    #region Create Pallette
+                    if (aapropalSet == null)
+                    {
 
-                }
-                else
-                {
-                    GH.writeLog("\n Tool P not started");
+                        // Create the palette set
+                        Assembly assembly = Assembly.GetExecutingAssembly();
+                        FileVersionInfo fvi = FileVersionInfo.GetVersionInfo(assembly.Location);
+
+                        string palTitle = string.Format("{0} (Ver {1}) License {2}", "AAnnoPro", fvi.ProductVersion.ToString(), GV.licInformation);
+                        aapropalSet = new PaletteSet(palTitle);
+
+                        aapropalSet.Style = PaletteSetStyles.ShowPropertiesMenu |
+                                        PaletteSetStyles.ShowAutoHideButton |
+                                        PaletteSetStyles.ShowCloseButton;
+                        aapropalSet.MinimumSize = new System.Drawing.Size(500, 800);
+                        aapropalSet.Size = new System.Drawing.Size(500, 800);
+
+                        aapropalSet.DockEnabled =
+                          (DockSides)((int)DockSides.Left + (int)DockSides.Right);
+
+                        Apps.AAPro AP = new Apps.AAPro();
+                        Apps.login lg = new Apps.login();
+                        aaproHost = new ElementHost();
+                        aaproHost.AutoSize = true;
+                        aaproHost.Dock = DockStyle.Fill;
+                        //mcHost.Width = 500;
+                        //mcHost.Height = 800;
+                        //mcHost.Size = new System.Drawing.Size(500, 800);
+                        //mcHost.MinimumSize = new System.Drawing.Size(500, 800);
+                        aaproHost.Child = AP; //lg;// 
+                        //mcHost.Child.RenderSize = new System.Windows.Size(500, 800);
+                        aapropalSet.Add("AAnnoPro", aaproHost);
+                        // Display our palette set
+                        aapropalSet.KeepFocus = true;
+                        aapropalSet.Visible = true;
+                        //palSet.Dock = DockSides.;
+
+                        aapropalSet.SetSize(new System.Drawing.Size(500, 800));
+                        aapropalSet.Dock = DockSides.Left;
+                    }
+                    else
+                    {
+                        aapropalSet.KeepFocus = true;
+                        aapropalSet.Visible = true;
+                    }
+                    #endregion
                 }
             }
             catch (System.Exception ex)

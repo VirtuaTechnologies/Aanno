@@ -68,4 +68,4 @@ R:\GitHub\Aanno\C3D_2016_Anno\obj\Debug\Resources\IconsNonShared.baml
 R:\GitHub\Aanno\C3D_2016_Anno\obj\Debug\C3D_2016_Anno.Properties.Resources.resources
 R:\GitHub\Aanno\C3D_2016_Anno\obj\Debug\Apps\AAPro.g.cs
 R:\GitHub\Aanno\C3D_2016_Anno\obj\Debug\Apps\AAPro.baml
-R:\GitHub\Aanno\C3D_2016_Anno\obj\Debug\C3D_2016_Anno.csprojResolveAssemblyReference.cache
+R:\GitHub\Aanno\Release\Test Files\AAPro\AAPro_Style_location.dwt

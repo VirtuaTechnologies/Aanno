@@ -1,4 +1,4 @@
-﻿<Controls:MetroWindow x:Class="C3D_2016_Anno.Apps.AAPro"
+﻿<UserControl x:Class="C3D_2016_Anno.Apps.AAPro"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -6,8 +6,8 @@
         xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
         xmlns:local="clr-namespace:C3D_2016_Anno.Apps"
         mc:Ignorable="d"
-        Title="AutoAnno Pro" Height="400" Width="562.04">
-    <Window.Resources>
+        Height="400" Width="385" MinWidth="385">
+    <UserControl.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Controls.xaml" />
@@ -18,11 +18,19 @@
                 <ResourceDictionary Source="/C3D_2016_Anno;component/Resources/Icons.xaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
-    </Window.Resources>
+    </UserControl.Resources>
     <Grid>
-        <Label x:Name="label" Content="Select File to Learn from" HorizontalAlignment="Left" Margin="10,34,0,0" VerticalAlignment="Top" Width="140"/>
-        <TextBox x:Name="tBox_templateFile" HorizontalAlignment="Left" Height="47" Margin="155,14,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="265" Controls:TextBoxHelper.UseFloatingWatermark="True" Controls:TextBoxHelper.Watermark="Select Source File"/>
-        <Button Margin="0,25,94,0" Background="Transparent"  x:Name="btn_browse_templateFile" Height="36" VerticalAlignment="Top" Width="35" HorizontalAlignment="Right" ToolTip="Select a folder to scan files" Click="btn_browse_templateFile_Click" >
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="291*"/>
+            <ColumnDefinition Width="95*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="64"/>
+            <RowDefinition Height="83"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <TextBox x:Name="tBox_stylemapperFile" Height="47" Margin="10,16,10,0" TextWrapping="Wrap" VerticalAlignment="Top" Controls:TextBoxHelper.UseFloatingWatermark="True" Controls:TextBoxHelper.Watermark="Select Style Mapper File"/>
+        <Button Margin="0,27,50,0" Background="Transparent"  x:Name="btn_browse_stylemapperFile" Height="36" VerticalAlignment="Top" ToolTip="Select a folder to scan files" Click="btn_browse_stylemapperFile_Click" Grid.Column="1" HorizontalAlignment="Right" Width="35" >
             <Rectangle Width="22"
                         Height="19"
                         Fill="#FF3373F2">
@@ -32,7 +40,7 @@
                 </Rectangle.OpacityMask>
             </Rectangle>
         </Button>
-        <Button Margin="0,25,54,0" Background="Transparent"  x:Name="btn_read_templateFile" Height="36" VerticalAlignment="Top" Width="35" HorizontalAlignment="Right" ToolTip="Select a folder to scan files" Click="btn_read_templateFile_Click" >
+        <Button Margin="0,27,10,0" Background="Transparent"  x:Name="btn_read_stylemapperFile" Height="36" VerticalAlignment="Top" Width="35" HorizontalAlignment="Right" ToolTip="Select a folder to scan files" Click="btn_read_stylemapperFile_Click" Grid.Column="1" >
             <Rectangle Width="22"
                         Height="19"
                         Fill="#FF3373F2">
@@ -42,11 +50,27 @@
                 </Rectangle.OpacityMask>
             </Rectangle>
         </Button>
-        <Label x:Name="label1" Content="Found XX Mleader Styles" HorizontalAlignment="Left" Margin="10,79,0,0" VerticalAlignment="Top"/>
-        <ComboBox x:Name="comboBox_mleader_styles" HorizontalAlignment="Left" Margin="156,76,0,0" VerticalAlignment="Top" Width="264"/>
-        <Label x:Name="label2" Content="Found XX C3D Styles" HorizontalAlignment="Left" Margin="10,107,0,0" VerticalAlignment="Top"/>
-        <ComboBox x:Name="comboBox_c3d_styles" HorizontalAlignment="Left" Margin="156,107,0,0" VerticalAlignment="Top" Width="264"/>
-        <Label x:Name="label3" Content="Edit keynote values to 99 for recognition, click Learn when ready" HorizontalAlignment="Left" Margin="10,152,0,0" VerticalAlignment="Top" Width="410"/>
-        <Button x:Name="btn_learn" Content="LEARN" HorizontalAlignment="Left" Margin="203,183,0,0" VerticalAlignment="Top" Width="115" Click="btn_learn_Click"/>
+
+        <GroupBox x:Name="groupBox" Header="Learn Tools" Margin="10,10,0,0" Grid.Row="1" VerticalAlignment="Top" Height="72" Grid.ColumnSpan="2" HorizontalAlignment="Left" Width="366">
+            <Grid>
+                <Button x:Name="btn_learn" Content="LEARN SELECTED STYLE" HorizontalAlignment="Left" Margin="187,0,0,0" VerticalAlignment="Top" Width="160" Click="btn_learn_Click"/>
+                <Button x:Name="btn_learn_all" Content="LEARN ALL STYLE" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Top" Width="160"/>
+            </Grid>
+        </GroupBox>
+        <GroupBox x:Name="groupBox1" Header="Style Details" Margin="10" Grid.Row="2" Grid.ColumnSpan="2">
+            <Grid>
+                <ListView x:Name="listView_styleComponentMapper">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <Label Content="{Binding styleName}" VerticalAlignment="Center" Margin="10,2,2,1" Padding="5,5,5,1" UseLayoutRounding="True" FontSize="14" Background="{x:Null}" BorderBrush="{x:Null}" />
+                                <TextBox Text="{Binding KNComponentID}" Name="tBox_KNComponentID" />
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+
+            </Grid>
+        </GroupBox>
     </Grid>
-</Controls:MetroWindow>
+</UserControl>

@@ -1,7 +1,14 @@
 ﻿This is Intellectual Property of AutoAnno, LLC and Jeffery J. Bohl, all rights reserved. www.autoanno.com
+========================
+Release Notes -AAPro AutoCAD plugin - 20181211 - Ver 4.47.1.4
+========================
+- AAPro create custom functions to read styles and get the component location
+- Added some additional functions to improve performance on get selection method
+- Improved filer
+- Added the AAPro UI to Tool pal
 
 ========================
-Release Notes -AAPro AutoCAD plugin - 20180612 - Ver 4.46.1.4
+Release Notes -AAPro AutoCAD plugin - 20181211 - Ver 4.46.1.4
 ========================
 - Added additional methods to make the exiting label reader function like reusable method
 - updated the Anno to use the new reusable method, and bug fixes around that.

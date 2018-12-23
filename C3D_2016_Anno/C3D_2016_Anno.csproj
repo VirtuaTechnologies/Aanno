@@ -267,6 +267,9 @@
     <Content Include="Libs\ZSharpQLogger.dll" />
     <Content Include="Libs\ZSharpSQLITEHelper.dll" />
     <Content Include="Libs\ZSharpXMLHelper.dll" />
+    <None Include="Test Files\AAPro\AAPro_Style_location.dwt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <Resource Include="Resources\Entypo.ttf" />
     <None Include="Templates\Common.Mapper">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -321,6 +324,7 @@
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\VirtuaLicense.1.0.0\build\VirtuaLicense.targets" Condition="Exists('..\packages\VirtuaLicense.1.0.0\build\VirtuaLicense.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

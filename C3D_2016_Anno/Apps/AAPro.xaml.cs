@@ -23,28 +23,31 @@ using Autodesk.AutoCAD.DatabaseServices;
 using Autodesk.AutoCAD.ApplicationServices;
 using Autodesk.Civil.DatabaseServices.Styles;
 using Autodesk.AutoCAD.EditorInput;
+using System.Runtime.InteropServices;
 
 namespace C3D_2016_Anno.Apps
 {
     /// <summary>
     /// Interaction logic for AAPro.xaml
     /// </summary>
-    public partial class AAPro : MetroWindow
+    public partial class AAPro : System.Windows.Controls.UserControl
     {
         public static string appName = "AAnno Pro";
         public AAPro()
         {
             InitializeComponent();
+            GV.labelComponentItem_coll.Clear();
+            listView_styleComponentMapper.ItemsSource = GV.labelComponentItem_coll;
         }
 
-        private void btn_browse_templateFile_Click(object sender, RoutedEventArgs e)
+        private void btn_browse_stylemapperFile_Click(object sender, RoutedEventArgs e)
         {
             try
             {
                 OpenFileDialog openFileDialog = new OpenFileDialog();
                 openFileDialog.Filter = "DWG files (*.dwg; *.dwt)|*.dwg; *.dwt";
                 if (openFileDialog.ShowDialog() == true)
-                    tBox_templateFile.Text = openFileDialog.FileName;
+                    tBox_stylemapperFile.Text = openFileDialog.FileName;
 
 
             }
@@ -52,7 +55,7 @@ namespace C3D_2016_Anno.Apps
             { }
         }
 
-        private async void btn_read_templateFile_Click(object sender, RoutedEventArgs e)
+        private void btn_read_stylemapperFile_Click(object sender, RoutedEventArgs e)
         {
             try
             {
@@ -61,11 +64,12 @@ namespace C3D_2016_Anno.Apps
             catch (System.Exception ex)
             { }
         }
-
+       
         private void btn_learn_Click(object sender, RoutedEventArgs e)
         {
             try
             {
+                GV.labelComponentItem_coll.Clear();
                 LCH.getCurrentDwgVars();
                 using (GV.Doc.LockDocument())
                 {
@@ -73,7 +77,8 @@ namespace C3D_2016_Anno.Apps
                     //Seleciton options, with single selection
                     PromptSelectionOptions Options = new PromptSelectionOptions();
                     Options.SingleOnly = true;
-                    Options.SinglePickInSpace = true;
+                    //Options.SinglePickInSpace = true;
+                    Autodesk.AutoCAD.Internal.Utils.SetFocusToDwgView();
 
                     PromptSelectionResult psRes = Autodesk.AutoCAD.ApplicationServices.Application.DocumentManager.MdiActiveDocument.Editor.GetSelection(Options, new SelectionFilter(LCH.selectionFilter(GV.labelFilterType)));
 
@@ -85,16 +90,26 @@ namespace C3D_2016_Anno.Apps
                         foreach (ObjectId objID in GV.selObjects_forProcessing)
                         {
                             //get the name of the label
-                            Global.labelItem LI = new Global.labelItem();
-                            LI.name = LCH.getLabelName(objID);
+                            Global.labelComponentItem LI = new Global.labelComponentItem();
+                            LI.styleName = LCH.getLabelName(objID);
                             LI.objType = LCH.getObjType(objID);
 
-                            GV.ed.WriteMessage("LI.name: " + LI.name);
+                            GV.ed.WriteMessage("LI.name: " + LI.styleName);
                             GV.ed.WriteMessage("LI.objType: " + LI.objType);
 
                             //get the component id which has the value 99
                             Dictionary<string, string> CompNameVals = new Dictionary<string, string>();
-                            CompNameVals = Helper.LabelTextExtractor.getLabelVals(objID);
+                            CompNameVals = Helper.LabelTextExtractor.getLabelValsAll(objID);
+
+                            //get the location of the value and store it against the style name and id.
+                            foreach(var item in CompNameVals)
+                            {
+                                if(item.Value == "99")
+                                {
+                                    LI.KNComponentID = Convert.ToInt32(item.Key);
+                                }
+                            }
+                            GV.labelComponentItem_coll.Add(LI);
                             // ask the user to pick the mapper configuration 
 
                             //store the configuration to settings file
@@ -106,5 +121,7 @@ namespace C3D_2016_Anno.Apps
             catch (System.Exception ex)
             { }
         }
+
+       
     }
 }

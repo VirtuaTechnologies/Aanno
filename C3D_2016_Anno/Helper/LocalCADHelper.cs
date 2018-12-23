@@ -762,6 +762,7 @@ namespace C3D_2016_Anno.Helper
                 GH.errorBox(ee.ToString());
             }
         }
+        
     }
 
     public static class ViewportExtensions
@@ -1739,6 +1740,62 @@ namespace C3D_2016_Anno.Helper
             return CompNameVals;
         }
 
+        public static Dictionary<string, string> getLabelValsAll(ObjectId labelObject)
+        {
+            try
+            {
+                CompNameVals.Clear();
+                using (Transaction tr = GV.Db.TransactionManager.StartTransaction())
+                {
+                    LabelStyle style = getLabelStytleID(labelObject).GetObject(OpenMode.ForRead) as LabelStyle;
+
+                    //get label values
+                    List<string> resVal = LabelTextExtractor.GetDisplayedLabelTextAll(labelObject);
+
+                    //components within the selected style
+                    ObjectId[] objDrawOrder = style.GetComponentsDrawOrder();
+                    int i = 0;
+                    int j = 0;
+                    GH.printDebug("Component List", "", true, false);
+                    foreach (ObjectId objID in objDrawOrder)
+                    {
+                        LabelStyleComponent component = objID.GetObject(OpenMode.ForRead) as LabelStyleComponent;
+
+                        //add components only if it is preset in the labelcomponenttypes - which is from settings
+                        if (GV.labelcomponenttypes.Contains(component.GetType().Name))
+                        {
+                            if (resVal.Count > 0)
+                                CompNameVals.Add(j.ToString(), resVal[i]);// resVal[i]);
+                            GH.printDebug("Component ", i + " : " + component.Name + " > ", false, false);
+                            i++;
+                        }
+                        j++;
+                    }
+                    GH.printDebug("Component List", "", false, true);
+                    //check if they are in the correct order
+                    GH.printDebug("+++", "", true, false);
+                    foreach (var comp in CompNameVals)
+                    {
+                        GH.printDebug("COMP: ", comp.Key + " | > >" + comp.Value, false, false);
+                    }
+                    GH.printDebug("+++", "", false, true);
+                }
+            }
+            catch (Autodesk.Civil.CivilException ex)
+            {
+                GH.errorBox(ex.ToString());
+            }
+            catch (Autodesk.AutoCAD.Runtime.Exception ex)
+            {
+                GH.errorBox(ex.ToString());
+            }
+            catch (System.Exception ee)
+            {
+                GH.errorBox(ee.ToString());
+            }
+            return CompNameVals;
+        }
+
         public static Dictionary<string, string> getLabelValsold(ObjectId labelObject)
         {
             try
@@ -1863,6 +1920,63 @@ namespace C3D_2016_Anno.Helper
                                     GH.printDebug("COMP Value: ", val, true, true);
                                 }
 
+                            }
+
+                            obj.Dispose();
+                        }
+                    }
+                    finally
+                    {
+                        if (changed) label.ResetLocation();
+                    }
+                }
+
+                tran.Commit();
+            }
+            //resVal.Reverse();
+            return resVal;
+        }
+
+        public static List<string> GetDisplayedLabelTextAll(ObjectId labelId)
+        {
+            //if (labelId.ObjectClass.DxfName.ToUpper() != "AECC_GENERAL_SEGMENT_LABEL")
+            //{
+            //    throw new ArgumentException(
+            //        "argument mismatch: not an \"AECC_GENERAL_SEGMENT_LABEL\"");
+            //}
+            List<string> resVal = new List<string>();
+            StringBuilder lblText = new StringBuilder();
+
+            using (var tran = labelId.Database.TransactionManager.StartTransaction())
+            {
+                var label = tran.GetObject(labelId, OpenMode.ForRead) as Label;
+                if (label != null)
+                {
+                    bool changed = !label.Dragged && label.AllowsDragging;
+                    try
+                    {
+                        if (changed)
+                        {
+                            label.UpgradeOpen();
+                            double delta = label.StartPoint.DistanceTo(label.EndPoint);
+                            label.LabelLocation =
+                                new Point3d(label.LabelLocation.X +
+                                    delta, label.LabelLocation.Y +
+                                    delta, label.LabelLocation.Z);
+                        }
+
+                        var dbObjs = FullExplode(label);
+                        GH.printDebug("COMP Value Count: ", dbObjs.Count().ToString(), true, true);
+                        foreach (var obj in dbObjs)
+                        {
+                            string objType = obj.GetType().ToString();
+                            if (obj.GetType() == typeof(DBText))
+                            {
+                                string val = (obj as DBText).TextString;
+                                GH.printDebug("COMP Value Before Filter =>>: ", val, true, true);
+                                resVal.Add(val);
+                                //lblText.Append(" " + val);
+                                GH.printDebug("COMP Value: ", val, true, true);
                             }
 
                             obj.Dispose();
