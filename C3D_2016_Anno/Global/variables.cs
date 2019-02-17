@@ -172,7 +172,7 @@ namespace C3D_2016_Anno.Global
         public string labelprefix { get; set; }
 
         public string objType { get; set; }
-        public int KNComponentID { get; set; }
+        public List<int> KNComponentID { get; set; }
         public Dictionary<string, string> properties { get; set; }
         public ObjectId objID { get; set; }
         public string note { get; set; }

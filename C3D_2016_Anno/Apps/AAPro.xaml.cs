@@ -102,11 +102,15 @@ namespace C3D_2016_Anno.Apps
                             CompNameVals = Helper.LabelTextExtractor.getLabelValsAll(objID);
 
                             //get the location of the value and store it against the style name and id.
-                            foreach(var item in CompNameVals)
+                            int i = 0;
+                            LI.KNComponentID = new List<int>();
+
+                            foreach (var item in CompNameVals)
                             {
                                 if(item.Value == "99")
                                 {
-                                    LI.KNComponentID = Convert.ToInt32(item.Key);
+                                    LI.KNComponentID.Add(Convert.ToInt32(item.Key));
+                                    i++;
                                 }
                             }
                             GV.labelComponentItem_coll.Add(LI);
@@ -122,6 +126,9 @@ namespace C3D_2016_Anno.Apps
             { }
         }
 
-       
+        private void btn_learn_all_Click(object sender, RoutedEventArgs e)
+        {
+            GH.errorBox("This function is work in progress! check again later.");
+        }
     }
 }

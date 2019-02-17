@@ -1,5 +1,12 @@
 ﻿This is Intellectual Property of AutoAnno, LLC and Jeffery J. Bohl, all rights reserved. www.autoanno.com
 ========================
+Release Notes -AAPro AutoCAD plugin - 20190217 - Ver 4.47.1.5
+========================
+- AAPro create custom functions to read styles and get multiple component location
+- Update UI to accomodate multiple component styles
+- Bug fixes
+
+========================
 Release Notes -AAPro AutoCAD plugin - 20181211 - Ver 4.47.1.4
 ========================
 - AAPro create custom functions to read styles and get the component location

@@ -609,3 +609,210 @@
 23/12/2018 2:55:00 PM End ApplicationStatus
 23/12/2018 2:55:00 PM InitalizeTimer
 23/12/2018 2:55:00 PM InitalizeTimer Interval60
+23/12/2018 3:55:00 PM DispatcherTimer_Tick
+23/12/2018 3:55:00 PM DispatcherTimer_Tick - UserLogin
+23/12/2018 3:55:00 PM Start CheckLicense
+23/12/2018 3:55:00 PM CheckLicense Path: R:\GitHub\Aanno\Release\License.XML
+23/12/2018 3:55:00 PM Start ApplicationStatus
+23/12/2018 3:55:03 PM End ApplicationStatus
+23/12/2018 3:55:03 PM DispatcherTimer_Tick - Lic StatusTrue
+23/12/2018 3:55:03 PM DispatcherTimer_Tick - userName:postman_one@gmail.com
+23/12/2018 3:55:03 PM DispatcherTimer_Tick - passWord:12345
+23/12/2018 3:55:03 PM DispatcherTimer_Tick - licAppId:SecDevID_WEB_1.0.0.0_1521808771
+23/12/2018 3:55:03 PM DispatcherTimer_Tick - licAppLicNo:127
+23/12/2018 3:55:06 PM callPostAPI URL: http://virtualicense.com/developer.php/api/developer_api/assign_app_seat.json
+23/12/2018 3:55:06 PM callPostAPI Parameters Key: email_id Value: postman_one@gmail.com
+23/12/2018 3:55:06 PM callPostAPI Parameters Key: cpu_id Value: BFEBFBFF000906EA
+23/12/2018 3:55:06 PM callPostAPI Parameters Key: mac_id Value: B06EBF602F6A
+23/12/2018 3:55:06 PM callPostAPI Parameters Key: app_id Value: SecDevID_WEB_1.0.0.0_1521808771
+23/12/2018 3:55:06 PM callPostAPI Parameters Key: motherboard_id Value: 73AC5506-97A1-49B2-8210-B06EBF602F6A
+23/12/2018 3:55:06 PM callPostAPI Parameters Key: disk_id Value: 3471844813
+23/12/2018 3:55:06 PM callPostAPI Parameters Key: device_flag Value: 2
+23/12/2018 3:55:06 PM callPostAPI Parameters Key: latitude Value: 0.00
+23/12/2018 3:55:06 PM callPostAPI Parameters Key: longitude Value: 0.00
+23/12/2018 3:55:06 PM callPostAPI Parameters Key: lic_no Value: 127
+23/12/2018 3:55:06 PM callPostAPI Response:{"responseCode":"1","responseStatus":"Success","responseMessage":"This Seat Already Allocated","response":{"lic_info":{"interval":"60","seat_id":"49_SecDevID_WEB_1.0.0.0_1521808771_1545530226_0472389887","expire_on":"2019-01-05 01:57:06","time":"13","flag":"day","offline_status":"true","borrow_day":"3"},"Message":{"type":"1","msg":"this message for check for close 1","closeapp":"0"}}}
+23/12/2018 3:55:06 PM callPostAPI ResponseStatusCode:OK
+23/12/2018 3:55:06 PM TimerLogInApp API Response:- {"responseCode":"1","responseStatus":"Success","responseMessage":"This Seat Already Allocated","response":{"lic_info":{"interval":"60","seat_id":"49_SecDevID_WEB_1.0.0.0_1521808771_1545530226_0472389887","expire_on":"2019-01-05 01:57:06","time":"13","flag":"day","offline_status":"true","borrow_day":"3"},"Message":{"type":"1","msg":"this message for check for close 1","closeapp":"0"}}}
+23/12/2018 3:55:07 PM TimerLogInApp API Response Status:- Success
+23/12/2018 3:55:07 PM Start CheckLicense
+23/12/2018 3:55:07 PM CheckLicense Path: R:\GitHub\Aanno\Release\License.XML
+23/12/2018 3:55:07 PM Start ApplicationStatus
+23/12/2018 3:55:09 PM End ApplicationStatus
+23/12/2018 3:55:09 PM DispatcherTimer_Tick - Lic Status-afterLoginTrue
+23/12/2018 4:55:09 PM DispatcherTimer_Tick
+23/12/2018 4:55:09 PM DispatcherTimer_Tick - UserLogin
+23/12/2018 4:55:09 PM Start CheckLicense
+23/12/2018 4:55:09 PM CheckLicense Path: R:\GitHub\Aanno\Release\License.XML
+23/12/2018 4:55:09 PM Start ApplicationStatus
+23/12/2018 4:55:12 PM End ApplicationStatus
+23/12/2018 4:55:12 PM DispatcherTimer_Tick - Lic StatusTrue
+23/12/2018 4:55:12 PM DispatcherTimer_Tick - userName:postman_one@gmail.com
+23/12/2018 4:55:12 PM DispatcherTimer_Tick - passWord:12345
+23/12/2018 4:55:12 PM DispatcherTimer_Tick - licAppId:SecDevID_WEB_1.0.0.0_1521808771
+23/12/2018 4:55:12 PM DispatcherTimer_Tick - licAppLicNo:127
+23/12/2018 4:55:14 PM callPostAPI URL: http://virtualicense.com/developer.php/api/developer_api/assign_app_seat.json
+23/12/2018 4:55:14 PM callPostAPI Parameters Key: email_id Value: postman_one@gmail.com
+23/12/2018 4:55:14 PM callPostAPI Parameters Key: cpu_id Value: BFEBFBFF000906EA
+23/12/2018 4:55:14 PM callPostAPI Parameters Key: mac_id Value: B06EBF602F6A
+23/12/2018 4:55:14 PM callPostAPI Parameters Key: app_id Value: SecDevID_WEB_1.0.0.0_1521808771
+23/12/2018 4:55:14 PM callPostAPI Parameters Key: motherboard_id Value: 73AC5506-97A1-49B2-8210-B06EBF602F6A
+23/12/2018 4:55:14 PM callPostAPI Parameters Key: disk_id Value: 3471844813
+23/12/2018 4:55:14 PM callPostAPI Parameters Key: device_flag Value: 2
+23/12/2018 4:55:14 PM callPostAPI Parameters Key: latitude Value: 0.00
+23/12/2018 4:55:14 PM callPostAPI Parameters Key: longitude Value: 0.00
+23/12/2018 4:55:14 PM callPostAPI Parameters Key: lic_no Value: 127
+23/12/2018 4:55:15 PM callPostAPI Response:{"responseCode":"1","responseStatus":"Success","responseMessage":"This Seat Already Allocated","response":{"lic_info":{"interval":"60","seat_id":"49_SecDevID_WEB_1.0.0.0_1521808771_1545530226_0472389887","expire_on":"2019-01-05 01:57:06","time":"13","flag":"day","offline_status":"true","borrow_day":"3"},"Message":{"type":"1","msg":"this message for check for close 1","closeapp":"0"}}}
+23/12/2018 4:55:15 PM callPostAPI ResponseStatusCode:OK
+23/12/2018 4:55:15 PM TimerLogInApp API Response:- {"responseCode":"1","responseStatus":"Success","responseMessage":"This Seat Already Allocated","response":{"lic_info":{"interval":"60","seat_id":"49_SecDevID_WEB_1.0.0.0_1521808771_1545530226_0472389887","expire_on":"2019-01-05 01:57:06","time":"13","flag":"day","offline_status":"true","borrow_day":"3"},"Message":{"type":"1","msg":"this message for check for close 1","closeapp":"0"}}}
+23/12/2018 4:55:15 PM TimerLogInApp API Response Status:- Success
+23/12/2018 4:55:15 PM Start CheckLicense
+23/12/2018 4:55:15 PM CheckLicense Path: R:\GitHub\Aanno\Release\License.XML
+23/12/2018 4:55:15 PM Start ApplicationStatus
+23/12/2018 4:55:17 PM End ApplicationStatus
+23/12/2018 4:55:17 PM DispatcherTimer_Tick - Lic Status-afterLoginTrue
+23/12/2018 5:55:17 PM DispatcherTimer_Tick
+23/12/2018 5:55:17 PM DispatcherTimer_Tick - UserLogin
+23/12/2018 5:55:17 PM Start CheckLicense
+23/12/2018 5:55:17 PM CheckLicense Path: R:\GitHub\Aanno\Release\License.XML
+23/12/2018 5:55:17 PM Start ApplicationStatus
+23/12/2018 5:55:27 PM End ApplicationStatus
+23/12/2018 5:55:27 PM DispatcherTimer_Tick - Lic StatusTrue
+23/12/2018 5:55:27 PM DispatcherTimer_Tick - userName:postman_one@gmail.com
+23/12/2018 5:55:27 PM DispatcherTimer_Tick - passWord:12345
+23/12/2018 5:55:27 PM DispatcherTimer_Tick - licAppId:SecDevID_WEB_1.0.0.0_1521808771
+23/12/2018 5:55:27 PM DispatcherTimer_Tick - licAppLicNo:127
+23/12/2018 5:55:29 PM callPostAPI URL: http://virtualicense.com/developer.php/api/developer_api/assign_app_seat.json
+23/12/2018 5:55:29 PM callPostAPI Parameters Key: email_id Value: postman_one@gmail.com
+23/12/2018 5:55:29 PM callPostAPI Parameters Key: cpu_id Value: BFEBFBFF000906EA
+23/12/2018 5:55:29 PM callPostAPI Parameters Key: mac_id Value: B06EBF602F6A
+23/12/2018 5:55:29 PM callPostAPI Parameters Key: app_id Value: SecDevID_WEB_1.0.0.0_1521808771
+23/12/2018 5:55:29 PM callPostAPI Parameters Key: motherboard_id Value: 73AC5506-97A1-49B2-8210-B06EBF602F6A
+23/12/2018 5:55:29 PM callPostAPI Parameters Key: disk_id Value: 3471844813
+23/12/2018 5:55:29 PM callPostAPI Parameters Key: device_flag Value: 2
+23/12/2018 5:55:29 PM callPostAPI Parameters Key: latitude Value: 0.00
+23/12/2018 5:55:29 PM callPostAPI Parameters Key: longitude Value: 0.00
+23/12/2018 5:55:29 PM callPostAPI Parameters Key: lic_no Value: 127
+23/12/2018 5:55:30 PM callPostAPI Response:{"responseCode":"1","responseStatus":"Success","responseMessage":"This Seat Already Allocated","response":{"lic_info":{"interval":"60","seat_id":"49_SecDevID_WEB_1.0.0.0_1521808771_1545530226_0472389887","expire_on":"2019-01-05 01:57:06","time":"13","flag":"day","offline_status":"true","borrow_day":"3"},"Message":{"type":"1","msg":"this message for check for close 1","closeapp":"0"}}}
+23/12/2018 5:55:30 PM callPostAPI ResponseStatusCode:OK
+23/12/2018 5:55:30 PM TimerLogInApp API Response:- {"responseCode":"1","responseStatus":"Success","responseMessage":"This Seat Already Allocated","response":{"lic_info":{"interval":"60","seat_id":"49_SecDevID_WEB_1.0.0.0_1521808771_1545530226_0472389887","expire_on":"2019-01-05 01:57:06","time":"13","flag":"day","offline_status":"true","borrow_day":"3"},"Message":{"type":"1","msg":"this message for check for close 1","closeapp":"0"}}}
+23/12/2018 5:55:30 PM TimerLogInApp API Response Status:- Success
+23/12/2018 5:55:30 PM Start CheckLicense
+23/12/2018 5:55:30 PM CheckLicense Path: R:\GitHub\Aanno\Release\License.XML
+23/12/2018 5:55:30 PM Start ApplicationStatus
+23/12/2018 5:55:32 PM End ApplicationStatus
+23/12/2018 5:55:32 PM DispatcherTimer_Tick - Lic Status-afterLoginTrue
+23/12/2018 6:55:32 PM DispatcherTimer_Tick
+23/12/2018 6:55:32 PM DispatcherTimer_Tick - UserLogin
+23/12/2018 6:55:32 PM Start CheckLicense
+23/12/2018 6:55:32 PM CheckLicense Path: R:\GitHub\Aanno\Release\License.XML
+23/12/2018 6:55:32 PM Start ApplicationStatus
+23/12/2018 6:55:35 PM End ApplicationStatus
+23/12/2018 6:55:35 PM DispatcherTimer_Tick - Lic StatusTrue
+23/12/2018 6:55:35 PM DispatcherTimer_Tick - userName:postman_one@gmail.com
+23/12/2018 6:55:35 PM DispatcherTimer_Tick - passWord:12345
+23/12/2018 6:55:35 PM DispatcherTimer_Tick - licAppId:SecDevID_WEB_1.0.0.0_1521808771
+23/12/2018 6:55:35 PM DispatcherTimer_Tick - licAppLicNo:127
+23/12/2018 6:55:37 PM callPostAPI URL: http://virtualicense.com/developer.php/api/developer_api/assign_app_seat.json
+23/12/2018 6:55:37 PM callPostAPI Parameters Key: email_id Value: postman_one@gmail.com
+23/12/2018 6:55:37 PM callPostAPI Parameters Key: cpu_id Value: BFEBFBFF000906EA
+23/12/2018 6:55:37 PM callPostAPI Parameters Key: mac_id Value: B06EBF602F6A
+23/12/2018 6:55:37 PM callPostAPI Parameters Key: app_id Value: SecDevID_WEB_1.0.0.0_1521808771
+23/12/2018 6:55:37 PM callPostAPI Parameters Key: motherboard_id Value: 73AC5506-97A1-49B2-8210-B06EBF602F6A
+23/12/2018 6:55:37 PM callPostAPI Parameters Key: disk_id Value: 3471844813
+23/12/2018 6:55:37 PM callPostAPI Parameters Key: device_flag Value: 2
+23/12/2018 6:55:37 PM callPostAPI Parameters Key: latitude Value: 0.00
+23/12/2018 6:55:37 PM callPostAPI Parameters Key: longitude Value: 0.00
+23/12/2018 6:55:37 PM callPostAPI Parameters Key: lic_no Value: 127
+23/12/2018 6:55:58 PM callPostAPI Response:
+23/12/2018 6:55:58 PM callPostAPI ResponseStatusCode:0
+23/12/2018 6:55:58 PM TimerLogInApp API Response:- 
+23/12/2018 6:55:58 PM TimerLogInApp:Object reference not set to an instance of an object.
+23/12/2018 9:05:09 PM LogOutApp Called
+23/12/2018 9:05:09 PM LogOutApp apiLogoutURL:http://virtualicense.com/developer.php/api/developer_api/release_machine.json
+23/12/2018 9:05:09 PM LogOutApp accountUserName:postman_one@gmail.com
+23/12/2018 9:05:09 PM LogOutApp AccontLicenseAppId:SecDevID_WEB_1.0.0.0_1521808771
+23/12/2018 9:05:09 PM LogOutApp AccontLicenseSeatId:49_SecDevID_WEB_1.0.0.0_1521808771_1545530226_0472389887
+23/12/2018 9:05:09 PM callPostAPI URL: http://virtualicense.com/developer.php/api/developer_api/release_machine.json
+23/12/2018 9:05:09 PM callPostAPI Parameters Key: email_id Value: postman_one@gmail.com
+23/12/2018 9:05:09 PM callPostAPI Parameters Key: mac_id Value: B06EBF602F6A
+23/12/2018 9:05:09 PM callPostAPI Parameters Key: app_id Value: SecDevID_WEB_1.0.0.0_1521808771
+23/12/2018 9:05:09 PM callPostAPI Parameters Key: seat_number Value: 49_SecDevID_WEB_1.0.0.0_1521808771_1545530226_0472389887
+23/12/2018 9:05:10 PM callPostAPI Response:{"responseCode":"0","responseStatus":"Success","responseMessage":"This seat was release success","response":[]}
+23/12/2018 9:05:10 PM callPostAPI ResponseStatusCode:OK
+23/12/2018 9:05:10 PM LogOutApp Response:VirtuaLicense.Helper.APIResult
+23/12/2018 9:05:10 PM LogOutApp Response status:success
+23/12/2018 9:05:10 PM System.NullReferenceException: Object reference not set to an instance of an object.
+   at VirtuaLicense.LicensingTimer.DispatcherTimer_Tick(Object sender, EventArgs e) in D:\Projects\RaghuRam\DFG-Final_20170506\DFG-LicensingSDK\VirtuaLicense\LicensingTimer.cs:line 132
+17/02/2019 6:49:44 AM ReadConfigurations Start
+17/02/2019 6:49:44 AM ReadConfigurations-appSettingFilePath: R:\GitHub\Aanno\Release\Data\LicensingSettings.xml
+17/02/2019 6:49:44 AM ReadConfigurations-rememberCredentials: true
+17/02/2019 6:49:44 AM ReadConfigurations-loginwindowsStartup:true
+17/02/2019 6:49:44 AM ReadConfigurations-ThemeAccent: cobalt
+17/02/2019 6:49:44 AM ReadConfigurations-ThemeType: BaseLight
+17/02/2019 6:49:44 AM ReadConfigurations Start
+17/02/2019 6:49:44 AM ReadConfigurations-appSettingFilePath: R:\GitHub\Aanno\Release\Data\LicensingSettings.xml
+17/02/2019 6:49:44 AM ReadConfigurations-rememberCredentials: true
+17/02/2019 6:49:44 AM ReadConfigurations-loginwindowsStartup:true
+17/02/2019 6:49:44 AM ReadConfigurations-ThemeAccent: cobalt
+17/02/2019 6:49:44 AM ReadConfigurations-ThemeType: BaseLight
+17/02/2019 6:53:48 AM ReadConfigurations Start
+17/02/2019 6:53:48 AM ReadConfigurations-appSettingFilePath: R:\GitHub\Aanno\Release\Data\LicensingSettings.xml
+17/02/2019 6:53:48 AM ReadConfigurations-rememberCredentials: true
+17/02/2019 6:53:48 AM ReadConfigurations-loginwindowsStartup:true
+17/02/2019 6:53:48 AM ReadConfigurations-ThemeAccent: cobalt
+17/02/2019 6:53:48 AM ReadConfigurations-ThemeType: BaseLight
+17/02/2019 6:53:48 AM ReadConfigurations Start
+17/02/2019 6:53:48 AM ReadConfigurations-appSettingFilePath: R:\GitHub\Aanno\Release\Data\LicensingSettings.xml
+17/02/2019 6:53:48 AM ReadConfigurations-rememberCredentials: true
+17/02/2019 6:53:48 AM ReadConfigurations-loginwindowsStartup:true
+17/02/2019 6:53:48 AM ReadConfigurations-ThemeAccent: cobalt
+17/02/2019 6:53:48 AM ReadConfigurations-ThemeType: BaseLight
+17/02/2019 6:55:33 AM ReadConfigurations Start
+17/02/2019 6:55:33 AM ReadConfigurations-appSettingFilePath: R:\GitHub\Aanno\Release\Data\LicensingSettings.xml
+17/02/2019 6:55:33 AM ReadConfigurations-rememberCredentials: true
+17/02/2019 6:55:33 AM ReadConfigurations-loginwindowsStartup:true
+17/02/2019 6:55:33 AM ReadConfigurations-ThemeAccent: cobalt
+17/02/2019 6:55:33 AM ReadConfigurations-ThemeType: BaseLight
+17/02/2019 6:55:33 AM ReadConfigurations Start
+17/02/2019 6:55:33 AM ReadConfigurations-appSettingFilePath: R:\GitHub\Aanno\Release\Data\LicensingSettings.xml
+17/02/2019 6:55:33 AM ReadConfigurations-rememberCredentials: true
+17/02/2019 6:55:33 AM ReadConfigurations-loginwindowsStartup:true
+17/02/2019 6:55:33 AM ReadConfigurations-ThemeAccent: cobalt
+17/02/2019 6:55:33 AM ReadConfigurations-ThemeType: BaseLight
+17/02/2019 7:00:43 AM ReadConfigurations Start
+17/02/2019 7:00:43 AM ReadConfigurations-appSettingFilePath: R:\GitHub\Aanno\Release\Data\LicensingSettings.xml
+17/02/2019 7:00:43 AM ReadConfigurations-rememberCredentials: true
+17/02/2019 7:00:44 AM ReadConfigurations-loginwindowsStartup:true
+17/02/2019 7:00:44 AM ReadConfigurations-ThemeAccent: cobalt
+17/02/2019 7:00:44 AM ReadConfigurations-ThemeType: BaseLight
+17/02/2019 7:00:44 AM ReadConfigurations Start
+17/02/2019 7:00:44 AM ReadConfigurations-appSettingFilePath: R:\GitHub\Aanno\Release\Data\LicensingSettings.xml
+17/02/2019 7:00:44 AM ReadConfigurations-rememberCredentials: true
+17/02/2019 7:00:44 AM ReadConfigurations-loginwindowsStartup:true
+17/02/2019 7:00:44 AM ReadConfigurations-ThemeAccent: cobalt
+17/02/2019 7:00:44 AM ReadConfigurations-ThemeType: BaseLight
+17/02/2019 7:06:11 AM ReadConfigurations Start
+17/02/2019 7:06:11 AM ReadConfigurations-appSettingFilePath: R:\GitHub\Aanno\Release\Data\LicensingSettings.xml
+17/02/2019 7:06:11 AM ReadConfigurations-rememberCredentials: true
+17/02/2019 7:06:11 AM ReadConfigurations-loginwindowsStartup:true
+17/02/2019 7:06:11 AM ReadConfigurations-ThemeAccent: cobalt
+17/02/2019 7:06:11 AM ReadConfigurations-ThemeType: BaseLight
+17/02/2019 7:06:11 AM ReadConfigurations Start
+17/02/2019 7:06:11 AM ReadConfigurations-appSettingFilePath: R:\GitHub\Aanno\Release\Data\LicensingSettings.xml
+17/02/2019 7:06:11 AM ReadConfigurations-rememberCredentials: true
+17/02/2019 7:06:11 AM ReadConfigurations-loginwindowsStartup:true
+17/02/2019 7:06:11 AM ReadConfigurations-ThemeAccent: cobalt
+17/02/2019 7:06:11 AM ReadConfigurations-ThemeType: BaseLight
+17/02/2019 7:08:52 AM ReadConfigurations Start
+17/02/2019 7:08:52 AM ReadConfigurations-appSettingFilePath: R:\GitHub\Aanno\Release\Data\LicensingSettings.xml
+17/02/2019 7:08:52 AM ReadConfigurations-rememberCredentials: true
+17/02/2019 7:08:52 AM ReadConfigurations-loginwindowsStartup:true
+17/02/2019 7:08:52 AM ReadConfigurations-ThemeAccent: cobalt
+17/02/2019 7:08:52 AM ReadConfigurations-ThemeType: BaseLight
+17/02/2019 7:08:52 AM ReadConfigurations Start
+17/02/2019 7:08:52 AM ReadConfigurations-appSettingFilePath: R:\GitHub\Aanno\Release\Data\LicensingSettings.xml
+17/02/2019 7:08:52 AM ReadConfigurations-rememberCredentials: true
+17/02/2019 7:08:52 AM ReadConfigurations-loginwindowsStartup:true
+17/02/2019 7:08:52 AM ReadConfigurations-ThemeAccent: cobalt
+17/02/2019 7:08:52 AM ReadConfigurations-ThemeType: BaseLight

@@ -1,8 +1,6 @@
 
 
-FATAL ERROR:  Unhandled e0434352h Exception at 2c034008h
+FATAL ERROR:  Unhandled Access Violation Reading 0x0000 Exception at 4c87414h
 
-03/16/2018 at 00:01:22.000  Drawing: Drawing1.dwg
--------------
-1.dwg
+12/23/2018 at 21:05:13.000  Drawing: R:\GitHub\Aanno\TestFiles\20181221\AAPro_Style_location.dwt
 -------------

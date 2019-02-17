@@ -54,7 +54,7 @@
         <GroupBox x:Name="groupBox" Header="Learn Tools" Margin="10,10,0,0" Grid.Row="1" VerticalAlignment="Top" Height="72" Grid.ColumnSpan="2" HorizontalAlignment="Left" Width="366">
             <Grid>
                 <Button x:Name="btn_learn" Content="LEARN SELECTED STYLE" HorizontalAlignment="Left" Margin="187,0,0,0" VerticalAlignment="Top" Width="160" Click="btn_learn_Click"/>
-                <Button x:Name="btn_learn_all" Content="LEARN ALL STYLE" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Top" Width="160"/>
+                <Button x:Name="btn_learn_all" Content="LEARN ALL STYLE" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Top" Width="160" Click="btn_learn_all_Click"/>
             </Grid>
         </GroupBox>
         <GroupBox x:Name="groupBox1" Header="Style Details" Margin="10" Grid.Row="2" Grid.ColumnSpan="2">
@@ -64,7 +64,13 @@
                         <DataTemplate>
                             <StackPanel Orientation="Horizontal">
                                 <Label Content="{Binding styleName}" VerticalAlignment="Center" Margin="10,2,2,1" Padding="5,5,5,1" UseLayoutRounding="True" FontSize="14" Background="{x:Null}" BorderBrush="{x:Null}" />
-                                <TextBox Text="{Binding KNComponentID}" Name="tBox_KNComponentID" />
+                                <ListBox ItemsSource="{Binding KNComponentID}">
+                                    <ListBox.ItemsPanel>
+                                        <ItemsPanelTemplate>
+                                            <VirtualizingStackPanel IsItemsHost="True" Orientation="Horizontal"/>
+                                        </ItemsPanelTemplate>
+                                    </ListBox.ItemsPanel>
+                                </ListBox>
                             </StackPanel>
                         </DataTemplate>
                     </ListView.ItemTemplate>
