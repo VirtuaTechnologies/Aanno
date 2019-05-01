@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using GV = AnnoTesterApp.Global.variables;
 using GH = AnnoTesterApp.Helper.GenHelper;
 using System.Data.SqlClient;
-using VSharpSettingsHelper;
+using VSharpXMLHelper;
 
 namespace AnnoTesterApp.Global
 {

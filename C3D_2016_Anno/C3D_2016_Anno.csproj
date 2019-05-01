@@ -139,10 +139,6 @@
       <HintPath>..\packages\VirtuaLicense.1.0.0\lib\net45\VirtuaLicense.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="VSharpSettingsHelper, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>Libs\VSharpSettingsHelper.dll</HintPath>
-    </Reference>
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
@@ -170,10 +166,6 @@
     <Reference Include="ZSharpSQLITEHelper, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>Libs\ZSharpSQLITEHelper.dll</HintPath>
-    </Reference>
-    <Reference Include="ZSharpXMLHelper, Version=1.0.0.0, Culture=neutral, PublicKeyToken=faa560cbe1bb381b, processorArchitecture=MSIL">
-      <HintPath>..\packages\VirtuaLicense.1.0.0\lib\net45\ZSharpXMLHelper.dll</HintPath>
-      <Private>True</Private>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -267,6 +259,7 @@
     <Content Include="Libs\ZSharpQLogger.dll" />
     <Content Include="Libs\ZSharpSQLITEHelper.dll" />
     <Content Include="Libs\ZSharpXMLHelper.dll" />
+    <None Include="Templates\ProjectA.sst" />
     <None Include="Test Files\AAPro\AAPro_Style_location.dwt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
@@ -324,7 +317,12 @@
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\..\ZSharpHelpers\ZSharpXMLHelper\ZSharpXMLHelper\VSharpXMLHelper.csproj">
+      <Project>{7e184ae7-82ec-4431-a1a9-b514f460126d}</Project>
+      <Name>VSharpXMLHelper</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\VirtuaLicense.1.0.0\build\VirtuaLicense.targets" Condition="Exists('..\packages\VirtuaLicense.1.0.0\build\VirtuaLicense.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

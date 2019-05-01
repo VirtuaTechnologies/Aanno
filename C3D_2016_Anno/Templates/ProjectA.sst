@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<!-- Developed by AutoAnno, LLC, Copyright 2010-2018, all rights reserved. www.autoanno.com -->
+<App>
+  <STYLE name="IRR">1,5</STYLE>
+  <STYLE name="W">1,4</STYLE>
+  <STYLE name="PV">1</STYLE>
+  <STYLE name="GR">2</STYLE>
+  <STYLE name="RW">3,4</STYLE>
+  <STYLE name="SWR">5</STYLE>
+  <STYLE name="STM">6</STYLE>
+  <STYLE name="STR">2,3</STYLE>
+</App>

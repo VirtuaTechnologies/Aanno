@@ -30,7 +30,7 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
         <TextBox x:Name="tBox_stylemapperFile" Height="47" Margin="10,16,10,0" TextWrapping="Wrap" VerticalAlignment="Top" Controls:TextBoxHelper.UseFloatingWatermark="True" Controls:TextBoxHelper.Watermark="Select Style Mapper File"/>
-        <Button Margin="0,27,50,0" Background="Transparent"  x:Name="btn_browse_stylemapperFile" Height="36" VerticalAlignment="Top" ToolTip="Select a folder to scan files" Click="btn_browse_stylemapperFile_Click" Grid.Column="1" HorizontalAlignment="Right" Width="35" >
+        <Button Margin="0,27,50,0" Background="Transparent"  x:Name="btn_browse_styleStructureFile" ToolTip="Select a folder to scan files" Click="btn_browse_styleStructureFile_Click" Grid.Column="1" HorizontalAlignment="Right" Width="35" Height="36" VerticalAlignment="Top" >
             <Rectangle Width="22"
                         Height="19"
                         Fill="#FF3373F2">
@@ -40,13 +40,13 @@
                 </Rectangle.OpacityMask>
             </Rectangle>
         </Button>
-        <Button Margin="0,27,10,0" Background="Transparent"  x:Name="btn_read_stylemapperFile" Height="36" VerticalAlignment="Top" Width="35" HorizontalAlignment="Right" ToolTip="Select a folder to scan files" Click="btn_read_stylemapperFile_Click" Grid.Column="1" >
+        <Button Margin="0,27,10,1" Background="Transparent"  x:Name="btn_save_styleStructureFile" Width="35" HorizontalAlignment="Right" ToolTip="Select a folder to scan files" Click="btn_save_styleStructureFile_Click" Grid.Column="1" >
             <Rectangle Width="22"
                         Height="19"
                         Fill="#FF3373F2">
                 <Rectangle.OpacityMask>
                     <VisualBrush Stretch="Fill"
-                                Visual="{StaticResource appbar_refresh}"/>
+                                Visual="{StaticResource appbar_save}"/>
                 </Rectangle.OpacityMask>
             </Rectangle>
         </Button>
@@ -59,7 +59,7 @@
         </GroupBox>
         <GroupBox x:Name="groupBox1" Header="Style Details" Margin="10" Grid.Row="2" Grid.ColumnSpan="2">
             <Grid>
-                <ListView x:Name="listView_styleComponentMapper">
+                <ListView x:Name="listView_styleComponentMapper" SelectionMode="Single" PreviewKeyDown="listView_styleComponentMapper_PreviewKeyDown">
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <StackPanel Orientation="Horizontal">
@@ -78,5 +78,16 @@
 
             </Grid>
         </GroupBox>
+        <Button Margin="0,12,19,0" Background="Transparent"  x:Name="btn_delete_style_item" Width="22" HorizontalAlignment="Right" ToolTip="Select a folder to scan files" Grid.Column="1" Grid.Row="2" Click="btn_delete_style_item_Click" BorderBrush="White" Height="25" VerticalAlignment="Top" >
+            <Rectangle Width="9"
+                        Height="12"
+                        Fill="White">
+                <Rectangle.OpacityMask>
+                    <VisualBrush Stretch="Fill"
+                                Visual="{StaticResource appbar_delete}"/>
+                </Rectangle.OpacityMask>
+            </Rectangle>
+        </Button>
+
     </Grid>
 </UserControl>

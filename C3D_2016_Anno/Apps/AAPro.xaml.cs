@@ -40,14 +40,19 @@ namespace C3D_2016_Anno.Apps
             listView_styleComponentMapper.ItemsSource = GV.labelComponentItem_coll;
         }
 
-        private void btn_browse_stylemapperFile_Click(object sender, RoutedEventArgs e)
+        private void btn_browse_styleStructureFile_Click(object sender, RoutedEventArgs e)
         {
             try
             {
                 OpenFileDialog openFileDialog = new OpenFileDialog();
-                openFileDialog.Filter = "DWG files (*.dwg; *.dwt)|*.dwg; *.dwt";
+                openFileDialog.Filter = "Style Structure Files (*.sst; *.sst)|*.sst;";
                 if (openFileDialog.ShowDialog() == true)
+                {
                     tBox_stylemapperFile.Text = openFileDialog.FileName;
+
+                    //load data on the file ot the listview.
+                    GH.getStyleStructureFileDetails(tBox_stylemapperFile.Text);
+                }
 
 
             }
@@ -55,11 +60,23 @@ namespace C3D_2016_Anno.Apps
             { }
         }
 
-        private void btn_read_stylemapperFile_Click(object sender, RoutedEventArgs e)
+        private void btn_save_styleStructureFile_Click(object sender, RoutedEventArgs e)
         {
             try
             {
-                
+                //save the mapping information in XML format to the style mapper file.
+
+            //check if a file selected
+            if(File.Exists(tBox_stylemapperFile.Text))
+                {
+                    //update the existing file.
+                    //this will erase whats on the file and update with the current view content.
+
+                }
+            else //ask the user to create new file or select and existing file.
+                {
+                    MessageBox.Show("Unable to save to file, please check if the file exists!");
+                }
             }
             catch (System.Exception ex)
             { }
@@ -69,7 +86,7 @@ namespace C3D_2016_Anno.Apps
         {
             try
             {
-                GV.labelComponentItem_coll.Clear();
+                //GV.labelComponentItem_coll.Clear();
                 LCH.getCurrentDwgVars();
                 using (GV.Doc.LockDocument())
                 {
@@ -129,6 +146,28 @@ namespace C3D_2016_Anno.Apps
         private void btn_learn_all_Click(object sender, RoutedEventArgs e)
         {
             GH.errorBox("This function is work in progress! check again later.");
+        }
+
+        private void btn_delete_style_item_Click(object sender, RoutedEventArgs e)
+        {
+            if(GV.labelComponentItem_coll.Contains((Global.labelComponentItem)listView_styleComponentMapper.SelectedItem))
+            {
+                GV.labelComponentItem_coll.Remove((Global.labelComponentItem)listView_styleComponentMapper.SelectedItem);
+            }
+        }
+
+        private void listView_styleComponentMapper_PreviewKeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Delete)
+            {
+                if (listView_styleComponentMapper.SelectedItem != null)
+                {
+                    if (GV.labelComponentItem_coll.Contains((Global.labelComponentItem)listView_styleComponentMapper.SelectedItem))
+                    {
+                        GV.labelComponentItem_coll.Remove((Global.labelComponentItem)listView_styleComponentMapper.SelectedItem);
+                    }
+                }
+            }
         }
     }
 }

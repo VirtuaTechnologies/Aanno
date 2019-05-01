@@ -55,6 +55,9 @@
     <Reference Include="System.Xaml">
       <RequiredTargetFramework>4.0</RequiredTargetFramework>
     </Reference>
+    <Reference Include="VSharpXMLHelper">
+      <HintPath>Libs\VSharpXMLHelper.dll</HintPath>
+    </Reference>
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
@@ -147,12 +150,6 @@
   <ItemGroup>
     <Content Include="Libs\ZSharpQLogger.dll" />
     <Content Include="Libs\ZSharpXMLHelper.dll" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\ZSharpHelpers\VSharpSettingsHelper\VSharpSettingsHelper.csproj">
-      <Project>{a02585d3-56d6-4e4f-96a7-1aea853dffd1}</Project>
-      <Name>VSharpSettingsHelper</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

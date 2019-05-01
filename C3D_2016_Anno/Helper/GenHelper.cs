@@ -6,11 +6,8 @@ using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Security.Cryptography;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using ZSharpQLogger;
-using VSharpSettingsHelper;
 using GV = C3D_2016_Anno.Global.variables;
 using Microsoft.VisualBasic.FileIO;
 using System.Data;
@@ -19,11 +16,12 @@ using System.Windows.Media;
 using System.Windows.Interop;
 using System.Runtime.InteropServices;
 using System.Drawing;
+using VSharpXMLHelper;
 
 namespace C3D_2016_Anno.Helper
 {
-//Mapper > XMLMapper, CSVMapper1, CSVMapper2
-//Notes > XMLNotes, CSVNotes1, CSVNotes2, 
+    //Mapper > XMLMapper, CSVMapper1, CSVMapper2
+    //Notes > XMLNotes, CSVNotes1, CSVNotes2, 
     public class GenHelper
     {
         char[] extTrimChar = {'.'};
@@ -235,6 +233,26 @@ namespace C3D_2016_Anno.Helper
             }
             catch (System.Exception ex) { }
         }
+
+        public static void getStyleStructureFileDetails(string filePath)
+        {
+            try
+            {
+                //clear collection
+                GV.labelComponentItem_coll.Clear();
+                Dictionary<string, string> result = new Dictionary<string, string>();
+                result = xmlParser.getXMLVaulesStrings(filePath, "STYLE", "name");
+
+                foreach(var item in result)
+                {
+                    Global.labelComponentItem LI = new Global.labelComponentItem();
+                    LI.styleName = item.Key;
+                    LI.KNComponentID = new List<int>(Array.ConvertAll(item.Value.Split(','), int.Parse));
+                    GV.labelComponentItem_coll.Add(LI);
+                }
+            }
+            catch (System.Exception ex) { }
+        }
         public static void getTemplateDetails(string file)
         {
             try
@@ -370,6 +388,7 @@ namespace C3D_2016_Anno.Helper
             try
             {
                 GV.Mapper.Clear();
+                
                 GV.ObtTypes.Clear();
                 GV.MapperFileExt = Path.GetExtension(file).Replace(".", string.Empty);
 
@@ -653,6 +672,11 @@ namespace C3D_2016_Anno.Helper
             }
 
             return true;
+        }
+
+        public static void updateSeetings(string field, string value)
+        {
+            xmlWriter.editXML(GV.settingsFile, "App/Settings", "name", field, value);
         }
 
 

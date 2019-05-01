@@ -7,7 +7,8 @@ using System.Threading.Tasks;
 using GV = AnnoTesterApp.Global.variables;
 using ZSharpQLogger;
 using System.Reflection;
-using VSharpSettingsHelper;
+using VSharpXMLHelper;
+using xw = VSharpXMLHelper.xmlWriter;
 
 namespace AnnoTesterApp.Helper
 {

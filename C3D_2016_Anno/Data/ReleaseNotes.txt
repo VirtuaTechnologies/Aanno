@@ -1,5 +1,15 @@
 ﻿This is Intellectual Property of AutoAnno, LLC and Jeffery J. Bohl, all rights reserved. www.autoanno.com
 ========================
+Release Notes -AAPro AutoCAD plugin - 20190501 - Ver 4.47.1.6
+========================
+- AAPro XML read adn create a XML file format for storing the details
+- Phased out INI and moved all the data to XML
+- Creating option to delete item from the listview using the delete button and delete key
+- duplicatio issue
+- append data without overwriting.
+- Bug fixes
+
+========================
 Release Notes -AAPro AutoCAD plugin - 20190217 - Ver 4.47.1.5
 ========================
 - AAPro create custom functions to read styles and get multiple component location
