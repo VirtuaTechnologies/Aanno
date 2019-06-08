@@ -114,6 +114,7 @@
         <Button x:Name="btn_readMapper" Content="Read Mapper" HorizontalAlignment="Left" Margin="626,125,0,0" VerticalAlignment="Top" Width="117" Click="btn_readMapper_Click"/>
         <Button x:Name="btn_readTemp2" Content="Read Template 2" HorizontalAlignment="Left" Margin="504,158,0,0" VerticalAlignment="Top" Width="117" Click="btn_readTemp2_Click"/>
         <Button x:Name="btn_readMap2" Content="Read Mapper 2" HorizontalAlignment="Left" Margin="626,158,0,0" VerticalAlignment="Top" Width="117" Click="btn_readMap2_Click"/>
+        <Button x:Name="btn_createXML" Content="Create XML" HorizontalAlignment="Left" Margin="504,194,0,0" VerticalAlignment="Top" Width="117" Click="btn_createXML_Click"/>
 
     </Grid>
 </Controls:MetroWindow>

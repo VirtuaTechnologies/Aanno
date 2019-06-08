@@ -115,7 +115,7 @@ namespace C3D_2016_Anno.Global
         public static ObservableCollection<labelItem> all_label_coll = new ObservableCollection<labelItem>();
         public static Dictionary<string, List<labelItem>> all_label_coll_Sorted = new Dictionary<string, List<labelItem>>();
         public static ObservableCollection<labelComponentItem> labelComponentItem_coll = new ObservableCollection<labelComponentItem>();
-
+        public static Dictionary<string, string> SST_Coll = new Dictionary<string, string>();
         public  static void clearCollection()
         {
             noteTypesCurrent.Clear();
@@ -170,7 +170,7 @@ namespace C3D_2016_Anno.Global
     {
         public string styleName { get; set; }
         public string labelprefix { get; set; }
-
+        public string labelType { get; set; }
         public string objType { get; set; }
         public List<int> KNComponentID { get; set; }
         public Dictionary<string, string> properties { get; set; }

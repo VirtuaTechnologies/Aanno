@@ -20,7 +20,7 @@
         </ResourceDictionary>
     </UserControl.Resources>
     <Grid Background="White">
-        <GroupBox x:Name="groupBox" Header="Definition" Margin="10,10,11,0" VerticalAlignment="Top" Height="166">
+        <GroupBox x:Name="groupBox" Header="Definition" Margin="10,10,11,0" VerticalAlignment="Top" Height="213">
             <Grid>
 
                 <ComboBox x:Name="cBox_Mapper"  SelectedValue="{Binding Path=fileName}" SelectedValuePath="fileName" Margin="10,10,165,0" VerticalAlignment="Top" SelectionChanged="cBox_Mapper_SelectionChanged" Height="50" MinHeight="35" Controls:TextBoxHelper.UseFloatingWatermark="True" Controls:TextBoxHelper.Watermark="Mapper">
@@ -123,9 +123,22 @@
                         </Rectangle.OpacityMask>
                     </Rectangle>
                 </Button>
+                <TextBox x:Name="tBox_StyleStructureFile" Margin="10,120,165,0" Height="50
+                         " VerticalAlignment="Top" ToolTip="Style Structure File" Controls:TextBoxHelper.Watermark="Style Stucture File"></TextBox>
+                <Button Margin="0,135,124,0" Background="Transparent"  x:Name="btn_browse_SSTFile" Height="35" VerticalAlignment="Top" Width="35" HorizontalAlignment="Right" Click="btn_browse_SSTFile_Click" ToolTip="Browse a file." >
+                    <Rectangle Width="22"
+                        Height="19"
+                        Fill="#FF3373F2">
+                        <Rectangle.OpacityMask>
+                            <VisualBrush Stretch="Fill"
+                                Visual="{StaticResource appbar_folder}"/>
+                        </Rectangle.OpacityMask>
+                    </Rectangle>
+                </Button>
+                <Button Name="btn_openLearnTool" Content="Open Learn Tool" Margin="348,135,9,4" Click="btn_openLearnTool_Click"></Button>
             </Grid>
         </GroupBox>
-        <GroupBox x:Name="groupBox1" Header="Selection" Margin="10,181,11,0" VerticalAlignment="Top" Height="83" >
+        <GroupBox x:Name="groupBox1" Header="Selection" Margin="11,228,10,0" VerticalAlignment="Top" Height="83" >
             <Grid Margin="0,0,0,1">
                 <Label x:Name="label1" Content="Create boundary" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="103"/>
                 <Button Margin="118,10,0,0" Background="Transparent"  x:Name="btn_selectLabels" HorizontalAlignment="Left" Width="26" Height="26" VerticalAlignment="Top" Click="btn_selectLabels_Click" ToolTip="Selected labels from screen">
@@ -138,8 +151,8 @@
                         </Rectangle.OpacityMask>
                     </Rectangle>
                 </Button>
-                <Label x:Name="label1_Copy" Content="Pick Viewport" HorizontalAlignment="Left" Margin="170,10,0,0" VerticalAlignment="Top" Width="82"/>
-                <Button Margin="257,10,0,0" Background="Transparent"  x:Name="btn_selectViewport" HorizontalAlignment="Left" Width="26" Height="26" VerticalAlignment="Top" Click="btn_selectViewport_Click" ToolTip="Selected viewport to process the labels within the viewport." >
+                <Label x:Name="label1_Copy" Content="Pick Viewport" HorizontalAlignment="Left" Margin="149,10,0,0" VerticalAlignment="Top" Width="82"/>
+                <Button Margin="236,11,0,0" Background="Transparent"  x:Name="btn_selectViewport" HorizontalAlignment="Left" Width="26" Height="26" VerticalAlignment="Top" Click="btn_selectViewport_Click" ToolTip="Selected viewport to process the labels within the viewport." >
                     <Rectangle Width="14"
                         Height="11"
                         Fill="#FF3373F2">
@@ -149,11 +162,22 @@
                         </Rectangle.OpacityMask>
                     </Rectangle>
                 </Button>
-                <Label x:Name="lbl_statusCount" Content="" Margin="288,10,4,0" VerticalAlignment="Top" RenderTransformOrigin="0.509,0.59" ToolTip="Labels processed."/>
+                <Label x:Name="lbl_selectLabel_Smart" Content="Pick Label" HorizontalAlignment="Left" Margin="267,11,0,0" VerticalAlignment="Top" Width="82"/>
+                <Button Margin="329,11,0,0" Background="Transparent"  x:Name="btn_selectLabel_Smart" HorizontalAlignment="Left" Width="26" Height="26" VerticalAlignment="Top" Click="btn_selectLabel_Smart_Click" ToolTip="Selected viewport to process the labels within the viewport." >
+                    <Rectangle Width="14"
+                        Height="11"
+                        Fill="#FF3373F2">
+                        <Rectangle.OpacityMask>
+                            <VisualBrush Stretch="Fill"
+                                Visual="{StaticResource appbar_image_focus}"/>
+                        </Rectangle.OpacityMask>
+                    </Rectangle>
+                </Button>
+                <Label x:Name="lbl_statusCount" Content="" Margin="0,-31,2,0" VerticalAlignment="Top" RenderTransformOrigin="0.509,0.59" ToolTip="Labels processed." HorizontalAlignment="Right" Width="136" Foreground="White"/>
                 <Controls:MetroProgressBar x:Name="proBar" Margin="-6,42,-5,-6" Maximum="100" VerticalAlignment="Top" Height="7" Foreground="#FF3373F2" Cursor="Hand"/>
             </Grid>
         </GroupBox>
-        <GroupBox x:Name="groupBox2" Header="Preview" Margin="10,269,10,10">
+        <GroupBox x:Name="groupBox2" Header="Preview" Margin="10,318,10,10">
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="47"/>
@@ -245,8 +269,8 @@
             </Grid>
         </GroupBox>
         <Button x:Name="btn_openXMLMan" Content="Open XML Manager" Margin="0,11,140,0" VerticalAlignment="Top" Height="26" Background="{x:Null}" Foreground="White" Click="btn_openXMLMan_Click" HorizontalAlignment="Right" Width="116"/>
-        <localsdk:LoginControl x:Name="loginUserControl" Width="500"  Visibility="Visible" ></localsdk:LoginControl>
+        <localsdk:LoginControl x:Name="loginUserControl" Width="500"  Visibility="Visible" Margin="0,176,0,150" ></localsdk:LoginControl>
         <Button x:Name="BtnLogOut" Content="Logout" Margin="0,11,19,0" VerticalAlignment="Top" Height="26" Background="{x:Null}" Foreground="White" Click="BtnLogOut_Click" HorizontalAlignment="Right" Width="116"/>
     </Grid>
-    
+
 </UserControl>

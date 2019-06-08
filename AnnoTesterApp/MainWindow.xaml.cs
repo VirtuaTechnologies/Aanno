@@ -22,6 +22,8 @@ using System.IO;
 using System.Text.RegularExpressions;
 using Microsoft.VisualBasic.FileIO;
 using System.Data;
+using System.Xml.Linq;
+using System.Xml;
 
 namespace AnnoTesterApp
 {
@@ -259,6 +261,46 @@ namespace AnnoTesterApp
         private void btn_readTemp2_Click(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private void btn_createXML_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                Dictionary<string, string> keyvalue = new Dictionary<string, string>();
+                keyvalue.Add("IRR", "112");
+                keyvalue.Add("SW", "23");
+                keyvalue.Add("STR", "2");
+                keyvalue.Add("MPR", "45");
+
+                // instantiate XmlDocument and load XML from file
+                XDocument d = new XDocument(new XComment("VSHARP XML Writer Library"));
+                d.Declaration = new XDeclaration("1.0", "utf-8", "true");
+
+                XElement mainKey_Element = new XElement("STYLE");
+
+                foreach (var item in keyvalue)
+                {
+                    XElement subKey_Element = new XElement("APP", new XAttribute("name", item.Key), item.Value);
+                    mainKey_Element.Add(subKey_Element);
+                }
+
+                d.Add(mainKey_Element);
+
+                //if (System.IO.File.Exists(xmlFile))
+                //{
+                //    System.IO.File.Delete(xmlFile);
+                //    d.Save(xmlFile);
+                //}
+
+
+
+                MessageBox.Show(d.ToString());
+            }
+            catch(System.Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
         }
     }
 }

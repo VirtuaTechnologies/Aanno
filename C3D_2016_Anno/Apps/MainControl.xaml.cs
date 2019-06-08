@@ -34,6 +34,7 @@ using Notifications.Wpf;
 using System.Windows.Forms;
 using System.Diagnostics;
 using MahApps.Metro;
+using VSharpXMLHelper;
 
 namespace C3D_2016_Anno.Apps
 {
@@ -634,6 +635,34 @@ namespace C3D_2016_Anno.Apps
 
         #endregion
 
+        #region AANNO PRO - Learn Tool
+        private void btn_openLearnTool_Click(object sender, RoutedEventArgs e)
+        {
+            GV.Doc.SendStringToExecute("AAnnoPro", true, false, false);
+        }
+
+        private void btn_browse_SSTFile_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                Microsoft.Win32.OpenFileDialog openFileDialog = new Microsoft.Win32.OpenFileDialog();
+                openFileDialog.Filter = "Style Structure Files (*.sst; *.sst)|*.sst;";
+                if (openFileDialog.ShowDialog() == true)
+                {
+                    tBox_StyleStructureFile.Text = openFileDialog.FileName;
+
+                    //load data on the file ot the listview.
+                    GV.SST_Coll.Clear();
+                    GV.SST_Coll = xmlParser.getXMLVaulesStrings(tBox_StyleStructureFile.Text, "STYLE", "name");
+                }
+
+
+            }
+            catch (System.Exception ex)
+            { }
+        } 
+        #endregion
+
         #region zoom/ seletion
         private void lBox_labels_zoomto_Click(object sender, RoutedEventArgs e)
         {
@@ -697,6 +726,8 @@ namespace C3D_2016_Anno.Apps
             }
 
         }
+
+
         #endregion
 
         #region Action buttons
@@ -894,6 +925,32 @@ namespace C3D_2016_Anno.Apps
                     UIH.toastIT("Check if defintion and note files are selected!", "Missing defintion/note file", NotificationType.Error);
                 }
 
+            }
+            catch (Autodesk.Civil.CivilException ex)
+            {
+                GH.errorBox(ex.ToString());
+            }
+            catch (Autodesk.AutoCAD.Runtime.Exception ex)
+            {
+                GH.errorBox(ex.ToString());
+            }
+            catch (System.Exception ee)
+            {
+                GH.errorBox(ee.ToString());
+            }
+        }
+
+        private void btn_selectLabel_Smart_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                // check style name
+
+                //check if the styles name exists in the SST file
+
+                //get the CN/ KN value location for that particular style
+
+                //
             }
             catch (Autodesk.Civil.CivilException ex)
             {
@@ -1124,5 +1181,7 @@ namespace C3D_2016_Anno.Apps
                 drawingContext.Pop();
             }
         }
+
+        
     }
 }

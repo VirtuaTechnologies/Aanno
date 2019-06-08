@@ -169,7 +169,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Apps\AAPro.xaml.cs">
+    <Compile Include="Apps\AAPro\AAPro.xaml.cs">
       <DependentUpon>AAPro.xaml</DependentUpon>
     </Compile>
     <Compile Include="Apps\Editor.xaml.cs">
@@ -292,7 +292,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Page Include="Apps\AAPro.xaml">
+    <Page Include="Apps\AAPro\AAPro.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

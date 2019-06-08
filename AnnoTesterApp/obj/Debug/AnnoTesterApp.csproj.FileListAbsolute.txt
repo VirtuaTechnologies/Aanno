@@ -46,3 +46,17 @@ R:\GitHub\Aanno\AnnoTesterApp\obj\Debug\AnnoTesterApp_MarkupCompile.cache
 R:\GitHub\Aanno\AnnoTesterApp\obj\Debug\AnnoTesterApp.g.resources
 R:\GitHub\Aanno\AnnoTesterApp\obj\Debug\AnnoTesterApp.Properties.Resources.resources
 R:\GitHub\Aanno\AnnoTesterApp\obj\Debug\AnnoTesterApp.csproj.GenerateResource.Cache
+R:\GitHub\Aanno\AnnoTesterApp\bin\Debug\AnnoTesterApp.exe.config
+R:\GitHub\Aanno\AnnoTesterApp\bin\Debug\Data\Settings.xml
+R:\GitHub\Aanno\AnnoTesterApp\bin\Debug\AnnoTesterApp.exe
+R:\GitHub\Aanno\AnnoTesterApp\bin\Debug\AnnoTesterApp.pdb
+R:\GitHub\Aanno\AnnoTesterApp\bin\Debug\MahApps.Metro.dll
+R:\GitHub\Aanno\AnnoTesterApp\bin\Debug\System.dll
+R:\GitHub\Aanno\AnnoTesterApp\bin\Debug\System.Windows.Interactivity.dll
+R:\GitHub\Aanno\AnnoTesterApp\bin\Debug\VSharpXMLHelper.dll
+R:\GitHub\Aanno\AnnoTesterApp\bin\Debug\ZSharpQLogger.dll
+R:\GitHub\Aanno\AnnoTesterApp\bin\Debug\MahApps.Metro.pdb
+R:\GitHub\Aanno\AnnoTesterApp\bin\Debug\MahApps.Metro.xml
+R:\GitHub\Aanno\AnnoTesterApp\obj\Debug\AnnoTesterApp.csprojResolveAssemblyReference.cache
+R:\GitHub\Aanno\AnnoTesterApp\obj\Debug\AnnoTesterApp.exe
+R:\GitHub\Aanno\AnnoTesterApp\obj\Debug\AnnoTesterApp.pdb
