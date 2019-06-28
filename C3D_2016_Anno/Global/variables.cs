@@ -72,6 +72,8 @@ namespace C3D_2016_Anno.Global
         public static string XMLMapperAtt;
         public static string CSVfilecharReplace;
         public static string licInformation = "Full Version";
+        public static string SSTfileFormat = "native";
+        public static string SSTfileDelimiter = "||";
         #endregion
 
         #region ACAD Vars

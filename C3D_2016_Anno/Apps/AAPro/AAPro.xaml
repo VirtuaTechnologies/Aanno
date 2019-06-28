@@ -81,7 +81,7 @@
                 </Grid>
             </GroupBox>
 
-            <Button Margin="0,27,10,1" Background="Transparent"  x:Name="btn_saveAS_styleStructureFile" Width="35" HorizontalAlignment="Right" ToolTip="Save as" Click="btn_saveAS_styleStructureFile_Click" Grid.Column="1" >
+            <Button Margin="0,27,10,0" Background="Transparent"  x:Name="btn_saveAS_styleStructureFile" Width="35" HorizontalAlignment="Right" ToolTip="Save as" Click="btn_saveAS_styleStructureFile_Click" Grid.Column="1" Height="36" VerticalAlignment="Top" >
                 <Rectangle Width="22"
                 Height="19"
                 Fill="Gray">

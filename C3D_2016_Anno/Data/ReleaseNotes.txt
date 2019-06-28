@@ -1,5 +1,12 @@
 ﻿This is Intellectual Property of AutoAnno, LLC and Jeffery J. Bohl, all rights reserved. www.autoanno.com
 ========================
+Release Notes -AAPro AutoCAD plugin - 20190608 - Ver 4.47.1.9
+========================
+- AAPro adding new settings SSTfileFormat   <!--native or XML--> - where we would still retain the XML functuions we have done.
+- We would adding another Param in SSTfileDelimiter - this would be used in the new .sst file as delimiter. So this can be changed easily by the user at any time.
+
+
+========================
 Release Notes -AAPro AutoCAD plugin - 20190608 - Ver 4.47.1.8
 ========================
 - AAPro - add form to get the style name

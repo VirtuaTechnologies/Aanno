@@ -66,7 +66,7 @@ namespace C3D_2016_Anno.Apps
             {
                 if (File.Exists(tBox_stylemapperFile.Text))
                 {
-                    writetoXML();
+                    writetoFile();
                 }
                 else //ask the user to create new file or select and existing file.
                 {
@@ -87,15 +87,16 @@ namespace C3D_2016_Anno.Apps
                 if (saveFileDialog.ShowDialog() == true)
                 {
                     tBox_stylemapperFile.Text = saveFileDialog.FileName;
+                    writetoFile();
                     
-                    writetoXML();
+                    
                 }
             }
             catch (System.Exception ex)
             { }
         }
 
-        private void writetoXML()
+        private void writetoFile()
         {
             try
             {
@@ -104,15 +105,28 @@ namespace C3D_2016_Anno.Apps
                 //this will erase whats on the file and update with the current view content.
                 Dictionary<string, Dictionary<string, string>> Item = new Dictionary<string, Dictionary<string, string>>();
                 Dictionary<string, string> keyvalue = new Dictionary<string, string>();
+                string CSVstring = "";
                 foreach (Global.labelComponentItem item in GV.labelComponentItem_coll)
                 {
-                    keyvalue.Add(item.labelType, String.Join(",", item.KNComponentID.Select(n => n.ToString()).ToArray()));
+                    string KNValue = String.Join(",", item.KNComponentID.Select(n => n.ToString()).ToArray());
+                    keyvalue.Add(item.labelType, KNValue);
                     Item.Add(item.styleName, keyvalue);
+                    CSVstring += item.styleName + GV.SSTfileDelimiter + item.labelType + GV.SSTfileDelimiter + KNValue + Environment.NewLine;
                 }
 
-                VSharpXMLHelper.xmlWriter.cleanWritevariableKey(tBox_stylemapperFile.Text, "APP", "type", Item);
-                //check if a file selected
-                
+                if (GV.SSTfileFormat == "XML")
+                {
+                    VSharpXMLHelper.xmlWriter.cleanWritevariableKey(tBox_stylemapperFile.Text, "APP", "type", Item);
+                    //check if a file selected
+                }
+                else //native format
+                {
+                    if (!File.Exists(tBox_stylemapperFile.Text))
+                    {
+                        File.Create(tBox_stylemapperFile.Text);
+                    }
+                    File.WriteAllText(tBox_stylemapperFile.Text, CSVstring);
+                }
             }
             catch (System.Exception ex)
             { }

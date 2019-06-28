@@ -653,7 +653,14 @@ namespace C3D_2016_Anno.Apps
 
                     //load data on the file ot the listview.
                     GV.SST_Coll.Clear();
-                    GV.SST_Coll = xmlParser.getXMLVaulesStrings(tBox_StyleStructureFile.Text, "STYLE", "name");
+                    if (GV.SSTfileFormat == "XML")
+                    {
+                        GV.SST_Coll = xmlParser.getXMLVaulesStrings(tBox_StyleStructureFile.Text, "STYLE", "name");
+                    }
+                    else
+                    {
+
+                    }
                 }
 
 

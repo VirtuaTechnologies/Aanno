@@ -105,8 +105,9 @@ namespace C3D_2016_Anno.Helper
 
                     GV.XMLTemplateAtt = xmlParser.getXMLValue(Global.variables.settingsFile, "Settings", "name", "XMLTemplateAtt");
                     GV.XMLMapperAtt = xmlParser.getXMLValue(Global.variables.settingsFile, "Settings", "name", "XMLMapperAtt");
-                    //remove double q
-                    
+                    GV.SSTfileFormat = xmlParser.getXMLValue(Global.variables.settingsFile, "Settings", "name", "SSTfileFormat");
+                    GV.SSTfileDelimiter = xmlParser.getXMLValue(Global.variables.settingsFile, "Settings", "name", "SSTfileDelimiter");
+
                 }
                 
             }
