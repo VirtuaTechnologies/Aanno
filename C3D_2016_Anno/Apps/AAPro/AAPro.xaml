@@ -61,23 +61,39 @@
             <GroupBox x:Name="groupBox1" Header="Style Details" Margin="10" Grid.Row="2" Grid.ColumnSpan="2">
                 <Grid>
                     <ListView x:Name="listView_styleComponentMapper" SelectionMode="Single" PreviewKeyDown="listView_styleComponentMapper_PreviewKeyDown">
-                        <ListView.ItemTemplate>
-                            <DataTemplate>
-                                <StackPanel Orientation="Horizontal">
-                                    <Label Content="{Binding styleName}" VerticalAlignment="Center" Margin="10,2,2,1" Padding="5,5,5,1" UseLayoutRounding="True" FontSize="14" Background="{x:Null}" BorderBrush="{x:Null}" />
-                                    <Label Content="{Binding labelType}" VerticalAlignment="Center" Margin="10,2,2,1" Padding="5,5,5,1" UseLayoutRounding="True" FontSize="14" Background="{x:Null}" BorderBrush="{x:Null}" />
-                                    <ListBox ItemsSource="{Binding KNComponentID}">
-                                        <ListBox.ItemsPanel>
-                                            <ItemsPanelTemplate>
-                                                <VirtualizingStackPanel IsItemsHost="True" Orientation="Horizontal"/>
-                                            </ItemsPanelTemplate>
-                                        </ListBox.ItemsPanel>
-                                    </ListBox>
-                                </StackPanel>
-                            </DataTemplate>
-                        </ListView.ItemTemplate>
+                        <ListBox.ContextMenu>
+                            <ContextMenu >
+                                <MenuItem Header="Zoom To" Click="lBox_labels_zoomto_Click"/>
+                                <MenuItem Header="Select" Click="lBox_labels_select_Click"/>
+                            </ContextMenu>
+                        </ListBox.ContextMenu>
+                        <ListView.View>
+                            <GridView>
+                                <GridViewColumn DisplayMemberBinding="{Binding styleName}">
+                                    <GridViewColumn.Header>
+                                        <GridViewColumnHeader x:Name="styleNameHeader" Tag="styleName" Click="styleNameHeader_Click" >Style Name</GridViewColumnHeader>
+                                    </GridViewColumn.Header>
+                                </GridViewColumn>
+                                <GridViewColumn DisplayMemberBinding="{Binding labelType}">
+                                    <GridViewColumn.Header>
+                                        <GridViewColumnHeader x:Name="NoteType_styleAssingmentHeader" Tag="labelType" Click="NoteType_styleAssingmentHeader_Click">Style Assignment</GridViewColumnHeader>
+                                    </GridViewColumn.Header>
+                                </GridViewColumn>
+                                <GridViewColumn Header="Learn Status">
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <Image Name="learnStatusImage" Source="pack://application:,,,/C3D_2016_Anno;component/Resources/Icons/Sucess.png" Width="10" Height="10" />
+                                            <DataTemplate.Triggers>
+                                                <DataTrigger Binding="{Binding learnStatus}" Value="False">
+                                                    <Setter TargetName="learnStatusImage"  Property="Source" Value="pack://application:,,,/C3D_2016_Anno;component/Resources/Icons/fail.png"/>
+                                                </DataTrigger>
+                                            </DataTemplate.Triggers>
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+                            </GridView>
+                        </ListView.View>
                     </ListView>
-
                 </Grid>
             </GroupBox>
 
@@ -125,7 +141,25 @@
                         <Grid Margin="0,85,0,-7">
                             <TextBox x:Name="tBox_styleName" Margin="0,-87,0,0" Controls:TextBoxHelper.Watermark="Style Name" MinHeight="34" Height="40" VerticalAlignment="Top" ToolTip="Enter style name"></TextBox>
                             <TextBox x:Name="tBox_styleKNloc" Margin="0,-42,0,0" Controls:TextBoxHelper.Watermark="Style KN location" MinHeight="34" Height="40" VerticalAlignment="Top" ToolTip="Enter style KN location"></TextBox>
-                            <TextBox x:Name="tBox_styleType" Margin="0,3,0,0" Controls:TextBoxHelper.Watermark="Style Type" MinHeight="40" Height="40" VerticalAlignment="Top" ToolTip="Enter style type"></TextBox>
+                            <ComboBox x:Name="cBox_styleType" Margin="0,3,64,0" Controls:TextBoxHelper.Watermark="Style Type" MinHeight="40" Height="40" VerticalAlignment="Top" ToolTip="Enter style type" IsEditable="True">
+                                
+                            </ComboBox>
+                            <Button Margin="0,18,37,0" Background="Transparent"  x:Name="btn_del_styletype_item" Width="22" HorizontalAlignment="Right" ToolTip="Delete selected item" BorderBrush="#FF306EED" Height="25" VerticalAlignment="Top" Click="btn_del_styletype_item_Click"  >
+                                <Rectangle Width="9" Height="12" Fill="#FF306EED">
+                                    <Rectangle.OpacityMask>
+                                        <VisualBrush Stretch="Fill"
+                                Visual="{StaticResource appbar_delete}"/>
+                                    </Rectangle.OpacityMask>
+                                </Rectangle>
+                            </Button>
+                            <Button Margin="0,18,10,0" Background="Transparent"  x:Name="btn_add_styletype_item" Width="22" HorizontalAlignment="Right" ToolTip="Delete selected item" BorderBrush="#FF306EED" Height="25" VerticalAlignment="Top" Click="btn_add_styletype_item_Click" >
+                                <Rectangle Width="9" Height="12" Fill="#FF306EED">
+                                    <Rectangle.OpacityMask>
+                                        <VisualBrush Stretch="Fill"
+                                Visual="{StaticResource appbar_add}"/>
+                                    </Rectangle.OpacityMask>
+                                </Rectangle>
+                            </Button>
                             <Label x:Name="lbl_addStyleError" Foreground="Red" Margin="0,68,182,8"/>
                             <Button x:Name="btn_addStyle" Grid.Column="0" Content="Add Style" Margin="0,0,86,10" Click="Btn_addStyle_Click" HorizontalAlignment="Right" Width="96" Height="25" VerticalAlignment="Bottom" IsDefault="True" ToolTip="Add to list"/>
                             <Button x:Name="btn_cancel" Grid.Column="0" Content="Cancel" Margin="0,0,10,10" Click="Btn_cancel_Click" HorizontalAlignment="Right" Width="71" Height="25" VerticalAlignment="Bottom" IsCancel="True" ToolTip="Discard"/>

@@ -390,6 +390,8 @@ namespace C3D_2016_Anno.Helper
             }
             return res;
         }
+
+        
         public static void getlabelvalueSpecific(ObjectId objID)
         {
             
@@ -1681,6 +1683,26 @@ namespace C3D_2016_Anno.Helper
         }
         private static Dictionary<string, string> CompNameVals = new Dictionary<string, string>();
 
+        public static void getlabelComponentVals(ObjectId labelObject)
+        {
+            try
+            {
+
+            }
+            catch (Autodesk.Civil.CivilException ex)
+            {
+                GH.errorBox(ex.ToString());
+            }
+            catch (Autodesk.AutoCAD.Runtime.Exception ex)
+            {
+                GH.errorBox(ex.ToString());
+            }
+            catch (System.Exception ee)
+            {
+                GH.errorBox(ee.ToString());
+            }
+            
+        }
         public static Dictionary<string, string> getLabelVals(ObjectId labelObject)
         {
             try

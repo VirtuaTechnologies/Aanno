@@ -8,6 +8,10 @@ using GV = C3D_2016_Anno.Global.variables;
 using GH = C3D_2016_Anno.Helper.GenHelper;
 using System.Windows.Threading;
 using Notifications.Wpf;
+using System.Windows.Documents;
+using System.Windows.Media;
+using System.Windows;
+using System.ComponentModel;
 
 namespace C3D_2016_Anno.Helper
 {
@@ -72,5 +76,83 @@ namespace C3D_2016_Anno.Helper
                 Type = NotificationType
             });
         }
+
+        public class SortAdorner : Adorner
+        {
+            private static Geometry ascGeometry =
+                    Geometry.Parse("M 0 4 L 3.5 0 L 7 4 Z");
+
+            private static Geometry descGeometry =
+                    Geometry.Parse("M 0 0 L 3.5 4 L 7 0 Z");
+
+            public ListSortDirection Direction { get; private set; }
+
+            public SortAdorner(UIElement element, ListSortDirection dir)
+                    : base(element)
+            {
+                this.Direction = dir;
+            }
+
+            protected override void OnRender(DrawingContext drawingContext)
+            {
+                base.OnRender(drawingContext);
+
+                if (AdornedElement.RenderSize.Width < 20)
+                    return;
+
+                TranslateTransform transform = new TranslateTransform
+                        (
+                                AdornedElement.RenderSize.Width - 15,
+                                (AdornedElement.RenderSize.Height - 5) / 2
+                        );
+                drawingContext.PushTransform(transform);
+
+                Geometry geometry = ascGeometry;
+                if (this.Direction == ListSortDirection.Descending)
+                    geometry = descGeometry;
+                drawingContext.DrawGeometry(Brushes.Black, null, geometry);
+
+                drawingContext.Pop();
+            }
+        }
+
+        private static GridViewColumnHeader listViewSortCol = null;
+        private static SortAdorner listViewSortAdorner = null;
+        public static void sortColumn(object sender, ListView listViewControl)
+        {
+            try
+            {
+                GridViewColumnHeader column = (sender as GridViewColumnHeader);
+                string sortBy = column.Tag.ToString();
+                if (listViewSortCol != null)
+                {
+                    AdornerLayer.GetAdornerLayer(listViewSortCol).Remove(listViewSortAdorner);
+                    listViewControl.Items.SortDescriptions.Clear();
+                }
+
+                ListSortDirection newDir = ListSortDirection.Ascending;
+                if (listViewSortCol == column && listViewSortAdorner.Direction == newDir)
+                    newDir = ListSortDirection.Descending;
+
+                listViewSortCol = column;
+                listViewSortAdorner = new SortAdorner(listViewSortCol, newDir);
+                AdornerLayer.GetAdornerLayer(listViewSortCol).Add(listViewSortAdorner);
+                listViewControl.Items.SortDescriptions.Add(new SortDescription(sortBy, newDir));
+
+            }
+            catch (Autodesk.Civil.CivilException ex)
+            {
+                GH.errorBox(ex.ToString());
+            }
+            catch (Autodesk.AutoCAD.Runtime.Exception ex)
+            {
+                GH.errorBox(ex.ToString());
+            }
+            catch (System.Exception ee)
+            {
+                GH.errorBox(ee.ToString());
+            }
+        }
     }
 }
+

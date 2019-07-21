@@ -237,18 +237,6 @@ namespace C3D_2016_Anno.Apps
             }
         }
 
-        public static void toastIT(string message, string title, NotificationType NotificationType)
-        {
-            var notificationManager = new NotificationManager();
-
-            notificationManager.Show(new NotificationContent
-            {
-                Title = GV.appName + " | " + title,
-                Message = message,
-                Type = NotificationType
-            });
-        }
-
         private async void UserControl1_Loaded(object sender, RoutedEventArgs e)
         {
             MetroWindow window = Window.GetWindow(this) as MetroWindow;
@@ -641,33 +629,6 @@ namespace C3D_2016_Anno.Apps
             GV.Doc.SendStringToExecute("AAnnoPro", true, false, false);
         }
 
-        private void btn_browse_SSTFile_Click(object sender, RoutedEventArgs e)
-        {
-            try
-            {
-                Microsoft.Win32.OpenFileDialog openFileDialog = new Microsoft.Win32.OpenFileDialog();
-                openFileDialog.Filter = "Style Structure Files (*.sst; *.sst)|*.sst;";
-                if (openFileDialog.ShowDialog() == true)
-                {
-                    tBox_StyleStructureFile.Text = openFileDialog.FileName;
-
-                    //load data on the file ot the listview.
-                    GV.SST_Coll.Clear();
-                    if (GV.SSTfileFormat == "XML")
-                    {
-                        GV.SST_Coll = xmlParser.getXMLVaulesStrings(tBox_StyleStructureFile.Text, "STYLE", "name");
-                    }
-                    else
-                    {
-
-                    }
-                }
-
-
-            }
-            catch (System.Exception ex)
-            { }
-        } 
         #endregion
 
         #region zoom/ seletion
@@ -872,7 +833,7 @@ namespace C3D_2016_Anno.Apps
                     //GV.Doc.SendStringToExecute("vpshp", true, false, false);
 
                     LCH.getCurrentDwgVars();
-                    #region old
+                    #region main
                     using (GV.Doc.LockDocument())
                     {
                         short val = (short)AcAp.GetSystemVariable("CVPORT");
@@ -947,31 +908,7 @@ namespace C3D_2016_Anno.Apps
             }
         }
 
-        private void btn_selectLabel_Smart_Click(object sender, RoutedEventArgs e)
-        {
-            try
-            {
-                // check style name
-
-                //check if the styles name exists in the SST file
-
-                //get the CN/ KN value location for that particular style
-
-                //
-            }
-            catch (Autodesk.Civil.CivilException ex)
-            {
-                GH.errorBox(ex.ToString());
-            }
-            catch (Autodesk.AutoCAD.Runtime.Exception ex)
-            {
-                GH.errorBox(ex.ToString());
-            }
-            catch (System.Exception ee)
-            {
-                GH.errorBox(ee.ToString());
-            }
-        }
+        
 
         private void btn_CreateKeyNote_Click(object sender, RoutedEventArgs e)
         {
@@ -1062,6 +999,73 @@ namespace C3D_2016_Anno.Apps
             }
         }
 
+        private void btn_selectLabel_SST_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                LCH.getCurrentDwgVars();
+                //rest progressbar
+                proBar.Value = 0;
+                GV.all_label_coll.Clear();
+                clearUIValues();
+                GV.clearSelection();
+                tBox_Heading.Text = "";
+
+                //read the label get the label name and KN values based on the KN location from SST file
+                using (GV.Doc.LockDocument())
+                {
+                    GH.writeLog("\n Running command : btn_selectLabels_Click");
+
+                    PromptSelectionResult psRes = Autodesk.AutoCAD.ApplicationServices.Application.DocumentManager.MdiActiveDocument.Editor.GetSelection(new SelectionFilter(LCH.selectionFilter(GV.labelFilterType)));
+
+                    if (psRes.Status == PromptStatus.OK)
+                    {
+                        SelectionSet acSSet = psRes.Value;
+                        GV.selObjects_forProcessing = acSSet.GetObjectIds();
+                        GH.qprint("Number of objects selected: " + psRes.Value.Count);
+                        GH.writeLog("\nNumber of objects selected: " + psRes.Value.Count);
+                    }
+
+                    bw.WorkerSupportsCancellation = true;
+                    bw.WorkerReportsProgress = true;
+                    //bw.ProgressChanged += bw_ProgressChanged;
+                    bw.DoWork += new DoWorkEventHandler(bw_UpdateProgressBar);
+                    //start work
+                    if (bw.IsBusy != true)
+                    {
+                        bw.RunWorkerAsync();
+                    }
+                    //check the label name against the SST file and type of label
+                    int index = 1;
+
+                    int objCount = GV.selObjects_forProcessing.Count();
+                    GV.pBarMaxVal = objCount;
+
+                    //GV.pmeter.Start("Processing Labels");
+                    //GV.pmeter.SetLimit(objCount);
+
+
+                    foreach (ObjectId objID in GV.selObjects_forProcessing)
+                    {
+                        LCH.getlabelvalueSpecific(objID);
+                        //go to note list and get the note for the respective KN number that 
+                    }
+                }
+            
+            }
+            catch (Autodesk.Civil.CivilException ex)
+            {
+                GH.errorBox(ex.ToString());
+            }
+            catch (Autodesk.AutoCAD.Runtime.Exception ex)
+            {
+                GH.errorBox(ex.ToString());
+            }
+            catch (System.Exception ee)
+            {
+                GH.errorBox(ee.ToString());
+            }
+        }
         #endregion
 
         private void btn_openXMLMan_Click(object sender, RoutedEventArgs e)

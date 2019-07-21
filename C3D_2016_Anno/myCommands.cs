@@ -41,10 +41,12 @@ namespace C3D_2016_Anno
 
         public static PaletteSet palSet = null;
         public static PaletteSet aapropalSet = null;
+        public static PaletteSet aapropalSet_Anno2 = null;
         static string templateWarning;
         public static Apps.MainControl mc;
         public static ElementHost mcHost;
         public static ElementHost aaproHost;
+        public static ElementHost aaproHost_Anno2;
         //public static Apps.MainControl mw = new Apps.MainControl();
 
         // Modal Command with localized name
@@ -199,6 +201,84 @@ namespace C3D_2016_Anno
                     {
                         aapropalSet.KeepFocus = true;
                         aapropalSet.Visible = true;
+                    }
+                    #endregion
+                }
+            }
+            catch (System.Exception ex)
+            {
+                GH.writeLog("\n ERROR: " + ex.ToString());
+            }
+        }
+
+        [CommandMethod("AAnno2")]
+        [CommandMethod("AutoAnno2")]
+        public void AutoAnno2() // This method can have any name
+        {
+            try
+            {
+
+                LCH.getCurrentDwgVars();
+
+                GH.writeLog("\n Running command : AutoAnno2");
+                if (GV.Doc != null)
+                {
+                    //check and load dll
+
+                    Helper.GenHelper.initializeSettings();
+                    if (GV.loaddll)
+                    {
+                        if (GV.dllLoadStatus == false)
+                        {
+                            GV.Doc.SendStringToExecute("_loadLib ", true, false, false);
+                        }
+                    }
+
+                    GH.writeLog("\n Starting AutoAnno2 Tool Pallette");
+                    #region Create Pallette
+                    if (aapropalSet_Anno2 == null)
+                    {
+
+                        // Create the palette set
+                        Assembly assembly = Assembly.GetExecutingAssembly();
+                        FileVersionInfo fvi = FileVersionInfo.GetVersionInfo(assembly.Location);
+
+                        string palTitle = string.Format("{0} (Ver {1}) License {2}", "AutoAnno2", fvi.ProductVersion.ToString(), GV.licInformation);
+                        aapropalSet_Anno2 = new PaletteSet(palTitle);
+
+                        aapropalSet_Anno2.Style = PaletteSetStyles.ShowPropertiesMenu |
+                                        PaletteSetStyles.ShowAutoHideButton |
+                                        PaletteSetStyles.ShowCloseButton;
+                        aapropalSet_Anno2.MinimumSize = new System.Drawing.Size(500, 800);
+                        aapropalSet_Anno2.Size = new System.Drawing.Size(500, 800);
+
+                        aapropalSet_Anno2.DockEnabled =
+                          (DockSides)((int)DockSides.Left + (int)DockSides.Right);
+
+                        Apps.AAnno2.AAnnoView AP = new Apps.AAnno2.AAnnoView();
+                        Apps.login lg = new Apps.login();
+                        aaproHost_Anno2 = new ElementHost();
+                        aaproHost_Anno2.AutoSize = true;
+                        aaproHost_Anno2.Dock = DockStyle.Fill;
+                        //mcHost.Width = 500;
+                        //mcHost.Height = 800;
+                        //mcHost.Size = new System.Drawing.Size(500, 800);
+                        //mcHost.MinimumSize = new System.Drawing.Size(500, 800);
+                        aaproHost_Anno2.Child = AP; //lg;// 
+                        //mcHost.Child.RenderSize = new System.Windows.Size(500, 800);
+                        aapropalSet_Anno2.Add("AAnno2", aaproHost_Anno2);
+                        // Display our palette set
+                        aapropalSet_Anno2.KeepFocus = true;
+                        aapropalSet_Anno2.Visible = true;
+                        //palSet.Dock = DockSides.;
+
+                        aapropalSet_Anno2.SetSize(new System.Drawing.Size(500, 800));
+                        aapropalSet_Anno2.Dock = DockSides.Left;
+                    }
+                    else
+                    {
+                        aapropalSet_Anno2.KeepFocus = true;
+                        aapropalSet_Anno2.Visible = true;
                     }
                     #endregion
                 }

@@ -24,6 +24,8 @@ using Autodesk.AutoCAD.ApplicationServices;
 using Autodesk.Civil.DatabaseServices.Styles;
 using Autodesk.AutoCAD.EditorInput;
 using System.Runtime.InteropServices;
+using Autodesk.AutoCAD.Internal;
+using System.ComponentModel;
 
 namespace C3D_2016_Anno.Apps
 {
@@ -35,9 +37,15 @@ namespace C3D_2016_Anno.Apps
         public static string appName = "AAnno Pro";
         public AAPro()
         {
-            InitializeComponent();
-            GV.labelComponentItem_coll.Clear();
-            listView_styleComponentMapper.ItemsSource = GV.labelComponentItem_coll;
+            try
+            {
+                InitializeComponent();
+                GV.labelComponentItem_coll.Clear();
+                listView_styleComponentMapper.ItemsSource = GV.labelComponentItem_coll;
+                cBox_styleType.ItemsSource = GV.noteTypeListColl;
+            }
+            catch (System.Exception ex)
+            { GH.writeLog(ex.ToString()); }
         }
 
         private void btn_browse_styleStructureFile_Click(object sender, RoutedEventArgs e)
@@ -88,12 +96,10 @@ namespace C3D_2016_Anno.Apps
                 {
                     tBox_stylemapperFile.Text = saveFileDialog.FileName;
                     writetoFile();
-                    
-                    
                 }
             }
             catch (System.Exception ex)
-            { }
+            { GH.writeLog(ex.ToString()); }
         }
 
         private void writetoFile()
@@ -123,13 +129,14 @@ namespace C3D_2016_Anno.Apps
                 {
                     if (!File.Exists(tBox_stylemapperFile.Text))
                     {
-                        File.Create(tBox_stylemapperFile.Text);
+                        File.Create(tBox_stylemapperFile.Text).Close();
                     }
+
                     File.WriteAllText(tBox_stylemapperFile.Text, CSVstring);
                 }
             }
             catch (System.Exception ex)
-            { }
+            { GH.writeLog(ex.ToString()); }
         }
 
         private static Global.labelComponentItem LI;
@@ -189,7 +196,7 @@ namespace C3D_2016_Anno.Apps
                             LI = new Global.labelComponentItem();
                             LI.styleName = LCH.getLabelName(objID);
                             LI.objType = LCH.getObjType(objID);
-
+                            LI.objID = objID;
                             GV.ed.WriteMessage("LI.name: " + LI.styleName);
                             GV.ed.WriteMessage("LI.objType: " + LI.objType);
 
@@ -232,7 +239,7 @@ namespace C3D_2016_Anno.Apps
                 }
             }
             catch (System.Exception ex)
-            { }
+            { GH.writeLog(ex.ToString()); }
         }
         
         private void Btn_addStyle_Click(object sender, RoutedEventArgs e)
@@ -251,16 +258,19 @@ namespace C3D_2016_Anno.Apps
                     {
                         Blink(true, "Style KN location missing, please enter");
                     }
-                    else if (tBox_styleType.Text == string.Empty)
+                    else if (cBox_styleType.Text == string.Empty)
                     {
                         Blink(true, "Style type missing, please enter");
                     }
                     else
                     {
                         //user approval
-                        LI.labelType = tBox_styleType.Text;
-
+                        LI.labelType = cBox_styleType.Text;
+                        LI.learnStatus = true;
                         GV.labelComponentItem_coll.Add(LI);
+
+                        //if note type note in the list then add to the list and the file
+                        addNoteType();
 
                         //close the grid
                         grid_addStyle.Visibility = System.Windows.Visibility.Hidden;
@@ -274,7 +284,7 @@ namespace C3D_2016_Anno.Apps
                 }
             }
             catch (System.Exception ex)
-            { }
+            { GH.writeLog(ex.ToString()); }
         }
 
         private async void Blink(bool playAnimation, string content)
@@ -309,5 +319,140 @@ namespace C3D_2016_Anno.Apps
             catch (System.Exception ex)
             { }
         }
+
+        private void btn_add_styletype_item_Click(object sender, RoutedEventArgs e)
+        {
+            addNoteType();
+        }
+
+        private void btn_del_styletype_item_Click(object sender, RoutedEventArgs e)
+        {
+            if (GV.noteTypeListColl.Contains(cBox_styleType.Text.ToString()))
+            {
+                GV.noteTypeListColl.Remove(cBox_styleType.Text.ToString());
+                //remove from the ini file
+                GH.updateNoteTypeList();
+                cBox_styleType.SelectedIndex = 0;
+            }
+        }
+
+        private void addNoteType()
+        {
+            if (!GV.noteTypeListColl.Contains(cBox_styleType.Text.ToString()))
+            {
+                GV.noteTypeListColl.Add(cBox_styleType.Text.ToString());
+                //remove from the ini file
+                GH.updateNoteTypeList();
+            }
+        }
+
+        private void lBox_labels_zoomto_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                //check if the uesr in paper space if so swithc to model space
+                Helper.ViewportExtensions.toggleModelspace();
+                //MessageBox.Show("lBox_labels_zoomto_Click");
+                GV.selLabels = new ObjectIdCollection();
+
+                if (listView_styleComponentMapper.SelectedItems.Count > 0)
+                {
+                    List<Global.labelComponentItem> selectedItems = listView_styleComponentMapper.SelectedItems.Cast<Global.labelComponentItem>().ToList();
+
+                    if (selectedItems[0].objID.ObjectClass.DxfName.ToString() == "MULTILEADER")
+                    {
+                        selectedItems = selectedItems.Reverse<Global.labelComponentItem>().Reverse().ToList();
+                    }
+                    foreach (Global.labelComponentItem item in listView_styleComponentMapper.SelectedItems)
+                    {
+                        GV.selLabels.Add(item.objID);
+                    }
+                    LCH.ZoomObjects(GV.selLabels);
+                }
+
+            }
+            catch (System.Exception ee)
+            {
+                GH.writeLog(ee.ToString());
+            }
+        }
+
+        private void lBox_labels_select_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                //check if the uesr in paper space if so swithc to model space
+                Helper.ViewportExtensions.toggleModelspace();
+
+                GV.selLabels = new ObjectIdCollection();
+
+                if (listView_styleComponentMapper.SelectedItems.Count > 0)
+                {
+                    foreach (Global.labelComponentItem item in listView_styleComponentMapper.SelectedItems)
+                    {
+                        GV.selLabels.Add(item.objID);
+                    }
+
+                    ObjectId[] ids = new ObjectId[listView_styleComponentMapper.SelectedItems.Count];
+                    GV.selLabels.CopyTo(ids, 0);
+                    Utils.SelectObjects(ids);
+                    LCH.ZoomObjects(GV.selLabels);
+                }
+
+            }
+            catch (System.Exception ee)
+            {
+                GH.writeLog(ee.ToString());
+            }
+        }
+
+        
+        private void styleNameHeader_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                UIH.sortColumn(sender, listView_styleComponentMapper);
+
+            }
+            catch (Autodesk.Civil.CivilException ex)
+            {
+                GH.errorBox(ex.ToString());
+            }
+            catch (Autodesk.AutoCAD.Runtime.Exception ex)
+            {
+                GH.errorBox(ex.ToString());
+            }
+            catch (System.Exception ee)
+            {
+                GH.errorBox(ee.ToString());
+            }
+        }
+
+        private void NoteType_styleAssingmentHeader_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                UIH.sortColumn(sender, listView_styleComponentMapper);
+            }
+            catch (Autodesk.Civil.CivilException ex)
+            {
+                GH.errorBox(ex.ToString());
+            }
+            catch (Autodesk.AutoCAD.Runtime.Exception ex)
+            {
+                GH.errorBox(ex.ToString());
+            }
+            catch (System.Exception ee)
+            {
+                GH.errorBox(ee.ToString());
+            }
+        }
+
+        
+        }
+
+        
     }
-}
+
+    
+

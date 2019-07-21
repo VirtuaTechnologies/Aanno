@@ -302,5 +302,31 @@ namespace AnnoTesterApp
                 MessageBox.Show(ex.ToString());
             }
         }
+
+        private void btn_createCSV_Click(object sender, RoutedEventArgs e)
+        {
+           
+            System.IO.StreamReader file = new System.IO.StreamReader(@"R:\GitHub\Aanno\TestFiles\20190630 - SST\TEST.sst");
+            //Execute a loop over the rows.  
+            string line;
+
+            while ((line = file.ReadLine()) != null)
+            {
+                string[] linarr = line.Split(Convert.ToChar('|'));
+
+                foreach (string item in linarr)
+                {
+                    
+                    //check the style name if it matches and get rest of the data.
+                    if (item == "WP-O-P-Sta & Offset W-LT 2CIRC")
+                    {
+                        string noteType = linarr[1];
+                        string KNLoc = linarr[2];
+                    }
+                }
+            }
+            file.Close();
+     
+        }
     }
 }

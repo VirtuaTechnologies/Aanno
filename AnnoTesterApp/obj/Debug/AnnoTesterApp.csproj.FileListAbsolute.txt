@@ -57,6 +57,6 @@ R:\GitHub\Aanno\AnnoTesterApp\bin\Debug\VSharpXMLHelper.dll
 R:\GitHub\Aanno\AnnoTesterApp\bin\Debug\ZSharpQLogger.dll
 R:\GitHub\Aanno\AnnoTesterApp\bin\Debug\MahApps.Metro.pdb
 R:\GitHub\Aanno\AnnoTesterApp\bin\Debug\MahApps.Metro.xml
-R:\GitHub\Aanno\AnnoTesterApp\obj\Debug\AnnoTesterApp.csprojResolveAssemblyReference.cache
 R:\GitHub\Aanno\AnnoTesterApp\obj\Debug\AnnoTesterApp.exe
 R:\GitHub\Aanno\AnnoTesterApp\obj\Debug\AnnoTesterApp.pdb
+R:\GitHub\Aanno\AnnoTesterApp\obj\Debug\AnnoTesterApp.csprojResolveAssemblyReference.cache

@@ -17,6 +17,8 @@ using System.Windows.Interop;
 using System.Runtime.InteropServices;
 using System.Drawing;
 using VSharpXMLHelper;
+using UIH = C3D_2016_Anno.Helper.UIHelper;
+using Notifications.Wpf;
 
 namespace C3D_2016_Anno.Helper
 {
@@ -107,7 +109,9 @@ namespace C3D_2016_Anno.Helper
                     GV.XMLMapperAtt = xmlParser.getXMLValue(Global.variables.settingsFile, "Settings", "name", "XMLMapperAtt");
                     GV.SSTfileFormat = xmlParser.getXMLValue(Global.variables.settingsFile, "Settings", "name", "SSTfileFormat");
                     GV.SSTfileDelimiter = xmlParser.getXMLValue(Global.variables.settingsFile, "Settings", "name", "SSTfileDelimiter");
-
+                    //get note types list and load to collection.
+                    GV.notetypefile = GV.appPath + @"\Data\" + xmlParser.getXMLValue(Global.variables.settingsFile, "Settings", "name", "notetypefile");
+                    getNoteTypeList();
                 }
                 
             }
@@ -465,6 +469,113 @@ namespace C3D_2016_Anno.Helper
                 #endregion
             }
             catch (System.Exception ex) { qprint(ex.ToString()); }
+        }
+
+        public static void getNoteTypeList()
+        {
+            try
+            {
+                if (File.Exists(GV.notetypefile))
+                {
+                    System.IO.StreamReader fileData = new System.IO.StreamReader(GV.notetypefile);
+                    //Execute a loop over the rows.  
+                    string line;
+
+                    while ((line = fileData.ReadLine()) != null)
+                    {
+                        if(!GV.noteTypeListColl.Contains(line))
+                        {
+                            GV.noteTypeListColl.Add(line);
+                        }
+                    }
+                    fileData.Close();
+                    UIH.toastIT("Note list files read sucessfully!", "File Read", NotificationType.Information);
+                }
+                else
+                {
+                    UIH.toastIT("Note able to read note list file!", "Note Type list File Read Error", NotificationType.Error);
+                }
+            }
+            catch (System.Exception ex)
+            {
+                UIH.toastIT("Note able to read from note list file!", "Note Type list File Read Error", NotificationType.Error);
+            }
+        }
+
+        public static void updateNoteTypeList()
+        {
+            try
+            {
+                if (File.Exists(GV.notetypefile))
+                {
+                    using (var writer = new StreamWriter(GV.notetypefile))
+                    {
+                        foreach (string line in GV.noteTypeListColl)
+                        {
+                            writer.WriteLine(line);
+                        }
+                        UIH.toastIT("Note Type List File Updated Successfully!", "Note Type list File Write", NotificationType.Success);
+                    }
+                }
+            }
+            catch (System.Exception ex)
+            {
+                UIH.toastIT("Note able to write to note list file!", "Note Type list File Write Error", NotificationType.Error);
+            }
+        }
+
+        private static List<string> SSTList = new List<string>();
+        public static List<string> getSST(string styleName)
+        {
+            try
+            {
+                if (File.Exists(GV.sstFile))
+                {
+                    System.IO.StreamReader file = new System.IO.StreamReader(GV.sstFile);
+                    //Execute a loop over the rows.  
+                    string line;
+
+                    while ((line = file.ReadLine()) != null)
+                    {
+                        SSTList = line.Split(Convert.ToChar('|')).ToList();
+
+                        foreach (string item in SSTList)
+                        {
+
+                            //check the style name if it matches and get rest of the data.
+                            if (item == styleName)
+                            {
+                                string noteType = SSTList[1];
+                                string KNLoc = SSTList[2];
+                                return SSTList;
+                            }
+                            else
+                            {
+                                SSTList = null;
+                               
+                            }
+                        }
+                    }
+                    file.Close();
+
+                }
+                else
+                {
+                    UIH.toastIT("Note list files read sucessfully!", "File Read", NotificationType.Information);
+                }
+
+                
+            }
+            catch (System.Exception ex)
+            {
+                UIH.toastIT("Note able to find Style details for " + styleName + " Please add style details to SST file to continue!", "SST File Read Error", NotificationType.Error);
+                return null;
+            }
+            if(SSTList == null)
+            {
+                UIH.toastIT("Note able to find Style details for " + styleName + " Please add style details to SST file to continue!", "SST File Read Error", NotificationType.Error);
+            }
+            return null;
         }
         public static void setLogFiles()
         {

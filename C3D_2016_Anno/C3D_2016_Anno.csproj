@@ -169,6 +169,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Apps\AAnno2\AAnnoView.xaml.cs">
+      <DependentUpon>AAnnoView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Apps\AAPro\AAPro.xaml.cs">
       <DependentUpon>AAPro.xaml</DependentUpon>
     </Compile>
@@ -251,6 +254,9 @@
     </Resource>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Data\NoteTypeList.ini">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <Content Include="Data\Settings.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <SubType>Designer</SubType>
@@ -259,7 +265,9 @@
     <Content Include="Libs\ZSharpQLogger.dll" />
     <Content Include="Libs\ZSharpSQLITEHelper.dll" />
     <Content Include="Libs\ZSharpXMLHelper.dll" />
-    <None Include="Templates\ProjectA.sst" />
+    <None Include="Templates\ProjectA.sst">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Test Files\AAPro\AAPro_Style_location.dwt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
@@ -283,8 +291,11 @@
     <Resource Include="Resources\WindowsIcons-license.txt" />
     <Resource Include="Resources\Entypo-license.txt" />
     <EmbeddedResource Include="Resources\Icons\ai.png" />
+    <Resource Include="Resources\Icons\fail.png" />
+    <Resource Include="Resources\Icons\Sucess.png" />
     <Content Include="Templates\ProjectB-Template.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
     </Content>
   </ItemGroup>
   <ItemGroup>
@@ -292,6 +303,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <Page Include="Apps\AAnno2\AAnnoView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Apps\AAPro\AAPro.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -323,6 +338,7 @@
       <Name>VSharpXMLHelper</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\VirtuaLicense.1.0.0\build\VirtuaLicense.targets" Condition="Exists('..\packages\VirtuaLicense.1.0.0\build\VirtuaLicense.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

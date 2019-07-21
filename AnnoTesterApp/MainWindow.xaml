@@ -115,6 +115,11 @@
         <Button x:Name="btn_readTemp2" Content="Read Template 2" HorizontalAlignment="Left" Margin="504,158,0,0" VerticalAlignment="Top" Width="117" Click="btn_readTemp2_Click"/>
         <Button x:Name="btn_readMap2" Content="Read Mapper 2" HorizontalAlignment="Left" Margin="626,158,0,0" VerticalAlignment="Top" Width="117" Click="btn_readMap2_Click"/>
         <Button x:Name="btn_createXML" Content="Create XML" HorizontalAlignment="Left" Margin="504,194,0,0" VerticalAlignment="Top" Width="117" Click="btn_createXML_Click"/>
+        <Button x:Name="btn_createCSV" Content="Create CSV" HorizontalAlignment="Left" Margin="626,194,0,0" VerticalAlignment="Top" Width="117" Click="btn_createCSV_Click"/>
+        <ComboBox x:Name="comboBox" HorizontalAlignment="Left" Margin="504,226,0,0" VerticalAlignment="Top" Width="120" IsEditable="True">
+            <ComboBoxItem Content="item 1"/>
+            <ComboBoxItem Content="item 2"/>
+        </ComboBox>
 
     </Grid>
 </Controls:MetroWindow>

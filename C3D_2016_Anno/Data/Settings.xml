@@ -28,10 +28,11 @@
   <!--mapper or map or qmap-->
   <Settings name="XMLTemplateAtt">number</Settings>
   <Settings name="CSVfilecharReplace">false</Settings>
-  <Settings name="XMLMapperAtt">name</Settings>
+  <Settings name="XMLMapperAtt">key</Settings>
   <Settings name="templateFileDelimiter">,</Settings>
   <Settings name="MapperFileDelimiter">,</Settings>
   <!--native or XML-->
   <Settings name="SSTfileFormat">Native</Settings>
-  <Settings name="SSTfileDelimiter">||</Settings>
+  <Settings name="SSTfileDelimiter">|</Settings>
+  <Settings name="notetypefile">NoteTypeList.ini</Settings>
 </App>

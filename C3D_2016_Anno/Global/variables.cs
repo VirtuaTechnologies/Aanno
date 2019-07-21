@@ -46,7 +46,8 @@ namespace C3D_2016_Anno.Global
         public static string xmlManPath = appPath + @"\XMLMan\C3D_Anno_Manager.exe";
         public static string logFile;
         public static string appDataPath;
-
+        public static string sstFile = "";
+        public static string notetypefile = appPath + @"\Data\NoteTypeList.ini";
         #endregion
 
         #region App Vars
@@ -118,13 +119,16 @@ namespace C3D_2016_Anno.Global
         public static Dictionary<string, List<labelItem>> all_label_coll_Sorted = new Dictionary<string, List<labelItem>>();
         public static ObservableCollection<labelComponentItem> labelComponentItem_coll = new ObservableCollection<labelComponentItem>();
         public static Dictionary<string, string> SST_Coll = new Dictionary<string, string>();
+        public static Dictionary<string, Dictionary<string, string>> NotesCollection_Anno2 = new Dictionary<string, Dictionary<string, string>>();
+        public static ObservableCollection<string> noteTypeListColl = new ObservableCollection<string>();
+
         public  static void clearCollection()
         {
             noteTypesCurrent.Clear();
             allnotes.Clear();
             commonMapper = null;
-            templateFiles.Clear();
-            mapperFiles.Clear();
+            //templateFiles.Clear();
+            //mapperFiles.Clear();
         }
 
         public static void clearSelection()
@@ -173,6 +177,7 @@ namespace C3D_2016_Anno.Global
         public string styleName { get; set; }
         public string labelprefix { get; set; }
         public string labelType { get; set; }
+        public bool learnStatus { get; set; }
         public string objType { get; set; }
         public List<int> KNComponentID { get; set; }
         public Dictionary<string, string> properties { get; set; }
