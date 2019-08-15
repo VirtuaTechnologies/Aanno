@@ -18,9 +18,7 @@
   <Settings name="keynotetexttype">mtext</Settings>
   <Settings name="keynoteSeperator">.[nbsp]</Settings>
   <!--Use [nbsp] For blank space-->
-  <Settings name="sucessToast">true</Settings>
-  <Settings name="errorToast">true</Settings>
-  <Settings name="infoToast">true</Settings>
+ 
   <Settings name="showViewportBoundary">true</Settings>
   <Settings name="templateFileExt">def</Settings>
   <!--xml or def or qdef-->
@@ -35,4 +33,8 @@
   <Settings name="SSTfileFormat">Native</Settings>
   <Settings name="SSTfileDelimiter">|</Settings>
   <Settings name="notetypefile">NoteTypeList.ini</Settings>
+  <!--Notifiocation-->
+  <Settings name="sucessToast">true</Settings>
+  <Settings name="errorToast">true</Settings>
+  <Settings name="infoToast">true</Settings>
 </App>

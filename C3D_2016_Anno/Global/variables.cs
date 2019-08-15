@@ -30,11 +30,15 @@ namespace C3D_2016_Anno.Global
         public static bool errorBoxSwitch = false;
         public static bool dbPathAuto = false;
         public static int ErrorReportingLevel = 1;
+   
+        public static bool showViewportBoundary = false;
+
+        #endregion
+
+        #region Notification
         public static bool sucessToast = false;
         public static bool errorToast = false;
         public static bool infoToast = false;
-        public static bool showViewportBoundary = false;
-        
         #endregion
 
         #region - Path

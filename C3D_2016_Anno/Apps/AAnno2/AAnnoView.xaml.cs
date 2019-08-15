@@ -16,6 +16,7 @@ using GV = C3D_2016_Anno.Global.variables;
 using GH = C3D_2016_Anno.Helper.GenHelper;
 using LCH = C3D_2016_Anno.Helper.LocalCADHelper;
 using UIH = C3D_2016_Anno.Helper.UIHelper;
+using AcAp = Autodesk.AutoCAD.ApplicationServices.Application;
 using System.Diagnostics;
 using Notifications.Wpf;
 using System.Windows.Forms;
@@ -260,53 +261,8 @@ namespace C3D_2016_Anno.Apps.AAnno2
                                 bw.RunWorkerAsync();
                             }
 
-                            int index = 1;
-                            int objCount = GV.selObjects_forProcessing.Count();
-                            GV.pBarMaxVal = objCount;
-                            Dictionary<string, string> labelVals = new Dictionary<string, string>();
-                            Dictionary<string, string> noteItems = new Dictionary<string, string>();
-                            List<string> SSTList = new List<string>();
-                            foreach (ObjectId objID in GV.selObjects_forProcessing)
-                            {
-                                // get the style name from the label
-                                string styleName = LCH.getLabelName(objID);
-                                SSTList = GH.getSST(styleName);
-                                if (SSTList != null)
-                                {
-                                    string notetype = SSTList[1];
-                                    labelVals = Helper.LabelTextExtractor.getLabelValsAll(objID);
-                                    //get the KN values based on the locations
-                                    foreach (var KNloc in SSTList[2].ToString())
-                                    {
-
-                                        #region Add the notes to the collection
-                                        // add note type if its not there add it to the collection
-                                        if (!GV.NotesCollection_Anno2.ContainsKey(notetype))
-                                        {
-                                            GV.NotesCollection_Anno2.Add(notetype, noteItems);
-                                        }
-
-                                        //check if that note number is already in the collection.
-                                        noteItems = GV.NotesCollection_Anno2[notetype]; //get the note item for the specific note type
-
-                                        if (labelVals.ContainsKey(KNloc.ToString()))
-                                        {
-                                            string noteNum = labelVals[KNloc.ToString()]; //get the note number based on the KN location
-                                                                                          //check if that note type is available in the template file
-                                            if (GV.notesDict.ContainsKey(notetype))
-                                            {
-                                                if (!noteItems.ContainsKey(noteNum))
-                                                {
-                                                    noteItems.Add(noteNum, GV.notesDict[notetype][Convert.ToInt32(noteNum)]);
-                                                }
-                                            }
-                                        }
-                                        #endregion
-                                    }
-                                }
-                                //get the notes from the notelist files and add it based on the KN values
-                            }
-                            
+                            ProcessLabels();
+                           
                             updateUIdata();
 
                             UIH.toastIT("All selected labels processed successfully!", "Status", NotificationType.Success);
@@ -328,11 +284,50 @@ namespace C3D_2016_Anno.Apps.AAnno2
             }
         }
 
+        
         private void btn_selectViewport_Click(object sender, RoutedEventArgs e)
         {
             try
             {
+                //check if defnition and  note list are selected
+                if (checkifDefnitionsSelected())
+                {
+                    //rest progressbar
+                    proBar.Value = 0;
 
+                    using (GV.Doc.LockDocument())
+                    {
+                        short val = (short)AcAp.GetSystemVariable("CVPORT");
+
+                        if (val != 1)
+                        {
+                            GV.processStatus = false;
+                            UIH.toastIT("This option works only in Paperspace (Layouts), please swtich to paperspace and try again!", "Viewport Not Preset", NotificationType.Error);
+                        }
+                        else
+                        {
+                            Helper.ViewportExtensions.getvPortCoordinatesADV();
+                            if (GV.processStatus == true && GV.selObjects_forProcessing != null)
+                            {
+                                bw.WorkerSupportsCancellation = true;
+                                bw.WorkerReportsProgress = true;
+                                //bw.ProgressChanged += bw_ProgressChanged;
+                                bw.DoWork += new DoWorkEventHandler(bw_UpdateProgressBar);
+                                //start work
+                                if (bw.IsBusy != true)
+                                {
+                                    bw.RunWorkerAsync();
+                                }
+
+                                ProcessLabels();
+                                updateUIdata();
+
+                                UIH.toastIT("All selected labels processed successfully!", "Status", NotificationType.Success);
+                            }
+
+                        }
+                    }
+                }
             }
             catch (Autodesk.Civil.CivilException ex)
             {
@@ -348,6 +343,89 @@ namespace C3D_2016_Anno.Apps.AAnno2
             }
         }
 
+        private void ProcessLabels()
+        {
+            try
+            {
+                int index = 1;
+                int objCount = GV.selObjects_forProcessing.Count();
+                GV.pBarMaxVal = objCount;
+                Dictionary<string, string> labelVals = new Dictionary<string, string>();
+                Dictionary<string, string> noteItems;
+                List<string> SSTList = new List<string>();
+                foreach (ObjectId objID in GV.selObjects_forProcessing)
+                {
+                    // get the style name from the label
+                    string styleName = LCH.getLabelName(objID);
+                    SSTList = GH.getSST(styleName);
+                    if (SSTList != null)
+                    {
+                        string notetype = SSTList[1];
+                        labelVals = Helper.LabelTextExtractor.getLabelValsAll(objID);
+                        //get the KN values based on the locations
+                        foreach (var KNloc in SSTList[2].ToString())
+                        {
+
+                            #region Add the notes to the collection
+                            // add note type if its not there add it to the collection
+                            if (!GV.NotesCollection_Anno2.ContainsKey(notetype))
+                            {
+                                noteItems = new Dictionary<string, string>();
+                                GV.NotesCollection_Anno2.Add(notetype, noteItems);
+                            }
+
+                            //check if that note number is already in the collection.
+                            noteItems = GV.NotesCollection_Anno2[notetype]; //get the note item for the specific note type
+
+                            if (labelVals.ContainsKey(KNloc.ToString()))
+                            {
+                                string noteNum = labelVals[KNloc.ToString()]; //get the note number based on the KN location
+                                                                              //check if that note type is available in the template file
+                                if (GV.notesDict.ContainsKey(notetype))
+                                {
+                                    Dictionary<int, string> innetDict = new Dictionary<int, string>();
+                                    innetDict = GV.notesDict[notetype];
+                                    //check if the value exists inthe inner dict
+                                    if (innetDict.ContainsKey(Convert.ToInt32(noteNum)) && !noteItems.ContainsKey(noteNum))
+                                    {
+                                        noteItems.Add(noteNum, innetDict[Convert.ToInt32(noteNum)]);
+                                    }
+                                }
+                            }
+                            #endregion
+                        }
+                    }
+                    //get the notes from the notelist files and add it based on the KN values
+
+                    #region ProgressBAR
+
+                    GH.printDebug("", "", false, true);
+                    GV.pBarStatus = "Labels Processed: " + index + @"/" + objCount;
+                    UpdateProgressBar(index, objCount, GV.pBarStatus);
+                    //GV.pmeter.MeterProgress();
+                    Helper.UIHelper.DoEvents();
+
+                    GV.pBarCurrentVal = index;
+
+                    //assign it work
+                    //bw.ReportProgress(index);
+                    index++;
+                    #endregion
+                }
+            }
+            catch (Autodesk.Civil.CivilException ex)
+            {
+                GH.errorBox(ex.ToString());
+            }
+            catch (Autodesk.AutoCAD.Runtime.Exception ex)
+            {
+                GH.errorBox(ex.ToString());
+            }
+            catch (System.Exception ee)
+            {
+                GH.errorBox(ee.ToString());
+            }
+        }
         #endregion
 
         #region Preview
@@ -355,13 +433,16 @@ namespace C3D_2016_Anno.Apps.AAnno2
         {
             try
             {
-                string objTypeSelected = cBox_objectType.SelectedItem.ToString();
-                GH.qprint("objTypeSelected : " + objTypeSelected);
+                if (cBox_objectType.Items.Count > 0)
+                {
+                    string objTypeSelected = cBox_objectType.SelectedItem.ToString();
+                    GH.qprint("objTypeSelected : " + objTypeSelected);
+                    lBox_CurrentNotes.ItemsSource = null;
+                    lBox_CurrentNotes.Items.Clear();
+                    lBox_CurrentNotes.ItemsSource = GV.NotesCollection_Anno2[cBox_objectType.SelectedItem.ToString()];
 
-                lBox_CurrentNotes.Items.Clear();
-                lBox_CurrentNotes.ItemsSource = GV.NotesCollection_Anno2[cBox_objectType.SelectedItem.ToString()];
-
-                tBox_Heading.Text = objTypeSelected;
+                    tBox_Heading.Text = objTypeSelected;
+                }
 
             }
             catch (Autodesk.Civil.CivilException ex)

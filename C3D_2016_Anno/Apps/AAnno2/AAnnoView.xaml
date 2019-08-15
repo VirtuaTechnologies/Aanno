@@ -124,7 +124,7 @@
                         </Rectangle.OpacityMask>
                     </Rectangle>
                 </Button>
-                <Label x:Name="lbl_statusCount" Content="" Margin="0,10,10,0" VerticalAlignment="Top" RenderTransformOrigin="0.509,0.59" ToolTip="Labels processed." HorizontalAlignment="Right" Width="136" Foreground="White"/>
+                <Label x:Name="lbl_statusCount" Content="" Margin="0,10,10,0" VerticalAlignment="Top" RenderTransformOrigin="0.509,0.59" ToolTip="Labels processed." HorizontalAlignment="Right" Width="171" Foreground="#FF0646C5"/>
                 <Controls:MetroProgressBar x:Name="proBar" Margin="-5,40,-5,-5" Maximum="100" VerticalAlignment="Top" Height="7" Foreground="#FF3373F2" Cursor="Hand"/>
 
             </Grid>

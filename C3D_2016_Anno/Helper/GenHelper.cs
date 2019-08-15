@@ -112,6 +112,7 @@ namespace C3D_2016_Anno.Helper
                     //get note types list and load to collection.
                     GV.notetypefile = GV.appPath + @"\Data\" + xmlParser.getXMLValue(Global.variables.settingsFile, "Settings", "name", "notetypefile");
                     getNoteTypeList();
+
                 }
                 
             }
@@ -568,12 +569,12 @@ namespace C3D_2016_Anno.Helper
             }
             catch (System.Exception ex)
             {
-                UIH.toastIT("Note able to find Style details for " + styleName + " Please add style details to SST file to continue!", "SST File Read Error", NotificationType.Error);
+                UIH.toastIT("Note able to find Style details for " + styleName + " Please add style details to SST file to continue!", "SST File Read Error", NotificationType.Warning);
                 return null;
             }
             if(SSTList == null)
             {
-                UIH.toastIT("Note able to find Style details for " + styleName + " Please add style details to SST file to continue!", "SST File Read Error", NotificationType.Error);
+                UIH.toastIT("Note able to find Style details for " + styleName + " Please add style details to SST file to continue!", "SST File Read Error", NotificationType.Warning);
             }
             return null;
         }

@@ -26,6 +26,7 @@ using Autodesk.AutoCAD.EditorInput;
 using System.Runtime.InteropServices;
 using Autodesk.AutoCAD.Internal;
 using System.ComponentModel;
+using System.Collections.ObjectModel;
 
 namespace C3D_2016_Anno.Apps
 {
@@ -34,6 +35,7 @@ namespace C3D_2016_Anno.Apps
     /// </summary>
     public partial class AAPro : System.Windows.Controls.UserControl
     {
+        public static ObservableCollection<Global.labelComponentItem> selObjs = new ObservableCollection<Global.labelComponentItem>();
         public static string appName = "AAnno Pro";
         public AAPro()
         {
@@ -80,7 +82,7 @@ namespace C3D_2016_Anno.Apps
                 {
                     MessageBox.Show("Unable to save to file, please check if the file exists!");
                 }
-                
+
             }
             catch (System.Exception ex)
             { }
@@ -140,7 +142,7 @@ namespace C3D_2016_Anno.Apps
         }
 
         private static Global.labelComponentItem LI;
-        
+
         private void btn_learn_all_Click(object sender, RoutedEventArgs e)
         {
             GH.errorBox("This function is work in progress! check again later.");
@@ -148,7 +150,7 @@ namespace C3D_2016_Anno.Apps
 
         private void btn_delete_style_item_Click(object sender, RoutedEventArgs e)
         {
-            if(GV.labelComponentItem_coll.Contains((Global.labelComponentItem)listView_styleComponentMapper.SelectedItem))
+            if (GV.labelComponentItem_coll.Contains((Global.labelComponentItem)listView_styleComponentMapper.SelectedItem))
             {
                 GV.labelComponentItem_coll.Remove((Global.labelComponentItem)listView_styleComponentMapper.SelectedItem);
             }
@@ -172,7 +174,8 @@ namespace C3D_2016_Anno.Apps
         {
             try
             {
-                
+                collIndex = 0;
+                selObjs.Clear();
                 LCH.getCurrentDwgVars();
                 using (GV.Doc.LockDocument())
                 {
@@ -189,6 +192,7 @@ namespace C3D_2016_Anno.Apps
                     {
                         SelectionSet acSSet = psRes.Value;
                         GV.selObjects_forProcessing = acSSet.GetObjectIds();
+
 
                         foreach (ObjectId objID in GV.selObjects_forProcessing)
                         {
@@ -221,31 +225,41 @@ namespace C3D_2016_Anno.Apps
 
                             //check if there is a comman at the end of the KN and remove that
                             KNLoc = KNLoc.Remove(KNLoc.Length - 1);
+
+                            if (selObjs.Where(item => item.styleName == LI.styleName).Any() == false)
+                            {
+                                selObjs.Add(LI);
+                            }
+                            
                             //show this on the confirmation box - once the user confirms its then add to the list. or discard that item
-                            grid_addStyle.Visibility = System.Windows.Visibility.Visible;
+
                             tBox_styleName.Text = LI.styleName;
-                            tBox_styleKNloc.Text = KNLoc;
-
-
-
-
+                            //tBox_styleKNloc.Text = KNLoc;
 
                             // ask the user to pick the mapper configuration 
 
                             //store the configuration to settings file
 
                         }
+
+                        grid_addStyle.Visibility = System.Windows.Visibility.Visible;
                     }
                 }
             }
             catch (System.Exception ex)
             { GH.writeLog(ex.ToString()); }
         }
-        
+
         private void Btn_addStyle_Click(object sender, RoutedEventArgs e)
         {
             try
             {
+                //load the current item
+                if (selObjs.Where(item => item.styleName == tBox_styleName.Text).Any() == true)
+                {
+                    LI = selObjs.Where(item => item.styleName == tBox_styleName.Text).Single();
+                }
+
                 //check if that object already exists
                 if (GV.labelComponentItem_coll.Where(LabelItem => LabelItem.styleName == LI.styleName).Any() == false)
                 {
@@ -254,10 +268,10 @@ namespace C3D_2016_Anno.Apps
                     {
                         Blink(true, "Style name missing, please enter");
                     }
-                    else if (tBox_styleKNloc.Text == string.Empty)
-                    {
-                        Blink(true, "Style KN location missing, please enter");
-                    }
+                    //else if (tBox_styleKNloc.Text == string.Empty)
+                    //{
+                    //    Blink(true, "Style KN location missing, please enter");
+                    //}
                     else if (cBox_styleType.Text == string.Empty)
                     {
                         Blink(true, "Style type missing, please enter");
@@ -272,21 +286,39 @@ namespace C3D_2016_Anno.Apps
                         //if note type note in the list then add to the list and the file
                         addNoteType();
 
-                        //close the grid
-                        grid_addStyle.Visibility = System.Windows.Visibility.Hidden;
+                        if (selObjs.Where(item => item.styleName == LI.styleName).Any() == true)
+                        {
+                            selObjs.Remove(selObjs.Where(item => item.styleName == LI.styleName).Single());
+                        }
+
+                        //check if next item exsits if so move or else close
+                        moveOrClose();
                         Blink(false, "");
                     }
                 }
                 else // item already exists
                 {
                     Blink(true, "Style already exists!");
-
+                    moveOrClose();
                 }
             }
             catch (System.Exception ex)
             { GH.writeLog(ex.ToString()); }
         }
 
+        private void moveOrClose()
+        {
+            if (selObjs.Count <= 0)
+            {
+                //close the grid
+                grid_addStyle.Visibility = System.Windows.Visibility.Hidden;
+            }
+            else
+            {
+                //move to next item
+                loadStyleItem(1);
+            }
+        }
         private async void Blink(bool playAnimation, string content)
         {
             lbl_addStyleError.Content = content;
@@ -303,6 +335,7 @@ namespace C3D_2016_Anno.Apps
             {
                 //close the grid
                 grid_addStyle.Visibility = System.Windows.Visibility.Hidden;
+                selObjs.Clear();
                 Blink(false, "");
             }
             catch (System.Exception ex)
@@ -311,7 +344,7 @@ namespace C3D_2016_Anno.Apps
 
         private void btn_clearAll_Click(object sender, RoutedEventArgs e)
         {
-            
+
             try
             {
                 GV.labelComponentItem_coll.Clear();
@@ -405,7 +438,6 @@ namespace C3D_2016_Anno.Apps
                 GH.writeLog(ee.ToString());
             }
         }
-
         
         private void styleNameHeader_Click(object sender, RoutedEventArgs e)
         {
@@ -448,11 +480,83 @@ namespace C3D_2016_Anno.Apps
             }
         }
 
-        
+        private void btn_previousLabel_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                loadStyleItem(-1);
+            }
+            catch (Autodesk.Civil.CivilException ex)
+            {
+                GH.errorBox(ex.ToString());
+            }
+            catch (Autodesk.AutoCAD.Runtime.Exception ex)
+            {
+                GH.errorBox(ex.ToString());
+            }
+            catch (System.Exception ee)
+            {
+                GH.errorBox(ee.ToString());
+            }
         }
 
-        
+        private void btn_nextLabel_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                loadStyleItem(1);
+            }
+            catch (Autodesk.Civil.CivilException ex)
+            {
+                GH.errorBox(ex.ToString());
+            }
+            catch (Autodesk.AutoCAD.Runtime.Exception ex)
+            {
+                GH.errorBox(ex.ToString());
+            }
+            catch (System.Exception ee)
+            {
+                GH.errorBox(ee.ToString());
+            }
+        }
+
+        int collIndex =0;
+
+        private void loadStyleItem(int moverVal)
+        {
+            try
+            {
+                collIndex = collIndex + moverVal;
+                if (collIndex <= selObjs.Count)
+                {
+                    Global.labelComponentItem item = (Global.labelComponentItem)selObjs[collIndex - 1];
+
+                    tBox_styleName.Text = item.styleName;
+                    Blink(false, "");
+                }
+                else
+                {
+                    loadStyleItem(-2);
+                }
+            }
+            catch (Autodesk.Civil.CivilException ex)
+            {
+                GH.errorBox(ex.ToString());
+            }
+            catch (Autodesk.AutoCAD.Runtime.Exception ex)
+            {
+                GH.errorBox(ex.ToString());
+            }
+            catch (System.Exception ee)
+            {
+                GH.errorBox(ee.ToString());
+                //close the grid
+                grid_addStyle.Visibility = System.Windows.Visibility.Hidden;
+            }
+        }
     }
+
+}
 
     
 

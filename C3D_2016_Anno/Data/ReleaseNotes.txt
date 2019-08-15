@@ -1,6 +1,30 @@
 ﻿This is Intellectual Property of AutoAnno, LLC and Jeffery J. Bohl, all rights reserved. www.autoanno.com
 ========================
-Release Notes -AAPro AutoCAD plugin - 20190608 - Ver 4.47.1.10
+Release Notes -AAPro AutoCAD plugin - 20190810 - Ver 4.47.1.12
+========================
+- Add functionality to get labels from viewport.
+- Added bit more validation to avoid duplicates within particular category of notes.
+- Clear collection before each read to avoid redundant data
+- Bug fixes
+- Updated UI
+- Added function "ProcessLabels" this would process label both from model space and viewport. Instead of two functions so all improvements can be done in one place.
+- Updated progress function
+- Updated the save as function icon color.
+- added notification for each transaction.
+- Add settings to control the notification so user can turn on/ off certain notification (Error/ Information/ Warning)
+
+========================
+Release Notes -AAPro AutoCAD plugin - 20190810 - Ver 4.47.1.11
+========================
+- Adding next/ previous functions to add style
+- Added validations to go through each item, check if its not added before and then filter
+- Handled 10 minor cases of iterations
+- Bug fixes
+- Updated UI
+- Updated the save as function icon color.
+
+========================
+Release Notes -AAPro AutoCAD plugin - 20190721 - Ver 4.47.1.10
 ========================
 - AAPro Notelisttype.ini and binding that to note add pop-up in a combo.
 - Notelistfile read/ write function (add/ delete as well from the ui)

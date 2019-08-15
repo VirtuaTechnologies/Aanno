@@ -54,8 +54,7 @@
 
             <GroupBox x:Name="groupBox" Header="Learn Tools" Margin="10,10,0,0" Grid.Row="1" VerticalAlignment="Top" Height="72" Grid.ColumnSpan="2" HorizontalAlignment="Left" Width="366">
                 <Grid>
-                    <Button x:Name="btn_learn" Content="LEARN SELECTED STYLE" HorizontalAlignment="Left" Margin="187,0,0,0" VerticalAlignment="Top" Width="160" Click="btn_learn_Click" ToolTip="Learn selected style"/>
-                    <Button x:Name="btn_learn_all" Content="LEARN ALL STYLE" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Top" Width="160" Click="btn_learn_all_Click" ToolTip="Learn all style in the current drawing"/>
+                    <Button x:Name="btn_learn" Content="LEARN SELECTED STYLE" HorizontalAlignment="Left" Margin="0,3,0,0" VerticalAlignment="Top" Width="160" Click="btn_learn_Click" ToolTip="Learn selected style"/>
                 </Grid>
             </GroupBox>
             <GroupBox x:Name="groupBox1" Header="Style Details" Margin="10" Grid.Row="2" Grid.ColumnSpan="2">
@@ -100,7 +99,7 @@
             <Button Margin="0,27,10,0" Background="Transparent"  x:Name="btn_saveAS_styleStructureFile" Width="35" HorizontalAlignment="Right" ToolTip="Save as" Click="btn_saveAS_styleStructureFile_Click" Grid.Column="1" Height="36" VerticalAlignment="Top" >
                 <Rectangle Width="22"
                 Height="19"
-                Fill="Gray">
+                Fill="#FFBFC71A">
                     <Rectangle.OpacityMask>
                         <VisualBrush Stretch="Fill"
                         Visual="{StaticResource appbar_save}"/>
@@ -133,18 +132,22 @@
                 <Border.BorderBrush>
                     <SolidColorBrush Color="#000000" Opacity=".7"/>
                 </Border.BorderBrush>
-                <Grid Margin="3,46,3,0" Height="231" VerticalAlignment="Top">
+                <Grid Margin="3,46,3,0" Height="162" VerticalAlignment="Top">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="231"/>
                     </Grid.RowDefinitions>
-                    <GroupBox Margin="10,0,0,3" Header="Add Style" MinHeight="220" MaxHeight="220">
+
+                    <GroupBox Margin="10,0,0,71" Header="Add Style" MaxHeight="220">
                         <Grid Margin="0,85,0,-7">
-                            <TextBox x:Name="tBox_styleName" Margin="0,-87,0,0" Controls:TextBoxHelper.Watermark="Style Name" MinHeight="34" Height="40" VerticalAlignment="Top" ToolTip="Enter style name"></TextBox>
-                            <TextBox x:Name="tBox_styleKNloc" Margin="0,-42,0,0" Controls:TextBoxHelper.Watermark="Style KN location" MinHeight="34" Height="40" VerticalAlignment="Top" ToolTip="Enter style KN location"></TextBox>
-                            <ComboBox x:Name="cBox_styleType" Margin="0,3,64,0" Controls:TextBoxHelper.Watermark="Style Type" MinHeight="40" Height="40" VerticalAlignment="Top" ToolTip="Enter style type" IsEditable="True">
-                                
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="39"/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+                            <TextBox x:Name="tBox_styleName" Margin="0,-87,0,0" Controls:TextBoxHelper.Watermark="Style Name" MinHeight="34" Height="40" VerticalAlignment="Top" ToolTip="Enter style name" Controls:TextBoxHelper.UseFloatingWatermark="True"></TextBox>
+                            <ComboBox x:Name="cBox_styleType" Margin="0,-42,54,0" Controls:TextBoxHelper.Watermark="Style Type" MinHeight="40" Height="40" VerticalAlignment="Top" ToolTip="Enter style type" IsEditable="True" Controls:TextBoxHelper.UseFloatingWatermark="True">
+
                             </ComboBox>
-                            <Button Margin="0,18,37,0" Background="Transparent"  x:Name="btn_del_styletype_item" Width="22" HorizontalAlignment="Right" ToolTip="Delete selected item" BorderBrush="#FF306EED" Height="25" VerticalAlignment="Top" Click="btn_del_styletype_item_Click"  >
+                            <Button Margin="0,-27,27,0" Background="Transparent"  x:Name="btn_del_styletype_item" Width="22" HorizontalAlignment="Right" ToolTip="Delete note type" BorderBrush="#FF306EED" Height="25" VerticalAlignment="Top" Click="btn_del_styletype_item_Click"  >
                                 <Rectangle Width="9" Height="12" Fill="#FF306EED">
                                     <Rectangle.OpacityMask>
                                         <VisualBrush Stretch="Fill"
@@ -152,7 +155,7 @@
                                     </Rectangle.OpacityMask>
                                 </Rectangle>
                             </Button>
-                            <Button Margin="0,18,10,0" Background="Transparent"  x:Name="btn_add_styletype_item" Width="22" HorizontalAlignment="Right" ToolTip="Delete selected item" BorderBrush="#FF306EED" Height="25" VerticalAlignment="Top" Click="btn_add_styletype_item_Click" >
+                            <Button Margin="0,-27,0,0" Background="Transparent"  x:Name="btn_add_styletype_item" Width="22" HorizontalAlignment="Right" ToolTip="Add note type" BorderBrush="#FF306EED" Height="25" VerticalAlignment="Top" Click="btn_add_styletype_item_Click" >
                                 <Rectangle Width="9" Height="12" Fill="#FF306EED">
                                     <Rectangle.OpacityMask>
                                         <VisualBrush Stretch="Fill"
@@ -160,11 +163,28 @@
                                     </Rectangle.OpacityMask>
                                 </Rectangle>
                             </Button>
-                            <Label x:Name="lbl_addStyleError" Foreground="Red" Margin="0,68,182,8"/>
-                            <Button x:Name="btn_addStyle" Grid.Column="0" Content="Add Style" Margin="0,0,86,10" Click="Btn_addStyle_Click" HorizontalAlignment="Right" Width="96" Height="25" VerticalAlignment="Bottom" IsDefault="True" ToolTip="Add to list"/>
-                            <Button x:Name="btn_cancel" Grid.Column="0" Content="Cancel" Margin="0,0,10,10" Click="Btn_cancel_Click" HorizontalAlignment="Right" Width="71" Height="25" VerticalAlignment="Bottom" IsCancel="True" ToolTip="Discard"/>
+                            <Label x:Name="lbl_addStyleError" Foreground="Red" Margin="0,10,202,4" RenderTransformOrigin="0.532,0.543"/>
+                            <Button x:Name="btn_addStyle" Grid.Column="0" Content="Add Learned Style" Margin="0,0,76,4" Click="Btn_addStyle_Click" HorizontalAlignment="Right" Width="121" Height="25" VerticalAlignment="Bottom" IsDefault="True" ToolTip="Add to list"/>
+                            <Button x:Name="btn_cancel" Grid.Column="0" Content="Cancel" Margin="0,0,0,4.333" Click="Btn_cancel_Click" HorizontalAlignment="Right" Width="71" Height="25" VerticalAlignment="Bottom" IsCancel="True" ToolTip="Discard"/>
+
                         </Grid>
                     </GroupBox>
+                    <Button Margin="0,2,33,0" Background="Transparent"  x:Name="btn_previousLabel" Width="22" HorizontalAlignment="Right" ToolTip="Previous" BorderBrush="White" Height="25" VerticalAlignment="Top" Click="btn_previousLabel_Click" >
+                        <Rectangle Width="9" Height="12" Fill="White">
+                            <Rectangle.OpacityMask>
+                                <VisualBrush Stretch="Fill"
+                                            Visual="{StaticResource appbar_arrow_left}"/>
+                            </Rectangle.OpacityMask>
+                        </Rectangle>
+                    </Button>
+                    <Button Margin="0,2,6,0" Background="Transparent"  x:Name="btn_nextLabel" Width="22" HorizontalAlignment="Right" ToolTip="Next" BorderBrush="White" Height="25" VerticalAlignment="Top" Click="btn_nextLabel_Click" >
+                        <Rectangle Width="9" Height="12" Fill="White">
+                            <Rectangle.OpacityMask>
+                                <VisualBrush Stretch="Fill"
+                                            Visual="{StaticResource appbar_arrow_right}"/>
+                            </Rectangle.OpacityMask>
+                        </Rectangle>
+                    </Button>
                 </Grid>
             </Border>
         </Grid>
