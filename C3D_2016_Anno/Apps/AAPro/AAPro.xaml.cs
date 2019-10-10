@@ -27,6 +27,7 @@ using System.Runtime.InteropServices;
 using Autodesk.AutoCAD.Internal;
 using System.ComponentModel;
 using System.Collections.ObjectModel;
+using Notifications.Wpf;
 
 namespace C3D_2016_Anno.Apps
 {
@@ -61,7 +62,8 @@ namespace C3D_2016_Anno.Apps
                     tBox_stylemapperFile.Text = openFileDialog.FileName;
 
                     //load data on the file ot the listview.
-                    GH.getStyleStructureFileDetails(tBox_stylemapperFile.Text);
+                    GH.getSSTAll(tBox_stylemapperFile.Text);
+                    listView_styleComponentMapper.ItemsSource = GV.labelComponentItem_coll;
                 }
 
 
@@ -243,6 +245,7 @@ namespace C3D_2016_Anno.Apps
                         }
 
                         grid_addStyle.Visibility = System.Windows.Visibility.Visible;
+
                     }
                 }
             }
@@ -294,6 +297,7 @@ namespace C3D_2016_Anno.Apps
                         //check if next item exsits if so move or else close
                         moveOrClose();
                         Blink(false, "");
+                        UIH.toastIT("Style added successfully!", "Status", NotificationType.Success);
                     }
                 }
                 else // item already exists

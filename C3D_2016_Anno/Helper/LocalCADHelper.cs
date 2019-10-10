@@ -1525,7 +1525,6 @@ namespace C3D_2016_Anno.Helper
         {
             return vp.DCS2PSDCS().Inverse();
         }
-
         
     }
 

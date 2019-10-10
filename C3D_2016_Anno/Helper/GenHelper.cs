@@ -525,6 +525,58 @@ namespace C3D_2016_Anno.Helper
             }
         }
 
+        public static List<string> getSSTAll(string SSTFile)
+        {
+            try
+            {
+                GV.sstFile = SSTFile;
+                if (File.Exists(GV.sstFile))
+                {
+                    System.IO.StreamReader file = new System.IO.StreamReader(GV.sstFile);
+                    //Execute a loop over the rows.  
+                    string line;
+
+                    while ((line = file.ReadLine()) != null)
+                    {
+                        SSTList = line.Split(Convert.ToChar('|')).ToList();
+
+                        Global.labelComponentItem LI = new Global.labelComponentItem();
+                        List<int> ids = new List<int>();
+
+                        foreach(var id in SSTList[2].Split(Convert.ToChar(',')).ToList())
+                        {
+                            ids.Add(Convert.ToInt32(id));
+                        }
+
+                        LI.KNComponentID = ids;
+                        LI.labelType = SSTList[1];
+                        LI.styleName = SSTList[0];
+
+                        //load to collection which would be displayed in the listview
+                        GV.labelComponentItem_coll.Add(LI);
+                    }
+                    file.Close();
+
+                }
+                else
+                {
+                    UIH.toastIT("Note list files read sucessfully!", "File Read", NotificationType.Information);
+                }
+
+
+            }
+            catch (System.Exception ex)
+            {
+                UIH.toastIT("Error reading SST file", "SST File Read Error", NotificationType.Error);
+                return null;
+            }
+            if (SSTList == null)
+            {
+                UIH.toastIT("Error reading SST file", "SST File Read Error", NotificationType.Error);
+            }
+            return null;
+        }
+
         private static List<string> SSTList = new List<string>();
         public static List<string> getSST(string styleName)
         {

@@ -1,6 +1,15 @@
 ﻿This is Intellectual Property of AutoAnno, LLC and Jeffery J. Bohl, all rights reserved. www.autoanno.com
 ========================
-Release Notes -AAPro AutoCAD plugin - 20190810 - Ver 4.47.1.12
+Release Notes -AAPro AutoCAD plugin - 20191010 - Ver 4.47.1.13
+========================
+- Add functionality to get the label list when loading the SST file in the AANNO Pro
+- Update the new SST format, CSV format insteadof the previous XML type.
+- UI issues, bug fixes reported where fixed.
+- viewport issue tried testing few scenarios - not able to reproduce. 
+- issue with pipe labels - working fine my case, need to check it on remote session.
+
+========================
+Release Notes -AAPro AutoCAD plugin - 20190815 - Ver 4.47.1.12
 ========================
 - Add functionality to get labels from viewport.
 - Added bit more validation to avoid duplicates within particular category of notes.

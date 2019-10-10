@@ -153,6 +153,73 @@ namespace C3D_2016_Anno.Helper
                 GH.errorBox(ee.ToString());
             }
         }
+
+        public static void sortColumnASC(ListView listViewControl)
+        {
+            try
+            {
+                GridViewHeaderRowPresenter presenter = GetDescendantByType(listViewControl, typeof(GridViewHeaderRowPresenter)) as GridViewHeaderRowPresenter;
+                GridView gridView = listViewControl.View as GridView;
+                
+
+                for (int i = 1; i < gridView.Columns.Count+1; i++)
+                {
+                    GridViewColumnHeader header = VisualTreeHelper.GetChild(presenter, i) as GridViewColumnHeader;
+                    GridViewColumn colunmn = header.Column;
+                    string test = colunmn.Header.ToString();
+
+                    if (colunmn != null && test == "System.Windows.Controls.GridViewColumnHeader: Note Number")
+                    {
+
+                        string sortBy = "Note Number";
+                        if (listViewSortCol != null)
+                        {
+                            AdornerLayer.GetAdornerLayer(listViewSortCol).Remove(listViewSortAdorner);
+                            listViewControl.Items.SortDescriptions.Clear();
+                        }
+
+                        ListSortDirection newDir = ListSortDirection.Ascending;
+
+                        listViewSortCol = header;
+                        listViewSortAdorner = new SortAdorner(listViewSortCol, newDir);
+                        AdornerLayer.GetAdornerLayer(listViewSortCol).Add(listViewSortAdorner);
+                        listViewControl.Items.SortDescriptions.Add(new SortDescription(sortBy, newDir));
+                    }
+                }
+
+                
+
+            }
+            catch (Autodesk.Civil.CivilException ex)
+            {
+                GH.errorBox(ex.ToString());
+            }
+            catch (Autodesk.AutoCAD.Runtime.Exception ex)
+            {
+                GH.errorBox(ex.ToString());
+            }
+            catch (System.Exception ee)
+            {
+                GH.errorBox(ee.ToString());
+            }
+        }
+
+        public static Visual GetDescendantByType(Visual element, Type type)
+        {
+            if (element == null) return null;
+            if (element.GetType() == type) return element;
+            Visual foundElement = null;
+            if (element is FrameworkElement)
+                (element as FrameworkElement).ApplyTemplate();
+            for (int i = 0; i < VisualTreeHelper.GetChildrenCount(element); i++)
+            {
+                Visual visual = VisualTreeHelper.GetChild(element, i) as Visual;
+                foundElement = GetDescendantByType(visual, type);
+                if (foundElement != null)
+                    break;
+            }
+            return foundElement;
+        }
     }
 }
 

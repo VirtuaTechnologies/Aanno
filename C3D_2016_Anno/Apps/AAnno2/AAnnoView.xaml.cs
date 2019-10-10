@@ -347,6 +347,7 @@ namespace C3D_2016_Anno.Apps.AAnno2
         {
             try
             {
+                GV.NotesCollection_Anno2.Clear();
                 int index = 1;
                 int objCount = GV.selObjects_forProcessing.Count();
                 GV.pBarMaxVal = objCount;
@@ -440,7 +441,7 @@ namespace C3D_2016_Anno.Apps.AAnno2
                     lBox_CurrentNotes.ItemsSource = null;
                     lBox_CurrentNotes.Items.Clear();
                     lBox_CurrentNotes.ItemsSource = GV.NotesCollection_Anno2[cBox_objectType.SelectedItem.ToString()];
-
+                    //UIH.sortColumnASC(lBox_CurrentNotes);
                     tBox_Heading.Text = objTypeSelected;
                 }
 
@@ -459,11 +460,78 @@ namespace C3D_2016_Anno.Apps.AAnno2
             }
         }
 
+        private GridViewColumnHeader listViewSortCol = null;
+        private SortAdorner listViewSortAdorner = null;
         private void notelistColumnHeader_Click(object sender, RoutedEventArgs e)
         {
-            UIH.sortColumn(sender, lBox_CurrentNotes);
+            try
+            {
+                GridViewColumnHeader column = (sender as GridViewColumnHeader);
+                string sortBy = column.Tag.ToString();
+                if (listViewSortCol != null)
+                {
+                    AdornerLayer.GetAdornerLayer(listViewSortCol).Remove(listViewSortAdorner);
+                    lBox_CurrentNotes.Items.SortDescriptions.Clear();
+                }
+
+                ListSortDirection newDir = ListSortDirection.Ascending;
+                if (listViewSortCol == column && listViewSortAdorner.Direction == newDir)
+                    newDir = ListSortDirection.Descending;
+
+                listViewSortCol = column;
+                listViewSortAdorner = new SortAdorner(listViewSortCol, newDir);
+                AdornerLayer.GetAdornerLayer(listViewSortCol).Add(listViewSortAdorner);
+                lBox_CurrentNotes.Items.SortDescriptions.Add(new SortDescription(sortBy, newDir));
+
+                //UIH.sortColumn(sender, lBox_CurrentNotes);
+            }
+            catch (Autodesk.Civil.CivilException ex)
+            {
+                //GH.errorBox(ex.ToString());
+            }
+            catch (Autodesk.AutoCAD.Runtime.Exception ex)
+            {
+                //GH.errorBox(ex.ToString());
+            }
+            catch (System.Exception ee)
+            {
+                //GH.errorBox(ee.ToString());
+            }
         }
         #endregion
+
+        public class SortAdorner : Adorner
+        {
+            private readonly static Geometry _AscGeometry =
+                Geometry.Parse("M 0,0 L 10,0 L 5,5 Z");
+            private readonly static Geometry _DescGeometry =
+                Geometry.Parse("M 0,5 L 10,5 L 5,0 Z");
+
+            public ListSortDirection Direction { get; private set; }
+
+            public SortAdorner(UIElement element, ListSortDirection dir)
+              : base(element)
+            { Direction = dir; }
+
+            protected override void OnRender(DrawingContext drawingContext)
+            {
+                base.OnRender(drawingContext);
+
+                if (AdornedElement.RenderSize.Width < 20)
+                    return;
+
+                drawingContext.PushTransform(
+                    new TranslateTransform(
+                      AdornedElement.RenderSize.Width - 15,
+                      (AdornedElement.RenderSize.Height - 5) / 2));
+
+                drawingContext.DrawGeometry(Brushes.Black, null,
+                    Direction == ListSortDirection.Ascending ?
+                      _AscGeometry : _DescGeometry);
+
+                drawingContext.Pop();
+            }
+        }
 
         #region Keynote Creator
         private void btn_CreateKeyNote_Click(object sender, RoutedEventArgs e)

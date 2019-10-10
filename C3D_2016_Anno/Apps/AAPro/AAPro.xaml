@@ -41,7 +41,7 @@
                     </Rectangle.OpacityMask>
                 </Rectangle>
             </Button>
-            <Button Margin="0,27,50,1" Background="Transparent"  x:Name="btn_save_styleStructureFile" Width="35" HorizontalAlignment="Right" ToolTip="Save file" Click="btn_save_styleStructureFile_Click" Grid.Column="1" >
+            <Button Margin="0,27,50,0" Background="Transparent"  x:Name="btn_save_styleStructureFile" Width="35" HorizontalAlignment="Right" ToolTip="Save file" Click="btn_save_styleStructureFile_Click" Grid.Column="1" Height="36" VerticalAlignment="Top" >
                 <Rectangle Width="22"
                         Height="19"
                         Fill="#FF3373F2">
