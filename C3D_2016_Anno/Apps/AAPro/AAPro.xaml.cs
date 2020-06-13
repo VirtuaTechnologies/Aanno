@@ -119,9 +119,16 @@ namespace C3D_2016_Anno.Apps
                 foreach (Global.labelComponentItem item in GV.labelComponentItem_coll)
                 {
                     string KNValue = String.Join(",", item.KNComponentID.Select(n => n.ToString()).ToArray());
-                    keyvalue.Add(item.labelType, KNValue);
-                    Item.Add(item.styleName, keyvalue);
-                    CSVstring += item.styleName + GV.SSTfileDelimiter + item.labelType + GV.SSTfileDelimiter + KNValue + Environment.NewLine;
+                    if (!keyvalue.ContainsKey(item.labelType))
+                    {
+                        keyvalue.Add(item.labelType, KNValue);
+                    }
+
+                    if (!Item.ContainsKey(item.styleName))
+                    {
+                        Item.Add(item.styleName, keyvalue);
+                        CSVstring += item.styleName + GV.SSTfileDelimiter + item.labelType + GV.SSTfileDelimiter + KNValue + Environment.NewLine;
+                    }
                 }
 
                 if (GV.SSTfileFormat == "XML")
@@ -134,6 +141,12 @@ namespace C3D_2016_Anno.Apps
                     if (!File.Exists(tBox_stylemapperFile.Text))
                     {
                         File.Create(tBox_stylemapperFile.Text).Close();
+                    }
+                    else
+                    {
+                        File.Delete(tBox_stylemapperFile.Text);
+                        File.Create(tBox_stylemapperFile.Text).Close();
+
                     }
 
                     File.WriteAllText(tBox_stylemapperFile.Text, CSVstring);
@@ -179,6 +192,7 @@ namespace C3D_2016_Anno.Apps
         {
             try
             {
+                btn_learn.IsEnabled = false;
                 collIndex = 0;
                 selObjs.Clear();
                 LCH.getCurrentDwgVars();
@@ -250,10 +264,11 @@ namespace C3D_2016_Anno.Apps
                         grid_addStyle.Visibility = System.Windows.Visibility.Visible;
 
                     }
+                    btn_learn.IsEnabled = true;
                 }
             }
             catch (System.Exception ex)
-            { GH.writeLog(ex.ToString()); }
+            { GH.writeLog(ex.ToString()); btn_learn.IsEnabled = true; }
         }
 
         private void Btn_addStyle_Click(object sender, RoutedEventArgs e)

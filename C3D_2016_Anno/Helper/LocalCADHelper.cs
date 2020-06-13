@@ -1804,15 +1804,15 @@ namespace C3D_2016_Anno.Helper
             }
             catch (Autodesk.Civil.CivilException ex)
             {
-                GH.errorBox(ex.ToString());
+                GH.writeLog(ex.ToString());
             }
             catch (Autodesk.AutoCAD.Runtime.Exception ex)
             {
-                GH.errorBox(ex.ToString());
+                GH.writeLog(ex.ToString());
             }
             catch (System.Exception ee)
             {
-                GH.errorBox(ee.ToString());
+                GH.writeLog(ee.ToString());
             }
             return CompNameVals;
         }

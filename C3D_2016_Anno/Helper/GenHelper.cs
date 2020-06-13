@@ -538,6 +538,7 @@ namespace C3D_2016_Anno.Helper
                     System.IO.StreamReader file = new System.IO.StreamReader(GV.sstFile);
                     //Execute a loop over the rows.  
                     string line;
+                    GV.labelComponentItem_coll.Clear();
 
                     while ((line = file.ReadLine()) != null)
                     {
@@ -556,6 +557,7 @@ namespace C3D_2016_Anno.Helper
                         LI.styleName = SSTList[0];
 
                         //load to collection which would be displayed in the listview
+                        
                         GV.labelComponentItem_coll.Add(LI);
                     }
                     file.Close();

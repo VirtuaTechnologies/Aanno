@@ -1,5 +1,18 @@
 ﻿This is Intellectual Property of AutoAnno, LLC and Jeffery J. Bohl, all rights reserved. www.autoanno.com
 ========================
+Release Notes -AAPro AutoCAD plugin - 20200614 - Ver 4.47.1.16
+========================
+AAnno Pro - Learn tool bug fixes
+- Save and save as function 
+- duplicates causes file not to saved and save as not able to save file
+- Learn selected style button 
+- multiple clicks crashed AutoCAD, now create a fail-safe button to make sure the user is not clicking on the buttonmultiple times when the command is in progress.
+- Save and save as notification not working- update all the library with the same version to sort version mismatch issues.
+- sorted the error during the learn tool run as reported.
+- Flush the list before loading the new one in the browse function.
+- added the latest VSharpXMLHelper.dll to the Libs folder, if needed the developer can get it from there.
+
+========================
 Release Notes -AAPro AutoCAD plugin - 20200406 - Ver 4.47.1.15
 ========================
 - sort function was not working have to change the dictionary collection to observable collection wiht class objects

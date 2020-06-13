@@ -6052,3 +6052,99 @@
 14/06/2020 7:11:28 AM ReadConfigurations-loginwindowsStartup:true
 14/06/2020 7:11:28 AM ReadConfigurations-ThemeAccent: cobalt
 14/06/2020 7:11:28 AM ReadConfigurations-ThemeType: BaseLight
+14/06/2020 7:28:39 AM ReadConfigurations Start
+14/06/2020 7:28:39 AM ReadConfigurations-appSettingFilePath: R:\GitHub\Aanno\Release\Data\LicensingSettings.xml
+14/06/2020 7:28:39 AM ReadConfigurations-rememberCredentials: true
+14/06/2020 7:28:39 AM ReadConfigurations-loginwindowsStartup:true
+14/06/2020 7:28:40 AM ReadConfigurations-ThemeAccent: cobalt
+14/06/2020 7:28:40 AM ReadConfigurations-ThemeType: BaseLight
+14/06/2020 7:28:40 AM ReadConfigurations Start
+14/06/2020 7:28:40 AM ReadConfigurations-appSettingFilePath: R:\GitHub\Aanno\Release\Data\LicensingSettings.xml
+14/06/2020 7:28:40 AM ReadConfigurations-rememberCredentials: true
+14/06/2020 7:28:40 AM ReadConfigurations-loginwindowsStartup:true
+14/06/2020 7:28:40 AM ReadConfigurations-ThemeAccent: cobalt
+14/06/2020 7:28:40 AM ReadConfigurations-ThemeType: BaseLight
+14/06/2020 7:29:38 AM ReadConfigurations Start
+14/06/2020 7:29:38 AM ReadConfigurations-appSettingFilePath: R:\GitHub\Aanno\Release\Data\LicensingSettings.xml
+14/06/2020 7:29:38 AM ReadConfigurations-rememberCredentials: true
+14/06/2020 7:29:38 AM ReadConfigurations-loginwindowsStartup:true
+14/06/2020 7:29:38 AM ReadConfigurations-ThemeAccent: cobalt
+14/06/2020 7:29:38 AM ReadConfigurations-ThemeType: BaseLight
+14/06/2020 7:29:38 AM ReadConfigurations Start
+14/06/2020 7:29:38 AM ReadConfigurations-appSettingFilePath: R:\GitHub\Aanno\Release\Data\LicensingSettings.xml
+14/06/2020 7:29:38 AM ReadConfigurations-rememberCredentials: true
+14/06/2020 7:29:38 AM ReadConfigurations-loginwindowsStartup:true
+14/06/2020 7:29:38 AM ReadConfigurations-ThemeAccent: cobalt
+14/06/2020 7:29:38 AM ReadConfigurations-ThemeType: BaseLight
+14/06/2020 7:39:22 AM ReadConfigurations Start
+14/06/2020 7:39:22 AM ReadConfigurations-appSettingFilePath: R:\GitHub\Aanno\Release\Data\LicensingSettings.xml
+14/06/2020 7:39:22 AM ReadConfigurations-rememberCredentials: true
+14/06/2020 7:39:22 AM ReadConfigurations-loginwindowsStartup:true
+14/06/2020 7:39:22 AM ReadConfigurations-ThemeAccent: cobalt
+14/06/2020 7:39:22 AM ReadConfigurations-ThemeType: BaseLight
+14/06/2020 7:39:22 AM ReadConfigurations Start
+14/06/2020 7:39:23 AM ReadConfigurations-appSettingFilePath: R:\GitHub\Aanno\Release\Data\LicensingSettings.xml
+14/06/2020 7:39:23 AM ReadConfigurations-rememberCredentials: true
+14/06/2020 7:39:23 AM ReadConfigurations-loginwindowsStartup:true
+14/06/2020 7:39:23 AM ReadConfigurations-ThemeAccent: cobalt
+14/06/2020 7:39:23 AM ReadConfigurations-ThemeType: BaseLight
+14/06/2020 7:46:08 AM ReadConfigurations Start
+14/06/2020 7:46:08 AM ReadConfigurations-appSettingFilePath: R:\GitHub\Aanno\Release\Data\LicensingSettings.xml
+14/06/2020 7:46:08 AM ReadConfigurations-rememberCredentials: true
+14/06/2020 7:46:08 AM ReadConfigurations-loginwindowsStartup:true
+14/06/2020 7:46:08 AM ReadConfigurations-ThemeAccent: cobalt
+14/06/2020 7:46:08 AM ReadConfigurations-ThemeType: BaseLight
+14/06/2020 7:46:08 AM ReadConfigurations Start
+14/06/2020 7:46:08 AM ReadConfigurations-appSettingFilePath: R:\GitHub\Aanno\Release\Data\LicensingSettings.xml
+14/06/2020 7:46:08 AM ReadConfigurations-rememberCredentials: true
+14/06/2020 7:46:08 AM ReadConfigurations-loginwindowsStartup:true
+14/06/2020 7:46:08 AM ReadConfigurations-ThemeAccent: cobalt
+14/06/2020 7:46:08 AM ReadConfigurations-ThemeType: BaseLight
+14/06/2020 7:50:57 AM ReadConfigurations Start
+14/06/2020 7:50:57 AM ReadConfigurations-appSettingFilePath: R:\GitHub\Aanno\Release\Data\LicensingSettings.xml
+14/06/2020 7:50:57 AM ReadConfigurations-rememberCredentials: true
+14/06/2020 7:50:57 AM ReadConfigurations-loginwindowsStartup:true
+14/06/2020 7:50:57 AM ReadConfigurations-ThemeAccent: cobalt
+14/06/2020 7:50:57 AM ReadConfigurations-ThemeType: BaseLight
+14/06/2020 7:50:57 AM ReadConfigurations Start
+14/06/2020 7:50:57 AM ReadConfigurations-appSettingFilePath: R:\GitHub\Aanno\Release\Data\LicensingSettings.xml
+14/06/2020 7:50:57 AM ReadConfigurations-rememberCredentials: true
+14/06/2020 7:50:57 AM ReadConfigurations-loginwindowsStartup:true
+14/06/2020 7:50:57 AM ReadConfigurations-ThemeAccent: cobalt
+14/06/2020 7:50:57 AM ReadConfigurations-ThemeType: BaseLight
+14/06/2020 7:53:43 AM ReadConfigurations Start
+14/06/2020 7:53:43 AM ReadConfigurations-appSettingFilePath: R:\GitHub\Aanno\Release\Data\LicensingSettings.xml
+14/06/2020 7:53:43 AM ReadConfigurations-rememberCredentials: true
+14/06/2020 7:53:43 AM ReadConfigurations-loginwindowsStartup:true
+14/06/2020 7:53:43 AM ReadConfigurations-ThemeAccent: cobalt
+14/06/2020 7:53:43 AM ReadConfigurations-ThemeType: BaseLight
+14/06/2020 7:53:43 AM ReadConfigurations Start
+14/06/2020 7:53:43 AM ReadConfigurations-appSettingFilePath: R:\GitHub\Aanno\Release\Data\LicensingSettings.xml
+14/06/2020 7:53:43 AM ReadConfigurations-rememberCredentials: true
+14/06/2020 7:53:43 AM ReadConfigurations-loginwindowsStartup:true
+14/06/2020 7:53:43 AM ReadConfigurations-ThemeAccent: cobalt
+14/06/2020 7:53:43 AM ReadConfigurations-ThemeType: BaseLight
+14/06/2020 8:02:36 AM ReadConfigurations Start
+14/06/2020 8:02:36 AM ReadConfigurations-appSettingFilePath: R:\GitHub\Aanno\Release\Data\LicensingSettings.xml
+14/06/2020 8:02:36 AM ReadConfigurations-rememberCredentials: true
+14/06/2020 8:02:36 AM ReadConfigurations-loginwindowsStartup:true
+14/06/2020 8:02:36 AM ReadConfigurations-ThemeAccent: cobalt
+14/06/2020 8:02:36 AM ReadConfigurations-ThemeType: BaseLight
+14/06/2020 8:02:36 AM ReadConfigurations Start
+14/06/2020 8:02:36 AM ReadConfigurations-appSettingFilePath: R:\GitHub\Aanno\Release\Data\LicensingSettings.xml
+14/06/2020 8:02:36 AM ReadConfigurations-rememberCredentials: true
+14/06/2020 8:02:36 AM ReadConfigurations-loginwindowsStartup:true
+14/06/2020 8:02:36 AM ReadConfigurations-ThemeAccent: cobalt
+14/06/2020 8:02:36 AM ReadConfigurations-ThemeType: BaseLight
+14/06/2020 8:14:06 AM ReadConfigurations Start
+14/06/2020 8:14:06 AM ReadConfigurations-appSettingFilePath: R:\GitHub\Aanno\Release\Data\LicensingSettings.xml
+14/06/2020 8:14:06 AM ReadConfigurations-rememberCredentials: true
+14/06/2020 8:14:06 AM ReadConfigurations-loginwindowsStartup:true
+14/06/2020 8:14:06 AM ReadConfigurations-ThemeAccent: cobalt
+14/06/2020 8:14:06 AM ReadConfigurations-ThemeType: BaseLight
+14/06/2020 8:14:06 AM ReadConfigurations Start
+14/06/2020 8:14:06 AM ReadConfigurations-appSettingFilePath: R:\GitHub\Aanno\Release\Data\LicensingSettings.xml
+14/06/2020 8:14:06 AM ReadConfigurations-rememberCredentials: true
+14/06/2020 8:14:06 AM ReadConfigurations-loginwindowsStartup:true
+14/06/2020 8:14:06 AM ReadConfigurations-ThemeAccent: cobalt
+14/06/2020 8:14:06 AM ReadConfigurations-ThemeType: BaseLight
