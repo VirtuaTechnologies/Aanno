@@ -93,17 +93,24 @@
         </GroupBox>
         <GroupBox x:Name="groupBox2" Header="Preview" HorizontalAlignment="Left" Margin="10,212,0,7" Width="479">
             <Grid>
-                <ListView x:Name="listView">
-                    <ListBox.ContextMenu>
-                        <ContextMenu >
-                            <MenuItem Header="Zoom To" Click="lBox_labels_zoomto_Click"/>
-                            <MenuItem Header="Select" Click="lBox_labels_select_Click"/>
-                        </ContextMenu>
-                    </ListBox.ContextMenu>
+                <ListView Name="lvUsers">
                     <ListView.View>
-                        
                         <GridView>
-                            <GridViewColumn/>
+                            <GridViewColumn Width="120" DisplayMemberBinding="{Binding Name}">
+                                <GridViewColumn.Header>
+                                    <GridViewColumnHeader Tag="Name" Click="lvUsersColumnHeader_Click">Name</GridViewColumnHeader>
+                                </GridViewColumn.Header>
+                            </GridViewColumn>
+                            <GridViewColumn Width="80" DisplayMemberBinding="{Binding Age}">
+                                <GridViewColumn.Header>
+                                    <GridViewColumnHeader Tag="Age" Click="lvUsersColumnHeader_Click">Age</GridViewColumnHeader>
+                                </GridViewColumn.Header>
+                            </GridViewColumn>
+                            <GridViewColumn Width="80" DisplayMemberBinding="{Binding Sex}">
+                                <GridViewColumn.Header>
+                                    <GridViewColumnHeader Tag="Sex" Click="lvUsersColumnHeader_Click">Sex</GridViewColumnHeader>
+                                </GridViewColumn.Header>
+                            </GridViewColumn>
                         </GridView>
                     </ListView.View>
                 </ListView>

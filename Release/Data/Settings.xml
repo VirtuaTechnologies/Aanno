@@ -6,7 +6,7 @@
   <Settings name="dbstring">QTJLX05TV19MMDEyXEFVVE9ERVNLVkFVTFQsYTJrZGIsc2Esbm9raWE3NzEw</Settings>
   <Settings name="appDataPath">C:\Anno\</Settings>
   <Settings name="logSwitch">true</Settings>
-  <Settings name="errorBoxSwitch">false</Settings>
+  <Settings name="errorBoxSwitch">true</Settings>
   <Settings name="logFile">C:\Anno\log\Anno.log</Settings>
   <Settings name="debug">false</Settings>
   <Settings name="templatepathAuto">true</Settings>
@@ -16,9 +16,11 @@
   <Settings name="IncludeMultiLeader">true</Settings>
   <Settings name="MultiLeaderAtt">TAGNUMBER</Settings>
   <Settings name="keynotetexttype">mtext</Settings>
-  <Settings name="keynoteSeperator">.[nbsp]</Settings>
+  <Settings name="keynoteSeperator">[nbsp]</Settings>
   <!--Use [nbsp] For blank space-->
- 
+  <Settings name="XMLSpace">--</Settings>
+  <!--Example this will replace the xmlspace with space-->
+
   <Settings name="showViewportBoundary">true</Settings>
   <Settings name="templateFileExt">def</Settings>
   <!--xml or def or qdef-->

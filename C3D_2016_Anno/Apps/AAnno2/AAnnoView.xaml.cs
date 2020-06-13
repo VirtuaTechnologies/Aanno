@@ -47,7 +47,7 @@ namespace C3D_2016_Anno.Apps.AAnno2
             cBox_template.ItemsSource = GV.templateFiles;
             cBox_template.SelectedIndex = 0;
             cBox_objectType.ItemsSource = GV.NotesCollection_Anno2.Keys;
-            lBox_CurrentNotes.ItemsSource = GV.NotesCollection_Anno2.Values;
+            //lBox_CurrentNotes.ItemsSource = GV.NotesCollection_Anno2.Values;
         }
 
         #region File Loader
@@ -216,7 +216,7 @@ namespace C3D_2016_Anno.Apps.AAnno2
                 if (cBox_objectType.Items.Count > 0)
                     cBox_objectType.SelectedIndex = 0;
                 //add notes to list view
-                lBox_CurrentNotes.ItemsSource = GV.NotesCollection_Anno2[cBox_objectType.SelectedItem.ToString()];
+                //lBox_CurrentNotes.ItemsSource = GV.NotesCollection_Anno2[cBox_objectType.SelectedItem.ToString()];
             }
             catch (System.Exception ee)
             {
@@ -440,8 +440,22 @@ namespace C3D_2016_Anno.Apps.AAnno2
                     GH.qprint("objTypeSelected : " + objTypeSelected);
                     lBox_CurrentNotes.ItemsSource = null;
                     lBox_CurrentNotes.Items.Clear();
-                    lBox_CurrentNotes.ItemsSource = GV.NotesCollection_Anno2[cBox_objectType.SelectedItem.ToString()];
+                    //--->   lBox_CurrentNotes.ItemsSource = GV.NotesCollection_Anno2[cBox_objectType.SelectedItem.ToString()];
                     //UIH.sortColumnASC(lBox_CurrentNotes);
+                    
+                    //create objects and store
+                    GV.notelistCollTemp.Clear();
+                    foreach (var item in GV.NotesCollection_Anno2[cBox_objectType.SelectedItem.ToString()])
+                    {
+                        GV.notelistCollTemp.Add(new Global.notelistitem() { NoteNum = item.Key, NoteName = item.Value });
+                    }
+
+
+                    //GV.notelistCollTemp.Add(new Global.notelistitem() { NoteNum = "1", NoteName = "test 1" });
+                    //GV.notelistCollTemp.Add(new Global.notelistitem() { NoteNum = "2", NoteName = "test 2" });
+                    //GV.notelistCollTemp.Add(new Global.notelistitem() { NoteNum = "2", NoteName = "test 3" });
+
+                    lBox_CurrentNotes.ItemsSource = GV.notelistCollTemp;
                     tBox_Heading.Text = objTypeSelected;
                 }
 
@@ -483,56 +497,40 @@ namespace C3D_2016_Anno.Apps.AAnno2
                 AdornerLayer.GetAdornerLayer(listViewSortCol).Add(listViewSortAdorner);
                 lBox_CurrentNotes.Items.SortDescriptions.Add(new SortDescription(sortBy, newDir));
 
+                ////dict sorting
+                //Dictionary<string, string> sortedDict = new Dictionary<string, string>();
+                //Dictionary<string, string> unsortedDict = new Dictionary<string, string>();
+                //if (sortBy == "Note Number")
+                //{
+                //    unsortedDict = GV.NotesCollection_Anno2[cBox_objectType.SelectedItem.ToString()];
+                //    sortedDict = unsortedDict.OrderBy(x => x.Value).ToDictionary(x => x.Key, x => x.Value);
+                //    sortedDict = sortedDict.OrderBy(x => x.Value).ToDictionary(x => x.Key, x => x.Value);
+                //}
+                //else
+                //{
+                //    sortedDict = GV.NotesCollection_Anno2[cBox_objectType.SelectedItem.ToString()].OrderBy(x => x.Value).ToDictionary(x => x.Key, x => x.Value);
+                //}
+                //lBox_CurrentNotes.ItemsSource = null;
+                //lBox_CurrentNotes.Items.Clear();
+                //lBox_CurrentNotes.ItemsSource = sortedDict;
+
                 //UIH.sortColumn(sender, lBox_CurrentNotes);
             }
             catch (Autodesk.Civil.CivilException ex)
             {
-                //GH.errorBox(ex.ToString());
+                GH.errorBox(ex.ToString());
             }
             catch (Autodesk.AutoCAD.Runtime.Exception ex)
             {
-                //GH.errorBox(ex.ToString());
+                GH.errorBox(ex.ToString());
             }
             catch (System.Exception ee)
             {
-                //GH.errorBox(ee.ToString());
+                GH.errorBox(ee.ToString());
             }
         }
         #endregion
-
-        public class SortAdorner : Adorner
-        {
-            private readonly static Geometry _AscGeometry =
-                Geometry.Parse("M 0,0 L 10,0 L 5,5 Z");
-            private readonly static Geometry _DescGeometry =
-                Geometry.Parse("M 0,5 L 10,5 L 5,0 Z");
-
-            public ListSortDirection Direction { get; private set; }
-
-            public SortAdorner(UIElement element, ListSortDirection dir)
-              : base(element)
-            { Direction = dir; }
-
-            protected override void OnRender(DrawingContext drawingContext)
-            {
-                base.OnRender(drawingContext);
-
-                if (AdornedElement.RenderSize.Width < 20)
-                    return;
-
-                drawingContext.PushTransform(
-                    new TranslateTransform(
-                      AdornedElement.RenderSize.Width - 15,
-                      (AdornedElement.RenderSize.Height - 5) / 2));
-
-                drawingContext.DrawGeometry(Brushes.Black, null,
-                    Direction == ListSortDirection.Ascending ?
-                      _AscGeometry : _DescGeometry);
-
-                drawingContext.Pop();
-            }
-        }
-
+        
         #region Keynote Creator
         private void btn_CreateKeyNote_Click(object sender, RoutedEventArgs e)
         {
@@ -577,9 +575,9 @@ namespace C3D_2016_Anno.Apps.AAnno2
                             mTextLabel += tBox_Heading.Text + @" \P";
                         }
 
-                        foreach (var item in GV.NotesCollection_Anno2[cBox_objectType.SelectedItem.ToString()])
+                        foreach (var item in lBox_CurrentNotes.Items.OfType<Global.notelistitem>())
                         {
-                            mTextLabel += item.Key + GV.keynoteSeperator + item.Value + @" \P";
+                            mTextLabel += item.NoteNum + GV.keynoteSeperator + item.NoteName + @" \P";
                         }
 
                         #region Create Keynote Text
@@ -684,8 +682,56 @@ namespace C3D_2016_Anno.Apps.AAnno2
             }
         }
 
+
         #endregion
 
         
+    }
+
+    public class SortAdorner : Adorner
+    {
+        private static Geometry ascGeometry =
+            Geometry.Parse("M 0 4 L 3.5 0 L 7 4 Z");
+
+        private static Geometry descGeometry =
+            Geometry.Parse("M 0 0 L 3.5 4 L 7 0 Z");
+
+        public ListSortDirection Direction { get; private set; }
+
+        public SortAdorner(UIElement element, ListSortDirection dir)
+            : base(element)
+        {
+            this.Direction = dir;
+        }
+
+        protected override void OnRender(DrawingContext drawingContext)
+        {
+            try
+            {
+                base.OnRender(drawingContext);
+
+                if (AdornedElement.RenderSize.Width < 20)
+                    return;
+
+                TranslateTransform transform = new TranslateTransform
+                    (
+                        AdornedElement.RenderSize.Width - 15,
+                        (AdornedElement.RenderSize.Height - 5) / 2
+                    );
+                drawingContext.PushTransform(transform);
+
+                Geometry geometry = ascGeometry;
+                if (this.Direction == ListSortDirection.Descending)
+                    geometry = descGeometry;
+                drawingContext.DrawGeometry(Brushes.Black, null, geometry);
+
+                drawingContext.Pop();
+            }
+            catch (System.Exception ee)
+            {
+                GH.errorBox(ee.ToString());
+            }
+
+        }
     }
 }

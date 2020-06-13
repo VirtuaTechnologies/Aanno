@@ -150,14 +150,14 @@
                 <ListView x:Name="lBox_CurrentNotes" Margin="0,2,0,0" Grid.Row="1">
                     <ListView.View>
                         <GridView>
-                            <GridViewColumn Width="120" DisplayMemberBinding="{Binding Path=Key}">
+                            <GridViewColumn Width="120" DisplayMemberBinding="{Binding NoteNum}">
                                 <GridViewColumn.Header>
-                                    <GridViewColumnHeader Tag="noteNumber" Click="notelistColumnHeader_Click">Note Number</GridViewColumnHeader>
+                                    <GridViewColumnHeader Tag="NoteNum" Click="notelistColumnHeader_Click">Note Number</GridViewColumnHeader>
                                 </GridViewColumn.Header>
                             </GridViewColumn>
-                            <GridViewColumn DisplayMemberBinding="{Binding Path=Value}">
+                            <GridViewColumn DisplayMemberBinding="{Binding NoteName}">
                                 <GridViewColumn.Header>
-                                    <GridViewColumnHeader Tag="note" Click="notelistColumnHeader_Click">Note</GridViewColumnHeader>
+                                    <GridViewColumnHeader Tag="NoteName" Click="notelistColumnHeader_Click">Note</GridViewColumnHeader>
                                 </GridViewColumn.Header>
                             </GridViewColumn>
                         </GridView>

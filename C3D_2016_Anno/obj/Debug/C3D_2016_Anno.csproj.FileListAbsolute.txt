@@ -42,13 +42,6 @@ D:\Projects\RaghuRam\AutoCAD\SourceCode\Aanno-master\C3D_2016_Anno\obj\Debug\C3D
 D:\Projects\RaghuRam\AutoCAD\SourceCode\Aanno-master\C3D_2016_Anno\obj\Debug\C3D_2016_Anno_MarkupCompile.lref
 D:\Projects\RaghuRam\AutoCAD\SourceCode\Aanno-master\C3D_2016_Anno\obj\Debug\C3D_2016_Anno.dll
 D:\Projects\RaghuRam\AutoCAD\SourceCode\Aanno-master\C3D_2016_Anno\obj\Debug\C3D_2016_Anno.pdb
-R:\GitHub\Aanno\Release\data\LicensingSettings.xml
-R:\GitHub\Aanno\Release\Data\Settings.xml
-R:\GitHub\Aanno\Release\Templates\ProjectB-Template.xml
-R:\GitHub\Aanno\Release\Test Files\AAPro\AAPro_Style_location.dwt
-R:\GitHub\Aanno\Release\Templates\Common.Mapper
-R:\GitHub\Aanno\Release\Templates\ProjectA.Mapper
-R:\GitHub\Aanno\Release\C3D_2016_Anno.dll.config
 R:\GitHub\Aanno\Release\C3D_2016_Anno.dll
 R:\GitHub\Aanno\Release\C3D_2016_Anno.pdb
 R:\GitHub\Aanno\C3D_2016_Anno\obj\Debug\C3D_2016_Anno.csprojResolveAssemblyReference.cache
@@ -72,4 +65,11 @@ R:\GitHub\Aanno\C3D_2016_Anno\obj\Debug\C3D_2016_Anno.Properties.Resources.resou
 R:\GitHub\Aanno\C3D_2016_Anno\obj\Debug\C3D_2016_Anno.csproj.GenerateResource.Cache
 R:\GitHub\Aanno\C3D_2016_Anno\obj\Debug\C3D_2016_Anno.dll
 R:\GitHub\Aanno\C3D_2016_Anno\obj\Debug\C3D_2016_Anno.pdb
+R:\GitHub\Aanno\Release\data\LicensingSettings.xml
+R:\GitHub\Aanno\Release\Data\Settings.xml
+R:\GitHub\Aanno\Release\Templates\ProjectB-Template.xml
 R:\GitHub\Aanno\Release\Data\NoteTypeList.ini
+R:\GitHub\Aanno\Release\Test Files\AAPro\AAPro_Style_location.dwt
+R:\GitHub\Aanno\Release\Templates\Common.Mapper
+R:\GitHub\Aanno\Release\Templates\ProjectA.Mapper
+R:\GitHub\Aanno\Release\C3D_2016_Anno.dll.config

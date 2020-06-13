@@ -1,5 +1,20 @@
 ﻿This is Intellectual Property of AutoAnno, LLC and Jeffery J. Bohl, all rights reserved. www.autoanno.com
 ========================
+Release Notes -AAPro AutoCAD plugin - 20200406 - Ver 4.47.1.15
+========================
+- sort function was not working have to change the dictionary collection to observable collection wiht class objects
+- Changed listview xaml binding to connect data.
+- changed the sort function to match the data
+- print keynote function used older method now get the list form the actual listview so it would be curent and what the user sees.
+
+========================
+Release Notes -AAPro AutoCAD plugin - 20200228 - Ver 4.47.1.14
+========================
+- XML reader added space insertion option, in the settings added a variable XMLSpace
+Example this will replace the xmlspace which would be lets say -- with space :   <PAVING--CONSTRUCTION--NOTES number="10">PAVING NOTE 10</PAVING--CONSTRUCTION--NOTES>
+We also maintain a dictionary with list of xml keys which has spaces and use that to check it when ever xml parser is used.
+
+========================
 Release Notes -AAPro AutoCAD plugin - 20191010 - Ver 4.47.1.13
 ========================
 - Add functionality to get the label list when loading the SST file in the AANNO Pro

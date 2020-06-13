@@ -58,23 +58,39 @@ namespace C3D_2016_Anno.Helper
 
         public static void toastIT(string message, string title, NotificationType NotificationType)
         {
-            //check if the toast category is eanbled
 
-            if (NotificationType == NotificationType.Success && GV.sucessToast != true)
-                return;
-            if (NotificationType == NotificationType.Error && GV.errorToast != true)
-                return;
-            if (NotificationType == NotificationType.Information && GV.infoToast != true)
-                return;
+            try
+            {             
+                //check if the toast category is eanbled
 
-            var notificationManager = new NotificationManager();
+                if (NotificationType == NotificationType.Success && GV.sucessToast != true)
+                    return;
+                if (NotificationType == NotificationType.Error && GV.errorToast != true)
+                    return;
+                if (NotificationType == NotificationType.Information && GV.infoToast != true)
+                    return;
 
-            notificationManager.Show(new NotificationContent
+                var notificationManager = new NotificationManager();
+
+                notificationManager.Show(new NotificationContent
+                {
+                    Title = GV.appName + " | " + title,
+                    Message = message,
+                    Type = NotificationType
+                });
+            }
+            catch (Autodesk.Civil.CivilException ex)
             {
-                Title = GV.appName + " | " + title,
-                Message = message,
-                Type = NotificationType
-            });
+                GH.errorBox(ex.ToString());
+            }
+            catch (Autodesk.AutoCAD.Runtime.Exception ex)
+            {
+                GH.errorBox(ex.ToString());
+            }
+            catch (System.Exception ee)
+            {
+                GH.errorBox(ee.ToString());
+            }
         }
 
         public class SortAdorner : Adorner

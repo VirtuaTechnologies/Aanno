@@ -79,6 +79,7 @@ namespace C3D_2016_Anno.Global
         public static string licInformation = "Full Version";
         public static string SSTfileFormat = "native";
         public static string SSTfileDelimiter = "||";
+        public static string XMLSpace = "--";
         #endregion
 
         #region ACAD Vars
@@ -104,6 +105,7 @@ namespace C3D_2016_Anno.Global
 
         #region Collections
         public static List<string> notenumberKey = new List<string>();
+        public static Dictionary<string, string> xmlkeywithspace = new Dictionary<string, string>();
         public static List<string> labelcomponenttypes = new List<string>();
         public static Dictionary<string, Dictionary<int, string>> notesDict = new Dictionary<string, Dictionary<int, string>>();
         public static Dictionary<int, string> PAVINGNOTES = new Dictionary<int, string>();
@@ -125,7 +127,7 @@ namespace C3D_2016_Anno.Global
         public static Dictionary<string, string> SST_Coll = new Dictionary<string, string>();
         public static Dictionary<string, Dictionary<string, string>> NotesCollection_Anno2 = new Dictionary<string, Dictionary<string, string>>();
         public static ObservableCollection<string> noteTypeListColl = new ObservableCollection<string>();
-
+        public static ObservableCollection<notelistitem> notelistCollTemp = new ObservableCollection<notelistitem>();
         public  static void clearCollection()
         {
             noteTypesCurrent.Clear();
@@ -145,6 +147,14 @@ namespace C3D_2016_Anno.Global
             allnotes.Clear();
         }
         #endregion
+    }
+
+    public class notelistitem
+    {
+        public string NoteNum { get; set; }
+        
+        public string NoteName { get; set; }
+
     }
 
     public class NoteRec
@@ -189,4 +199,6 @@ namespace C3D_2016_Anno.Global
         public string note { get; set; }
         public bool noteFound { get; set; }
     }
+
+
 }

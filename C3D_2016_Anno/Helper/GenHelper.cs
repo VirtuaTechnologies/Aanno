@@ -81,6 +81,7 @@ namespace C3D_2016_Anno.Helper
                     }
                     GV.keynotetexttype = xmlParser.getXMLValue(Global.variables.settingsFile, "Settings", "name", "keynotetexttype");
                     GV.keynoteSeperator = xmlParser.getXMLValue(Global.variables.settingsFile, "Settings", "name", "keynoteSeperator").Replace("[nbsp]", " ");
+                    GV.XMLSpace = xmlParser.getXMLValue(Global.variables.settingsFile, "Settings", "name", "XMLSpace");
                     GV.sucessToast = bool.Parse(xmlParser.getXMLValue(Global.variables.settingsFile, "Settings", "name", "sucessToast"));
                     GV.errorToast = bool.Parse(xmlParser.getXMLValue(Global.variables.settingsFile, "Settings", "name", "errorToast"));
                     GV.infoToast = bool.Parse(xmlParser.getXMLValue(Global.variables.settingsFile, "Settings", "name", "infoToast"));
@@ -278,7 +279,9 @@ namespace C3D_2016_Anno.Helper
 
                     writeLog("\n --------------FILE: " + file);
                     //get the keys
-                    List<string> keys = xmlParser.getXMLKeys(file, "KeyNotes");
+                    List<string> keys = xmlParser.getXMLKeys(file, "KeyNotes", GV.XMLSpace);
+                    //get keys with space and store in collection so we can use that in rest of the flow
+                    GV.xmlkeywithspace = xmlParser.getXMLKeyswihtspace(file, "KeyNotes", GV.XMLSpace);
 
                     foreach (var key in keys)
                     {
@@ -763,7 +766,7 @@ namespace C3D_2016_Anno.Helper
             try
             {
                 Dictionary<int, string> dictfromXML = new Dictionary<int, string>();
-                dictfromXML = xmlParser.getXMLVaulesSpec(file, XMLKey, att);
+                dictfromXML = xmlParser.getXMLVaulesSpec(file, XMLKey, att, GV.xmlkeywithspace);
 
                 Dictionary<int, string> dictCheckOut1 = new Dictionary<int, string>();
                 //create a dictionary or use existing.

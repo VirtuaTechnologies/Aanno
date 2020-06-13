@@ -137,6 +137,9 @@ namespace C3D_2016_Anno.Apps
                     }
 
                     File.WriteAllText(tBox_stylemapperFile.Text, CSVstring);
+
+                    //toast sucess
+                    UIH.toastIT("SST file saved successfully", "SST File Write Success", NotificationType.Information);
                 }
             }
             catch (System.Exception ex)
@@ -302,7 +305,9 @@ namespace C3D_2016_Anno.Apps
                 }
                 else // item already exists
                 {
-                    Blink(true, "Style already exists!");
+                    MessageBox.Show("Style already exists");
+
+                    //Blink(true, "Style already exists!");
                     moveOrClose();
                 }
             }
