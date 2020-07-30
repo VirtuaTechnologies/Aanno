@@ -139,6 +139,10 @@
       <HintPath>..\packages\VirtuaLicense.1.0.0\lib\net45\VirtuaLicense.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="VSharpXMLHelper, Version=1.0.0.0, Culture=neutral, PublicKeyToken=faa560cbe1bb381b, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Libs\VSharpXMLHelper.dll</HintPath>
+    </Reference>
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
@@ -261,10 +265,22 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <SubType>Designer</SubType>
     </Content>
+    <Content Include="Libs\AcCoreMgd.dll" />
+    <Content Include="Libs\AcCui.dll" />
+    <Content Include="Libs\AcDbMgd.dll" />
+    <Content Include="Libs\AcDx.dll" />
+    <Content Include="Libs\AcMgd.dll" />
+    <Content Include="Libs\AecBaseMgd.dll" />
+    <Content Include="Libs\AeccDbMgd.dll" />
+    <Content Include="Libs\streams.exe" />
+    <Content Include="Libs\VSharpSettingsHelper.dll" />
+    <Content Include="Libs\VSharpXMLHelper.dll" />
+    <Content Include="Libs\ZSharpCADHelper.dll" />
     <Content Include="Libs\ZSharpGeneralHelper.dll" />
     <Content Include="Libs\ZSharpQLogger.dll" />
     <Content Include="Libs\ZSharpSQLITEHelper.dll" />
     <Content Include="Libs\ZSharpXMLHelper.dll" />
+    <None Include="Libs\Stream.bat" />
     <None Include="Templates\ProjectA.sst">
       <SubType>Designer</SubType>
     </None>
@@ -331,12 +347,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\ZSharpHelpers\ZSharpXMLHelper\ZSharpXMLHelper\VSharpXMLHelper.csproj">
-      <Project>{7e184ae7-82ec-4431-a1a9-b514f460126d}</Project>
-      <Name>VSharpXMLHelper</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

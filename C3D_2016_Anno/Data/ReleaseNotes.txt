@@ -1,5 +1,12 @@
 ﻿This is Intellectual Property of AutoAnno, LLC and Jeffery J. Bohl, all rights reserved. www.autoanno.com
 ========================
+Release Notes -AAPro AutoCAD plugin - 20200730 - Ver 4.47.1.16
+========================
+No Development - Just added the all the required libraries to the LIBs folder in the project
+Removed the dependency oin the VSharp XML Parser project and directly used the library.
+NO VER CHANGE REQUIRED
+
+========================
 Release Notes -AAPro AutoCAD plugin - 20200614 - Ver 4.47.1.16
 ========================
 AAnno Pro - Learn tool bug fixes
